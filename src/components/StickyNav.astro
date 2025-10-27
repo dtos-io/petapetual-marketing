@@ -1,5 +1,7 @@
 ---
-
+import { Image } from "astro:assets";
+import PetapetualLogo from "../assets/img/petapetual-logo-text-h.svg";
+import DTOSLogo from "../assets/img/dtos-logo-h.png";
 ---
 
 <nav
@@ -9,11 +11,20 @@
     <div class="flex flex-row justify-between items-center">
         <div class="flex flex-row gap-2 items-center">
             <a href="/"
-                ><img class="h-8" src="/img/petapetual-logo-text-h.svg" /></a
+                ><Image
+                    class="h-8 w-auto"
+                    src={PetapetualLogo}
+                    alt="Petapetual Logo"
+                /></a
             >
             <p class="text-xs">by</p>
             <a href="https://www.dtos.io/" target="_blank"
-                ><img class="h-6" src="/img/dtos-logo-h.png" /></a
+                ><Image
+                    class="h-6 w-auto"
+                    src={DTOSLogo}
+                    alt="DTOS Logo"
+                    inferSize
+                /></a
             >
         </div>
 
