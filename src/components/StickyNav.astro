@@ -6,7 +6,7 @@ import DTOSLogo from "../assets/img/dtos-logo-h.png";
 
 <nav
     id="navbar"
-    class="flex flex-col lg:flex-row lg:gap-16 bg-stone-50/75 backdrop-blur rounded-xl p-4 lg:sticky lg:top-4 lg:mx-4 lg:mb-4"
+    class="flex flex-col lg:flex-row lg:gap-16 bg-stone-100/75 backdrop-blur rounded-xl p-4 lg:sticky lg:top-4 lg:mx-4 lg:mb-4"
 >
     <div class="flex flex-row justify-between items-center">
         <div class="flex flex-row gap-1 items-center">
@@ -61,7 +61,7 @@ import DTOSLogo from "../assets/img/dtos-logo-h.png";
 
         <a
             target="_blank"
-            href="/"
+            href=""
             class="bg-stone-800 text-stone-200 rounded px-4 py-2 hover:bg-stone-600"
             >Join the waitlist <i class="fas fa-arrow-right"></i></a
         >
@@ -72,9 +72,11 @@ import DTOSLogo from "../assets/img/dtos-logo-h.png";
     const navbar = document.getElementById("navbar");
     window.addEventListener("scroll", () => {
         if (window.scrollY > 10) {
-            navbar?.classList.add("lg:shadow-xl");
+            navbar?.classList.remove("bg-stone-100/75");
+            navbar?.classList.add("lg:shadow-xl", "bg-stone-200/75");
         } else {
-            navbar?.classList.remove("lg:shadow-xl");
+            navbar?.classList.remove("bg-stone-200/75");
+            navbar?.classList.remove("lg:shadow-xl", "bg-sone-100/75");
         }
     });
 
