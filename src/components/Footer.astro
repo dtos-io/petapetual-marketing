@@ -1,0 +1,57 @@
+---
+import { Image } from "astro:assets";
+import PetapetualLogo from "../assets/img/petapetual-logo-text-h.svg";
+import DTOSLogo from "../assets/img/dtos-logo-h.png";
+---
+
+<footer class="flex flex-col gap-8 bg-stone-800 text-stone-50 p-8">
+    <div class="flex flex-col gap-8 lg:grid lg:grid-cols-4 lg:gap-4">
+        <div class="flex flex-col gap-2 lg:order-4">
+            <b>Resources</b>
+            <ul class="text-sm flex flex-col gap-2">
+                <li><a href="/">For pets</a></li>
+                <li><a href="/">For friends</a></li>
+                <li><a href="/">For relatives</a></li>
+                <li><a href="/">For the religious</a></li>
+                <li><a href="/">For those who live far away</a></li>
+                <li>
+                    <a href="/">For those who want to learn their culture</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="flex flex-col gap-2 lg:order-3">
+            <b>Services</b>
+            <ul class="text-sm flex flex-col gap-2">
+                <li><a href="/">Memorial Tributes</a></li>
+                <li><a href="/">Digital Prayers</a></li>
+            </ul>
+        </div>
+
+        <div class="flex flex-col gap-2 lg:order-2">
+            <b>Useful Links</b>
+            <ul class="text-sm flex flex-col gap-2">
+                <li><a href="/blog">Blog</a></li>
+                <li><a href="/pricing">Pricing</a></li>
+                <li><a href="/how-it-works">How it works</a></li>
+            </ul>
+        </div>
+
+        <div
+            class="flex flex-col gap-2 text-xs justify-start items-start lg:order-1"
+        >
+            <Image
+                src={PetapetualLogo}
+                alt="Petapetual Logo"
+                class="h-8 w-auto invert"
+            />
+            <Image src={DTOSLogo} alt="DTOS Logo" class="h-8 w-auto invert" />
+            DTOS Pte Ltd. is a company registered in Singapore with the UEN 202541895C.
+        </div>
+    </div>
+
+    <div class="text-center text-sm">Made with love &hearts;</div>
+    <div class="text-center text-sm">
+        &COPY; 2025 DTOS Pte Ltd. All Rights Reserved
+    </div>
+</footer>

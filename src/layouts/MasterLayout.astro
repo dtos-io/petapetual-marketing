@@ -1,14 +1,14 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
 import StickyNav from "../components/StickyNav.astro";
-// import Footer from '../components/Footer.astro';
+import Footer from "../components/Footer.astro";
 
 import "../styles/global.css";
 
 const { title } = Astro.props;
 ---
 
-<html lang="en" class="text-stone-800 bg-stone-100">
+<html lang="en" class="text-stone-800 bg-stone-100 font-light">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -20,6 +20,7 @@ const { title } = Astro.props;
         <StickyNav />
 
         <slot />
-        <!-- <Footer /> -->
+
+        <Footer />
     </body>
 </html>
