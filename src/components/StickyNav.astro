@@ -6,10 +6,10 @@ import DTOSLogo from "../assets/img/dtos-logo-h.png";
 
 <nav
     id="navbar"
-    class="flex flex-col lg:flex-row lg:gap-16 bg-white/75 backdrop-blur rounded-xl p-4 lg:sticky lg:top-4 lg:mx-4 lg:mb-4"
+    class="flex flex-col lg:flex-row lg:gap-16 bg-stone-100/75 backdrop-blur rounded-xl p-4 lg:sticky lg:top-4 lg:mx-4 lg:mb-4 transition-all ease-in-out duration-500"
 >
     <div class="flex flex-row justify-between items-center">
-        <div class="flex flex-row gap-2 items-center">
+        <div class="flex flex-row gap-1 items-center">
             <a href="/"
                 ><Image
                     class="h-8 w-auto"
@@ -40,12 +40,12 @@ import DTOSLogo from "../assets/img/dtos-logo-h.png";
         class="hidden flex-col gap-4 mt-4 lg:divide-y-0 lg:mt-0 lg:flex lg:flex-row lg:gap-6 lg:flex-grow lg:items-center"
     >
         <a class="hover:underline" href="/blog">Blog</a>
-        <a class="hover:underline" href="/blog">Pricing</a>
-        <a class="hover:underline" href="/blog">How it works</a>
+        <a class="hover:underline" href="/pricing">Pricing</a>
+        <a class="hover:underline" href="/how-it-works">How it works</a>
 
         <div class="hidden lg:flex flex-grow"></div>
 
-        <a
+        <!-- <a
             target="_blank"
             href="https://app.petapetual.com/signin"
             class="border-2 border-stone-800 rounded-full px-4 py-2 hover:bg-stone-200"
@@ -57,6 +57,13 @@ import DTOSLogo from "../assets/img/dtos-logo-h.png";
             href="https://app.petapetual.com/signup"
             class="bg-stone-800 text-stone-200 rounded-full px-4 py-2 hover:bg-stone-600"
             >Sign up free <i class="fas fa-arrow-right"></i></a
+        > -->
+
+        <a
+            target="_blank"
+            href=""
+            class="bg-stone-800 text-stone-200 rounded px-4 py-2 hover:bg-stone-600"
+            >Join the waitlist <i class="fas fa-arrow-right"></i></a
         >
     </div>
 </nav>
@@ -65,9 +72,11 @@ import DTOSLogo from "../assets/img/dtos-logo-h.png";
     const navbar = document.getElementById("navbar");
     window.addEventListener("scroll", () => {
         if (window.scrollY > 10) {
-            navbar?.classList.add("lg:shadow-xl");
+            navbar?.classList.remove("lg:bg-stone-100/75");
+            navbar?.classList.add("lg:shadow-xl", "lg:bg-stone-200/75");
         } else {
-            navbar?.classList.remove("lg:shadow-xl");
+            navbar?.classList.remove("lg:bg-stone-200/75");
+            navbar?.classList.remove("lg:shadow-xl", "lg:bg-stone-200/75");
         }
     });
 
