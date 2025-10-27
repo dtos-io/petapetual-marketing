@@ -1,5 +1,7 @@
 ---
-
+import { Image } from "astro:assets";
+import PetapetualLogo from "../assets/img/petapetual-logo-text-h.svg";
+import DTOSLogo from "../assets/img/dtos-logo-h.png";
 ---
 
 <nav
@@ -9,11 +11,20 @@
     <div class="flex flex-row justify-between items-center">
         <div class="flex flex-row gap-2 items-center">
             <a href="/"
-                ><img class="h-8" src="/img/petapetual-logo-text-h.svg" /></a
+                ><Image
+                    class="h-8 w-auto"
+                    src={PetapetualLogo}
+                    alt="Petapetual Logo"
+                /></a
             >
             <p class="text-xs">by</p>
             <a href="https://www.dtos.io/" target="_blank"
-                ><img class="h-6" src="/img/dtos-logo-h.png" /></a
+                ><Image
+                    class="h-6 w-auto"
+                    src={DTOSLogo}
+                    alt="DTOS Logo"
+                    inferSize
+                /></a
             >
         </div>
 
@@ -26,7 +37,7 @@
 
     <div
         id="navLinkContainer"
-        class="flex flex-col gap-4 mt-4 lg:divide-y-0 lg:mt-0 lg:flex lg:flex-row lg:gap-6 lg:flex-grow lg:items-center"
+        class="hidden flex-col gap-4 mt-4 lg:divide-y-0 lg:mt-0 lg:flex lg:flex-row lg:gap-6 lg:flex-grow lg:items-center"
     >
         <a class="hover:underline" href="/blog">Blog</a>
         <a class="hover:underline" href="/blog">Pricing</a>
@@ -65,8 +76,10 @@
     expandNavButton?.addEventListener("click", () => {
         if (navLinkContainer?.classList.contains("hidden")) {
             navLinkContainer?.classList.remove("hidden");
+            navLinkContainer?.classList.add("flex");
         } else {
             navLinkContainer?.classList.add("hidden");
+            navLinkContainer?.classList.remove("flex");
         }
     });
 </script>
