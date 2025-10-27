@@ -26,7 +26,7 @@
 
     <div
         id="navLinkContainer"
-        class="flex flex-col gap-4 mt-4 lg:divide-y-0 lg:mt-0 lg:flex lg:flex-row lg:gap-6 lg:flex-grow lg:items-center"
+        class="hidden flex-col gap-4 mt-4 lg:divide-y-0 lg:mt-0 lg:flex lg:flex-row lg:gap-6 lg:flex-grow lg:items-center"
     >
         <a class="hover:underline" href="/blog">Blog</a>
         <a class="hover:underline" href="/blog">Pricing</a>
@@ -65,8 +65,10 @@
     expandNavButton?.addEventListener("click", () => {
         if (navLinkContainer?.classList.contains("hidden")) {
             navLinkContainer?.classList.remove("hidden");
+            navLinkContainer?.classList.add("flex");
         } else {
             navLinkContainer?.classList.add("hidden");
+            navLinkContainer?.classList.remove("flex");
         }
     });
 </script>
