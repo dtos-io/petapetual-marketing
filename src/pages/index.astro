@@ -1,7 +1,82 @@
 ---
 import MasterLayout from "../layouts/MasterLayout.astro";
+import { Image } from "astro:assets";
+import IncenseHeroImage from "../assets/img/incense-hero.png";
 ---
 
 <MasterLayout title="Petapetual">
-    <h1 class="min-h-screen">HELLO WORLD</h1>
+    <section class="">
+        <Image
+            class="hidden lg:flex"
+            src={IncenseHeroImage}
+            alt="incense hero image"
+        />
+
+        <div class="p-2">
+            <h1 class="text-4xl font-bold">Some hero text</h1>
+            <h2 class="text-2xl">Pay your respects and remember loved ones</h2>
+        </div>
+    </section>
+
+    <section class="m-4 lg:m-16 flex flex-row">
+        <div class="flex flex-col grow">
+            <div class="h-screen"></div>
+            <div class="h-screen"></div>
+        </div>
+
+        <div class="flex flex-col justify-between w-2">
+            <!-- Blocker -->
+            <div
+                class="fixed top-0 -translate-x-8 bg-stone-100 h-26 w-16 -z-10"
+            >
+            </div>
+
+            <!-- Ember -->
+            <div
+                class="flex flex-col sticky top-24 rounded-b-xs border-b-2 border-b-stone-500"
+            >
+                <div
+                    id="ember"
+                    class="bg-orange-500 h-2 rounded-t-full rounded-b-xl z-50 transition-all duration-200 ease-in"
+                >
+                </div>
+            </div>
+
+            <!-- Stick -->
+            <div class="bg-orange-200 grow -z-20 rounded-b-xl"></div>
+
+            <!-- Handle -->
+            <div class="flex flex-row z-50">
+                <div class="bg-stone-100 w-0.5"></div>
+                <div class="w-1 bg-red-600 h-48 rounded-b-sm"></div>
+                <div class="bg-stone-100 w-0.5"></div>
+            </div>
+        </div>
+    </section>
 </MasterLayout>
+
+<script>
+    const emberDivElement = document.getElementById("ember");
+    const emberColorA = "bg-orange-500";
+    const emberColorB = "bg-red-500";
+
+    function fluctuateEmberHigh() {
+        const newTimeout = 250 + Math.random() * 1000;
+        setTimeout(() => {
+            emberDivElement?.classList.remove(emberColorB);
+            emberDivElement?.classList.add(emberColorA);
+            fluctuateEmberLow();
+        }, newTimeout);
+    }
+
+    function fluctuateEmberLow() {
+        const newTimeout = 250 + Math.random() * 1000;
+        setTimeout(() => {
+            emberDivElement?.classList.add(emberColorB);
+            emberDivElement?.classList.remove(emberColorA);
+            fluctuateEmberHigh();
+        }, newTimeout);
+    }
+
+    fluctuateEmberHigh();
+</script>
