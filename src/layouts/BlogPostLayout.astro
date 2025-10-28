@@ -3,7 +3,10 @@ import MasterLayout from "./MasterLayout.astro";
 const { frontmatter } = Astro.props;
 ---
 
-<MasterLayout title={`${frontmatter.title}`}>
+<MasterLayout
+    title={`${frontmatter.title}`}
+    description={frontmatter.description}
+>
     <section class="flex flex-col gap-4 m-4 blogPost">
         <div class="flex flex-col">
             <a href="/blog" class="underline text-blue-600"
@@ -17,5 +20,11 @@ const { frontmatter } = Astro.props;
         </div>
 
         <slot />
+
+        <div class="flex flex-row justify-center gap-8 text-sm my-4">
+            <i class="fas fa-star-of-life"></i>
+            <i class="fas fa-star-of-life"></i>
+            <i class="fas fa-star-of-life"></i>
+        </div>
     </section>
 </MasterLayout>
