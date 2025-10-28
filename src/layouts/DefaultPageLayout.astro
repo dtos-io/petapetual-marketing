@@ -1,8 +1,9 @@
 ---
 import MasterLayout from "./MasterLayout.astro";
+const { title } = Astro.props;
 ---
 
-<MasterLayout>
+<MasterLayout title={title}>
     <section class="flex flex-col gap-4 m-4">
         <slot />
     </section>
