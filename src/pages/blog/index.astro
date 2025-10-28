@@ -1,15 +1,26 @@
 ---
 import DefaultPageLayout from "../../layouts/DefaultPageLayout.astro";
-const allPosts = Object.values(
+
+type BlogPost = {
+    frontmatter: { pubDate: string };
+};
+
+const allPosts: BlogPost[] = Object.values(
     import.meta.glob("./posts/*.md", { eager: true }),
 );
+
+const sortedAllPosts = allPosts
+    .sort((a, b) => {
+        return a.frontmatter.pubDate.localeCompare(b.frontmatter.pubDate);
+    })
+    .reverse();
 ---
 
 <DefaultPageLayout title="Blog">
     <h1 class="text-2xl font-semibold">Blog Index</h1>
-    <ul>
+    <ul class="flex flex-col gap-4 lg:gap-8">
         {
-            allPosts.map((post: any) => (
+            sortedAllPosts.map((post: any) => (
                 <li>
                     <a
                         href={post.url}
