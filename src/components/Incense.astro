@@ -2,17 +2,35 @@
 
 ---
 
+<!--
+This component requires some calculations in order to look good.
+Basically, the Blocker div part needs to be placed well, or Stick will poke
+out of the top of the Ember when scrolling down! We must know Blocker's h-{value}.
+
+Blocker's h is simply Tip's top-{X} + Smoke's h-{Y} + 2 (add 2 to give it more room to block)
+
+Therefore if Tip is top-24 and Smoke is h-16, Blockers's h = 24 + 16 + 2 = 42.
+Same on lg breakpoint: Tip is top-60, Smoke is h-16, Blocker's h = 60 + 16 + 2 = 78.
+-->
 <div class="flex flex-col justify-between w-2">
     <!-- Blocker -->
     <div
-        class="fixed top-0 -translate-x-8 bg-stone-100 h-26 lg:h-62 w-16 -z-10"
+        class="fixed top-0 -translate-x-8 bg-stone-100 h-42 lg:h-78 w-16 -z-10"
     >
     </div>
 
-    <!-- Ember -->
+    <!-- Tip -->
     <div
         class="flex flex-col sticky top-24 lg:top-60 rounded-b-xs border-b-2 border-b-stone-500"
     >
+        <!-- Smoke -->
+        <div
+            id="smoke"
+            class="h-16 bg-gradient-to-b from-stone-100 via-stone-200 to-stone-300 animate-pulse"
+        >
+        </div>
+
+        <!-- Ember -->
         <div
             id="ember"
             class="bg-orange-500 h-2 rounded-t-full rounded-b-xl z-50 transition-all duration-200 ease-in"
@@ -36,26 +54,62 @@
 
 <script>
     const emberDivElement = document.getElementById("ember");
-    const emberColorA = "bg-orange-500";
-    const emberColorB = "bg-red-500";
+    const smokeDivElement = document.getElementById("smoke");
 
-    function fluctuateEmberHigh() {
-        const newTimeout = 100 + Math.random() * 500;
-        setTimeout(() => {
-            emberDivElement?.classList.remove(emberColorB);
-            emberDivElement?.classList.add(emberColorA);
-            fluctuateEmberLow();
-        }, newTimeout);
+    const emberColorA = ["bg-orange-500"];
+    const emberColorB = ["bg-red-500"];
+
+    class Fluctuator {
+        element;
+        classToRemove;
+        classToAdd;
+        timeoutMin;
+        timeoutMult;
+
+        constructor(
+            element: Element,
+            classToRemove: string[],
+            classToAdd: string[],
+            timeoutMin = 100,
+            timeoutMult = 500,
+        ) {
+            this.element = element;
+            this.classToRemove = classToRemove;
+            this.classToAdd = classToAdd;
+            this.timeoutMin = timeoutMin;
+            this.timeoutMult = timeoutMult;
+        }
+
+        forward() {
+            const newTimeout =
+                this.timeoutMin + Math.random() * this.timeoutMult;
+            setTimeout(() => {
+                this.element?.classList.remove(...this.classToRemove);
+                this.element?.classList.add(...this.classToAdd);
+                this.reverse();
+            }, newTimeout);
+        }
+
+        reverse() {
+            const newTimeout =
+                this.timeoutMin + Math.random() * this.timeoutMult;
+            setTimeout(() => {
+                this.element?.classList.add(...this.classToRemove);
+                this.element?.classList.remove(...this.classToAdd);
+                this.forward();
+            }, newTimeout);
+        }
+
+        start() {
+            this.forward();
+        }
     }
 
-    function fluctuateEmberLow() {
-        const newTimeout = 100 + Math.random() * 500;
-        setTimeout(() => {
-            emberDivElement?.classList.add(emberColorB);
-            emberDivElement?.classList.remove(emberColorA);
-            fluctuateEmberHigh();
-        }, newTimeout);
-    }
+    const emberFluctuator = new Fluctuator(
+        emberDivElement!,
+        emberColorA,
+        emberColorB,
+    );
 
-    fluctuateEmberHigh();
+    emberFluctuator.start();
 </script>
