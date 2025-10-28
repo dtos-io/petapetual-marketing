@@ -10,7 +10,16 @@ html {
 }
 
 .blogPost li {
-    margin: 10px 0;
+    margin: 10px 2em;
+    list-style-type: circle;
+}
+
+.blogPost h1 {
+    font-weight: bold;
+}
+
+.blogPost h2 {
+    font-weight: bold;
 }
 
 .blogPost h3 {
