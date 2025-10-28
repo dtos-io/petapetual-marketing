@@ -1,5 +1,104 @@
 ---
-import MasterLayout from "../layouts/MasterLayout.astro";
+import DefaultPageLayout from "../layouts/DefaultPageLayout.astro";
+import LinkToTop from "../components/LinkToTop.astro";
 ---
 
-<MasterLayout> HI </MasterLayout>
+<DefaultPageLayout id="top">
+    <div class="flex flex-col gap-8">
+        <section>
+            <h1 class="text-2xl font-semibold">How it works</h1>
+
+            <p>
+                Petapetual is more than just a simple platform to create
+                memorial pages. Learn about our value-add services and
+                virtualised tribute services below:
+            </p>
+
+            <ul class="list-disc m-8">
+                <li class="list-item">
+                    <a href="#memorials" class="text-blue-600 underline"
+                        >Memorials</a
+                    >
+                </li>
+
+                <li class="list-item">
+                    <a href="#prayer-streams" class="text-blue-600 underline"
+                        >Prayer Streams</a
+                    >
+                </li>
+
+                <li class="list-item">
+                    <a href="#tributes" class="text-blue-600 underline"
+                        >Tributes</a
+                    >
+                </li>
+            </ul>
+        </section>
+
+        <section class="flex flex-col gap-2">
+            <h2 class="text-xl font-semibold" id="memorials">
+                Memorials <LinkToTop />
+            </h2>
+
+            <p>
+                A memorial is a single page you create for your late loved one.
+                You can create multiple memorials depending on the plan you have
+                purchased.
+            </p>
+
+            <p>
+                You will be able to upload a photo and populate details such as
+                their name, date of birth, date of passing, and even a short
+                epitaph to display.
+            </p>
+
+            <p>
+                You can also invite other users of Petapetual to your memorial
+                to view it and leave a loving message in the guestbook.
+            </p>
+
+            <p>
+                All memorials created under a paid plan can subscribe to a <a
+                    class="underline text-blue-600"
+                    href="#prayer-streams">prayer stream</a
+                > in order to receive prayers 24/7.
+            </p>
+        </section>
+
+        <section class="flex flex-col gap-2">
+            <h2 class="text-xl font-semibold" id="prayer-streams">
+                Prayer Streams <LinkToTop />
+            </h2>
+
+            <p>
+                Memorials can be subscribed to <i>prayer streams</i>, which are
+                automated virtual prayer sessions that happen 24/7. When
+                subscribed, you are guaranteed that your memorial will receive
+                your prayers and blessings every day.
+            </p>
+            <p>
+                You may choose from a variety of prayers across different
+                cultures and religions, set your own custom prayer, or simply
+                choose not to subscribe to a prayer stream.
+            </p>
+        </section>
+
+        <section class="flex flex-col gap-2">
+            <h2 class="text-xl font-semibold" id="tributes">
+                Tributes <LinkToTop />
+            </h2>
+
+            <p>
+                <i>Tributes</i> are additional adornments and blessings you may add
+                to your memorials to pay your respects. They have different purposes
+                and effects, from being purely decorative to having an actual service
+                or action tied to them.
+            </p>
+
+            <p>
+                Other users you invite to your memorials will be able to place
+                tributes as well.
+            </p>
+        </section>
+    </div>
+</DefaultPageLayout>
