@@ -1,0 +1,21 @@
+---
+import MasterLayout from "./MasterLayout.astro";
+const { frontmatter } = Astro.props;
+---
+
+<MasterLayout title={`${frontmatter.title} - Petapetual`}>
+    <section class="flex flex-col gap-4 m-4">
+        <div class="flex flex-col">
+            <a href="/blog" class="underline text-blue-600"
+                >&NestedLessLess; Back to Blog index</a
+            >
+            <h1 class="text-2xl font-semibold">{frontmatter.title}</h1>
+            <h2 class="text-sm">by {frontmatter.author}</h2>
+            <h2 class="text-stone-500 text-sm">
+                {frontmatter.pubDate.split("T")[0]}
+            </h2>
+        </div>
+
+        <slot />
+    </section>
+</MasterLayout>
