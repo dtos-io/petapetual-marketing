@@ -5,17 +5,17 @@ import FeatureCard from "../components/FeatureCard.astro";
 ---
 
 <MasterLayout title="Petapetual">
-    <section class="flex flex-col gap-4 p-4">
-        <h1 class="text-3xl font-bold">
+    <section class="flex flex-col gap-4 p-4 lg:grid lg:grid-cols-2 lg:m-16">
+        <h1 class="text-3xl font-bold col-start-1">
             Digital memorials that bring tradition into the modern world
         </h1>
 
-        <h2 class="text-xl">
+        <h2 class="text-xl col-start-1">
             Use our virtualized memorial services to honour and pay respects to
             your late loved ones anytime, anywhere.
         </h2>
 
-        <div class="grid grid-cols-2 gap-2">
+        <div class="grid grid-cols-2 gap-2 lg:flex lg:flex-col col-start-1">
             <a href="/how-it-works" class="p-2 border rounded text-center"
                 ><i class="fas fa-lightbulb"></i> How it works
             </a>
@@ -33,17 +33,10 @@ import FeatureCard from "../components/FeatureCard.astro";
         <Incense />
 
         <div class="flex flex-col gap-8 grow min-h-screen mt-16">
-            <FeatureCard title="Multicultural">
-                A platform for everyone, we aim to support memorials from all
-                walks of cultural and religious backgrounds.
-            </FeatureCard>
-
-            <FeatureCard title="Communal">
-                Invite friends and family to view and interact with your
-                memorials, no matter where they are in the world.
-            </FeatureCard>
-
-            <FeatureCard title="Tangible">
+            <FeatureCard
+                iconCode="fas fa-bolt text-yellow-500"
+                title="Tangible"
+            >
                 We are more than a simple page hosting site- our prayer and
                 tribute services are backed by very real actions and digital
                 counterparts. <br />
@@ -52,6 +45,24 @@ import FeatureCard from "../components/FeatureCard.astro";
                     href="/how-it-works"
                     class="underline text-blue-600">how it works</a
                 >.
+            </FeatureCard>
+
+            <FeatureCard
+                iconCode="fas fa-hand-holding-heart text-red-600"
+                title="Multicultural"
+            >
+                A platform for everyone. We aim to support memorials from as
+                many cultural and religious backgrounds as we can.
+            </FeatureCard>
+
+            <FeatureCard
+                iconCode="fas fa-users text-indigo-500"
+                title="Shareable"
+            >
+                Invite friends and family to view and interact with your
+                memorials, no matter where they are in the world. <br />
+                <br />
+                Alternatively, make your memorial open to the public for viewing.
             </FeatureCard>
         </div>
     </section>
