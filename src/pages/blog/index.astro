@@ -3,10 +3,9 @@ import DefaultPageLayout from "../../layouts/DefaultPageLayout.astro";
 const allPosts = Object.values(
     import.meta.glob("./posts/*.md", { eager: true }),
 );
-const pageTitle = "Blog - Petapetual";
 ---
 
-<DefaultPageLayout title={pageTitle}>
+<DefaultPageLayout title="Blog">
     <h1 class="text-2xl font-semibold">Blog Index</h1>
     <ul>
         {
