@@ -1,0 +1,61 @@
+---
+
+---
+
+<div class="flex flex-col justify-between w-2">
+    <!-- Blocker -->
+    <div
+        class="fixed top-0 -translate-x-8 bg-stone-100 h-26 lg:h-62 w-16 -z-10"
+    >
+    </div>
+
+    <!-- Ember -->
+    <div
+        class="flex flex-col sticky top-24 lg:top-60 rounded-b-xs border-b-2 border-b-stone-500"
+    >
+        <div
+            id="ember"
+            class="bg-orange-500 h-2 rounded-t-full rounded-b-xl z-50 transition-all duration-200 ease-in"
+        >
+        </div>
+    </div>
+
+    <!-- Stick -->
+    <div
+        class="bg-gradient-to-r from-orange-200 from-10% via-orange-300 via-50% to-orange-200 to-90% grow -z-20 rounded-b-xl"
+    >
+    </div>
+
+    <!-- Handle -->
+    <div class="flex flex-row z-50">
+        <div class="bg-stone-100 w-0.5"></div>
+        <div class="w-1 bg-red-600 h-48 rounded-b-sm"></div>
+        <div class="bg-stone-100 w-0.5"></div>
+    </div>
+</div>
+
+<script>
+    const emberDivElement = document.getElementById("ember");
+    const emberColorA = "bg-orange-500";
+    const emberColorB = "bg-red-500";
+
+    function fluctuateEmberHigh() {
+        const newTimeout = 100 + Math.random() * 500;
+        setTimeout(() => {
+            emberDivElement?.classList.remove(emberColorB);
+            emberDivElement?.classList.add(emberColorA);
+            fluctuateEmberLow();
+        }, newTimeout);
+    }
+
+    function fluctuateEmberLow() {
+        const newTimeout = 100 + Math.random() * 500;
+        setTimeout(() => {
+            emberDivElement?.classList.add(emberColorB);
+            emberDivElement?.classList.remove(emberColorA);
+            fluctuateEmberHigh();
+        }, newTimeout);
+    }
+
+    fluctuateEmberHigh();
+</script>
