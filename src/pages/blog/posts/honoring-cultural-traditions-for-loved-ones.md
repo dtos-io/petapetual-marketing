@@ -3,6 +3,9 @@ layout: ../../../layouts/BlogPostLayout.astro
 title: "Feeling Lost in Tradition? Honoring Your Loved One’s Cultural Heritage"
 author: Team Petapetual
 description: "Grieving is hard, and feeling disconnected from your cultural traditions can make it harder. Learn how you can still honor your loved one's heritage."
+image:
+  url: https://images.unsplash.com/photo-1424177558417-016f30ac3059?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2070
+  alt: Burning incense, among other acts, are traditional things done to honor those that have passed on. Over time, culture erodes and these actions slowly become forgotten. Petapetual's value also comes in the form of education. If you don't know what to do to pay respects, we have your back!
 pubDate: 2025-10-29
 ---
 

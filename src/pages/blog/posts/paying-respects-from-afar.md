@@ -3,6 +3,9 @@ layout: ../../../layouts/BlogPostLayout.astro
 title: "Paying Respects From Afar: Staying Connected When You Can't Visit"
 author: Team Petapetual
 description: "Living far from a cemetery? Discover meaningful ways to honor your loved one and stay connected from any distance."
+image:
+  url: https://images.unsplash.com/photo-1518802395308-85fbd2d5a968?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2242
+  alt: Being sad on a plane, or in a place far away. Distance makes loss hurt hard and paying respects harder.
 pubDate: 2025-10-28
 ---
 

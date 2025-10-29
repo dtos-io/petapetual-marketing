@@ -3,6 +3,9 @@ layout: ../../../layouts/BlogPostLayout.astro
 title: "Finding Time to Remember: Honoring Loved Ones in a Hectic World"
 author: "Team Petapetual"
 description: "Modern life is busy, making it hard to pay respects. Discover a way to honor and remember your loved ones, anytime and anywhere."
+image:
+  url: https://images.unsplash.com/photo-1617560611911-85e1055544cd?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2070
+  alt: A woman busy with kids. Life can get busy and hectic, and this can mean it becomes difficult to take a moment to pay respects or remember those that have passed on. Petapetual is a convenient online solution to help with this. Access your memorials anytime, anywhere.
 pubDate: 2025-10-26
 ---
 

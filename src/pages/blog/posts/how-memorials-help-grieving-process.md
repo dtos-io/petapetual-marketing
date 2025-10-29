@@ -3,6 +3,9 @@ layout: ../../../layouts/BlogPostLayout.astro
 title: "The Healing Power of Remembering: How Creating a Memorial Helps the Grieving Process"
 author: Team Petapetual
 description: "Explore the healing power of remembering. Discover how creating a memorial, whether physical or digital, can provide comfort and aid the grieving process."
+image:
+  url: https://images.unsplash.com/photo-1587721865897-670ead1d828c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2071
+  alt: Flowers placed on a memorial. Memorials can help us to grieve, process emotions, and pay respecrts to those who have passed on. This is therapeutic for us.
 pubDate: 2025-10-29
 ---
 
