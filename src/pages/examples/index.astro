@@ -1,0 +1,99 @@
+---
+import DefaultPageLayout from "../../layouts/DefaultPageLayout.astro";
+import Petapetual from "../../components/Petapetual.astro";
+import ExampleLinkCard from "../../components/ExampleLinkCard.astro";
+---
+
+<DefaultPageLayout
+    title="Examples"
+    description="An online memorial for everyone, from a family member, to a dear friend, to a pet. Sometimes, all three of these are actually the same thing."
+>
+    <h1 class="text-2xl font-semibold">Who is <Petapetual /> for?</h1>
+
+    <p>
+        <Petapetual /> memorials and services are for anybody and everybody. Whether
+        you have lost a family member, or a dear family friend, or even a beloved
+        pet, grief is grief, and the desire to remember and pay respects to them
+        is a very natural response that comes from a place of love. We built <Petapetual
+        /> to allow anybody to commemorate their late loved ones, and to do so easily
+        and conveniently no matter where they are in the world.
+    </p>
+
+    <p>
+        This page contains resources for you to read and understand that there
+        is a place for everyone here.
+    </p>
+
+    <!-- FOR YOU -->
+    <h2 class="text-xl font-semibold">For You</h2>
+    <div class="flex flex-col lg:grid lg:grid-cols-2 gap-4">
+        <ExampleLinkCard
+            title="Religious?"
+            href="/examples/religious"
+            iconClass="fa-solid fa-person-praying"
+            iconColor="text-stone-200"
+            bgColor="bg-amber-600"
+        >
+            Hello world
+        </ExampleLinkCard>
+        <ExampleLinkCard
+            title="Living Abroad?"
+            href="/examples/living-abroad"
+            iconClass="fas fa-plane -rotate-45"
+            iconColor="text-stone-200"
+            bgColor="bg-amber-600"
+        >
+            Hello world
+        </ExampleLinkCard>
+        <ExampleLinkCard
+            title="Too Busy?"
+            href="/examples/too-busy"
+            iconClass="fas fa-briefcase"
+            iconColor="text-stone-200"
+            bgColor="bg-amber-600"
+        >
+            Hello world
+        </ExampleLinkCard>
+        <ExampleLinkCard
+            title="Clueless About Culture?"
+            href="/examples/learn-culture"
+            iconClass="fa-solid fa-hands-praying"
+            iconColor="text-stone-200"
+            bgColor="bg-amber-600"
+        >
+            Hello world
+        </ExampleLinkCard>
+    </div>
+
+    <!-- FOR THOSE WHO MOVED ON -->
+    <h2 class="text-xl font-semibold">For those that have moved on</h2>
+    <div class="flex flex-col lg:grid lg:grid-cols-2 gap-4">
+        <ExampleLinkCard
+            title="For Relatives"
+            href="/examples/relatives"
+            iconClass="fas fa-people-group"
+            iconColor="text-stone-200"
+            bgColor="bg-sky-600"
+        >
+            Hello world
+        </ExampleLinkCard>
+        <ExampleLinkCard
+            title="For Friends"
+            href="/examples/friends"
+            iconClass="fas fa-user-group"
+            iconColor="text-stone-200"
+            bgColor="bg-sky-600"
+        >
+            Hello world
+        </ExampleLinkCard>
+        <ExampleLinkCard
+            title="For Pets"
+            href="/examples/pets"
+            iconClass="fas fa-paw"
+            iconColor="text-stone-200"
+            bgColor="bg-sky-600"
+        >
+            Hello world
+        </ExampleLinkCard>
+    </div>
+</DefaultPageLayout>
