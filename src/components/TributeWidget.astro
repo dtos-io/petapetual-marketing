@@ -1,0 +1,15 @@
+---
+const { iconClass, bgClass, ping } = Astro.props;
+
+const staticIconClass = `absolute ${iconClass}`;
+const pingIconClass = `relative ${iconClass} ${ping ? "animate-ping" : ""}`;
+---
+
+<div
+    class={`w-8 h-8 rounded shadow ${bgClass} text-stone-200 flex flex-col items-center justify-center`}
+>
+    <div class="relative flex flex-col p-2 h-full">
+        <i class={staticIconClass}></i>
+        <i class={pingIconClass}></i>
+    </div>
+</div>
