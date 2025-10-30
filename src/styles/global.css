@@ -4,6 +4,11 @@ html {
     font-family: "Lexend", sans-serif;
 }
 
+.blueLink {
+    color: blue;
+    text-decoration: underline;
+}
+
 .blogPost a {
     color: blue;
     text-decoration: underline;
