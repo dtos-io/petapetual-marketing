@@ -1,11 +1,11 @@
 ---
 import MasterLayout from "./MasterLayout.astro";
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 
 const pageTitle = `${title ? title + " - " : ""}Petapetual`;
 ---
 
-<MasterLayout title={pageTitle}>
+<MasterLayout title={pageTitle} description={description}>
     <section class="flex flex-col gap-4 m-4 lg:mx-auto lg:max-w-6/12 lg:my-16">
         <slot />
     </section>
