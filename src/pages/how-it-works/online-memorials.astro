@@ -1,0 +1,83 @@
+---
+import DefaultPageLayout from "../../layouts/DefaultPageLayout.astro";
+import Petapetual from "../../components/Petapetual.astro";
+---
+
+<DefaultPageLayout
+    title="Online Memorials"
+    description="Access your memorial anytime, anywhere, on any device. Pay respects whenever and wherever you like, and share it with your loved ones."
+>
+    <div class="flex flex-col gap-8">
+        <section>
+            <h1 class="text-2xl font-semibold">Online Memorials</h1>
+
+            <p>
+                The online memorial is the core of the <Petapetual /> experience.
+                More than just a static website for your loved ones, it's your own
+                portable, accessible monument to those that have passed away. Never
+                feel too far away from them again.
+            </p>
+        </section>
+
+        <section>
+            <h2 class="flex flex-row gap-2 items-center text-xl font-semibold">
+                <i class="fas fa-clock text-sky-600"></i>Anytime, anywhere
+            </h2>
+
+            <p>
+                Access your memorial from any device, anywhere in the world,
+                anytime you want. No need to travel to the cemetery, no need to
+                wait for columbarium opening times, no app installation
+                required. Mobile, tablet, desktop, we've got you covered.
+            </p>
+        </section>
+
+        <section>
+            <h2 class="flex flex-row gap-2 items-center text-xl font-semibold">
+                <i class="fas fa-heart text-rose-600"></i>Value-added services
+            </h2>
+
+            <p>
+                Memorials have access to offerings such as <a
+                    href="/how-it-works/prayer-streams"
+                    class="underline text-blue-600">prayer streams</a
+                > and <a
+                    href="/how-it-works/tributes"
+                    class="underline text-blue-600">memorial tributes</a
+                >, which you can use to further honor your late loved ones.
+            </p>
+        </section>
+
+        <section>
+            <h2 class="flex flex-row gap-2 items-center text-xl font-semibold">
+                <i class="fas fa-user-plus text-emerald-600"></i>Invite others
+            </h2>
+
+            <p>
+                Include your friends and family and bring warmth to your
+                memorials. Once your memorial is set up, invite other <Petapetual
+                /> users to view it, write loving messages in the guestbook, and
+                place their own tributes to honor the deceased.
+            </p>
+        </section>
+
+        <section>
+            <h2 class="flex flex-row gap-2 items-center text-xl font-semibold">
+                <i class="fas fa-lock text-amber-600"></i>Private by default,
+                publishable by choice
+            </h2>
+
+            <p>
+                Your memorials are not publicly accessible unless you want them
+                to be. Pay your respects in private, or with a select group of
+                close individuals that you have invited.
+            </p>
+
+            <p>
+                If you opt-in for a public memorial, anyone can view your
+                memorial without an account. They will not be able to post in
+                the guestbook, nor will they be able toplace tributes.
+            </p>
+        </section>
+    </div>
+</DefaultPageLayout>
