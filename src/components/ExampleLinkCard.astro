@@ -9,7 +9,7 @@ const { title, href, iconClass, bgColor, iconColor } = Astro.props;
         <i class={iconClass}></i>
     </div>
     <div class="flex flex-col p-2 col-span-3">
-        <div class="font-normal">{title}</div>
-        <div class=""><slot /></div>
+        <div class="font-semibold">{title}</div>
+        <div class="text-sm"><slot /></div>
     </div>
 </a>
