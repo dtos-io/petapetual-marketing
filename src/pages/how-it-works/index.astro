@@ -2,6 +2,7 @@
 import DefaultPageLayout from "../../layouts/DefaultPageLayout.astro";
 import LinkToTop from "../../components/LinkToTop.astro";
 import Petapetual from "../../components/Petapetual.astro";
+import Step from "../../components/Step.astro";
 ---
 
 <DefaultPageLayout
@@ -14,10 +15,38 @@ import Petapetual from "../../components/Petapetual.astro";
             <h1 class="text-2xl font-semibold">How it works</h1>
 
             <p>
-                <Petapetual /> is more than just a simple platform to create memorial
-                pages. Learn about our value-add services and virtualised tribute
-                services below:
+                Petapetual is more than just a simple page for your late loved
+                ones. We offer many value-added services to help you honour your
+                dearly departed, and it's very straightforward to get started:
             </p>
+
+            <div class="flex flex-col gap-8 my-8">
+                <Step index="1" title="Create a memorial">
+                    Provide a name, date of birth/passing, upload an image, and
+                    write a short epitaph. <br />
+                    <br />
+
+                    Optionally, set a cultural preference for your memorial to
+                    unlock more appropriate date reminders and suggestions.
+                </Step>
+
+                <Step index="2" title="Invite others">
+                    Invite friends or family members who are on <Petapetual /> to
+                    view and pay respects to your memorial.
+                </Step>
+
+                <Step index="3" title="Share the love">
+                    Write condolences and share precious memories in the
+                    memorial guestbook.
+                </Step>
+
+                <Step index="4" title="Use our value-added services">
+                    Get reminders on special or significant dates, suggestions
+                    for specially tailored articles, and much more.
+                </Step>
+            </div>
+
+            <p>Read more about our offerings and services below:</p>
 
             <ul class="list-disc m-8">
                 <li class="list-item">
