@@ -1,12 +1,21 @@
 ---
 import DefaultPageLayout from "../../layouts/DefaultPageLayout.astro";
 import Petapetual from "../../components/Petapetual.astro";
+import { Image } from "astro:assets";
 ---
 
 <DefaultPageLayout
     title="For Forgotten Culture"
     description="In the modern world, many traditional rites and practices are starting to be forgotten. If you are unsure as to what traditions you can observe to honor the dearly deceased, Petapetual has got you covered."
 >
+    <Image
+        src="https://images.unsplash.com/photo-1641644239376-52e9952a43a6?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1674"
+        alt="Over time, culture erodes and traditions slowly become forgotten. Petapetual's value also comes in the form of education: if you don't know what to do to pay respects, we have your back!"
+        class="w-full h-48 lg:h-64 object-cover self-center rounded"
+        width="256"
+        height="256"
+    />
+
     <h1 class="text-2xl font-semibold">
         <Petapetual /> for those disconnected from their culture
     </h1>

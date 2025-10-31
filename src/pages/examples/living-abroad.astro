@@ -1,12 +1,21 @@
 ---
 import DefaultPageLayout from "../../layouts/DefaultPageLayout.astro";
 import Petapetual from "../../components/Petapetual.astro";
+import { Image } from "astro:assets";
 ---
 
 <DefaultPageLayout
     title="For Living Abroad"
     description="Just because you aren't in the same country as your loved one's final resting place doesn't mean you have to miss out on paying your respects. Access your Petapetual memorial no matter where you are in the world."
 >
+    <Image
+        src="https://images.unsplash.com/photo-1548227725-0141254f3369?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2070"
+        alt="Distance makes loss hurt hard and paying respects harder. Petapetual's online memorials aim to help those who live abroad feel more connected to their lost ones."
+        class="w-full h-48 lg:h-64 object-cover self-center rounded"
+        width="256"
+        height="256"
+    />
+
     <h1 class="text-2xl font-semibold">
         <Petapetual /> for those living overseas
     </h1>

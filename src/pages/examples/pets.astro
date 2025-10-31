@@ -1,12 +1,21 @@
 ---
 import DefaultPageLayout from "../../layouts/DefaultPageLayout.astro";
 import Petapetual from "../../components/Petapetual.astro";
+import { Image } from "astro:assets";
 ---
 
 <DefaultPageLayout
     title="Late Pets"
     description="osing a pet is losing a family member. Learn how to cope with the grief and honor their memory. Petapetual offers a beautiful online pet memorial to celebrate their life."
 >
+    <Image
+        src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2186"
+        alt="Pets are part of the family. Honor them with a Petapetual online memorial and cherish their life with you!"
+        class="w-full h-48 lg:h-64 object-cover self-center rounded"
+        width="256"
+        height="256"
+    />
+
     <h1 class="text-2xl font-semibold">
         <Petapetual /> for pets across the rainbow bridge
     </h1>
