@@ -2,6 +2,10 @@
 import MasterLayout from "../layouts/MasterLayout.astro";
 import Incense from "../components/Incense.astro";
 import FeatureCard from "../components/FeatureCard.astro";
+import { Image } from "astro:assets";
+
+import MemorialGuestbookMockup from "../assets/img/mockup-memorial-guestbook.png";
+import MemorialTributesMockup from "../assets/img/mockup-memorial-tributes.png";
 ---
 
 <MasterLayout
@@ -9,25 +13,27 @@ import FeatureCard from "../components/FeatureCard.astro";
     description="Online memorials to pay respects to your late loved ones. 24/7 virtualized prayer services and blessings available."
 >
     <section class="flex flex-col gap-4 p-4 lg:grid lg:grid-cols-2 lg:m-16">
-        <h1 class="text-3xl font-bold col-start-1">
-            Digital memorials that bring tradition into the modern world
-        </h1>
+        <div class="col-span-1 flex flex-col gap-2">
+            <h1 class="text-3xl font-bold col-start-1">
+                Digital memorials that bring tradition into the modern world
+            </h1>
 
-        <h2 class="text-xl col-start-1">
-            Use our virtualized memorial services to honour and pay respects to
-            your late loved ones anytime, anywhere.
-        </h2>
+            <h2 class="text-xl col-start-1">
+                Use our virtualized memorial services to honour and pay respects
+                to your late loved ones anytime, anywhere.
+            </h2>
 
-        <div class="lg:grid lg:grid-cols-2 gap-2 flex flex-col col-start-1">
-            <a href="/how-it-works" class="p-2 border rounded text-center"
-                ><i class="fas fa-lightbulb"></i> How it works
-            </a>
+            <div class="lg:grid lg:grid-cols-2 gap-2 flex flex-col col-start-1">
+                <a href="/how-it-works" class="p-2 border rounded text-center"
+                    ><i class="fas fa-lightbulb"></i> How it works
+                </a>
 
-            <a
-                href="/waitlist"
-                class="p-2 text-center bg-stone-800 text-stone-200 rounded"
-                >Join the waitlist <i class="fas fa-arrow-right"></i></a
-            >
+                <a
+                    href="/waitlist"
+                    class="p-2 text-center bg-stone-800 text-stone-200 rounded"
+                    >Join the waitlist <i class="fas fa-arrow-right"></i></a
+                >
+            </div>
         </div>
     </section>
 
