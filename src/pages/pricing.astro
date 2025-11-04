@@ -34,8 +34,12 @@ import ComparisonTable from "../components/pricing_table/comparison_table/Compar
             <section>
                 <div class="flex flex-row justify-center items-center">
                     <div class="flex flex-row border rounded cursor-pointer">
-                        <div class="p-2">Monthly</div>
-                        <div class="p-2">Annual</div>
+                        <button id="btn-monthly" class={`cursor-pointer p-2`}
+                            >Monthly</button
+                        >
+                        <button id="btn-annually" class={`cursor-pointer p-2`}
+                            >Annual</button
+                        >
                     </div>
                 </div>
             </section>
@@ -51,7 +55,7 @@ import ComparisonTable from "../components/pricing_table/comparison_table/Compar
         </section>
 
         <!-- Compare -->
-        <section class="w-full flex flex-col gap-4">
+        <section class="w-full flex flex-col gap-4 mb-8">
             <h2 id="compare" class="text-xl font-bold mx-4">Compare Plans</h2>
 
             <ComparisonTable />
@@ -59,8 +63,25 @@ import ComparisonTable from "../components/pricing_table/comparison_table/Compar
     </div>
 </MasterLayout>
 
-<style>
-    tr {
-        text-align: center;
+<script>
+    import { subscriptionCycleToggle } from "../store.ts";
+    const selectedToggleClass = ["bg-stone-800", "text-stone-200"];
+    let btnMonthly = document.getElementById("btn-monthly");
+    let btnAnnually = document.getElementById("btn-annually");
+
+    function selectMonthly() {
+        subscriptionCycleToggle.set("monthly");
+        if (btnMonthly) btnMonthly.classList.add(...selectedToggleClass);
+        if (btnAnnually) btnAnnually.classList.remove(...selectedToggleClass);
     }
-</style>
+
+    function selectAnnually() {
+        subscriptionCycleToggle.set("annually");
+        if (btnAnnually) btnAnnually.classList.add(...selectedToggleClass);
+        if (btnMonthly) btnMonthly.classList.remove(...selectedToggleClass);
+    }
+
+    btnMonthly?.addEventListener("click", selectMonthly);
+
+    btnAnnually?.addEventListener("click", selectAnnually);
+</script>

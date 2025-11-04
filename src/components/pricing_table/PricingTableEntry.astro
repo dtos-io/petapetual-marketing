@@ -1,5 +1,16 @@
 ---
-const { name, desc, price, nMemorials, baseColor, compareID } = Astro.props;
+const {
+    name,
+    desc,
+    monthlyPrice,
+    annualMonthlyPrice,
+    nMemorials,
+    baseColor,
+    compareID,
+} = Astro.props;
+
+let annualYearlyPrice = annualMonthlyPrice * 12;
+let annualDiscount = (annualMonthlyPrice - monthlyPrice) / monthlyPrice;
 
 let memorialWord =
     "memorial" + (nMemorials > 1 || nMemorials === "unlimited" ? "s" : "");
@@ -13,7 +24,8 @@ if (baseColor) {
 const compareAnchorID = compareID ?? "compare";
 ---
 
-<div
+<pricing-table
+    data-test={JSON.stringify({ monthlyPrice, annualMonthlyPrice })}
     class="p-8 rounded-lg flex flex-col shadow border-stone-200 border gap-4 bg-stone-50"
 >
     <div class="flex flex-col gap-4">
@@ -24,13 +36,18 @@ const compareAnchorID = compareID ?? "compare";
 
         <div class="flex flex-col gap-2">
             <div>
-                <span class={`text-3xl font-bold ${textColorClass}`}
-                    >{price}</span
+                <span
+                    class={`text-3xl font-bold ${textColorClass}`}
+                    id="price-per-month">{monthlyPrice}</span
                 > / month (SGD)
             </div>
 
+            <div id="annual-billing-notice" class="text-sm italic">
+                Billed at <b>{annualYearlyPrice} SGD</b> yearly.
+            </div>
+
             <a
-                class={`text-center p-2 rounded ${getStartedButtonClass}`}
+                class={`text-center p-2 rounded ${getStartedButtonClass} border`}
                 href="/waitlist"
                 >Get Started <i class="fas fa-arrow-right"></i></a
             >
@@ -59,4 +76,37 @@ const compareAnchorID = compareID ?? "compare";
         href={`#${compareAnchorID}`}
         >Compare Plans <i class="fas fa-arrow-down"></i></a
     >
-</div>
+</pricing-table>
+
+<script>
+    import { subscriptionCycleToggle } from "../../store.js";
+
+    class PricingTable extends HTMLElement {
+        constructor() {
+            super();
+            const { monthlyPrice, annualMonthlyPrice } = JSON.parse(
+                this.dataset.test ?? "{}",
+            );
+            const pricePerMonth = this.querySelector("#price-per-month");
+            const annualBillingNotice = this.querySelector(
+                "#annual-billing-notice",
+            );
+
+            subscriptionCycleToggle.subscribe(
+                (subCycle: "monthly" | "annually") => {
+                    if (subCycle === "monthly") {
+                        pricePerMonth!.innerHTML = monthlyPrice;
+                        annualBillingNotice?.classList.add("hidden");
+                    }
+
+                    if (subCycle === "annually") {
+                        pricePerMonth!.innerHTML = annualMonthlyPrice;
+                        annualBillingNotice?.classList.remove("hidden");
+                    }
+                },
+            );
+        }
+    }
+
+    customElements.define("pricing-table", PricingTable);
+</script>
