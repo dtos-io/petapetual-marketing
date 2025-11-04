@@ -1,10 +1,10 @@
 ---
-const { noCenter } = Astro.props;
+const { noCenter, textClass } = Astro.props;
 ---
 
-<th class="p-4 border-b border-slate-300 bg-slate-50">
+<th class={`p-4 border-b border-slate-300 bg-slate-50 ${textClass}`}>
     <p
-        class={`block text-sm font-normal leading-none text-slate-500 ${noCenter ? "text-left" : "text-center"}`}
+        class={`block text-sm font-normal leading-none ${noCenter ? "text-left" : "text-center"}`}
     >
         <slot />
     </p>
