@@ -1,0 +1,96 @@
+---
+import DefaultPageLayout from "../../layouts/DefaultPageLayout.astro";
+import Petapetual from "../../components/Petapetual.astro";
+import PrayerStreamWidget from "../../components/PrayerStreamWidget.astro";
+---
+
+<DefaultPageLayout
+    title="Prayer Streams"
+    description="24/7 prayers for your memorials for any culture or religion. Pay respects to your loved ones anytime, anywhere."
+>
+    <h1 class="text-2xl font-semibold">Prayer Streams</h1>
+
+    <p>
+        Inspired by the electric prayer chanting boxes used in Asia, spinning
+        Tibetan prayer wheels, and the practice of temples around the world to
+        play pre-recorded mantras, prayer streams are <Petapetual />'s way to
+        virtualize and automate prayers so that they can be used to serve your
+        memorials.
+    </p>
+
+    <p>
+        <Petapetual /> has servers that are set up to replicate such chanting continuously
+        and indefinitely in what are known as <i>prayer streams</i>.
+    </p>
+
+    <div class="flex flex-col gap-4 items-center my-8">
+        <div
+            class="flex flex-col lg:flex-row gap-8 items-center justify-center"
+        >
+            <PrayerStreamWidget
+                iconClass="fa-solid fa-om"
+                bgClass="bg-indigo-600"
+            />
+            <PrayerStreamWidget
+                iconClass="fa-solid fa-cross"
+                bgClass="bg-emerald-600"
+            />
+            <PrayerStreamWidget
+                iconClass="fa-solid fa-yin-yang"
+                bgClass="bg-amber-600"
+            />
+        </div>
+
+        <i class="text-sm text-center"
+            >For illustrative purposes only. Does not represent the entirety of <Petapetual
+            />'s prayer stream catalogue or services.</i
+        >
+    </div>
+
+    <p>
+        When you subscribe a memorial to a prayer stream, the subject of your
+        memorial is included all of the future chants. These are logged and you
+        can all the chants your memorial has received from them in the <Petapetual
+        /> application.
+    </p>
+
+    <div
+        class="flex flex-col lg:flex-row gap-4 items-center justify-center my-4"
+    >
+        <div class="p-2 border-2 border-stone-800 rounded">Your Memorial</div>
+
+        <i class="fas fa-link"></i>
+
+        <PrayerStreamWidget
+            iconClass="fa-solid fa-om"
+            bgClass="bg-indigo-600"
+        />
+    </div>
+
+    <code
+        class="p-2 mx-auto text-sm w-full lg:max-w-6/12 bg-gray-900 text-stone-200 rounded"
+    >
+        2025-10-31 &nbsp; 08:00 &nbsp; ॐ मणिपद्मे हूँ <br />
+        2025-10-31 &nbsp; 07:00 &nbsp; ॐ मणिपद्मे हूँ <br />
+        2025-10-31 &nbsp; 06:00 &nbsp; ॐ मणिपद्मे हूँ <br />
+        2025-10-31 &nbsp; 05:00 &nbsp; ॐ मणिपद्मे हूँ <br />
+        2025-10-31 &nbsp; 04:00 &nbsp; ॐ मणिपद्मे हूँ <br />
+        ........
+    </code>
+
+    <p>We keep the logs of prayer stream chants for up to seven days.</p>
+
+    <p>
+        Prayer streams are our way to try and allow for memorials to still be
+        prayed to when everyone is too busy, or not physically present. It
+        should be noted that whilst convenient, <i
+            >nothing compares to showing up in person and reciting the prayers
+            yourself</i
+        >.
+    </p>
+
+    <p>
+        You can set up a prayer stream on paid plans when creating a memorial on <Petapetual
+        />.
+    </p>
+</DefaultPageLayout>

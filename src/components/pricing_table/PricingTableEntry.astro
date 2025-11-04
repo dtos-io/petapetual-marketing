@@ -1,0 +1,130 @@
+---
+const {
+    name,
+    desc,
+    monthlyPrice,
+    annualMonthlyPrice,
+    nMemorials,
+    baseColor,
+    compareID,
+    isSpecial,
+} = Astro.props;
+
+let annualYearlyPrice = annualMonthlyPrice * 12;
+let annualDiscount =
+    Math.round((100 * (annualMonthlyPrice - monthlyPrice)) / monthlyPrice) || 0;
+
+let memorialWord =
+    "memorial" + (nMemorials > 1 || nMemorials === "unlimited" ? "s" : "");
+
+let textColorClass, getStartedButtonClass;
+if (baseColor) {
+    textColorClass = `text-${baseColor}-600`;
+    getStartedButtonClass = `bg-${baseColor}-600 text-stone-200`;
+}
+
+const compareAnchorID = compareID ?? "compare";
+
+const specialShadowColor = `shadow-${baseColor}-400`;
+const specialShadowClass = `${isSpecial ? "shadow " + specialShadowColor : "shadow"}`;
+---
+
+<pricing-table
+    data-test={JSON.stringify({ monthlyPrice, annualMonthlyPrice })}
+    class={`p-8 rounded-lg flex flex-col ${specialShadowClass} border-stone-200 border gap-4 bg-stone-50`}
+>
+    <div class="flex flex-col gap-4">
+        <div class="flex flex-col gap-1">
+            <h3
+                class={`text-2xl font-bold ${textColorClass} flex flex-row justify-between`}
+            >
+                {name}
+                {
+                    isSpecial && (
+                        <div class="text-yellow-500">
+                            <i class="fas fa-fire-flame-curved" />
+                        </div>
+                    )
+                }
+            </h3>
+            <h4 class="text-stone-500 italic">{desc}</h4>
+        </div>
+
+        <div class="flex flex-col gap-2">
+            <div>
+                <span
+                    class={`text-3xl font-bold ${textColorClass}`}
+                    id="price-per-month">{monthlyPrice}</span
+                > / month (SGD)
+            </div>
+
+            <div id="annual-billing-notice" class="text-sm italic">
+                Billed at <b>{annualYearlyPrice} SGD</b> yearly. <span
+                    class="text-red-600">({annualDiscount}% off)</span
+                >
+            </div>
+
+            <a
+                class={`text-center p-2 rounded ${getStartedButtonClass} border`}
+                href="/waitlist"
+                >Get Started <i class="fas fa-arrow-right"></i></a
+            >
+        </div>
+    </div>
+
+    <hr class="border rounded border-stone-300" />
+
+    <div class="flex flex-col gap-4 grow">
+        <ul>
+            <li>
+                <i class={`fas fa-dove mr-2 ${textColorClass}`}></i>Create <b
+                    >{nMemorials}</b
+                >
+                <a class="blueLink" href="/how-it-works/online-memorials"
+                    >{memorialWord}</a
+                >.
+            </li>
+        </ul>
+
+        <slot />
+    </div>
+
+    <a
+        class="p-2 text-center text-stone-400 border-stone-300 border rounded"
+        href={`#${compareAnchorID}`}
+        >Compare Plans <i class="fas fa-arrow-down"></i></a
+    >
+</pricing-table>
+
+<script>
+    import { subscriptionCycleToggle } from "../../store.js";
+
+    class PricingTable extends HTMLElement {
+        constructor() {
+            super();
+            const { monthlyPrice, annualMonthlyPrice } = JSON.parse(
+                this.dataset.test ?? "{}",
+            );
+            const pricePerMonth = this.querySelector("#price-per-month");
+            const annualBillingNotice = this.querySelector(
+                "#annual-billing-notice",
+            );
+
+            subscriptionCycleToggle.subscribe(
+                (subCycle: "monthly" | "annually") => {
+                    if (subCycle === "monthly") {
+                        pricePerMonth!.innerHTML = monthlyPrice;
+                        annualBillingNotice?.classList.add("hidden");
+                    }
+
+                    if (subCycle === "annually") {
+                        pricePerMonth!.innerHTML = annualMonthlyPrice;
+                        annualBillingNotice?.classList.remove("hidden");
+                    }
+                },
+            );
+        }
+    }
+
+    customElements.define("pricing-table", PricingTable);
+</script>

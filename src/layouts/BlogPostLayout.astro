@@ -1,0 +1,51 @@
+---
+import MasterLayout from "./MasterLayout.astro";
+const { frontmatter } = Astro.props;
+import { Image } from "astro:assets";
+
+const shouldShowImage = (frontmatter.image) && (frontmatter.image.url) && (frontmatter.image.alt)
+---
+
+<MasterLayout
+    title={`${frontmatter.title}`}
+    description={frontmatter.description}
+>
+    {
+      shouldShowImage ? (
+      <div
+          class="flex flex-col align-center items-center justify-center w-full h-72 overflow-hidden"
+      >
+          <Image
+              class="w-full"
+              src={frontmatter?.image?.url}
+              alt={frontmatter?.image?.alt}
+              width="512"
+              height="512"
+          />
+      </div>
+      ) : <></>
+    }
+
+    <section
+        class="flex flex-col gap-4 m-4 blogPost lg:max-w-6/12 lg:mx-auto lg:my-16"
+    >
+        <div class="flex flex-col">
+            <a href="/blog" class="blueLink"
+                >&NestedLessLess; Back to Blog index</a
+            >
+            <h1 class="text-2xl font-semibold">{frontmatter.title}</h1>
+            <h2 class="text-sm">by {frontmatter.author}</h2>
+            <h2 class="text-stone-500 text-sm">
+                {frontmatter.pubDate.split("T")[0]}
+            </h2>
+        </div>
+
+        <slot />
+
+        <div class="flex flex-row justify-center gap-8 text-sm my-4">
+            <i class="fas fa-star-of-life"></i>
+            <i class="fas fa-star-of-life"></i>
+            <i class="fas fa-star-of-life"></i>
+        </div>
+    </section>
+</MasterLayout>

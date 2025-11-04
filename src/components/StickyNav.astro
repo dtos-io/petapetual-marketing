@@ -6,7 +6,7 @@ import DTOSLogo from "../assets/img/dtos-logo-h.png";
 
 <nav
     id="navbar"
-    class="flex flex-col lg:flex-row lg:gap-16 bg-stone-100/75 backdrop-blur rounded-xl p-4 lg:sticky lg:top-4 lg:mx-4 lg:mb-4 transition-all ease-in-out duration-500"
+    class="flex flex-col lg:flex-row lg:gap-16 bg-stone-100/75 backdrop-blur rounded-xl p-4 lg:sticky lg:top-4 lg:mx-4 lg:mb-4 transition-all ease-in-out duration-500 z-50"
 >
     <div class="flex flex-row justify-between items-center">
         <div class="flex flex-row gap-1 items-center">
@@ -37,13 +37,14 @@ import DTOSLogo from "../assets/img/dtos-logo-h.png";
 
     <div
         id="navLinkContainer"
-        class="hidden flex-col gap-4 mt-4 lg:divide-y-0 lg:mt-0 lg:flex lg:flex-row lg:gap-6 lg:flex-grow lg:items-center"
+        class="hidden flex-col gap-4 mt-4 lg:divide-y-0 lg:mt-0 lg:flex lg:flex-row lg:gap-6 lg:grow lg:items-center"
     >
         <a class="hover:underline" href="/blog">Blog</a>
         <a class="hover:underline" href="/pricing">Pricing</a>
         <a class="hover:underline" href="/how-it-works">How it works</a>
+        <a class="hover:underline" href="/examples">Who is this for?</a>
 
-        <div class="hidden lg:flex flex-grow"></div>
+        <div class="hidden lg:flex grow"></div>
 
         <!-- <a
             target="_blank"
@@ -60,8 +61,7 @@ import DTOSLogo from "../assets/img/dtos-logo-h.png";
         > -->
 
         <a
-            target="_blank"
-            href=""
+            href="/waitlist"
             class="bg-stone-800 text-stone-200 rounded px-4 py-2 hover:bg-stone-600"
             >Join the waitlist <i class="fas fa-arrow-right"></i></a
         >

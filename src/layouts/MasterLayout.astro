@@ -5,21 +5,39 @@ import Footer from "../components/Footer.astro";
 
 import "../styles/global.css";
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <html lang="en" class="text-stone-800 bg-stone-100 font-light">
     <head>
+        <!-- Google tag (gtag.js) -->
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-HFEKKX4VEP"
+        ></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+
+            gtag("config", "G-HFEKKX4VEP");
+        </script>
+
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="generator" content={Astro.generator} />
+        <meta name="description" content={description} />
         <BaseHead title={title} />
     </head>
 
     <body>
         <StickyNav />
 
-        <slot />
+        <div class="min-h-[50vh]">
+            <slot />
+        </div>
 
         <Footer />
     </body>

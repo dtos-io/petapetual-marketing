@@ -1,0 +1,30 @@
+---
+import PricingTableEntry from "./PricingTableEntry.astro";
+---
+
+<PricingTableEntry
+    name="Esssentials"
+    desc="Joint plots, and access to our virtual tribute service."
+    monthlyPrice="16.99"
+    annualMonthlyPrice="14.00"
+    baseColor="amber"
+    nMemorials="2"
+    isSpecial
+>
+    <p>Additional Features:</p>
+    <ul>
+        <li><i class="fas fa-star mr-2"></i>Everything from lower tiers</li>
+        <li>
+            <i class="fas fa-plus mr-2"></i>Place virtual <a
+                class="blueLink"
+                href="/how-it-works/tributes">tributes</a
+            >
+        </li>
+    </ul>
+</PricingTableEntry>
+
+<style>
+    li > i.fas {
+        color: oklch(66.6% 0.179 58.318);
+    }
+</style>

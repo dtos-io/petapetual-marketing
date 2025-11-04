@@ -1,0 +1,133 @@
+---
+import DefaultPageLayout from "../../layouts/DefaultPageLayout.astro";
+import Petapetual from "../../components/Petapetual.astro";
+import TributeWidget from "../../components/TributeWidget.astro";
+---
+
+<DefaultPageLayout
+    title="Tributes"
+    description="On-demand virtual blessings and prayers for your memorials. Pay respects to your loved ones anytime, anywhere."
+>
+    <h1 class="text-2xl font-semibold">Memorial Tributes</h1>
+
+    <p>
+        Tributes are supplementary services provided by <Petapetual /> that you can
+        buy for your memorials. They range from simple cosmetic decorations to digital
+        virtualizations of the real-world.
+    </p>
+
+    <section class="mx-auto flex flex-col gap-8">
+        <div class="flex flex-row items-center justify-center gap-8">
+            <div class="grid grid-cols-3 gap-2 p-2 bg-stone-200 rounded shadow">
+                <TributeWidget
+                    iconClass="fa-solid fa-om"
+                    bgClass="bg-indigo-600"
+                />
+                <TributeWidget
+                    iconClass="fas fa-cross"
+                    bgClass="bg-emerald-600"
+                />
+                <TributeWidget
+                    iconClass="fas fa-yin-yang"
+                    bgClass="bg-amber-600"
+                />
+                <TributeWidget
+                    iconClass="fa-solid fa-person-praying"
+                    bgClass="bg-red-600"
+                />
+                <TributeWidget
+                    iconClass="fa-solid fa-hands-praying"
+                    bgClass="bg-fuchsia-600"
+                />
+                <TributeWidget
+                    iconClass="fas fa-dharmachakra"
+                    bgClass="bg-sky-600"
+                />
+            </div>
+
+            <div
+                class="flex flex-col gap-2 text-center p-2 border-2 border-stone-800 rounded"
+            >
+                Your Memorial
+
+                <div class="flex flex-row gap-2">
+                    <div class="w-8 h-8 rounded bg-stone-200 shadow-inner">
+                    </div>
+                    <div class="w-8 h-8 rounded bg-stone-200 shadow-inner">
+                    </div>
+                    <div class="w-8 h-8 rounded bg-stone-200 shadow-inner">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <i class="text-sm text-center"
+            >For illustrative purposes only. Does not represent the entirety of <Petapetual
+            />'s tribute catalogue or services.</i
+        >
+    </section>
+
+    <p>
+        When you purchase and assign a tribute to a memorial, the service takes
+        effect, and the tribute is shown on the memorial page. Any other <Petapetual
+        /> user that you invite to your memorials will be able to place a tribute.
+    </p>
+
+    <div
+        class="flex flex-col gap-2 text-center p-2 border-2 border-stone-800 rounded mx-auto"
+    >
+        Your Memorial
+
+        <div class="flex flex-row gap-2">
+            <TributeWidget
+                iconClass="fa-solid fa-hands-praying"
+                bgClass="bg-fuchsia-600"
+                ping
+            />
+            <TributeWidget
+                iconClass="fas fa-dharmachakra"
+                bgClass="bg-sky-600"
+                ping
+            />
+            <div class="w-8 h-8 rounded bg-stone-200 shadow-inner"></div>
+        </div>
+    </div>
+
+    <p>
+        There is no limit to the amount of tributes that can be placed on a
+        memorial. Multiple instances of the same tribute on a memorial will be
+        shown, and the effects stack. For example, if multiple people have
+        placed <a href="#active" class="italic blueLink"
+            >active prayer tributes</a
+        > on one memorial, prayers from all of them will be applied.
+    </p>
+
+    <h2 class="text-xl font-semibold">Types</h2>
+
+    <p>
+        Aside from the religious and cultural backgrounds they are from,
+        tributes can be separated into two categories: <a
+            class="italic blueLink"
+            href="#cosmetic">cosmetic</a
+        > and <a class="italic blueLink" href="#active">active</a
+        >.
+    </p>
+
+    <h3 id="cosmetic" class="text-lg font-semibold">Cosmetic Tributes</h3>
+    <p>
+        These tributes are decorative, and have no other use other than being
+        displayed on the memorial, and as a sign that you have paid your
+        respects. They are the equivalent to placing flowers or other adornments
+        at your loved one's final resting place.
+    </p>
+
+    <h3 id="active" class="text-lg font-semibold">Active Tributes</h3>
+    <p>
+        These tributes are both decorative <i>and</i> functional. They are all associated
+        with a service we provide for you. For example, you can purchase an active
+        tribute to say prayers or blessings for your memorial 24/7, as a supplementary
+        <a class="blueLink" href="/how-it-works/prayer-streams"
+            >prayer stream</a
+        >.
+    </p>
+</DefaultPageLayout>

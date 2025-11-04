@@ -1,0 +1,91 @@
+---
+import MasterLayout from "../layouts/MasterLayout.astro";
+import {
+    FreeTier,
+    BasicTier,
+    EssentialsTier,
+    PremiumTier,
+    UnlimitedTier,
+} from "../components/pricing_table";
+import ComparisonTable from "../components/pricing_table/comparison_table/ComparisonTable.astro";
+---
+
+<MasterLayout
+    title="Pricing"
+    description="Flexible plans to meet your online memorial needs. Unlock digital prayer streams with any paid subscription, and unlock access to value-added services."
+>
+    <div class="flex flex-col gap-4">
+        <section
+            class="flex flex-col gap-4 m-4 lg:mx-auto lg:max-w-6/12 lg:my-16"
+        >
+            <section>
+                <h1 class="text-2xl font-semibold">Pricing</h1>
+            </section>
+
+            <section>
+                <p>
+                    We provide different plans to meet different online memorial
+                    needs. Available in both monthly and yearly subscription
+                    cycles.
+                </p>
+            </section>
+
+            <!-- Cycle Tempo Toggle -->
+            <section>
+                <div class="flex flex-row justify-center items-center">
+                    <div class="flex flex-row border rounded cursor-pointer">
+                        <button id="btn-monthly" class={`cursor-pointer p-2`}
+                            >Monthly</button
+                        >
+                        <button id="btn-annually" class={`cursor-pointer p-2`}
+                            >Annual <span
+                                class="ml-2 bg-stone-800 text-sm text-red-400 p-1 rounded"
+                                >DISCOUNT</span
+                            >
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- Pricing Tables -->
+        <section class="flex flex-col gap-4 m-4 lg:grid grid-cols-3 lg:mx-8">
+            <FreeTier />
+            <BasicTier />
+            <EssentialsTier />
+            <PremiumTier />
+            <UnlimitedTier />
+        </section>
+
+        <!-- Compare -->
+        <section class="w-full flex flex-col gap-4 mb-8">
+            <h2 id="compare" class="text-xl font-bold mx-4">Compare Plans</h2>
+
+            <ComparisonTable />
+        </section>
+    </div>
+</MasterLayout>
+
+<script>
+    import { subscriptionCycleToggle } from "../store.ts";
+    const selectedToggleClass = ["bg-stone-800", "text-stone-200"];
+    let btnMonthly = document.getElementById("btn-monthly");
+    let btnAnnually = document.getElementById("btn-annually");
+
+    function selectMonthly() {
+        subscriptionCycleToggle.set("monthly");
+        if (btnMonthly) btnMonthly.classList.add(...selectedToggleClass);
+        if (btnAnnually) btnAnnually.classList.remove(...selectedToggleClass);
+    }
+
+    function selectAnnually() {
+        subscriptionCycleToggle.set("annually");
+        if (btnAnnually) btnAnnually.classList.add(...selectedToggleClass);
+        if (btnMonthly) btnMonthly.classList.remove(...selectedToggleClass);
+    }
+
+    btnMonthly?.addEventListener("click", selectMonthly);
+    btnAnnually?.addEventListener("click", selectAnnually);
+
+    selectMonthly();
+</script>

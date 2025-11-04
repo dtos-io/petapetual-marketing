@@ -3,3 +3,30 @@
 html {
     font-family: "Lexend", sans-serif;
 }
+
+.blueLink {
+    color: blue;
+    text-decoration: underline;
+}
+
+.blogPost a {
+    color: blue;
+    text-decoration: underline;
+}
+
+.blogPost li {
+    margin: 10px 2em;
+    list-style-type: circle;
+}
+
+.blogPost h1 {
+    font-weight: bold;
+}
+
+.blogPost h2 {
+    font-weight: bold;
+}
+
+.blogPost h3 {
+    font-weight: bold;
+}

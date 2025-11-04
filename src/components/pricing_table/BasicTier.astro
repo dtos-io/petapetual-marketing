@@ -1,0 +1,33 @@
+---
+import PricingTableEntry from "./PricingTableEntry.astro";
+---
+
+<PricingTableEntry
+    name="Basic"
+    desc="For single memorials with the base Petapetual experience."
+    monthlyPrice="9.99"
+    annualMonthlyPrice="9.00"
+    baseColor="sky"
+    nMemorials="1"
+>
+    <p>Additional Features:</p>
+    <ul>
+        <li><i class="fas fa-star mr-2"></i>Everything from lower tiers</li>
+        <li>
+            <i class="fas fa-plus mr-2"></i>Invite others to memorials
+        </li>
+        <li><i class="fas fa-plus mr-2"></i>Memorial guestbook</li>
+        <li>
+            <i class="fas fa-plus mr-2"></i>Subscribe to <a
+                class="blueLink"
+                href="/how-it-works/prayer-streams">prayer streams</a
+            >
+        </li>
+    </ul>
+</PricingTableEntry>
+
+<style>
+    li > i.fas {
+        color: oklch(58.8% 0.158 241.966);
+    }
+</style>

@@ -1,0 +1,166 @@
+---
+import DefaultPageLayout from "../../layouts/DefaultPageLayout.astro";
+import LinkToTop from "../../components/LinkToTop.astro";
+import Petapetual from "../../components/Petapetual.astro";
+import Step from "../../components/Step.astro";
+---
+
+<DefaultPageLayout
+    id="top"
+    title="How it works"
+    description="On-demand virtual blessings and prayers for your memorials. Pay respects to your loved ones anytime, anywhere."
+>
+    <div class="flex flex-col gap-8">
+        <section>
+            <h1 class="text-2xl font-semibold">How it works</h1>
+
+            <p>
+                Petapetual is more than just a simple page for your late loved
+                ones. We offer many value-added services to help you honour your
+                dearly departed, and it's very straightforward to get started:
+            </p>
+
+            <div class="flex flex-col gap-8 my-8">
+                <Step index="1" title="Create a memorial">
+                    Provide a name, date of birth/passing, upload an image, and
+                    write a short epitaph. <br />
+                    <br />
+
+                    Optionally, set a cultural preference for your memorial to
+                    unlock more appropriate date reminders and suggestions.
+                </Step>
+
+                <Step index="2" title="Invite others">
+                    Invite friends or family members who are on <Petapetual /> to
+                    view and pay respects to your memorial.
+                </Step>
+
+                <Step index="3" title="Share the love">
+                    Write condolences and share precious memories in the
+                    memorial guestbook.
+                </Step>
+
+                <Step index="4" title="Use our value-added services">
+                    Get reminders on special or significant dates, suggestions
+                    for specially tailored articles, and much more.
+                </Step>
+            </div>
+
+            <p>Read more about our offerings and services below:</p>
+
+            <ul class="list-disc m-8">
+                <li class="list-item">
+                    <a href="#memorials" class="blueLink">Memorials</a>
+                </li>
+
+                <li class="list-item">
+                    <a href="#prayer-streams" class="blueLink">Prayer Streams</a
+                    >
+                </li>
+
+                <li class="list-item">
+                    <a href="#tributes" class="blueLink">Tributes</a>
+                </li>
+            </ul>
+        </section>
+
+        <section class="flex flex-col gap-2">
+            <h2 class="text-xl font-semibold" id="memorials">
+                Memorials <LinkToTop />
+            </h2>
+
+            <p>
+                A memorial is a single page you create for your late loved one.
+                They are the bread and butter of the <Petapetual /> experience and
+                most of the value of our platform unlocks after you have created
+                one. You can create multiple memorials depending on the plan you
+                have purchased.
+            </p>
+
+            <p>
+                You will be able to upload a photo and populate details such as
+                their name, date of birth, date of passing, and even a short
+                epitaph to display.
+            </p>
+
+            <p>
+                You can also invite other users of <Petapetual /> to your memorial
+                to view it and leave a loving message in the guestbook.
+            </p>
+
+            <p class="p-4 bg-blue-200 rounded border border-blue-400">
+                If you are interested, you can read our <a
+                    href="/how-it-works/online-memorials"
+                    class="blueLink">Online Memorials</a
+                > page.
+            </p>
+
+            <p>
+                All memorials created under a paid plan can subscribe to a <a
+                    class="blueLink"
+                    href="#prayer-streams">prayer stream</a
+                > in order to receive virtual prayers 24/7.
+            </p>
+        </section>
+
+        <section class="flex flex-col gap-2">
+            <h2 class="text-xl font-semibold" id="prayer-streams">
+                Prayer Streams <LinkToTop />
+            </h2>
+
+            <p>
+                Memorials can be subscribed to <i>prayer streams</i>, which are
+                powerful automated virtual prayer sessions that happen 24/7.
+                When subscribed, you are guaranteed that your memorial will
+                receive the prayers and blessings of your choice constantly
+                every day. You may choose from a variety of prayers across
+                different cultures and religions, or simply choose not to
+                subscribe to a prayer stream.
+            </p>
+            <p class="p-4 bg-blue-200 rounded border border-blue-400">
+                If you are interested as to how we guarantee your memorial
+                receives prayers, you can read up on our approach and
+                implementation on the <a
+                    href="/how-it-works/prayer-streams"
+                    class="blueLink">Prayer Streams</a
+                > page.
+            </p>
+
+            <p>
+                You can subscribe your memorials to prayer streams in the <Petapetual
+                /> service when creating them on any paid plan.
+            </p>
+        </section>
+
+        <section class="flex flex-col gap-2">
+            <h2 class="text-xl font-semibold" id="tributes">
+                Tributes <LinkToTop />
+            </h2>
+
+            <p>
+                <i>Tributes</i> are additional adornments and blessings you may add
+                to your memorials to pay your respects. They have different purposes
+                and effects, ranging from being purely decorative to having an actual
+                service or action tied to them when they are used.
+            </p>
+
+            <p>
+                Other users you invite to your memorials will be able to place
+                tributes as well.
+            </p>
+
+            <p class="p-4 bg-blue-200 rounded border border-blue-400">
+                If you are interested, you can read up on our approach and
+                implementation on the <a
+                    href="/how-it-works/tributes"
+                    class="blueLink">Memorial Tributes</a
+                > page.
+            </p>
+
+            <p>
+                Tributes are an optional supplementary offering in the <Petapetual
+                /> service.
+            </p>
+        </section>
+    </div>
+</DefaultPageLayout>
