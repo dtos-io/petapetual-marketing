@@ -7,10 +7,12 @@ const {
     nMemorials,
     baseColor,
     compareID,
+    isSpecial,
 } = Astro.props;
 
 let annualYearlyPrice = annualMonthlyPrice * 12;
-let annualDiscount = (annualMonthlyPrice - monthlyPrice) / monthlyPrice;
+let annualDiscount =
+    Math.round((100 * (annualMonthlyPrice - monthlyPrice)) / monthlyPrice) || 0;
 
 let memorialWord =
     "memorial" + (nMemorials > 1 || nMemorials === "unlimited" ? "s" : "");
@@ -22,15 +24,29 @@ if (baseColor) {
 }
 
 const compareAnchorID = compareID ?? "compare";
+
+const specialShadowColor = `shadow-${baseColor}-400`;
+const specialShadowClass = `${isSpecial ? "shadow " + specialShadowColor : "shadow"}`;
 ---
 
 <pricing-table
     data-test={JSON.stringify({ monthlyPrice, annualMonthlyPrice })}
-    class="p-8 rounded-lg flex flex-col shadow border-stone-200 border gap-4 bg-stone-50"
+    class={`p-8 rounded-lg flex flex-col ${specialShadowClass} border-stone-200 border gap-4 bg-stone-50`}
 >
     <div class="flex flex-col gap-4">
         <div class="flex flex-col gap-1">
-            <h3 class={`text-2xl font-bold ${textColorClass}`}>{name}</h3>
+            <h3
+                class={`text-2xl font-bold ${textColorClass} flex flex-row justify-between`}
+            >
+                {name}
+                {
+                    isSpecial && (
+                        <div class="text-yellow-500">
+                            <i class="fas fa-fire-flame-curved" />
+                        </div>
+                    )
+                }
+            </h3>
             <h4 class="text-stone-500 italic">{desc}</h4>
         </div>
 
@@ -43,7 +59,9 @@ const compareAnchorID = compareID ?? "compare";
             </div>
 
             <div id="annual-billing-notice" class="text-sm italic">
-                Billed at <b>{annualYearlyPrice} SGD</b> yearly.
+                Billed at <b>{annualYearlyPrice} SGD</b> yearly. <span
+                    class="text-red-600">({annualDiscount}% off)</span
+                >
             </div>
 
             <a
