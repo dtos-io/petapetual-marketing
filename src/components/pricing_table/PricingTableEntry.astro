@@ -1,0 +1,62 @@
+---
+const { name, desc, price, nMemorials, baseColor, compareID } = Astro.props;
+
+let memorialWord =
+    "memorial" + (nMemorials > 1 || nMemorials === "unlimited" ? "s" : "");
+
+let textColorClass, getStartedButtonClass;
+if (baseColor) {
+    textColorClass = `text-${baseColor}-600`;
+    getStartedButtonClass = `bg-${baseColor}-600 text-stone-200`;
+}
+
+const compareAnchorID = compareID ?? "compare";
+---
+
+<div
+    class="p-8 rounded-lg flex flex-col shadow border-stone-200 border gap-4 bg-stone-50"
+>
+    <div class="flex flex-col gap-4">
+        <div class="flex flex-col gap-1">
+            <h3 class={`text-2xl font-bold ${textColorClass}`}>{name}</h3>
+            <h4 class="text-stone-500 italic">{desc}</h4>
+        </div>
+
+        <div class="flex flex-col gap-2">
+            <div>
+                <span class={`text-3xl font-bold ${textColorClass}`}
+                    >{price}</span
+                > / month (SGD)
+            </div>
+
+            <a
+                class={`text-center p-2 rounded ${getStartedButtonClass}`}
+                href="/waitlist"
+                >Get Started <i class="fas fa-arrow-right"></i></a
+            >
+        </div>
+    </div>
+
+    <hr class="border rounded border-stone-300" />
+
+    <div class="flex flex-col gap-4 grow">
+        <ul>
+            <li>
+                <i class={`fas fa-dove mr-2 ${textColorClass}`}></i>Create <b
+                    >{nMemorials}</b
+                >
+                <a class="blueLink" href="/how-it-works/online-memorials"
+                    >{memorialWord}</a
+                >.
+            </li>
+        </ul>
+
+        <slot />
+    </div>
+
+    <a
+        class="p-2 text-center text-stone-400 border-stone-300 border rounded"
+        href={`#${compareAnchorID}`}
+        >Compare Plans <i class="fas fa-arrow-down"></i></a
+    >
+</div>

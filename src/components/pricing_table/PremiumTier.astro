@@ -1,0 +1,29 @@
+---
+import PricingTableEntry from "./PricingTableEntry.astro";
+---
+
+<PricingTableEntry
+    name="Premium"
+    desc="Small family plots, customizable and publishable."
+    price="24.99"
+    baseColor="emerald"
+    nMemorials="4"
+>
+    <p>Additional Features:</p>
+    <ul>
+        <li><i class="fas fa-star mr-2"></i>Everything from lower tiers</li>
+        <li>
+            <i class="fas fa-plus mr-2"></i>Custom <a
+                href="/how-it-works/prayer-streams"
+                class="blueLink">prayer streams</a
+            >
+        </li>
+        <li><i class="fas fa-plus mr-2"></i>Make memorials public</li>
+    </ul>
+</PricingTableEntry>
+
+<style>
+    li > i.fas {
+        color: oklch(59.6% 0.145 163.225);
+    }
+</style>

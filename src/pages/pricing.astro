@@ -1,0 +1,66 @@
+---
+import MasterLayout from "../layouts/MasterLayout.astro";
+import {
+    FreeTier,
+    BasicTier,
+    EssentialsTier,
+    PremiumTier,
+    UnlimitedTier,
+} from "../components/pricing_table";
+import ComparisonTable from "../components/pricing_table/comparison_table/ComparisonTable.astro";
+---
+
+<MasterLayout
+    title="Pricing"
+    description="Flexible plans to meet your online memorial needs. Unlock digital prayer streams with any paid subscription, and unlock access to value-added services."
+>
+    <div class="flex flex-col gap-4">
+        <section
+            class="flex flex-col gap-4 m-4 lg:mx-auto lg:max-w-6/12 lg:my-16"
+        >
+            <section>
+                <h1 class="text-2xl font-semibold">Pricing</h1>
+            </section>
+
+            <section>
+                <p>
+                    We provide different plans to meet different online memorial
+                    needs. Available in both monthly and yearly subscription
+                    cycles.
+                </p>
+            </section>
+
+            <!-- Cycle Tempo Toggle -->
+            <section>
+                <div class="flex flex-row justify-center items-center">
+                    <div class="flex flex-row border rounded cursor-pointer">
+                        <div class="p-2">Monthly</div>
+                        <div class="p-2">Annual</div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <!-- Pricing Tables -->
+        <section class="flex flex-col gap-4 m-4 lg:grid grid-cols-3 lg:mx-8">
+            <FreeTier />
+            <BasicTier />
+            <EssentialsTier />
+            <PremiumTier />
+            <UnlimitedTier />
+        </section>
+
+        <!-- Compare -->
+        <section class="w-full flex flex-col gap-4">
+            <h2 id="compare" class="text-xl font-bold mx-4">Compare Plans</h2>
+
+            <ComparisonTable />
+        </section>
+    </div>
+</MasterLayout>
+
+<style>
+    tr {
+        text-align: center;
+    }
+</style>

@@ -1,0 +1,104 @@
+---
+import TableHeader from "./TableHeader.astro";
+import { default as TR } from "./TableRow.astro";
+import { default as TD } from "./TableCell.astro";
+---
+
+<div
+    class="relative flex flex-col w-full h-full overflow-scroll text-gray-700 bg-white shadow-md rounded-lg bg-clip-border z-0"
+>
+    <table class="w-full text-left table-auto min-w-max">
+        <thead>
+            <tr>
+                <TableHeader noCenter>Plan</TableHeader>
+                <TableHeader>Free</TableHeader>
+                <TableHeader>Basic</TableHeader>
+                <TableHeader>Essentials</TableHeader>
+                <TableHeader>Premium</TableHeader>
+                <TableHeader>Unlimited</TableHeader>
+            </tr>
+        </thead>
+        <tbody>
+            <TR>
+                <TD noCenter>Memorials</TD>
+                <TD>1</TD>
+                <TD>1</TD>
+                <TD>2</TD>
+                <TD>4</TD>
+                <TD><i class="fas fa-infinity"></i></TD>
+            </TR>
+
+            <TR>
+                <TD noCenter>Special Date Reminders</TD>
+                <TD><i class="fas fa-circle-check text-green-500"></i></TD>
+                <TD><i class="fas fa-circle-check text-green-500"></i></TD>
+                <TD><i class="fas fa-circle-check text-green-500"></i></TD>
+                <TD><i class="fas fa-circle-check text-green-500"></i></TD>
+                <TD><i class="fas fa-circle-check text-green-500"></i></TD>
+            </TR>
+
+            <TR>
+                <TD noCenter>Cultural Articles</TD>
+                <TD><i class="fas fa-circle-check text-green-500"></i></TD>
+                <TD><i class="fas fa-circle-check text-green-500"></i></TD>
+                <TD><i class="fas fa-circle-check text-green-500"></i></TD>
+                <TD><i class="fas fa-circle-check text-green-500"></i></TD>
+                <TD><i class="fas fa-circle-check text-green-500"></i></TD>
+            </TR>
+
+            <TR>
+                <TD noCenter>Invite Others</TD>
+                <TD>-</TD>
+                <TD><i class="fas fa-circle-check text-green-500"></i></TD>
+                <TD><i class="fas fa-circle-check text-green-500"></i></TD>
+                <TD><i class="fas fa-circle-check text-green-500"></i></TD>
+                <TD><i class="fas fa-circle-check text-green-500"></i></TD>
+            </TR>
+
+            <TR>
+                <TD noCenter>Guestbook</TD>
+                <TD>-</TD>
+                <TD><i class="fas fa-circle-check text-green-500"></i></TD>
+                <TD><i class="fas fa-circle-check text-green-500"></i></TD>
+                <TD><i class="fas fa-circle-check text-green-500"></i></TD>
+                <TD><i class="fas fa-circle-check text-green-500"></i></TD>
+            </TR>
+
+            <TR>
+                <TD noCenter>Prayer Streams</TD>
+                <TD>-</TD>
+                <TD><i class="fas fa-circle-check text-green-500"></i></TD>
+                <TD><i class="fas fa-circle-check text-green-500"></i></TD>
+                <TD><i class="fas fa-circle-check text-green-500"></i></TD>
+                <TD><i class="fas fa-circle-check text-green-500"></i></TD>
+            </TR>
+
+            <TR>
+                <TD noCenter>Memorial Tributes</TD>
+                <TD>-</TD>
+                <TD>-</TD>
+                <TD><i class="fas fa-circle-check text-green-500"></i></TD>
+                <TD><i class="fas fa-circle-check text-green-500"></i></TD>
+                <TD><i class="fas fa-circle-check text-green-500"></i></TD>
+            </TR>
+
+            <TR>
+                <TD noCenter>Custom Prayer Streams</TD>
+                <TD>-</TD>
+                <TD>-</TD>
+                <TD>-</TD>
+                <TD><i class="fas fa-circle-check text-green-500"></i></TD>
+                <TD><i class="fas fa-circle-check text-green-500"></i></TD>
+            </TR>
+
+            <TR>
+                <TD noCenter>Public Memorials</TD>
+                <TD>-</TD>
+                <TD>-</TD>
+                <TD>-</TD>
+                <TD><i class="fas fa-circle-check text-green-500"></i></TD>
+                <TD><i class="fas fa-circle-check text-green-500"></i></TD>
+            </TR>
+        </tbody>
+    </table>
+</div>

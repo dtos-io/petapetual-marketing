@@ -1,0 +1,23 @@
+---
+import PricingTableEntry from "./PricingTableEntry.astro";
+---
+
+<PricingTableEntry
+    name="Unlimited"
+    desc="For remembering a generation or more."
+    price="49.99"
+    baseColor="indigo"
+    nMemorials="unlimited"
+>
+    <p>Additional Features:</p>
+    <ul>
+        <li><i class="fas fa-star mr-2"></i>Everything from lower tiers</li>
+        <li><i class="fas fa-star mr-2"></i>No memorial creation limits</li>
+    </ul>
+</PricingTableEntry>
+
+<style>
+    li > i.fas {
+        color: oklch(51.1% 0.262 276.966);
+    }
+</style>
