@@ -12,10 +12,13 @@ import { default as TD } from "./TableCell.astro";
             <tr>
                 <TableHeader noCenter>Plan</TableHeader>
                 <TableHeader>Free</TableHeader>
-                <TableHeader>Basic</TableHeader>
-                <TableHeader>Essentials</TableHeader>
-                <TableHeader>Premium</TableHeader>
-                <TableHeader>Unlimited</TableHeader>
+                <TableHeader textClass="text-sky-600">Basic</TableHeader>
+                <TableHeader textClass="text-amber-600"
+                    >Essentials <i class="fas fa-fire-flame-curved"
+                    ></i></TableHeader
+                >
+                <TableHeader textClass="text-emerald-600">Premium</TableHeader>
+                <TableHeader textClass="text-indigo-600">Unlimited</TableHeader>
             </tr>
         </thead>
         <tbody>

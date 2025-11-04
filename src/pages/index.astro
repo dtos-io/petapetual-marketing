@@ -6,72 +6,119 @@ import { Image } from "astro:assets";
 
 import MemorialGuestbookMockup from "../assets/img/mockup-memorial-guestbook.png";
 import MemorialTributesMockup from "../assets/img/mockup-memorial-tributes.png";
+
+// <section class="mx-4 mt-4 lg:mt-16 lg:mx-20 flex flex-row gap-8">
+//     <Incense />
+
+//     <div class="flex flex-col gap-8 lg:gap-16 grow my-16 lg:ml-16">
+//         <!-- <h2 class="text-2xl font-bold">Features</h2> -->
+//         <FeatureCard
+//             iconCode="fas fa-bolt text-yellow-500"
+//             title="Tangible"
+//         >
+//             We are more than a simple page hosting site- our prayer and
+//             tribute services are backed by very real actions and digital
+//             counterparts. Want to know more? Read up on <a
+//                 href="/how-it-works"
+//                 class="blueLink">how it works</a
+//             >.
+//         </FeatureCard>
+
+//         <FeatureCard
+//             iconCode="fas fa-hand-holding-heart text-red-600"
+//             title="Multicultural"
+//         >
+//             A platform for everyone. We aim to support memorials from as
+//             many cultural and religious backgrounds as we can.
+//         </FeatureCard>
+
+//         <FeatureCard
+//             iconCode="fas fa-users text-indigo-500"
+//             title="Shareable"
+//         >
+//             Invite friends and family to view and interact with your
+//             memorials, no matter where they are in the world.
+//             Alternatively, make your memorial open to the public for
+//             viewing.
+//         </FeatureCard>
+//     </div>
+// </section>
 ---
 
 <MasterLayout
     title="Petapetual"
     description="Online memorials to pay respects to your late loved ones. 24/7 virtualized prayer services and blessings available."
 >
-    <section class="flex flex-col gap-4 p-4 lg:grid lg:grid-cols-2 lg:m-16">
-        <div class="col-span-1 flex flex-col gap-2">
-            <h1 class="text-3xl font-bold col-start-1">
-                Digital memorials that bring tradition into the modern world
-            </h1>
+    <div class="container mx-auto">
+        <section class="flex flex-col gap-4 p-4 lg:grid lg:grid-cols-3 lg:m-16">
+            <div class="col-span-2 flex flex-col gap-2">
+                <h1 class="text-3xl font-bold col-start-1">
+                    Digital memorials that bring tradition into the modern world
+                </h1>
 
-            <h2 class="text-xl col-start-1">
-                Use our virtualized memorial services to honour and pay respects
-                to your late loved ones anytime, anywhere.
-            </h2>
+                <h2 class="text-xl col-start-1">
+                    Use our <a
+                        href="/how-it-works/online-memorials"
+                        class="blueLink">virtualized memorial services</a
+                    > to honour and pay respects to your late loved ones anytime,
+                    anywhere.
+                </h2>
 
-            <div class="lg:grid lg:grid-cols-2 gap-2 flex flex-col col-start-1">
-                <a href="/how-it-works" class="p-2 border rounded text-center"
-                    ><i class="fas fa-lightbulb"></i> How it works
-                </a>
+                <div class="h-10/12 lg:hidden flex">
+                    <Image
+                        class="h-full w-full object-contain"
+                        inferSize
+                        src={MemorialGuestbookMockup}
+                        alt="petapetual guestbook mockup"
+                    />
+                </div>
 
-                <a
-                    href="/waitlist"
-                    class="p-2 text-center bg-stone-800 text-stone-200 rounded"
-                    >Join the waitlist <i class="fas fa-arrow-right"></i></a
-                >
+                <div class="flex flex-col gap-4 my-4">
+                    <p class="text-lg">
+                        <i class="fas fa-circle-check text-green-600"></i>
+                        Works on mobile, tablet, and desktop with no app installation
+                        required.
+                    </p>
+                    <p class="text-lg">
+                        <i class="fas fa-circle-check text-green-600"></i>
+                        Invite your friends and family to view and sign your memorial
+                        guestbooks.
+                    </p>
+                    <p class="text-lg">
+                        <i class="fas fa-circle-check text-green-600"></i>
+                        Use our virtualized <a
+                            href="/how-it-works/prayer-streams"
+                            class="blueLink">prayer stream</a
+                        > and <a href="/how-it-works/tributes" class="blueLink"
+                            >tribute</a
+                        > services to decorate and honor your memorials, even when
+                        you're away.
+                    </p>
+                </div>
+
+                <div class="gap-2 flex flex-col col-start-1">
+                    <a
+                        href="/how-it-works"
+                        class="p-2 border rounded text-center"
+                        ><i class="fas fa-lightbulb"></i> How it works
+                    </a>
+
+                    <a
+                        href="/waitlist"
+                        class="p-2 text-center bg-stone-800 text-stone-200 rounded"
+                        >Join the waitlist <i class="fas fa-arrow-right"></i></a
+                    >
+                </div>
             </div>
-        </div>
-    </section>
 
-    <section class="mx-4 mt-4 lg:mt-16 lg:mx-20 flex flex-row gap-8">
-        <Incense />
-
-        <div class="flex flex-col gap-8 lg:gap-16 grow my-16">
-            <FeatureCard
-                iconCode="fas fa-bolt text-yellow-500"
-                title="Tangible"
-            >
-                We are more than a simple page hosting site- our prayer and
-                tribute services are backed by very real actions and digital
-                counterparts. <br />
-                <br />
-                Want to know more? Read up on <a
-                    href="/how-it-works"
-                    class="blueLink">how it works</a
-                >.
-            </FeatureCard>
-
-            <FeatureCard
-                iconCode="fas fa-hand-holding-heart text-red-600"
-                title="Multicultural"
-            >
-                A platform for everyone. We aim to support memorials from as
-                many cultural and religious backgrounds as we can.
-            </FeatureCard>
-
-            <FeatureCard
-                iconCode="fas fa-users text-indigo-500"
-                title="Shareable"
-            >
-                Invite friends and family to view and interact with your
-                memorials, no matter where they are in the world. <br />
-                <br />
-                Alternatively, make your memorial open to the public for viewing.
-            </FeatureCard>
-        </div>
-    </section>
+            <div class="h-10/12 hidden lg:flex">
+                <Image
+                    class="h-full w-full object-contain"
+                    inferSize
+                    src={MemorialGuestbookMockup}
+                    alt="petapetual guestbook mockup"
+                />
+            </div>
+        </section>
+    </div>
 </MasterLayout>

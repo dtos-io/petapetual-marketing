@@ -3,6 +3,8 @@ import DefaultPageLayout from "../../layouts/DefaultPageLayout.astro";
 import LinkToTop from "../../components/LinkToTop.astro";
 import Petapetual from "../../components/Petapetual.astro";
 import Step from "../../components/Step.astro";
+import PrayerStreamWidget from "../../components/PrayerStreamWidget.astro";
+import TributeWidget from "../../components/TributeWidget.astro";
 ---
 
 <DefaultPageLayout
@@ -108,6 +110,14 @@ import Step from "../../components/Step.astro";
                 Prayer Streams <LinkToTop />
             </h2>
 
+            <div class="flex flex-row items-center">
+                <PrayerStreamWidget
+                    iconClass="fas fa-plug-circle-plus"
+                    bgClass="bg-stone-700"
+                />
+                <div class="grow"></div>
+            </div>
+
             <p>
                 Memorials can be subscribed to <i>prayer streams</i>, which are
                 powerful automated virtual prayer sessions that happen 24/7.
@@ -137,6 +147,12 @@ import Step from "../../components/Step.astro";
                 Tributes <LinkToTop />
             </h2>
 
+            <TributeWidget
+                iconClass="fas fa-gift"
+                bgClass="bg-stone-700"
+                ping
+            />
+
             <p>
                 <i>Tributes</i> are additional adornments and blessings you may add
                 to your memorials to pay your respects. They have different purposes
@@ -149,7 +165,13 @@ import Step from "../../components/Step.astro";
                 tributes as well.
             </p>
 
-            <p class="p-4 bg-blue-200 rounded border border-blue-400">
+            <p
+                class="p-4
+                bg-blue-200
+                rounded
+                border
+                border-blue-400"
+            >
                 If you are interested, you can read up on our approach and
                 implementation on the <a
                     href="/how-it-works/tributes"
