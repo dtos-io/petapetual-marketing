@@ -43,25 +43,34 @@ import TributeWidget from "../../components/TributeWidget.astro";
                 </Step>
 
                 <Step index="4" title="Use our value-added services">
-                    Get reminders on special or significant dates, suggestions
-                    for specially tailored articles, and much more.
+                    Place tributes at your memorial, get reminders on special /
+                    significant dates, suggestions for specially tailored
+                    articles, and much more.
                 </Step>
             </div>
 
             <p>Read more about our offerings and services below:</p>
 
-            <ul class="list-disc m-8">
+            <ul class="m-8">
                 <li class="list-item">
+                    <i class="fas fa-dove"></i>
                     <a href="#memorials" class="blueLink">Memorials</a>
                 </li>
 
                 <li class="list-item">
+                    <i class="fas fa-hands-praying"></i>
                     <a href="#prayer-streams" class="blueLink">Prayer Streams</a
                     >
                 </li>
 
                 <li class="list-item">
+                    <i class="fas fa-gift"></i>
                     <a href="#tributes" class="blueLink">Tributes</a>
+                </li>
+
+                <li class="list-item">
+                    <i class="fa-solid fa-code-fork"></i>
+                    <a href="#family-trees" class="blueLink">Family Trees</a>
                 </li>
             </ul>
         </section>
@@ -111,10 +120,6 @@ import TributeWidget from "../../components/TributeWidget.astro";
             </h2>
 
             <div class="flex flex-row items-center">
-                <PrayerStreamWidget
-                    iconClass="fas fa-plug-circle-plus"
-                    bgClass="bg-stone-700"
-                />
                 <div class="grow"></div>
             </div>
 
@@ -147,12 +152,6 @@ import TributeWidget from "../../components/TributeWidget.astro";
                 Tributes <LinkToTop />
             </h2>
 
-            <TributeWidget
-                iconClass="fas fa-gift"
-                bgClass="bg-stone-700"
-                ping
-            />
-
             <p>
                 <i>Tributes</i> are additional adornments and blessings you may add
                 to your memorials to pay your respects. They have different purposes
@@ -182,6 +181,37 @@ import TributeWidget from "../../components/TributeWidget.astro";
             <p>
                 Tributes are an optional supplementary offering in the <Petapetual
                 /> service.
+            </p>
+        </section>
+
+        <section class="flex flex-col gap-2">
+            <h2 class="text-xl font-semibold" id="family-trees">
+                Family Trees <LinkToTop />
+            </h2>
+
+            <p>
+                <i>Family trees</i> are a way to group and categorize your memorials
+                on <Petapetual />. If you have more than one memorial, you can
+                link them together and specify relationships between them.
+            </p>
+
+            <p
+                class="p-4
+                bg-blue-200
+                rounded
+                border
+                border-blue-400"
+            >
+                If you are interested, you can read up on our approach and
+                implementation on the <a
+                    href="/how-it-works/family-trees"
+                    class="blueLink">Family Trees</a
+                > page.
+            </p>
+
+            <p>
+                Family trees require at least 2 memorials to work, and so are
+                only viable on paid plans which allow 2 or more memorials.
             </p>
         </section>
     </div>
