@@ -1,10 +1,100 @@
 ---
 import DefaultPageLayout from "../layouts/DefaultPageLayout.astro";
+import Petapetual from "../components/Petapetual.astro";
+import RoadmapItem from "../components/RoadmapItem.astro";
 ---
 
 <DefaultPageLayout
     title="Roadmap"
     description="Development roadmap for Petapetual."
 >
-    <div class="flex flex-col gap-8">hi</div>
+    <div class="flex flex-col gap-8">
+        <h1 class="text-2xl font-semibold">Development Roadmap</h1>
+
+        <div
+            class="rounded-lg bg-amber-100 p-2 border border-amber-300 text-amber-600"
+        >
+            This roadmap was estimated on a best-effort basis. It is subject to
+            change as business or technical needs and priorities shift.
+        </div>
+
+        <p>
+            <Petapetual /> is currently in active development, and not all features
+            have been implemented yet. Keep this in mind if you plan to subscribe.
+        </p>
+
+        <div class="flex flex-col gap-4 relative">
+            <div
+                class="absolute bg-stone-200 w-6 h-full left-3 -z-50 rounded-full"
+            >
+            </div>
+            <RoadmapItem done index={1} title="Marketing Launch">
+                This is what you're seeing now: the marketing launch consists of
+                the release of the landing page, waitlist, planned feature
+                lists, and roadmap.
+            </RoadmapItem>
+
+            <RoadmapItem doing index={2} title="Early Access: Memorials">
+                The first public release of <Petapetual /> will have the following
+                features implemented:
+
+                <ul class="list-disc ml-8 mt-4">
+                    <li>
+                        <a
+                            href="/how-it-works/online-memorials"
+                            class="blueLink">Online memorial</a
+                        > creation
+                    </li>
+                    <li>Invite other users to memorials</li>
+                    <li>Memorial cultural preferences</li>
+                    <li>Memorial guestbooks</li>
+                </ul>
+            </RoadmapItem>
+
+            <RoadmapItem index={3} title="Update: Prayer Streams">
+                Once we are happy that the core memorial infrastructure is
+                running smoothly, we will begin to integrate our prayer stream
+                service:
+
+                <ul class="list-disc ml-8 mt-4">
+                    <li>
+                        Memorial <a
+                            href="/how-it-works/prayer-streams"
+                            class="blueLink">prayer streams</a
+                        >
+                    </li>
+                    <li>Create custom prayer streams</li>
+                </ul>
+            </RoadmapItem>
+
+            <RoadmapItem index={4} title="Update: Family Trees">
+                We will build the <a
+                    href="/how-it-works/family-trees"
+                    class="blueLink">family tree</a
+                > feature to allow you to group memorials and visualise relationships
+                on a family tree.
+            </RoadmapItem>
+
+            <RoadmapItem index={5} title="Update: Tributes">
+                This update will focus on bringing <a
+                    href="/how-it-works/tributes"
+                    class="blueLink">tributes</a
+                > to the memorial experience. With this feature, you will be able
+                to buy tributes and place them at any memorial you have access to.
+            </RoadmapItem>
+
+            <RoadmapItem index={6} title="Full Release">
+                This last item marks the last milestone before <Petapetual /> is
+                fully released with its promised feature set.
+
+                <ul class="list-disc ml-8 mt-4">
+                    <li>Publish memorials publicly</li>
+                    <li>Shrine mode</li>
+                    <li>IRL services & collaborations</li>
+                </ul>
+            </RoadmapItem>
+
+            <RoadmapItem final index="" />
+        </div>
+    </div>
 </DefaultPageLayout>
