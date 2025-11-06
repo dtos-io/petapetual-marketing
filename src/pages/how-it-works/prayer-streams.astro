@@ -49,9 +49,10 @@ import PrayerStreamWidget from "../../components/PrayerStreamWidget.astro";
 
     <p>
         When you subscribe a memorial to a prayer stream, the subject of your
-        memorial is included all of the future chants. These are logged and you
-        can all the chants your memorial has received from them in the <Petapetual
-        /> application.
+        memorial is included in all of the future chants. These are logged and
+        you can view all the chants your memorial has received from them in the <Petapetual
+        /> application. For example, a memorial subscribed to a Buddhist prayer stream
+        may have logs like this:
     </p>
 
     <div
@@ -68,13 +69,47 @@ import PrayerStreamWidget from "../../components/PrayerStreamWidget.astro";
     </div>
 
     <code
-        class="p-2 mx-auto text-sm w-full lg:max-w-6/12 bg-gray-900 text-stone-200 rounded"
+        class="p-2 mx-auto text-sm w-full lg:max-w-10/12 bg-gray-900 text-stone-200 rounded"
     >
         2025-10-31 &nbsp; 08:00 &nbsp; ॐ मणिपद्मे हूँ <br />
         2025-10-31 &nbsp; 07:00 &nbsp; ॐ मणिपद्मे हूँ <br />
         2025-10-31 &nbsp; 06:00 &nbsp; ॐ मणिपद्मे हूँ <br />
         2025-10-31 &nbsp; 05:00 &nbsp; ॐ मणिपद्मे हूँ <br />
         2025-10-31 &nbsp; 04:00 &nbsp; ॐ मणिपद्मे हूँ <br />
+        ........
+    </code>
+
+    <p>
+        ...whereas a memorial subscribed to one of the Christian prayer streams
+        may look like this:
+    </p>
+
+    <div
+        class="flex flex-col lg:flex-row gap-4 items-center justify-center my-4"
+    >
+        <div class="p-2 border-2 border-stone-800 rounded">Your Memorial</div>
+
+        <i class="fas fa-link"></i>
+
+        <PrayerStreamWidget
+            iconClass="fa-solid fa-cross"
+            bgClass="bg-emerald-600"
+        />
+    </div>
+
+    <code
+        class="p-2 mx-auto text-sm w-full lg:max-w-10/12 bg-gray-900 text-stone-200 rounded"
+    >
+        2025-10-31 &nbsp; 08:00 &nbsp; Eternal rest grant unto them, O Lord, ... <br
+        />
+        2025-10-31 &nbsp; 07:00 &nbsp; Eternal rest grant unto them, O Lord, ...
+        <br />
+        2025-10-31 &nbsp; 06:00 &nbsp; Eternal rest grant unto them, O Lord, ...
+        <br />
+        2025-10-31 &nbsp; 05:00 &nbsp; Eternal rest grant unto them, O Lord, ...
+        <br />
+        2025-10-31 &nbsp; 04:00 &nbsp; Eternal rest grant unto them, O Lord, ...
+        <br />
         ........
     </code>
 

@@ -1,0 +1,163 @@
+---
+import "family-chart/styles/family-chart.css";
+---
+
+<div class="flex flex-col gap-8 items-center">
+    <div class="absolute w-full h-[16em] lg:h-[24em] opacity-50 z-40"></div>
+    <div
+        id="family-tree-chart"
+        class="f3 h-[16em] lg:h-[24em]"
+        style="width:100%;margin:auto;"
+    >
+    </div>
+</div>
+
+<script>
+    import * as f3 from "family-chart";
+
+    import OlderWoman from "../assets/img/old-people/older-woman.jpg";
+    import OldMan from "../assets/img/old-people/old-man.jpg";
+    import OldWoman from "../assets/img/old-people/old-woman.jpg";
+    import YoungMan from "../assets/img/old-people/young-man.jpg";
+    import YoungWoman from "../assets/img/old-people/young-woman.jpg";
+    import Cat from "../assets/img/old-people/cat.jpg";
+    import type { Data } from "family-chart";
+
+    const data: Data = [
+        {
+            id: "0",
+            rels: {
+                parents: [],
+                spouses: [],
+                children: ["f2d578f8-4dfa-4f46-9f82-9b6d932a821c"],
+            },
+            data: {
+                firstName: "Ruth",
+                lastName: "McLady",
+                imageSrc: OlderWoman.src,
+                gender: "F",
+                bornAt: "1916-06-17",
+                diedAt: "1982-08-24",
+            },
+        },
+        {
+            id: "f2d578f8-4dfa-4f46-9f82-9b6d932a821c",
+            data: {
+                gender: "F",
+                firstName: "Jane",
+                lastName: "Smith",
+                imageSrc: OldWoman.src,
+                bornAt: "1957-10-02",
+                diedAt: "2022-02-05",
+                imagesrc: "",
+            },
+            rels: {
+                parents: ["0"],
+                children: [
+                    "926eb78c-df02-4ba7-96a8-30f66d76909e",
+                    "cece5ad8-c177-45bd-8ae5-c9005d2473c5",
+                    "the-cat",
+                ],
+                spouses: ["456b6453-a566-4e8f-890c-0ac2bfd1a8c7"],
+            },
+        },
+        {
+            id: "456b6453-a566-4e8f-890c-0ac2bfd1a8c7",
+            data: {
+                gender: "M",
+                firstName: "John",
+                lastName: "Doe",
+                imageSrc: OldMan.src,
+                bornAt: "1950-01-01",
+                diedAt: "2023-12-31",
+            },
+            rels: {
+                parents: [],
+                children: [
+                    "926eb78c-df02-4ba7-96a8-30f66d76909e",
+                    "cece5ad8-c177-45bd-8ae5-c9005d2473c5",
+                ],
+                spouses: ["f2d578f8-4dfa-4f46-9f82-9b6d932a821c"],
+            },
+        },
+        {
+            id: "926eb78c-df02-4ba7-96a8-30f66d76909e",
+            data: {
+                gender: "M",
+                firstName: "Samuel",
+                lastName: "Doe",
+                imageSrc: YoungMan.src,
+                bornAt: "1993-03-28",
+                diedAt: new Date().toISOString().split("T")[0],
+            },
+            rels: {
+                parents: [
+                    "f2d578f8-4dfa-4f46-9f82-9b6d932a821c",
+                    "456b6453-a566-4e8f-890c-0ac2bfd1a8c7",
+                ],
+                children: [],
+                spouses: [],
+            },
+        },
+        {
+            id: "cece5ad8-c177-45bd-8ae5-c9005d2473c5",
+            data: {
+                gender: "F",
+                firstName: "Samantha",
+                lastName: "Doe",
+                imageSrc: YoungWoman.src,
+                bornAt: "1990-09-22",
+                diedAt: "2024-05-05",
+            },
+            rels: {
+                parents: [
+                    "f2d578f8-4dfa-4f46-9f82-9b6d932a821c",
+                    "456b6453-a566-4e8f-890c-0ac2bfd1a8c7",
+                ],
+                children: [],
+                spouses: [],
+            },
+        },
+        {
+            id: "the-cat",
+            data: {
+                gender: "M",
+                firstName: "Gilgamesh",
+                lastName: "",
+                imageSrc: Cat.src,
+                bornAt: "2012-04-26",
+                diedAt: "2024-01-08",
+            },
+            rels: {
+                parents: ["f2d578f8-4dfa-4f46-9f82-9b6d932a821c"],
+                children: [],
+                spouses: [],
+            },
+        },
+    ];
+
+    // Create the chart
+    const chart = f3
+        .createChart("#family-tree-chart", data)
+        .setCardXSpacing(320)
+        .setSingleParentEmptyCard(false);
+
+    chart.setCardHtml().setCardInnerHtmlCreator(({ data: { data } }) => {
+        return `
+      <div class="p-4 rounded-lg border border-stone-300 bg-white shadow flex flex-row gap-2">
+        <img class="w-16 h-16 rounded-full" src="${data.imageSrc}" alt="image for ${data.firstName} ${data.lastName}" />
+        <div class="flex flex-col text-stone-800">
+            <div class="font-semibold text-lg">${data.firstName} ${data.lastName}</div>
+            <div class="italic text-stone-500">${data.bornAt} &mdash; ${data.diedAt}</div>
+        </div>
+      </div>
+      `;
+    });
+
+    chart.updateTree({ initial: true });
+
+    const links = document.querySelectorAll("path.link");
+    links.forEach((link) => {
+        link.setAttribute("stroke", "#2b2b2c");
+    });
+</script>

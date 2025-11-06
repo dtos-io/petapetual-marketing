@@ -1,0 +1,45 @@
+---
+import DefaultPageLayout from "../../layouts/DefaultPageLayout.astro";
+import Petapetual from "../../components/Petapetual.astro";
+import DemoFamilyTree from "../../components/DemoFamilyTree.astro";
+---
+
+<DefaultPageLayout
+    title="Family Trees"
+    description="Group and organize your memorials into family trees to show the relationships between your late loved ones. Build up the blueprint of your ancestry and continue building it with the next generation."
+>
+    <div class="flex flex-col gap-0">
+        <section>
+            <h1 class="text-2xl font-semibold">Family Trees</h1>
+
+            <p>
+                The <a href="/how-it-works/online-memorials" class="blueLink"
+                    >online memorials</a
+                >
+                on <Petapetual /> can be linked together to form family trees. This
+                allows you to group your memorials and display the relationships
+                between your late loved ones. Document and trace your legacy today,
+                to share it with the generations of tomorrow.
+            </p>
+        </section>
+
+        <section>
+            <DemoFamilyTree />
+        </section>
+
+        <section class="flex flex-col gap-8">
+            <p>
+                The family tree feature is opt-in and memorials do not <i
+                    >have</i
+                > to be added to a family tree.
+            </p>
+            <p>
+                Family trees require two or more memorials to work, so be sure
+                to <a href="/pricing" class="blueLink"
+                    >subscribe to a paid plan that allows for more than one
+                    memorial</a
+                > if you want to use the feature.
+            </p>
+        </section>
+    </div>
+</DefaultPageLayout>

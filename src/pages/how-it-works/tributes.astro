@@ -102,6 +102,32 @@ import TributeWidget from "../../components/TributeWidget.astro";
         > on one memorial, prayers from all of them will be applied.
     </p>
 
+    <p>
+        Whilst tributes from different cultures and religions exist, there are
+        also tributes that are culturally agnostic, such as flowers. There are
+        also tributes for pets.
+    </p>
+
+    <div class="flex flex-row items-center justify-center">
+        <div class="grid grid-cols-3 gap-2 p-2 bg-stone-200 rounded shadow">
+            <TributeWidget iconClass="fas fa-fan" bgClass="bg-stone-600" />
+            <TributeWidget
+                iconClass="fas fa-bone -rotate-45"
+                bgClass="bg-stone-600"
+            />
+            <TributeWidget
+                iconClass="fas fa-drumstick-bite"
+                bgClass="bg-stone-600"
+            />
+            <TributeWidget
+                iconClass="fas fa-fish -rotate-45"
+                bgClass="bg-stone-600"
+            />
+            <TributeWidget iconClass="fas fa-paw" bgClass="bg-stone-600" />
+            <TributeWidget iconClass="fas fa-sailboat" bgClass="bg-stone-600" />
+        </div>
+    </div>
+
     <h2 class="text-xl font-semibold">Types</h2>
 
     <p>
@@ -109,8 +135,7 @@ import TributeWidget from "../../components/TributeWidget.astro";
         tributes can be separated into two categories: <a
             class="italic blueLink"
             href="#cosmetic">cosmetic</a
-        > and <a class="italic blueLink" href="#active">active</a
-        >.
+        > and <a class="italic blueLink" href="#active">active</a>.
     </p>
 
     <h3 id="cosmetic" class="text-lg font-semibold">Cosmetic Tributes</h3>
@@ -126,8 +151,7 @@ import TributeWidget from "../../components/TributeWidget.astro";
         These tributes are both decorative <i>and</i> functional. They are all associated
         with a service we provide for you. For example, you can purchase an active
         tribute to say prayers or blessings for your memorial 24/7, as a supplementary
-        <a class="blueLink" href="/how-it-works/prayer-streams"
-            >prayer stream</a
+        <a class="blueLink" href="/how-it-works/prayer-streams">prayer stream</a
         >.
     </p>
 </DefaultPageLayout>

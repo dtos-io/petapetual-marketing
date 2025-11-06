@@ -1,0 +1,23 @@
+---
+const { title, index, done, doing, final } = Astro.props;
+---
+
+<div class="flex flex-row gap-4 relative">
+    <div
+        class={`w-12 h-12 font-bold flex shrink-0 items-center justify-center rounded-full ${done ? "bg-green-600 text-stone-200" : "bg-stone-300"} text-xl shadow ${doing && "ring-2 ring-blue-500"}`}
+    >
+        {
+            doing && (
+                <div class="text-blue-500 absolute -top-8 text-xl">
+                    <i class="fas fa-caret-down animate-bounce fa-2x" />
+                </div>
+            )
+        }
+        {done ? <i class="fas fa-check text-stone-200" /> : index}
+        {final && <i class="fas fa-star text-stone-100" />}
+    </div>
+    <div class="pt-2 flex flex-col">
+        <div class="text-xl font-semibold">{title}</div>
+        <div><slot /></div>
+    </div>
+</div>
