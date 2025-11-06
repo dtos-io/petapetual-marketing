@@ -8,6 +8,7 @@ import {
     UnlimitedTier,
 } from "../components/pricing_table";
 import ComparisonTable from "../components/pricing_table/comparison_table/ComparisonTable.astro";
+import Petapetual from "../components/Petapetual.astro";
 ---
 
 <MasterLayout
@@ -21,6 +22,15 @@ import ComparisonTable from "../components/pricing_table/comparison_table/Compar
             <section>
                 <h1 class="text-2xl font-semibold">Pricing</h1>
             </section>
+
+            <div
+                class="rounded-lg bg-amber-100 p-2 border border-amber-300 text-amber-600"
+            >
+                <Petapetual /> is still under active development, and so not all
+                of the features listed here may be fully finished and available.
+                Please consult the <a href="roadmap" class="blueLink">roadmap</a
+                > for more details.
+            </div>
 
             <section>
                 <p>
