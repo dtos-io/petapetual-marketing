@@ -41,17 +41,15 @@ import DefaultPageLayout from "../layouts/DefaultPageLayout.astro";
         const iframe = document.getElementById("form-iframe");
         const spinner = document.getElementById("spinner-container");
 
-        // Show the spinner initially (this is done by the CSS above)
+        if (iframe && spinner) {
+            // Show the spinner initially (this is done by the CSS above)
 
-        // Attach an event listener to the iframe's load event
-        iframe.addEventListener("load", function () {
-            // When the iframe content is loaded, hide the spinner
-            spinner.style.display = "none";
-        });
-
-        // Optional: If you want to handle the spinner when setting the src dynamically
-        // iframe.src = 'new-form-url.html';
-        // spinner.style.display = 'flex'; // Show spinner again before setting new src
+            // Attach an event listener to the iframe's load event
+            iframe.addEventListener("load", function () {
+                // When the iframe content is loaded, hide the spinner
+                spinner.style.display = "none";
+            });
+        }
     });
 </script>
 
