@@ -110,19 +110,17 @@ const specialShadowClass = `${isSpecial ? "shadow " + specialShadowColor : "shad
                 "#annual-billing-notice",
             );
 
-            subscriptionCycleToggle.subscribe(
-                (subCycle: "monthly" | "annually") => {
-                    if (subCycle === "monthly") {
-                        pricePerMonth!.innerHTML = monthlyPrice;
-                        annualBillingNotice?.classList.add("hidden");
-                    }
+            subscriptionCycleToggle.subscribe((subCycle: string) => {
+                if (subCycle === "monthly") {
+                    pricePerMonth!.innerHTML = monthlyPrice;
+                    annualBillingNotice?.classList.add("hidden");
+                }
 
-                    if (subCycle === "annually") {
-                        pricePerMonth!.innerHTML = annualMonthlyPrice;
-                        annualBillingNotice?.classList.remove("hidden");
-                    }
-                },
-            );
+                if (subCycle === "annually") {
+                    pricePerMonth!.innerHTML = annualMonthlyPrice;
+                    annualBillingNotice?.classList.remove("hidden");
+                }
+            });
         }
     }
 
