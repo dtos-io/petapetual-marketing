@@ -30,7 +30,7 @@ const specialShadowClass = `${isSpecial ? "shadow " + specialShadowColor : "shad
 ---
 
 <pricing-table
-    data-test={JSON.stringify({ monthlyPrice, annualMonthlyPrice })}
+    data-pricing={JSON.stringify({ monthlyPrice, annualMonthlyPrice })}
     class={`p-8 rounded-lg flex flex-col ${specialShadowClass} border-stone-200 border gap-4 bg-stone-50`}
 >
     <div class="flex flex-col gap-4">
@@ -52,14 +52,14 @@ const specialShadowClass = `${isSpecial ? "shadow " + specialShadowColor : "shad
 
         <div class="flex flex-col gap-2">
             <div>
-                <span
-                    class={`text-3xl font-bold ${textColorClass}`}
-                    id="price-per-month">{monthlyPrice}</span
-                > / month (SGD)
+                <span class={`text-3xl font-bold ${textColorClass}`}>
+                    &dollar;
+                    <span id="price-per-month"> {monthlyPrice}</span>
+                </span> / month
             </div>
 
             <div id="annual-billing-notice" class="text-sm italic">
-                Billed at <b>{annualYearlyPrice} SGD</b> yearly. <span
+                Billed at <b>${annualYearlyPrice}</b> yearly. <span
                     class="text-red-600">({annualDiscount}% off)</span
                 >
             </div>
@@ -103,7 +103,7 @@ const specialShadowClass = `${isSpecial ? "shadow " + specialShadowColor : "shad
         constructor() {
             super();
             const { monthlyPrice, annualMonthlyPrice } = JSON.parse(
-                this.dataset.test ?? "{}",
+                this.dataset.pricing ?? "{}",
             );
             const pricePerMonth = this.querySelector("#price-per-month");
             const annualBillingNotice = this.querySelector(
