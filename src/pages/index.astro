@@ -12,9 +12,9 @@ import MemorialGuestbookMockup from "../assets/img/mockup-memorial-guestbook.png
     description="Online memorials to pay respects to your late loved ones. 24/7 virtualized prayer services and blessings available."
 >
     <div class="container mx-auto">
-        <!-- Hero Section -->
+        <!-- Hero Section - Full screen on mobile -->
         <section
-            class="flex flex-col gap-6 p-4 lg:p-16 lg:grid lg:grid-cols-2 lg:gap-12 items-center"
+            class="min-h-dvh lg:min-h-0 flex flex-col justify-center relative p-6 lg:p-16 lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center"
         >
             <div class="flex flex-col gap-4">
                 <h1 class="text-3xl lg:text-4xl font-bold">
@@ -31,7 +31,7 @@ import MemorialGuestbookMockup from "../assets/img/mockup-memorial-guestbook.png
                         href="https://app.petapetual.com"
                         class="p-3 text-center bg-stone-800 text-stone-100 rounded font-semibold"
                     >
-                        Start Your Free Memorial <i
+                        Create Your Free Memorial <i
                             class="fas fa-arrow-right ml-1"></i>
                     </a>
                     <a
@@ -44,27 +44,24 @@ import MemorialGuestbookMockup from "../assets/img/mockup-memorial-guestbook.png
             </div>
 
             <div class="lg:flex hidden">
-                <!-- <Image
-                    class="w-full h-auto object-contain rounded-lg shadow-lg"
-                    inferSize
-                    src={MemorialGuestbookMockup}
-                    alt="Petapetual memorial guestbook interface"
-                /> -->
+                <!-- Desktop mockup placeholder -->
+            </div>
+
+            <!-- Scroll indicator (mobile only) -->
+            <div
+                class="absolute bottom-8 left-1/2 -translate-x-1/2 lg:hidden animate-bounce"
+            >
+                <a href="#benefits" class="text-stone-400">
+                    <i class="fas fa-chevron-down text-2xl"></i>
+                </a>
             </div>
         </section>
 
-        <!-- Mobile mockup (shown only on mobile) -->
-        <div class="lg:hidden px-4 mb-8">
-            <!-- <Image
-                class="w-full h-auto object-contain rounded-lg shadow"
-                inferSize
-                src={MemorialGuestbookMockup}
-                alt="Petapetual memorial guestbook interface"
-            /> -->
-        </div>
-
         <!-- Key Benefits Section -->
-        <section class="bg-stone-200 py-12 px-4">
+        <section
+            id="benefits"
+            class="bg-stone-200 py-12 px-4 rounded-none lg:rounded-lg"
+        >
             <div class="max-w-5xl mx-auto">
                 <h2 class="text-2xl font-bold text-center mb-8">
                     Why Petapetual?
@@ -91,7 +88,7 @@ import MemorialGuestbookMockup from "../assets/img/mockup-memorial-guestbook.png
                             <i class="fas fa-users text-green-600"></i>
                         </div>
                         <h3 class="font-semibold text-lg mb-2">
-                            Share with Family
+                            Share With Friends & Family
                         </h3>
                         <p class="text-stone-600">
                             Invite loved ones to contribute memories and
@@ -168,7 +165,9 @@ import MemorialGuestbookMockup from "../assets/img/mockup-memorial-guestbook.png
         </section>
 
         <!-- Final CTA Section -->
-        <section class="bg-stone-800 text-stone-100 py-12 px-4">
+        <section
+            class="bg-stone-800 text-stone-100 py-12 px-4 rounded-none lg:rounded-lg lg:mb-8"
+        >
             <div class="max-w-2xl mx-auto text-center">
                 <h2 class="text-2xl font-bold mb-4">
                     Start Honoring Your Loved One Today
