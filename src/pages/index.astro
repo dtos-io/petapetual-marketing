@@ -1,6 +1,8 @@
 ---
 import MasterLayout from "../layouts/MasterLayout.astro";
 import { Image } from "astro:assets";
+import Step from "../components/Step.astro";
+import Petapetual from "../components/Petapetual.astro";
 
 import MemorialGuestbookMockup from "../assets/img/mockup-memorial-guestbook.png";
 ---
@@ -10,85 +12,185 @@ import MemorialGuestbookMockup from "../assets/img/mockup-memorial-guestbook.png
     description="Online memorials to pay respects to your late loved ones. 24/7 virtualized prayer services and blessings available."
 >
     <div class="container mx-auto">
-        <section class="flex flex-col gap-4 p-4 lg:grid lg:grid-cols-3 lg:m-16">
-            <div class="col-span-2 flex flex-col gap-2">
-                <h1 class="text-3xl font-bold col-start-1">
-                    Petapetual: Digital memorials that bring tradition into the
-                    modern world
+        <!-- Hero Section -->
+        <section
+            class="flex flex-col gap-6 p-4 lg:p-16 lg:grid lg:grid-cols-2 lg:gap-12 items-center"
+        >
+            <div class="flex flex-col gap-4">
+                <h1 class="text-3xl lg:text-4xl font-bold">
+                    Honor loved ones who have passed, from anywhere in the world
                 </h1>
 
-                <h2 class="text-xl col-start-1">
-                    Petapetual is an <a
-                        href="/how-it-works/online-memorials"
-                        class="blueLink">online memorial service</a
-                    > that lets you honour and pay respects to your late loved ones
-                    anytime, anywhere.
-                </h2>
+                <p class="text-xl text-stone-600">
+                    Create beautiful online memorials where family and friends
+                    can gather, share memories, and pay respects together.
+                </p>
 
-                <div class="h-10/12 lg:hidden flex">
-                    <Image
-                        class="h-full w-full object-contain"
-                        inferSize
-                        src={MemorialGuestbookMockup}
-                        alt="petapetual guestbook mockup"
-                    />
-                </div>
-
-                <div class="flex flex-col gap-4 my-4">
-                    <p class="text-lg">
-                        <i class="fas fa-circle-check text-green-600"></i>
-                        Works on mobile, tablet, and desktop with no app installation
-                        required.
-                    </p>
-                    <p class="text-lg">
-                        <i class="fas fa-circle-check text-green-600"></i>
-                        Invite your friends and family to view your memorials and
-                        leave messages on the guestbooks.
-                    </p>
-                    <p class="text-lg">
-                        <i class="fas fa-circle-check text-green-600"></i>
-                        Use our virtualized <a
-                            href="/how-it-works/prayer-streams"
-                            class="blueLink">prayer streams</a
-                        > and <a href="/how-it-works/tributes" class="blueLink"
-                            >memorial tribute</a
-                        > services to decorate and honour your memorials, even when
-                        you're away.
-                    </p>
-                    <p class="text-lg">
-                        <i class="fas fa-circle-check text-green-600"></i>
-                        Link your memorials and build family trees.
-                    </p>
-                </div>
-
-                <div class="gap-2 flex flex-col col-start-1">
-                    <a
-                        href="/how-it-works"
-                        class="p-2 border rounded text-center"
-                        ><i class="fas fa-lightbulb"></i> How it works
-                    </a>
-
-                    <a
-                        href="/roadmap"
-                        class="p-2 bg-yellow-400 rounded text-center"
-                        ><i class="fas fa-road"></i> Roadmap
-                    </a>
-
+                <div class="flex flex-col sm:flex-row gap-3 mt-4">
                     <a
                         href="https://app.petapetual.com"
-                        class="p-2 text-center bg-stone-800 text-stone-200 rounded"
-                        >Go to app <i class="fas fa-arrow-right"></i></a
+                        class="p-3 text-center bg-stone-800 text-stone-100 rounded font-semibold"
                     >
+                        Start Your Free Memorial <i
+                            class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                    <a
+                        href="#how-it-works"
+                        class="p-3 text-center border border-stone-300 rounded"
+                    >
+                        See How It Works
+                    </a>
                 </div>
             </div>
 
-            <div class="h-10/12 hidden lg:flex">
-                <Image
-                    class="h-full w-full object-contain"
+            <div class="lg:flex hidden">
+                <!-- <Image
+                    class="w-full h-auto object-contain rounded-lg shadow-lg"
                     inferSize
                     src={MemorialGuestbookMockup}
-                    alt="petapetual guestbook mockup"
-                />
+                    alt="Petapetual memorial guestbook interface"
+                /> -->
+            </div>
+        </section>
+
+        <!-- Mobile mockup (shown only on mobile) -->
+        <div class="lg:hidden px-4 mb-8">
+            <!-- <Image
+                class="w-full h-auto object-contain rounded-lg shadow"
+                inferSize
+                src={MemorialGuestbookMockup}
+                alt="Petapetual memorial guestbook interface"
+            /> -->
+        </div>
+
+        <!-- Key Benefits Section -->
+        <section class="bg-stone-200 py-12 px-4">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-2xl font-bold text-center mb-8">
+                    Why Petapetual?
+                </h2>
+
+                <div
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+                >
+                    <div class="bg-stone-50 p-6 rounded-lg">
+                        <div class="text-3xl mb-3">
+                            <i class="fas fa-globe text-blue-600"></i>
+                        </div>
+                        <h3 class="font-semibold text-lg mb-2">
+                            Access Anytime
+                        </h3>
+                        <p class="text-stone-600">
+                            Visit your memorial on any device, 24/7. No app
+                            installation required.
+                        </p>
+                    </div>
+
+                    <div class="bg-stone-50 p-6 rounded-lg">
+                        <div class="text-3xl mb-3">
+                            <i class="fas fa-users text-green-600"></i>
+                        </div>
+                        <h3 class="font-semibold text-lg mb-2">
+                            Share with Family
+                        </h3>
+                        <p class="text-stone-600">
+                            Invite loved ones to contribute memories and
+                            heartfelt messages.
+                        </p>
+                    </div>
+
+                    <div class="bg-stone-50 p-6 rounded-lg">
+                        <div class="text-3xl mb-3">
+                            <i class="fas fa-hands-praying text-purple-600"></i>
+                        </div>
+                        <h3 class="font-semibold text-lg mb-2">
+                            24/7 Prayer Streams
+                        </h3>
+                        <p class="text-stone-600">
+                            Continuous prayers in your chosen tradition run
+                            around the clock.
+                        </p>
+                    </div>
+
+                    <div class="bg-stone-50 p-6 rounded-lg">
+                        <div class="text-3xl mb-3">
+                            <i class="fas fa-code-fork text-amber-600"></i>
+                        </div>
+                        <h3 class="font-semibold text-lg mb-2">
+                            Build Family Trees
+                        </h3>
+                        <p class="text-stone-600">
+                            Connect memorials to preserve and visualize your
+                            family legacy.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="py-12 px-4">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-2xl font-bold text-center mb-8">
+                    How It Works
+                </h2>
+
+                <div class="flex flex-col gap-8">
+                    <Step index="1" title="Create a memorial">
+                        Add a photo, dates, and a short epitaph for your loved
+                        one. Set a cultural preference for tailored reminders
+                        and suggestions.
+                    </Step>
+
+                    <Step index="2" title="Invite family and friends">
+                        Share your memorial with others so they can view and pay
+                        respects together.
+                    </Step>
+
+                    <Step index="3" title="Gather memories together">
+                        Everyone can write messages in the guestbook and share
+                        precious memories.
+                    </Step>
+
+                    <Step index="4" title="Add prayers and tributes">
+                        Subscribe to 24/7 prayer streams and place meaningful
+                        tributes at your memorial.
+                    </Step>
+                </div>
+
+                <div class="text-center mt-8">
+                    <a href="/how-it-works" class="text-blue-600 underline">
+                        Learn more about our features <i
+                            class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section class="bg-stone-800 text-stone-100 py-12 px-4">
+            <div class="max-w-2xl mx-auto text-center">
+                <h2 class="text-2xl font-bold mb-4">
+                    Start Honoring Your Loved One Today
+                </h2>
+                <p class="text-stone-300 mb-6">
+                    Create your first memorial for free. No credit card
+                    required.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                    <a
+                        href="https://app.petapetual.com"
+                        class="p-3 px-6 bg-stone-100 text-stone-800 rounded font-semibold"
+                    >
+                        Get Started Free <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                    <a
+                        href="/pricing"
+                        class="p-3 px-6 border border-stone-400 rounded"
+                    >
+                        View Pricing
+                    </a>
+                </div>
             </div>
         </section>
     </div>
