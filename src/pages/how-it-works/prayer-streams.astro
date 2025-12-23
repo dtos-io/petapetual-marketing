@@ -2,130 +2,204 @@
 import DefaultPageLayout from "../../layouts/DefaultPageLayout.astro";
 import Petapetual from "../../components/Petapetual.astro";
 import PrayerStreamWidget from "../../components/PrayerStreamWidget.astro";
+// import Incense from "../../components/Incense.astro";
 ---
 
 <DefaultPageLayout
     title="Prayer Streams"
     description="24/7 prayers for your memorials for any culture or religion. Pay respects to your loved ones anytime, anywhere."
 >
-    <h1 class="text-2xl font-semibold">Prayer Streams</h1>
+    <div class="flex flex-col gap-8">
+        <section>
+            <h1 class="text-2xl font-semibold">Prayer Streams</h1>
 
-    <p>
-        Inspired by the electric prayer chanting boxes used in Asia, hymns,
-        religious songs, spinning Tibetan prayer wheels, and the practice of
-        places of worship around the world to play pre-recorded songs and
-        mantras, prayer streams are <Petapetual />'s way to virtualize and
-        automate prayers so that they can be used to serve your memorials.
-    </p>
+            <p class="text-lg text-stone-600 mt-2">
+                Continuous prayers for your loved one, around the clock.
+            </p>
+        </section>
 
-    <p>
-        <Petapetual /> has servers that are set up to replicate such chanting continuously
-        and indefinitely in what are known as <i>prayer streams</i>.
-    </p>
+        <!-- Visual: Animated incense + counter -->
+        <!-- <section class="flex flex-col items-center gap-4 py-8 bg-stone-200 rounded-lg">
+            <div class="flex items-center gap-6">
+                <Incense />
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-stone-800">1,247</div>
+                    <div class="text-stone-600">prayers delivered</div>
+                </div>
+            </div>
+            <p class="text-sm text-stone-500 italic">Example memorial counter</p>
+        </section> -->
 
-    <div class="flex flex-col gap-4 items-center my-8">
-        <div
-            class="flex flex-col lg:flex-row gap-8 items-center justify-center"
-        >
-            <PrayerStreamWidget
-                iconClass="fa-solid fa-om"
-                bgClass="bg-indigo-600"
-            />
-            <PrayerStreamWidget
-                iconClass="fa-solid fa-cross"
-                bgClass="bg-emerald-600"
-            />
-            <PrayerStreamWidget
-                iconClass="fa-solid fa-yin-yang"
-                bgClass="bg-amber-600"
-            />
-        </div>
+        <!-- What are Prayer Streams -->
+        <section class="flex flex-col gap-4">
+            <!-- <h2 class="text-xl font-semibold">What are Prayer Streams?</h2> -->
 
-        <i class="text-sm text-center"
-            >For illustrative purposes only. Does not represent the entirety of <Petapetual
-            />'s prayer stream catalogue or services.</i
-        >
+            <p>
+                Prayer Streams are our way of ensuring your memorial receives
+                continuous blessings, even when you can't be there. Inspired by
+                prayer traditions from around the world—chanting temples,
+                spinning prayer wheels, and places of worship that maintain
+                constant vigils—we bring this devotion to your online memorial.
+            </p>
+
+            <p>
+                When you subscribe your memorial to a prayer stream, your loved
+                one is included in every prayer session, 24 hours a day, 7 days
+                a week.
+            </p>
+        </section>
+
+        <!-- Pricing note -->
+        <section class="bg-blue-50 border border-blue-200 p-4 rounded-lg">
+            <h3 class="font-semibold mb-2">
+                <i class="fas fa-info-circle text-blue-600 mr-1"></i>
+                Included with Paid Plans
+            </h3>
+            <p class="text-stone-700">
+                Prayer Streams are included with all paid plans at no extra
+                cost. Subscribe your memorials when you create them in the <Petapetual
+                /> app.
+            </p>
+        </section>
+
+        <!-- Available Traditions -->
+        <section class="flex flex-col gap-4">
+            <h2 class="text-xl font-semibold">Available Traditions</h2>
+
+            <p>Choose from prayers across different cultures and religions:</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-4">
+                <div
+                    class="bg-indigo-50 border border-indigo-200 p-4 rounded-lg text-center"
+                >
+                    <PrayerStreamWidget
+                        iconClass="fa-solid fa-om"
+                        bgClass="bg-indigo-600"
+                    />
+                    <h3 class="font-semibold mt-3">Buddhist</h3>
+                    <p class="text-sm text-stone-600">Mantras and sutras</p>
+                </div>
+
+                <div
+                    class="bg-emerald-50 border border-emerald-200 p-4 rounded-lg text-center"
+                >
+                    <PrayerStreamWidget
+                        iconClass="fa-solid fa-cross"
+                        bgClass="bg-emerald-600"
+                    />
+                    <h3 class="font-semibold mt-3">Christian</h3>
+                    <p class="text-sm text-stone-600">Prayers and hymns</p>
+                </div>
+
+                <div
+                    class="bg-amber-50 border border-amber-200 p-4 rounded-lg text-center"
+                >
+                    <PrayerStreamWidget
+                        iconClass="fa-solid fa-yin-yang"
+                        bgClass="bg-amber-600"
+                    />
+                    <h3 class="font-semibold mt-3">Taoist</h3>
+                    <p class="text-sm text-stone-600">Blessings and chants</p>
+                </div>
+            </div>
+
+            <p class="text-stone-600 italic text-center">
+                More traditions available in the app. New traditions added
+                regularly.
+            </p>
+        </section>
+
+        <!-- How it works -->
+        <section class="flex flex-col gap-4">
+            <h2 class="text-xl font-semibold">How It Works</h2>
+
+            <div class="bg-stone-200 p-4 rounded-lg">
+                <ol class="list-decimal list-inside space-y-2 text-stone-700">
+                    <li>
+                        <b>Choose a tradition</b> that resonates with you or your
+                        loved one
+                    </li>
+                    <li><b>Subscribe your memorial</b> to the prayer stream</li>
+                    <li>
+                        <b>Your loved one receives prayers</b> continuously, around
+                        the clock
+                    </li>
+                    <li>
+                        <b>View the prayer log</b> to see recent prayers delivered
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Prayer Log Preview -->
+        <section class="flex flex-col gap-4">
+            <!-- <h2 class="text-xl font-semibold">Prayer Log</h2> -->
+
+            <p>
+                Every prayer delivered to your memorial is logged. You can view
+                recent prayers in the <Petapetual /> app:
+            </p>
+
+            <div
+                class="bg-stone-50 border border-stone-300 rounded-lg overflow-hidden"
+            >
+                <div
+                    class="bg-stone-200 px-4 py-2 border-b border-stone-300 flex items-center gap-2"
+                >
+                    <i class="fas fa-list text-stone-500"></i>
+                    <span class="font-semibold text-sm">Recent Prayers</span>
+                </div>
+                <div class="divide-y divide-stone-200">
+                    <div class="px-4 py-3 flex items-center gap-3">
+                        <i class="fa-solid fa-om text-indigo-600"></i>
+                        <div>
+                            <div class="text-sm text-stone-500">
+                                Today, 8:00 AM
+                            </div>
+                            <div>ॐ मणिपद्मे हूँ</div>
+                        </div>
+                    </div>
+                    <div class="px-4 py-3 flex items-center gap-3">
+                        <i class="fa-solid fa-om text-indigo-600"></i>
+                        <div>
+                            <div class="text-sm text-stone-500">
+                                Today, 7:00 AM
+                            </div>
+                            <div>ॐ मणिपद्मे हूँ</div>
+                        </div>
+                    </div>
+                    <div class="px-4 py-3 flex items-center gap-3">
+                        <i class="fa-solid fa-om text-indigo-600"></i>
+                        <div>
+                            <div class="text-sm text-stone-500">
+                                Today, 6:00 AM
+                            </div>
+                            <div>ॐ मणिपद्मे हूँ</div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="bg-stone-100 px-4 py-2 text-center text-sm text-stone-500"
+                >
+                    Prayer logs kept for 7 days
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="bg-stone-800 text-stone-100 p-8 rounded-lg text-center">
+            <h2 class="text-xl font-bold mb-3">
+                Start honoring your loved one
+            </h2>
+            <p class="text-stone-300 mb-4">
+                Create your first memorial for free.
+            </p>
+            <a
+                href="https://app.petapetual.com"
+                class="inline-block p-3 px-6 bg-stone-100 text-stone-800 rounded font-semibold"
+            >
+                Get Started <i class="fas fa-arrow-right ml-1"></i>
+            </a>
+        </section>
     </div>
-
-    <p>
-        When you subscribe a memorial to a prayer stream, the subject of your
-        memorial is included in all of the future chants. These are logged and
-        you can view all the chants your memorial has received from them in the <Petapetual
-        /> application. For example, a memorial subscribed to a Buddhist prayer stream
-        may have logs like this:
-    </p>
-
-    <div
-        class="flex flex-col lg:flex-row gap-4 items-center justify-center my-4"
-    >
-        <div class="p-2 border-2 border-stone-800 rounded">Your Memorial</div>
-
-        <i class="fas fa-link"></i>
-
-        <PrayerStreamWidget
-            iconClass="fa-solid fa-om"
-            bgClass="bg-indigo-600"
-        />
-    </div>
-
-    <code
-        class="p-2 mx-auto text-sm w-full lg:max-w-10/12 bg-gray-900 text-stone-200 rounded"
-    >
-        2025-10-31 &nbsp; 08:00 &nbsp; ॐ मणिपद्मे हूँ <br />
-        2025-10-31 &nbsp; 07:00 &nbsp; ॐ मणिपद्मे हूँ <br />
-        2025-10-31 &nbsp; 06:00 &nbsp; ॐ मणिपद्मे हूँ <br />
-        2025-10-31 &nbsp; 05:00 &nbsp; ॐ मणिपद्मे हूँ <br />
-        2025-10-31 &nbsp; 04:00 &nbsp; ॐ मणिपद्मे हूँ <br />
-        ........
-    </code>
-
-    <p>
-        ...whereas a memorial subscribed to one of the Christian prayer streams
-        may look like this:
-    </p>
-
-    <div
-        class="flex flex-col lg:flex-row gap-4 items-center justify-center my-4"
-    >
-        <div class="p-2 border-2 border-stone-800 rounded">Your Memorial</div>
-
-        <i class="fas fa-link"></i>
-
-        <PrayerStreamWidget
-            iconClass="fa-solid fa-cross"
-            bgClass="bg-emerald-600"
-        />
-    </div>
-
-    <code
-        class="p-2 mx-auto text-sm w-full lg:max-w-10/12 bg-gray-900 text-stone-200 rounded"
-    >
-        2025-10-31 &nbsp; 08:00 &nbsp; Eternal rest grant unto them, O Lord, ... <br
-        />
-        2025-10-31 &nbsp; 07:00 &nbsp; Eternal rest grant unto them, O Lord, ...
-        <br />
-        2025-10-31 &nbsp; 06:00 &nbsp; Eternal rest grant unto them, O Lord, ...
-        <br />
-        2025-10-31 &nbsp; 05:00 &nbsp; Eternal rest grant unto them, O Lord, ...
-        <br />
-        2025-10-31 &nbsp; 04:00 &nbsp; Eternal rest grant unto them, O Lord, ...
-        <br />
-        ........
-    </code>
-
-    <p>We keep the logs of prayer stream chants for up to seven days.</p>
-
-    <p>
-        Prayer streams are our way to try and allow for memorials to still be
-        prayed to when everyone is too busy, or not physically present. It
-        should be noted that whilst convenient, <i
-            >nothing compares to showing up in person and reciting the prayers
-            yourself</i
-        >.
-    </p>
-
-    <p>
-        You can set up a prayer stream on paid plans when creating a memorial on <Petapetual
-        />.
-    </p>
 </DefaultPageLayout>
