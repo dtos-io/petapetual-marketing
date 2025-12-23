@@ -1,219 +1,275 @@
 ---
 import DefaultPageLayout from "../../layouts/DefaultPageLayout.astro";
-import LinkToTop from "../../components/LinkToTop.astro";
 import Petapetual from "../../components/Petapetual.astro";
 import Step from "../../components/Step.astro";
 import PrayerStreamWidget from "../../components/PrayerStreamWidget.astro";
 import TributeWidget from "../../components/TributeWidget.astro";
+import DemoFamilyTree from "../../components/DemoFamilyTree.astro";
 ---
 
 <DefaultPageLayout
     id="top"
-    title="How it works"
+    title="Features"
     description="On-demand virtual blessings and prayers for your memorials. Pay respects to your loved ones anytime, anywhere."
 >
-    <div class="flex flex-col gap-8">
+    <div class="flex flex-col gap-12">
+        <!-- Getting Started -->
         <section>
-            <h1 class="text-2xl font-semibold">How it works</h1>
+            <h1 class="text-2xl font-semibold mb-4">How It Works</h1>
 
-            <p>
-                <Petapetual /> is more than just a simple page for your late loved
-                ones. We offer many value-added services to help you honour your
-                dearly departed, and it's very straightforward to get started:
+            <p class="mb-6">
+                Getting started with <Petapetual /> is simple:
             </p>
 
-            <div class="flex flex-col gap-8 my-8">
+            <div class="flex flex-col gap-6">
                 <Step index="1" title="Create a memorial">
-                    Provide a name, date of birth/passing, upload an image, and
-                    write a short epitaph. <br />
-                    <br />
-
-                    Optionally, set a cultural preference for your memorial to
-                    unlock more appropriate date reminders and suggestions.
+                    Add a photo, name, birth/passing dates, and a short epitaph
+                    for your loved one.
                 </Step>
 
-                <Step index="2" title="Invite others">
-                    Invite friends or family members who are on <Petapetual /> to
-                    view and pay respects to your memorial.
+                <Step index="2" title="Invite family and friends">
+                    Share your memorial with others so they can view and pay
+                    respects. Make the memorial public so everyone can see it.
                 </Step>
 
-                <Step index="3" title="Share the love">
-                    Write condolences and share precious memories in the
-                    memorial guestbook.
+                <Step index="3" title="Gather memories">
+                    <ul class="flex flex-col list-disc mx-8 gap-2">
+                        <li>
+                            Add your loved one's special dates and milestones to
+                            your memorial's timeline.
+                        </li>
+                        <li>
+                            Upload special photos into your memorial's gallery.
+                        </li>
+                        <li>
+                            Write loving messages in the guestbook and share
+                            precious memories together.
+                        </li>
+                    </ul>
                 </Step>
 
-                <Step index="4" title="Use our value-added services">
-                    Place tributes at your memorial, get reminders on
-                    special/significant dates, suggestions for specially
-                    tailored articles, and much more.
+                <Step index="4" title="Add prayers and tributes">
+                    Subscribe to prayer streams and place meaningful tributes at
+                    your memorial.
                 </Step>
             </div>
-
-            <p>Read more about our offerings and services below:</p>
-
-            <ul class="m-8">
-                <li class="list-item">
-                    <i class="fas fa-dove"></i>
-                    <a href="#memorials" class="blueLink">Memorials</a>
-                </li>
-
-                <li class="list-item">
-                    <i class="fas fa-hands-praying"></i>
-                    <a href="#prayer-streams" class="blueLink">Prayer Streams</a
-                    >
-                </li>
-
-                <li class="list-item">
-                    <i class="fas fa-gift"></i>
-                    <a href="#tributes" class="blueLink">Tributes</a>
-                </li>
-
-                <li class="list-item">
-                    <i class="fa-solid fa-code-fork"></i>
-                    <a href="#family-trees" class="blueLink">Family Trees</a>
-                </li>
-            </ul>
         </section>
 
-        <section class="flex flex-col gap-2">
-            <h2 class="text-xl font-semibold" id="memorials">
-                Memorials <LinkToTop />
+        <!-- Memorials Section -->
+        <section class="flex flex-col gap-4" id="memorials">
+            <h2 class="text-xl font-semibold">
+                <i class="fas fa-dove mr-2"></i>Memorials
             </h2>
 
             <p>
-                A memorial is a single page you create for your late loved one.
-                It is the bread and butter of the <Petapetual /> experience and most
-                of the value of our platform unlocks after you have created one.
-                You can create multiple memorials depending on the plan you have
-                purchased.
+                A memorial is a dedicated page for your late loved one. It's the
+                heart of the <Petapetual /> experience—upload a photo, add their name,
+                dates, and a short epitaph to create a lasting tribute.
             </p>
 
-            <p>
-                You will be able to upload a photo and populate details such as
-                the deceased's name, date of birth, date of passing, and even a
-                short epitaph to display.
-            </p>
+            <div class="bg-stone-200 p-4 rounded-lg">
+                <h3 class="font-semibold mb-2">What you can do:</h3>
+                <ul class="list-disc list-inside space-y-1 text-stone-700">
+                    <li>
+                        Provide a name, date of birth, date of passing, and
+                        epitaph.
+                    </li>
+                    <li>
+                        Upload a display photo of your loved one, and store even
+                        more special photos in the memorial gallery.
+                    </li>
+                    <li>Record special dates in the memorial timeline.</li>
+                    <li>
+                        Invite others to share their memories and wishes in the
+                        guestbook.
+                    </li>
+                    <li>Subscribe the memorial to 24/7 prayer streams.</li>
+                    <li>Place loving digital tributes.</li>
+                </ul>
+            </div>
 
-            <p>
-                You can also invite other users of <Petapetual /> to your memorial
-                to view it and leave a loving message in the guestbook.
-            </p>
-
-            <p class="p-4 bg-blue-200 rounded border border-blue-400">
-                If you are interested, you can read our <a
-                    href="/how-it-works/online-memorials"
-                    class="blueLink">Online Memorials</a
-                > page.
-            </p>
-
-            <p>
-                All memorials created under a paid plan can subscribe to a <a
-                    class="blueLink"
-                    href="#prayer-streams">prayer stream</a
-                > in order to receive virtual prayers 24/7.
-            </p>
-        </section>
-
-        <section class="flex flex-col gap-2">
-            <h2 class="text-xl font-semibold" id="prayer-streams">
-                Prayer Streams <LinkToTop />
-            </h2>
-
-            <div class="flex flex-row items-center">
-                <div class="grow"></div>
+            <div class="bg-stone-200 p-4 rounded-lg">
+                <h3 class="font-semibold mb-2">Privacy options:</h3>
+                <ul class="list-disc list-inside space-y-1 text-stone-700">
+                    <li>
+                        <b>Invite-only:</b> Share your memorials only with specific
+                        people that you invite
+                    </li>
+                    <li><b>Public:</b> Anyone with the link can view it</li>
+                </ul>
             </div>
 
             <p>
-                Memorials can be subscribed to <i>prayer streams</i>, which are
-                powerful automated virtual prayer sessions that happen 24/7.
-                When subscribed, you are guaranteed that your memorial will
-                receive the prayers and blessings of your choice constantly
-                every day. You may choose from a variety of prayers across
-                different cultures and religions, or simply choose not to
-                subscribe to a prayer stream.
-            </p>
-            <p class="p-4 bg-blue-200 rounded border border-blue-400">
-                If you are interested as to how we guarantee your memorial
-                receives prayers, you can read up on our approach and
-                implementation on the <a
-                    href="/how-it-works/prayer-streams"
-                    class="blueLink">Prayer Streams</a
-                > page.
-            </p>
-
-            <p>
-                You can subscribe your memorials to prayer streams in the <Petapetual
-                /> service when creating them on any paid plan.
+                Invited guests can leave messages in the <b>guestbook</b>,
+                allowing everyone to share condolences and cherished memories in
+                one place.
             </p>
         </section>
 
-        <section class="flex flex-col gap-2">
-            <h2 class="text-xl font-semibold" id="tributes">
-                Tributes <LinkToTop />
+        <!-- Prayer Streams Section -->
+        <section class="flex flex-col gap-4" id="prayer-streams">
+            <h2 class="text-xl font-semibold">
+                <i class="fas fa-hands-praying mr-2"></i>Prayer Streams
             </h2>
 
             <p>
-                <i>Tributes</i> are additional adornments and blessings you may add
-                to your memorials to pay your respects. They have different purposes
-                and effects, ranging from being purely decorative to having an actual
-                service or action tied to them when they are used.
+                Prayer Streams provide continuous prayers for your memorial, 24
+                hours a day, 7 days a week. Choose from traditions across
+                different cultures and religions.
             </p>
 
-            <p>
-                Other users you invite to your memorials will be able to place
-                tributes as well.
-            </p>
-
-            <p
-                class="p-4
-                bg-blue-200
-                rounded
-                border
-                border-blue-400"
+            <div
+                class="flex flex-col lg:flex-row gap-4 items-center justify-center my-4"
             >
-                If you are interested, you can read up on our approach and
-                implementation on the <a
-                    href="/how-it-works/tributes"
-                    class="blueLink">Memorial Tributes</a
-                > page.
-            </p>
+                <PrayerStreamWidget
+                    iconClass="fa-solid fa-om"
+                    bgClass="bg-indigo-600"
+                />
+                <PrayerStreamWidget
+                    iconClass="fa-solid fa-cross"
+                    bgClass="bg-emerald-600"
+                />
+                <PrayerStreamWidget
+                    iconClass="fa-solid fa-yin-yang"
+                    bgClass="bg-amber-600"
+                />
+            </div>
 
-            <p>
-                Tributes are an optional supplementary offering in the <Petapetual
-                /> service.
+            <div class="bg-stone-200 p-4 rounded-lg">
+                <h3 class="font-semibold mb-2">How it works:</h3>
+                <ol class="list-decimal list-inside space-y-1 text-stone-700">
+                    <li>
+                        Choose a tradition: Buddhist, Christian, Taoist, and
+                        more
+                    </li>
+                    <li>Subscribe your memorial to the prayer stream</li>
+                    <li>
+                        Your loved one receives continuous prayers around the
+                        clock
+                    </li>
+                </ol>
+            </div>
+
+            <p class="text-stone-600 italic">
+                Prayer Streams are included with all paid plans at no extra
+                cost.
             </p>
         </section>
 
-        <section class="flex flex-col gap-2">
-            <h2 class="text-xl font-semibold" id="family-trees">
-                Family Trees <LinkToTop />
+        <!-- Tributes Section -->
+        <section class="flex flex-col gap-4" id="tributes">
+            <h2 class="text-xl font-semibold">
+                <i class="fas fa-gift mr-2"></i>Tributes
             </h2>
 
             <p>
-                <i>Family trees</i> are a way to group and categorize your memorials
-                on <Petapetual />. If you have more than one memorial, you can
-                link them, specify the relationships between them, and visualize
-                them in a tree.
+                Tributes are meaningful additions you can place at memorials to
+                honor your loved one. They range from decorative flowers to
+                active blessings.
             </p>
 
-            <p
-                class="p-4
-                bg-blue-200
-                rounded
-                border
-                border-blue-400"
+            <div
+                class="flex flex-row gap-4 items-center justify-center my-4 flex-wrap"
             >
-                If you are interested, you can read up on our approach and
-                implementation on the <a
-                    href="/how-it-works/family-trees"
-                    class="blueLink">Family Trees</a
-                > page.
-            </p>
+                <TributeWidget
+                    iconClass="fa-solid fa-om"
+                    bgClass="bg-indigo-600"
+                />
+                <TributeWidget
+                    iconClass="fa-solid fa-cross"
+                    bgClass="bg-emerald-600"
+                />
+                <TributeWidget
+                    iconClass="fa-solid fa-yin-yang"
+                    bgClass="bg-amber-600"
+                />
+                <TributeWidget
+                    iconClass="fa-solid fa-hands-praying"
+                    bgClass="bg-red-600"
+                />
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="bg-stone-200 p-4 rounded-lg">
+                    <h3 class="font-semibold mb-2">
+                        <i class="fas fa-seedling mr-1"></i> Decorative Tributes
+                    </h3>
+                    <p class="text-stone-700">
+                        Flowers, candles, and symbolic items that beautify the
+                        memorial.
+                    </p>
+                </div>
+
+                <div class="bg-stone-200 p-4 rounded-lg">
+                    <h3 class="font-semibold mb-2">
+                        <i class="fas fa-star mr-1"></i> Active Tributes
+                    </h3>
+                    <p class="text-stone-700">
+                        Tributes that deliver prayers or blessings to the
+                        memorial continuously.
+                    </p>
+                </div>
+            </div>
 
             <p>
-                Family trees require at least two memorials to work, and so are
-                only viable on paid plans which allow two or more memorials.
+                Everyone you invite can also place tributes, making it a shared
+                way to honor your loved one together.
             </p>
+        </section>
+
+        <!-- Family Trees Section -->
+        <section class="flex flex-col gap-4" id="family-trees">
+            <h2 class="text-xl font-semibold">
+                <i class="fa-solid fa-code-fork mr-2"></i>Family Trees
+            </h2>
+
+            <p>
+                If you have multiple memorials, you can link them together to
+                create a family tree. Specify relationships and visualize your
+                family's legacy.
+            </p>
+
+            <div class="my-4">
+                <DemoFamilyTree />
+            </div>
+
+            <div class="bg-stone-200 p-4 rounded-lg">
+                <h3 class="font-semibold mb-2">What you can do:</h3>
+                <ul class="list-disc list-inside space-y-1 text-stone-700">
+                    <li>
+                        Link memorials together (parent, child, spouse, sibling)
+                    </li>
+                    <li>Visualize relationships in an interactive tree</li>
+                    <li>Preserve your family history for future generations</li>
+                </ul>
+            </div>
+
+            <p class="text-stone-600 italic">
+                Family trees require 2+ memorials and are available on the
+                Essentials plan and above.
+            </p>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="bg-stone-800 text-stone-100 p-8 rounded-lg text-center">
+            <h2 class="text-xl font-bold mb-3">Ready to get started?</h2>
+            <p class="text-stone-300 mb-4">
+                Create your first memorial for free.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                <a
+                    href="https://app.petapetual.com"
+                    class="p-3 px-6 bg-stone-100 text-stone-800 rounded font-semibold"
+                >
+                    Get Started Free <i class="fas fa-arrow-right ml-1"></i>
+                </a>
+                <a
+                    href="/pricing"
+                    class="p-3 px-6 border border-stone-400 rounded"
+                >
+                    View Pricing
+                </a>
+            </div>
         </section>
     </div>
 </DefaultPageLayout>
