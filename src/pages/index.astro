@@ -11,112 +11,87 @@ import MemorialGuestbookMockup from "../assets/img/mockup-memorial-guestbook.png
     title="Petapetual"
     description="Online memorials to pay respects to your late loved ones. 24/7 virtualized prayer services and blessings available."
 >
-    <div class="container mx-auto">
+    <div class="page-container">
         <!-- Hero Section - Full screen on mobile -->
-        <section
-            class="min-h-dvh lg:min-h-0 flex flex-col justify-center relative p-6 lg:p-16 lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center"
-        >
-            <div class="flex flex-col gap-4">
-                <h1 class="text-3xl lg:text-4xl font-bold">
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">
                     Honor loved ones who have passed, from anywhere in the world
                 </h1>
 
-                <p class="text-xl text-stone-600">
+                <p class="hero-subtitle">
                     Create beautiful online memorials where family and friends
                     can gather, share memories, and pay respects together.
                 </p>
 
-                <div class="flex flex-col sm:flex-row gap-3 mt-4">
-                    <a
-                        href="https://app.petapetual.com"
-                        class="p-3 text-center bg-stone-800 text-stone-100 rounded font-semibold"
-                    >
-                        Create Your Free Memorial <i
+                <div class="hero-cta-group">
+                    <a href="https://app.petapetual.com" class="btn-primary">
+                        Create A Free Memorial <i
                             class="fas fa-arrow-right ml-1"></i>
                     </a>
-                    <a
-                        href="#how-it-works"
-                        class="p-3 text-center border border-stone-300 rounded"
-                    >
+                    <a href="#how-it-works" class="btn-secondary">
                         See How It Works
                     </a>
                 </div>
             </div>
 
-            <div class="lg:flex hidden">
+            <div class="hero-mockup">
                 <!-- Desktop mockup placeholder -->
             </div>
 
             <!-- Scroll indicator (mobile only) -->
-            <div
-                class="absolute bottom-8 left-1/2 -translate-x-1/2 lg:hidden animate-bounce"
-            >
-                <a href="#benefits" class="text-stone-400">
+            <div class="scroll-indicator">
+                <a href="#benefits" class="scroll-indicator-link">
                     <i class="fas fa-chevron-down text-2xl"></i>
                 </a>
             </div>
         </section>
 
         <!-- Key Benefits Section -->
-        <section
-            id="benefits"
-            class="bg-stone-200 py-12 px-4 rounded-none lg:rounded-lg"
-        >
-            <div class="max-w-5xl mx-auto">
-                <h2 class="text-2xl font-bold text-center mb-8">
-                    Why Petapetual?
-                </h2>
-
-                <div
-                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
-                >
-                    <div class="bg-stone-50 p-6 rounded-lg">
-                        <div class="text-3xl mb-3">
-                            <i class="fas fa-globe text-blue-600"></i>
+        <section id="benefits" class="benefits-section">
+            <div class="benefits-container">
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-globe"></i>
                         </div>
-                        <h3 class="font-semibold text-lg mb-2">
-                            Access Anytime
-                        </h3>
-                        <p class="text-stone-600">
+                        <h3 class="benefit-title">Access Anytime</h3>
+                        <p class="benefit-description">
                             Visit your memorial on any device, 24/7. No app
                             installation required.
                         </p>
                     </div>
 
-                    <div class="bg-stone-50 p-6 rounded-lg">
-                        <div class="text-3xl mb-3">
-                            <i class="fas fa-users text-green-600"></i>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-users"></i>
                         </div>
-                        <h3 class="font-semibold text-lg mb-2">
+                        <h3 class="benefit-title">
                             Share With Friends & Family
                         </h3>
-                        <p class="text-stone-600">
+                        <p class="benefit-description">
                             Invite loved ones to contribute memories and
                             heartfelt messages.
                         </p>
                     </div>
 
-                    <div class="bg-stone-50 p-6 rounded-lg">
-                        <div class="text-3xl mb-3">
-                            <i class="fas fa-hands-praying text-purple-600"></i>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-hands-praying"></i>
                         </div>
-                        <h3 class="font-semibold text-lg mb-2">
-                            24/7 Prayer Streams
-                        </h3>
-                        <p class="text-stone-600">
+                        <h3 class="benefit-title">24/7 Prayer Streams</h3>
+                        <p class="benefit-description">
                             Continuous prayers in your chosen tradition run
                             around the clock.
                         </p>
                     </div>
 
-                    <div class="bg-stone-50 p-6 rounded-lg">
-                        <div class="text-3xl mb-3">
-                            <i class="fas fa-code-fork text-amber-600"></i>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-code-fork"></i>
                         </div>
-                        <h3 class="font-semibold text-lg mb-2">
-                            Build Family Trees
-                        </h3>
-                        <p class="text-stone-600">
+                        <h3 class="benefit-title">Build Family Trees</h3>
+                        <p class="benefit-description">
                             Connect memorials to preserve and visualize your
                             family legacy.
                         </p>
@@ -126,13 +101,11 @@ import MemorialGuestbookMockup from "../assets/img/mockup-memorial-guestbook.png
         </section>
 
         <!-- How It Works Section -->
-        <section id="how-it-works" class="py-12 px-4">
-            <div class="max-w-3xl mx-auto">
-                <h2 class="text-2xl font-bold text-center mb-8">
-                    How It Works
-                </h2>
+        <section id="how-it-works" class="how-it-works-section">
+            <div class="how-it-works-container">
+                <h2 class="section-title">How It Works</h2>
 
-                <div class="flex flex-col gap-8">
+                <div class="steps-list">
                     <Step index="1" title="Create a memorial">
                         Add a photo, dates, and a short epitaph for your loved
                         one. Set a cultural preference for tailored reminders
@@ -155,8 +128,8 @@ import MemorialGuestbookMockup from "../assets/img/mockup-memorial-guestbook.png
                     </Step>
                 </div>
 
-                <div class="text-center mt-8">
-                    <a href="/how-it-works" class="text-blue-600 underline">
+                <div class="learn-more">
+                    <a href="/how-it-works" class="learn-more-link">
                         Learn more about our features <i
                             class="fas fa-arrow-right"></i>
                     </a>
@@ -165,28 +138,21 @@ import MemorialGuestbookMockup from "../assets/img/mockup-memorial-guestbook.png
         </section>
 
         <!-- Final CTA Section -->
-        <section
-            class="bg-stone-800 text-stone-100 py-12 px-4 rounded-none lg:rounded-lg lg:mb-8"
-        >
-            <div class="max-w-2xl mx-auto text-center">
-                <h2 class="text-2xl font-bold mb-4">
-                    Start Honoring Your Loved One Today
-                </h2>
-                <p class="text-stone-300 mb-6">
+        <section class="cta-section">
+            <div class="cta-container">
+                <h2 class="cta-title">Start Honoring Your Loved One Today</h2>
+                <p class="cta-subtitle">
                     Create your first memorial for free. No credit card
                     required.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                <div class="cta-buttons">
                     <a
                         href="https://app.petapetual.com"
-                        class="p-3 px-6 bg-stone-100 text-stone-800 rounded font-semibold"
+                        class="btn-cta-primary"
                     >
                         Get Started Free <i class="fas fa-arrow-right ml-1"></i>
                     </a>
-                    <a
-                        href="/pricing"
-                        class="p-3 px-6 border border-stone-400 rounded"
-                    >
+                    <a href="/pricing" class="btn-cta-secondary">
                         View Pricing
                     </a>
                 </div>
@@ -194,3 +160,148 @@ import MemorialGuestbookMockup from "../assets/img/mockup-memorial-guestbook.png
         </section>
     </div>
 </MasterLayout>
+
+<style>
+    @reference "tailwindcss";
+
+    /* Page Container */
+    .page-container {
+        @apply container mx-auto;
+    }
+
+    /* Hero Section */
+    .hero {
+        @apply min-h-dvh flex flex-col justify-center relative p-6;
+        @apply lg:min-h-0 lg:p-16 lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center;
+    }
+
+    .hero-content {
+        @apply flex flex-col gap-4;
+    }
+
+    .hero-title {
+        @apply text-3xl font-bold;
+        @apply lg:text-4xl;
+    }
+
+    .hero-subtitle {
+        @apply text-xl text-stone-600;
+    }
+
+    .hero-cta-group {
+        @apply flex flex-col gap-3 mt-4;
+        @apply sm:flex-row;
+    }
+
+    .hero-mockup {
+        @apply hidden;
+        @apply lg:flex;
+    }
+
+    /* Buttons */
+    .btn-primary {
+        @apply p-3 text-center bg-stone-800 text-stone-100 rounded font-semibold;
+    }
+
+    .btn-secondary {
+        @apply p-3 text-center border border-stone-300 rounded;
+    }
+
+    /* Scroll Indicator */
+    .scroll-indicator {
+        @apply absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce;
+        @apply lg:hidden;
+    }
+
+    .scroll-indicator-link {
+        @apply text-stone-400;
+    }
+
+    /* Benefits Section */
+    .benefits-section {
+        @apply py-12 px-4 rounded-none;
+        @apply lg:rounded-lg;
+    }
+
+    .benefits-container {
+        @apply max-w-5xl mx-auto;
+    }
+
+    .benefits-grid {
+        @apply grid grid-cols-1 gap-6;
+        @apply md:grid-cols-2;
+        @apply lg:grid-cols-4;
+    }
+
+    .benefit-card {
+        @apply p-6 rounded-lg;
+    }
+
+    .benefit-icon {
+        @apply text-3xl mb-3;
+    }
+
+    .benefit-title {
+        @apply font-semibold text-lg mb-2;
+    }
+
+    .benefit-description {
+        @apply text-stone-600;
+    }
+
+    /* How It Works Section */
+    .how-it-works-section {
+        @apply py-12 px-4;
+    }
+
+    .how-it-works-container {
+        @apply max-w-3xl mx-auto;
+    }
+
+    .section-title {
+        @apply text-2xl font-bold text-center mb-8;
+    }
+
+    .steps-list {
+        @apply flex flex-col gap-8;
+    }
+
+    .learn-more {
+        @apply text-center mt-8;
+    }
+
+    .learn-more-link {
+        @apply text-blue-600 underline;
+    }
+
+    /* CTA Section */
+    .cta-section {
+        @apply bg-stone-800 text-stone-100 py-12 px-4 rounded-none;
+        @apply lg:rounded-lg lg:mb-8;
+    }
+
+    .cta-container {
+        @apply max-w-2xl mx-auto text-center;
+    }
+
+    .cta-title {
+        @apply text-2xl font-bold mb-4;
+    }
+
+    .cta-subtitle {
+        @apply text-stone-300 mb-6;
+    }
+
+    .cta-buttons {
+        @apply flex flex-col gap-3 justify-center;
+        @apply sm:flex-row;
+    }
+
+    .btn-cta-primary {
+        @apply p-3 px-6 bg-stone-100 text-stone-800 rounded font-semibold;
+    }
+
+    .btn-cta-secondary {
+        @apply p-3 px-6 border border-stone-400 rounded;
+    }
+</style>
