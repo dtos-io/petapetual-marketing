@@ -1,0 +1,74 @@
+---
+import MasterLayout from "../layouts/MasterLayout.astro";
+---
+
+<MasterLayout
+    title="Page Not Found"
+    description="The page you're looking for doesn't exist."
+>
+    <div class="error-container">
+        <div class="error-content">
+            <div class="error-icon">
+                <i class="fas fa-dove"></i>
+            </div>
+            <h1 class="error-code">404</h1>
+            <h2 class="error-title">Page Not Found</h2>
+            <p class="error-message">
+                The page you're looking for doesn't exist or has been moved.
+            </p>
+            <div class="error-actions">
+                <a href="/" class="btn-primary">
+                    <i class="fas fa-home mr-2"></i>Go Home
+                </a>
+                <a href="/how-it-works" class="btn-secondary">
+                    Learn More
+                </a>
+            </div>
+        </div>
+    </div>
+</MasterLayout>
+
+<style>
+    @reference "tailwindcss";
+
+    .error-container {
+        @apply flex items-center justify-center py-20 px-4;
+        min-height: 60vh;
+    }
+
+    .error-content {
+        @apply text-center max-w-md;
+    }
+
+    .error-icon {
+        @apply text-6xl text-slate-300 mb-6;
+    }
+
+    .error-code {
+        @apply text-8xl font-bold text-slate-300 mb-2;
+        @apply lg:text-9xl;
+    }
+
+    .error-title {
+        @apply text-2xl font-semibold text-slate-700 mb-4;
+    }
+
+    .error-message {
+        @apply text-slate-500 mb-8;
+    }
+
+    .error-actions {
+        @apply flex flex-col gap-3 justify-center;
+        @apply sm:flex-row;
+    }
+
+    .btn-primary {
+        @apply px-6 py-3 bg-slate-600 text-white rounded-lg font-medium;
+        @apply hover:bg-slate-700 transition-colors;
+    }
+
+    .btn-secondary {
+        @apply px-6 py-3 border border-slate-300 text-slate-600 rounded-lg;
+        @apply hover:bg-slate-50 transition-colors;
+    }
+</style>
