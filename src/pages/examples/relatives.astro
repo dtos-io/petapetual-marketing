@@ -8,48 +8,101 @@ import { Image } from "astro:assets";
     title="Late Relatives"
     description="Navigating the loss of a family member is difficult. Learn how to pay respects and honour their memory. Petapetual offers a peaceful space to build a lasting online tribute."
 >
-    <Image
-        src="https://images.unsplash.com/photo-1559734840-f9509ee5677f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=987"
-        alt="Bonded by blood but inseparable by fate- create a Petapetual online memorial to honour them today."
-        class="w-full h-48 lg:h-64 object-cover self-center rounded"
-        width="256"
-        height="256"
-    />
+    <article class="article-container">
+        <a href="/examples" class="back-link">
+            <i class="fas fa-arrow-left"></i> All Use Cases
+        </a>
 
-    <h1 class="text-2xl font-semibold">
-        <Petapetual /> for dearly departed relatives
-    </h1>
+        <Image
+            src="https://images.unsplash.com/photo-1559734840-f9509ee5677f?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=987"
+            alt="Bonded by blood but inseparable by fate- create a Petapetual online memorial to honour them today."
+            class="article-hero"
+            width="987"
+            height="400"
+        />
 
-    <p>
-        There’s truly no easy way to navigate the loss of family members. It’s a
-        deeply personal, profound, and tremendously emotional experience that
-        can leave you feeling adrift. The world feels quieter, and the space
-        they once filled feels impossibly large.
-    </p>
+        <h1 class="article-title">
+            <Petapetual /> for dearly departed relatives
+        </h1>
 
-    <p>
-        In the midst of that sorrow, a powerful need often surfaces: the desire
-        to remember them, honour them, and pay respects to them. We find
-        ourselves wanting to gather the fragments of their life, the happy
-        memories, the funny stories, and the photos that capture their smile
-        <i>just right</i>. We want to celebrate the beautiful, complex life they
-        lived.
-    </p>
+        <p class="article-text">
+            There's truly no easy way to navigate the loss of family members.
+            It's a deeply personal, profound, and tremendously emotional
+            experience that can leave you feeling adrift. The world feels
+            quieter, and the space they once filled feels impossibly large.
+        </p>
 
-    <p>
-        This is a fundamental part of grieving and remembering. It’s the need
-        for a place to put that love and a way to share it with others who are
-        also feeling the loss.
-    </p>
+        <p class="article-text">
+            In the midst of that sorrow, a powerful need often surfaces: the
+            desire to remember them, honour them, and pay respects to them. We
+            find ourselves wanting to gather the fragments of their life, the
+            happy memories, the funny stories, and the photos that capture their
+            smile <em>just right</em>. We want to celebrate the beautiful,
+            complex life they lived.
+        </p>
 
-    <p>
-        At <Petapetual />, we understand that need deeply. We created our online
-        memorials to offer a peaceful, permanent space where you can build a
-        beautiful tribute to your loved one. It’s a place to collect those
-        cherished photos, write down those precious stories, and invite family
-        and friends from all over the world to share their own memories. It
-        allows their light to keep shining and provides a central place for
-        comfort, reflection, and celebration, ensuring their legacy is preserved
-        for generations to come.
-    </p>
+        <p class="article-text">
+            This is a fundamental part of grieving and remembering. It's the
+            need for a place to put that love and a way to share it with others
+            who are also feeling the loss.
+        </p>
+
+        <p class="article-text">
+            At <Petapetual />, we understand that need deeply. We created our
+            online memorials to offer a peaceful, permanent space where you can
+            build a beautiful tribute to your loved one. It's a place to collect
+            those cherished photos, write down those precious stories, and
+            invite family and friends from all over the world to share their own
+            memories. It allows their light to keep shining and provides a
+            central place for comfort, reflection, and celebration, ensuring
+            their legacy is preserved for generations to come.
+        </p>
+
+        <div class="article-cta">
+            <a href="https://app.petapetual.com" class="cta-btn">
+                Create a Memorial <i class="fas fa-arrow-right ml-1"></i>
+            </a>
+        </div>
+    </article>
 </DefaultPageLayout>
+
+<style>
+    @reference "tailwindcss";
+
+    .article-container {
+        @apply flex flex-col gap-6;
+    }
+
+    .back-link {
+        @apply text-slate-500 text-sm no-underline;
+        @apply hover:text-slate-700 transition-colors;
+    }
+
+    .article-hero {
+        @apply w-full h-48 object-cover rounded-xl shadow-sm;
+        @apply lg:h-72;
+    }
+
+    .article-title {
+        @apply text-2xl font-bold text-slate-800;
+        @apply lg:text-3xl;
+    }
+
+    .article-subtitle {
+        @apply text-xl font-semibold text-slate-700 mt-4;
+    }
+
+    .article-text {
+        @apply text-slate-600 leading-relaxed;
+    }
+
+    .article-cta {
+        @apply mt-4 py-8 text-center;
+        @apply border-t border-slate-200;
+    }
+
+    .cta-btn {
+        @apply inline-block px-6 py-3 bg-slate-600 text-white rounded-lg font-semibold no-underline;
+        @apply hover:bg-slate-700 transition-colors;
+    }
+</style>

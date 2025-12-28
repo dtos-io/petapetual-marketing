@@ -8,51 +8,110 @@ import { Image } from "astro:assets";
     title="For Living Abroad"
     description="Just because you aren't in the same country as your loved one's final resting place doesn't mean you have to miss out on paying your respects. Access your Petapetual memorial no matter where you are in the world."
 >
-    <Image
-        src="https://images.unsplash.com/photo-1548227725-0141254f3369?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2070"
-        alt="Distance makes loss hurt hard and paying respects harder. Petapetual's online memorials aim to help those who live abroad feel more connected to their lost ones."
-        class="w-full h-48 lg:h-64 object-cover self-center rounded"
-        width="256"
-        height="256"
-    />
+    <article class="article-container">
+        <a href="/examples" class="back-link">
+            <i class="fas fa-arrow-left"></i> All Use Cases
+        </a>
 
-    <h1 class="text-2xl font-semibold">
-        <Petapetual /> for those living overseas
-    </h1>
+        <Image
+            src="https://images.unsplash.com/photo-1548227725-0141254f3369?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2070"
+            alt="Distance makes loss hurt hard and paying respects harder. Petapetual's online memorials aim to help those who live abroad feel more connected to their lost ones."
+            class="article-hero"
+            width="2070"
+            height="400"
+        />
 
-    <p>
-        Are you living far away from your loved one's final resting place?
-        Perhaps you are studying or working abroad and now find yourself
-        separated from your hometown and family? In such cases, it is hard to
-        show up and pay respects at a physical cemetery, temple, or columbarium.
-    </p>
+        <h1 class="article-title">
+            <Petapetual /> for those living overseas
+        </h1>
 
-    <p>
-        <Petapetual /> bridges the distance, bringing you closer to those you've
-        lost. Pay your respects from anywhere in the world, as if you were right
-        there beside them.
-    </p>
+        <p class="article-text">
+            Are you living far away from your loved one's final resting place?
+            Perhaps you are studying or working abroad and now find yourself
+            separated from your hometown and family? In such cases, it is hard
+            to show up and pay respects at a physical cemetery, temple, or
+            columbarium.
+        </p>
 
-    <h2 class="text-xl font-semibold">Always in reach</h2>
+        <p class="article-text">
+            <Petapetual /> bridges the distance, bringing you closer to those you've
+            lost. Pay your respects from anywhere in the world, as if you were right
+            there beside them.
+        </p>
 
-    <p>
-        Once set up, a <Petapetual /> memorial is always accessible to you, no matter
-        where in the world you are. Across mobile, tablet, and desktop: no app installations
-        are required. Simply sign in whenever you want to, or whenever you miss the
-        dearly departed and visit their <a
-            href="/how-it-works/online-memorials"
-            class="blueLink">virtual memorial</a
-        >.
-    </p>
+        <h2 class="article-subtitle">Always in reach</h2>
 
-    <h2 class="text-xl font-semibold">Invite others to your memorial</h2>
+        <p class="article-text">
+            Once set up, a <Petapetual /> memorial is always accessible to you, no
+            matter where in the world you are. Across mobile, tablet, and desktop:
+            no app installations are required. Simply sign in whenever you want to,
+            or whenever you miss the dearly departed and visit their <a
+                href="/how-it-works"
+                class="article-link">virtual memorial</a
+            >.
+        </p>
 
-    <p>
-        You don't have to pay your respects alone: invite other people to your
-        memorials so you can all remember your late loved ones together: write
-        loving messages in the guestbook, place <a
-            href="/how-it-works/tributes"
-            class="blueLink">tributes</a
-        >, and reminisce with one another across oceans and time zones.
-    </p>
+        <h2 class="article-subtitle">Invite others to your memorial</h2>
+
+        <p class="article-text">
+            You don't have to pay your respects alone: invite other people to
+            your memorials so you can all remember your late loved ones
+            together: write loving messages in the guestbook, place <a
+                href="/how-it-works#tributes"
+                class="article-link">tributes</a
+            >, and reminisce with one another across oceans and time zones.
+        </p>
+
+        <div class="article-cta">
+            <a href="https://app.petapetual.com" class="cta-btn">
+                Create a Memorial <i class="fas fa-arrow-right ml-1"></i>
+            </a>
+        </div>
+    </article>
 </DefaultPageLayout>
+
+<style>
+    @reference "tailwindcss";
+
+    .article-container {
+        @apply flex flex-col gap-6;
+    }
+
+    .back-link {
+        @apply text-slate-500 text-sm no-underline;
+        @apply hover:text-slate-700 transition-colors;
+    }
+
+    .article-hero {
+        @apply w-full h-48 object-cover rounded-xl shadow-sm;
+        @apply lg:h-72;
+    }
+
+    .article-title {
+        @apply text-2xl font-bold text-slate-800;
+        @apply lg:text-3xl;
+    }
+
+    .article-subtitle {
+        @apply text-xl font-semibold text-slate-700 mt-2;
+    }
+
+    .article-text {
+        @apply text-slate-600 leading-relaxed;
+    }
+
+    .article-link {
+        @apply text-slate-700 underline decoration-slate-300;
+        @apply hover:text-slate-900 hover:decoration-slate-500 transition-colors;
+    }
+
+    .article-cta {
+        @apply mt-4 py-8 text-center;
+        @apply border-t border-slate-200;
+    }
+
+    .cta-btn {
+        @apply inline-block px-6 py-3 bg-slate-600 text-white rounded-lg font-semibold no-underline;
+        @apply hover:bg-slate-700 transition-colors;
+    }
+</style>

@@ -8,68 +8,127 @@ import { Image } from "astro:assets";
     title="For Forgotten Culture"
     description="In the modern world, many traditional rites and practices are starting to be forgotten. If you are unsure as to what traditions you can observe to honour the dearly deceased, Petapetual has got you covered."
 >
-    <Image
-        src="https://images.unsplash.com/photo-1641644239376-52e9952a43a6?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1674"
-        alt="Over time, culture erodes and traditions slowly become forgotten. Petapetual's value also comes in the form of education: if you don't know what to do to pay respects, we have your back!"
-        class="w-full h-48 lg:h-64 object-cover self-center rounded"
-        width="256"
-        height="256"
-    />
+    <article class="article-container">
+        <a href="/examples" class="back-link">
+            <i class="fas fa-arrow-left"></i> All Use Cases
+        </a>
 
-    <h1 class="text-2xl font-semibold">
-        <Petapetual /> for those disconnected from their culture
-    </h1>
+        <Image
+            src="https://images.unsplash.com/photo-1641644239376-52e9952a43a6?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1674"
+            alt="Over time, culture erodes and traditions slowly become forgotten. Petapetual's value also comes in the form of education: if you don't know what to do to pay respects, we have your back!"
+            class="article-hero"
+            width="1674"
+            height="400"
+        />
 
-    <p>
-        As the world becomes more and more modern, many traditional rites and
-        practices are slowly being forgotten. If you are someone who wants to
-        honour the dearly departed in line with tradition, it can be confusing
-        and difficult to know what to do, what prayers to say, and what
-        offerings to give (if at all).
-    </p>
+        <h1 class="article-title">
+            <Petapetual /> for those disconnected from their culture
+        </h1>
 
-    <p>
-        <Petapetual /> aims to assist you in this aspect. We believe that, <a
-            href="/how-it-works"
-            class="blueLink">amongst other services we provide</a
-        >, an online memorial with us is also an opportunity for education. We
-        aim to provide you with information, services, and useful reminders that
-        are aligned with the traditions you want to observe.
-    </p>
+        <p class="article-text">
+            As the world becomes more and more modern, many traditional rites
+            and practices are slowly being forgotten. If you are someone who
+            wants to honour the dearly departed in line with tradition, it can
+            be confusing and difficult to know what to do, what prayers to say,
+            and what offerings to give (if at all).
+        </p>
 
-    <h2 class="text-xl font-semibold">Memorial cultural preferences</h2>
+        <p class="article-text">
+            <Petapetual /> aims to assist you in this aspect. We believe that, <a
+                href="/how-it-works"
+                class="article-link">amongst other services we provide</a
+            >, an online memorial with us is also an opportunity for education.
+            We aim to provide you with information, services, and useful
+            reminders that are aligned with the traditions you want to observe.
+        </p>
 
-    <p>
-        By default, all <Petapetual />
-        <a class="blueLink" href="/how-it-works/online-memorials">memorials</a> are
-        culturally and religiously agnostic: we do not make any assumptions or opinionated
-        choices as to what and how things should be done. However, if you so choose
-        to, you can set a <i>cultural preference</i> for your memorial, which will
-        tell us which traditions you want your memorial to subscribe to.
-    </p>
+        <h2 class="article-subtitle">Memorial cultural preferences</h2>
 
-    <p>
-        For example, if you set a memorial's cultural preference to <i
-            >Buddhist</i
-        >, then we will suggest and bias your memorial towards more Buddhist <a
-            class="blueLink"
-            href="/how-it-works/tributes">tributes</a
-        > and <a class="blueLink" href="/how-it-works/prayer-streams"
-            >prayer streams</a
-        >.
-    </p>
+        <p class="article-text">
+            By default, all <Petapetual />
+            <a class="article-link" href="/how-it-works">memorials</a> are culturally
+            and religiously agnostic: we do not make any assumptions or opinionated
+            choices as to what and how things should be done. However, if you so
+            choose to, you can set a <em>cultural preference</em> for your
+            memorial, which will tell us which traditions you want your memorial
+            to subscribe to.
+        </p>
 
-    <p>
-        Setting your memorial's cultural preference does not lock you in to any
-        one tradition. It only affects service suggestions and special date
-        reminders. You can change this setting at any time.
-    </p>
+        <p class="article-text">
+            For example, if you set a memorial's cultural preference to <em
+                >Buddhist</em
+            >, then we will suggest and bias your memorial towards more
+            Buddhist <a class="article-link" href="/how-it-works#tributes"
+                >tributes</a
+            > and <a class="article-link" href="/how-it-works#prayer-streams"
+                >prayer streams</a
+            >.
+        </p>
 
-    <h2 class="text-xl font-semibold">Special date reminders</h2>
+        <p class="article-text">
+            Setting your memorial's cultural preference does not lock you in to
+            any one tradition. It only affects service suggestions and special
+            date reminders. You can change this setting at any time.
+        </p>
 
-    <p>
-        Your memorials have the ability to send you reminders or information
-        about special dates, these include dates such as death anniversaries,
-        birthdays, religious festivals, etc.
-    </p>
+        <h2 class="article-subtitle">Special date reminders</h2>
+
+        <p class="article-text">
+            Your memorials have the ability to send you reminders or information
+            about special dates, these include dates such as death
+            anniversaries, birthdays, religious festivals, etc.
+        </p>
+
+        <div class="article-cta">
+            <a href="https://app.petapetual.com" class="cta-btn">
+                Create a Memorial <i class="fas fa-arrow-right ml-1"></i>
+            </a>
+        </div>
+    </article>
 </DefaultPageLayout>
+
+<style>
+    @reference "tailwindcss";
+
+    .article-container {
+        @apply flex flex-col gap-6;
+    }
+
+    .back-link {
+        @apply text-slate-500 text-sm no-underline;
+        @apply hover:text-slate-700 transition-colors;
+    }
+
+    .article-hero {
+        @apply w-full h-48 object-cover rounded-xl shadow-sm;
+        @apply lg:h-72;
+    }
+
+    .article-title {
+        @apply text-2xl font-bold text-slate-800;
+        @apply lg:text-3xl;
+    }
+
+    .article-subtitle {
+        @apply text-xl font-semibold text-slate-700 mt-2;
+    }
+
+    .article-text {
+        @apply text-slate-600 leading-relaxed;
+    }
+
+    .article-link {
+        @apply text-slate-700 underline decoration-slate-300;
+        @apply hover:text-slate-900 hover:decoration-slate-500 transition-colors;
+    }
+
+    .article-cta {
+        @apply mt-4 py-8 text-center;
+        @apply border-t border-slate-200;
+    }
+
+    .cta-btn {
+        @apply inline-block px-6 py-3 bg-slate-600 text-white rounded-lg font-semibold no-underline;
+        @apply hover:bg-slate-700 transition-colors;
+    }
+</style>
