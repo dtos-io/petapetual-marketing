@@ -292,10 +292,97 @@ const testimonials = [
             </div>
         </section>
 
+        <!-- Who Is This For Section -->
+        <section class="use-cases-section">
+            <div class="use-cases-container">
+                <h2 class="section-title">Who Is This For?</h2>
+                <p class="use-cases-intro">
+                    Whether you're honoring family, friends, or beloved
+                    pets—Petapetual helps you remember and celebrate their
+                    lives.
+                </p>
+
+                <div class="use-cases-grid">
+                    <a href="/examples/relatives" class="use-case-card">
+                        <div class="use-case-icon use-case-icon-sky">
+                            <i class="fas fa-people-group"></i>
+                        </div>
+                        <h3 class="use-case-title">Relatives</h3>
+                        <p class="use-case-desc">
+                            Honor parents, grandparents, and family members who
+                            shaped your life.
+                        </p>
+                    </a>
+
+                    <a href="/examples/friends" class="use-case-card">
+                        <div class="use-case-icon use-case-icon-emerald">
+                            <i class="fas fa-user-group"></i>
+                        </div>
+                        <h3 class="use-case-title">Friends</h3>
+                        <p class="use-case-desc">
+                            Celebrate friends who became family—the ones who
+                            truly understood you.
+                        </p>
+                    </a>
+
+                    <a href="/examples/pets" class="use-case-card">
+                        <div class="use-case-icon use-case-icon-amber">
+                            <i class="fas fa-paw"></i>
+                        </div>
+                        <h3 class="use-case-title">Pets</h3>
+                        <p class="use-case-desc">
+                            Remember companions who gave unconditional love and
+                            endless joy.
+                        </p>
+                    </a>
+
+                    <a href="/examples/living-abroad" class="use-case-card">
+                        <div class="use-case-icon use-case-icon-indigo">
+                            <i class="fas fa-plane"></i>
+                        </div>
+                        <h3 class="use-case-title">Living Abroad</h3>
+                        <p class="use-case-desc">
+                            Pay respects from anywhere in the world, no matter
+                            the distance.
+                        </p>
+                    </a>
+
+                    <a href="/examples/too-busy" class="use-case-card">
+                        <div class="use-case-icon use-case-icon-purple">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h3 class="use-case-title">Busy Schedules</h3>
+                        <p class="use-case-desc">
+                            Honor loved ones on your own time, whenever you have
+                            a quiet moment.
+                        </p>
+                    </a>
+
+                    <a href="/examples/learn-culture" class="use-case-card">
+                        <div class="use-case-icon use-case-icon-rose">
+                            <i class="fas fa-hands-praying"></i>
+                        </div>
+                        <h3 class="use-case-title">Cultural Guidance</h3>
+                        <p class="use-case-desc">
+                            Learn traditional practices with guidance tailored
+                            to your heritage.
+                        </p>
+                    </a>
+                </div>
+
+                <div class="use-cases-cta">
+                    <a href="/examples" class="use-cases-link">
+                        See all use cases <i class="fas fa-arrow-right ml-1"
+                        ></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
         <!-- Social Proof / Testimonials Section -->
         <section class="testimonials-section">
             <div class="testimonials-container">
-                <h2 class="section-title">What Others Say</h2>
+                <h2 class="section-title">What Others Are Saying</h2>
 
                 <div class="carousel-wrapper">
                     <button
@@ -567,6 +654,81 @@ const testimonials = [
 
     .learn-more-link:hover {
         text-decoration: underline;
+    }
+
+    /* Use Cases Section */
+    .use-cases-section {
+        @apply py-12 px-4;
+        background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+        @apply lg:px-8 lg:rounded-xl;
+    }
+
+    .use-cases-container {
+        @apply max-w-5xl mx-auto;
+    }
+
+    .use-cases-intro {
+        @apply text-center text-slate-600 mb-8 max-w-2xl mx-auto;
+    }
+
+    .use-cases-grid {
+        @apply grid grid-cols-2 gap-4;
+        @apply md:grid-cols-3;
+        @apply lg:gap-6;
+    }
+
+    .use-case-card {
+        @apply bg-white rounded-xl p-4 border border-slate-200 shadow-sm;
+        @apply hover:shadow-md hover:border-slate-300 transition-all;
+        @apply flex flex-col items-center text-center no-underline;
+        @apply lg:p-6;
+    }
+
+    .use-case-icon {
+        @apply w-12 h-12 rounded-full flex items-center justify-center text-xl mb-3;
+        @apply lg:w-14 lg:h-14 lg:text-2xl;
+    }
+
+    .use-case-icon-sky {
+        @apply bg-sky-100 text-sky-600;
+    }
+
+    .use-case-icon-emerald {
+        @apply bg-emerald-100 text-emerald-600;
+    }
+
+    .use-case-icon-amber {
+        @apply bg-amber-100 text-amber-600;
+    }
+
+    .use-case-icon-indigo {
+        @apply bg-indigo-100 text-indigo-600;
+    }
+
+    .use-case-icon-purple {
+        @apply bg-purple-100 text-purple-600;
+    }
+
+    .use-case-icon-rose {
+        @apply bg-rose-100 text-rose-600;
+    }
+
+    .use-case-title {
+        @apply font-semibold text-slate-700 mb-1;
+    }
+
+    .use-case-desc {
+        @apply text-sm text-slate-500 leading-snug;
+    }
+
+    .use-cases-cta {
+        @apply text-center mt-8;
+    }
+
+    .use-cases-link {
+        @apply inline-block px-6 py-3 bg-white border border-slate-200 rounded-lg;
+        @apply text-slate-600 font-medium no-underline;
+        @apply hover:bg-slate-50 hover:border-slate-300 transition-colors;
     }
 
     /* Testimonials Section */
