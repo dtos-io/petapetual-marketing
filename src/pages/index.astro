@@ -607,11 +607,12 @@ const testimonials = [
     }
 
     .tab-panel {
-        @apply hidden;
+        @apply absolute inset-0 opacity-0 pointer-events-none;
+        transition: opacity 0.3s ease-in-out;
     }
 
     .tab-panel.active {
-        @apply block;
+        @apply relative opacity-100 pointer-events-auto;
     }
 
     .steps-grid {
