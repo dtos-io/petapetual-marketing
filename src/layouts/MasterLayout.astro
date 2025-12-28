@@ -17,6 +17,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
                 "@context": "https://schema.org",
                 "@type": "WebSite",
                 "name": "Petapetual",
+                "alternateName": ["Petapetual"],
                 "url": "https://petapetual.com/"
             }
         </script>
@@ -47,14 +48,20 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         <meta property="og:url" content={canonicalURL} />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={description} />
-        <meta property="og:image" content={new URL("/og-image.png", Astro.site)} />
+        <meta
+            property="og:image"
+            content={new URL("/og-image.png", Astro.site)}
+        />
         <meta property="og:site_name" content="Petapetual" />
 
         <!-- Twitter Card -->
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
-        <meta name="twitter:image" content={new URL("/og-image.png", Astro.site)} />
+        <meta
+            name="twitter:image"
+            content={new URL("/og-image.png", Astro.site)}
+        />
 
         <!-- sitemap -->
         <link rel="sitemap" href="/sitemap-index.xml" />
