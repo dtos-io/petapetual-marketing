@@ -97,9 +97,11 @@ const compareAnchorID = compareID ?? "compare";
     @reference "tailwindcss";
 
     .pricing-card {
-        @apply p-6 rounded-xl flex flex-col gap-4;
+        @apply p-6 rounded-xl grid gap-4;
         @apply bg-white border border-slate-200 shadow-sm;
         @apply hover:shadow-md transition-shadow;
+        /* Define consistent row heights */
+        grid-template-rows: auto auto auto 1fr auto;
     }
 
     .pricing-card-special {
@@ -124,7 +126,8 @@ const compareAnchorID = compareID ?? "compare";
     }
 
     .pricing-card-desc {
-        @apply text-slate-500 text-sm italic;
+        @apply text-slate-500 text-sm italic leading-snug;
+        min-height: 3rem; /* Fixed height for ~2-3 lines to ensure alignment */
     }
 
     .pricing-card-price {
@@ -144,7 +147,8 @@ const compareAnchorID = compareID ?? "compare";
     }
 
     .annual-notice {
-        @apply text-sm text-slate-500;
+        @apply text-sm text-slate-500 leading-snug;
+        min-height: 2.25rem; /* Fixed height for 2 lines to ensure alignment */
     }
 
     .annual-savings {
@@ -161,7 +165,8 @@ const compareAnchorID = compareID ?? "compare";
     }
 
     .pricing-features {
-        @apply flex flex-col gap-3 grow;
+        @apply flex flex-col gap-3;
+        /* This row has 1fr so it grows to fill available space */
     }
 
     .features-list {
@@ -179,6 +184,7 @@ const compareAnchorID = compareID ?? "compare";
     .compare-link {
         @apply p-2 text-center text-slate-400 border border-slate-200 rounded-lg text-sm;
         @apply hover:bg-slate-50 hover:text-slate-600 transition-colors;
+        /* This stays at the bottom due to grid */
     }
 </style>
 
