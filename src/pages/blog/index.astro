@@ -2,7 +2,13 @@
 import DefaultPageLayout from "../../layouts/DefaultPageLayout.astro";
 
 type BlogPost = {
-    frontmatter: { pubDate: string };
+    frontmatter: {
+        pubDate: string;
+        title: string;
+        author: string;
+        description: string;
+    };
+    url: string;
 };
 
 const allPosts: BlogPost[] = Object.values(
@@ -14,30 +20,253 @@ const sortedAllPosts = allPosts
         return a.frontmatter.pubDate.localeCompare(b.frontmatter.pubDate);
     })
     .reverse();
+
+const POSTS_PER_PAGE = 10;
+const totalPages = Math.ceil(sortedAllPosts.length / POSTS_PER_PAGE);
 ---
 
 <DefaultPageLayout title="Blog">
-    <h1 class="text-2xl font-semibold">Blog Index</h1>
-    <ul class="flex flex-col gap-4 lg:gap-8">
-        {
-            sortedAllPosts.map((post: any) => (
-                <li>
-                    <a
-                        href={post.url}
-                        class="
-            font-semibold
-            blueLink"
-                    >
-                        {post.frontmatter.title}
-                    </a>
-                    <p class="text-sm">by {post.frontmatter.author}</p>
-                    <p class="text-stone-500 text-sm">
-                        {post.frontmatter.pubDate.split("T")[0]}
-                    </p>
+    <div class="blog-container">
+        <h1 class="blog-title">Blog</h1>
+        <p class="blog-subtitle">
+            Insights on grief, remembrance, and honoring loved ones
+        </p>
 
-                    <p>{post.frontmatter.description}</p>
-                </li>
-            ))
-        }
-    </ul>
+        <ul class="posts-list" id="posts-list">
+            {
+                sortedAllPosts.map((post, index) => (
+                    <li
+                        class="post-card"
+                        data-page={Math.floor(index / POSTS_PER_PAGE) + 1}
+                    >
+                        <a href={post.url} class="post-link">
+                            <h2 class="post-title">{post.frontmatter.title}</h2>
+                        </a>
+                        <div class="post-meta">
+                            <span class="post-author">
+                                {post.frontmatter.author}
+                            </span>
+                            <span class="post-date">
+                                {new Date(
+                                    post.frontmatter.pubDate,
+                                ).toLocaleDateString("en-US", {
+                                    year: "numeric",
+                                    month: "long",
+                                    day: "numeric",
+                                })}
+                            </span>
+                        </div>
+                        <p class="post-description">
+                            {post.frontmatter.description}
+                        </p>
+                    </li>
+                ))
+            }
+        </ul>
+
+        <!-- Pagination -->
+        <nav class="pagination" id="pagination" aria-label="Blog pagination">
+            <button
+                class="pagination-btn pagination-prev"
+                id="prev-btn"
+                aria-label="Previous page"
+            >
+                <i class="fas fa-chevron-left"></i>
+                <span>Previous</span>
+            </button>
+
+            <div class="pagination-pages" id="page-numbers">
+                {
+                    Array.from({ length: totalPages }, (_, i) => (
+                        <button
+                            class={`pagination-page ${i === 0 ? "active" : ""}`}
+                            data-page={i + 1}
+                        >
+                            {i + 1}
+                        </button>
+                    ))
+                }
+            </div>
+
+            <button
+                class="pagination-btn pagination-next"
+                id="next-btn"
+                aria-label="Next page"
+            >
+                <span>Next</span>
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </nav>
+
+        <p class="pagination-info" id="pagination-info">
+            Showing <span id="showing-start">1</span>-<span id="showing-end"
+                >{Math.min(POSTS_PER_PAGE, sortedAllPosts.length)}</span
+            > of {sortedAllPosts.length} posts
+        </p>
+    </div>
 </DefaultPageLayout>
+
+<style>
+    @reference "tailwindcss";
+
+    .blog-container {
+        @apply max-w-4xl mx-auto;
+    }
+
+    .blog-title {
+        @apply text-3xl font-bold text-slate-800 mb-2;
+    }
+
+    .blog-subtitle {
+        @apply text-slate-600 mb-8;
+    }
+
+    .posts-list {
+        @apply flex flex-col gap-6;
+    }
+
+    .post-card {
+        @apply bg-white rounded-xl p-6 border border-slate-200 shadow-sm;
+        @apply hover:shadow-md hover:border-slate-300 transition-all;
+    }
+
+    .post-card[data-hidden="true"] {
+        @apply hidden;
+    }
+
+    .post-link {
+        @apply no-underline;
+    }
+
+    .post-title {
+        @apply text-xl font-semibold text-slate-800 mb-2;
+        @apply hover:text-slate-600 transition-colors;
+    }
+
+    .post-meta {
+        @apply flex flex-wrap gap-3 text-sm text-slate-500 mb-3;
+    }
+
+    .post-author::after {
+        content: "•";
+        @apply ml-3;
+    }
+
+    .post-description {
+        @apply text-slate-600 leading-relaxed;
+    }
+
+    /* Pagination */
+    .pagination {
+        @apply flex items-center justify-center gap-2 mt-10;
+        @apply flex-wrap;
+    }
+
+    .pagination-btn {
+        @apply flex items-center gap-2 px-4 py-2 rounded-lg;
+        @apply text-slate-600 bg-white border border-slate-200;
+        @apply hover:bg-slate-50 hover:border-slate-300 transition-colors;
+        @apply disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-white;
+    }
+
+    .pagination-pages {
+        @apply flex gap-1;
+    }
+
+    .pagination-page {
+        @apply w-10 h-10 rounded-lg;
+        @apply text-slate-600 bg-white border border-slate-200;
+        @apply hover:bg-slate-50 hover:border-slate-300 transition-colors;
+    }
+
+    .pagination-page.active {
+        @apply bg-slate-600 text-white border-slate-600;
+    }
+
+    .pagination-info {
+        @apply text-center text-sm text-slate-500 mt-4;
+    }
+
+    @media (max-width: 640px) {
+        .pagination-btn span {
+            @apply hidden;
+        }
+
+        .pagination-btn {
+            @apply px-3;
+        }
+    }
+</style>
+
+<script define:vars={{ POSTS_PER_PAGE, totalPages, totalPosts: sortedAllPosts.length }}>
+    document.addEventListener("DOMContentLoaded", () => {
+        let currentPage = 1;
+
+        const postCards = document.querySelectorAll(".post-card");
+        const pageButtons = document.querySelectorAll(".pagination-page");
+        const prevBtn = document.getElementById("prev-btn");
+        const nextBtn = document.getElementById("next-btn");
+        const showingStart = document.getElementById("showing-start");
+        const showingEnd = document.getElementById("showing-end");
+
+        function updateDisplay() {
+            // Show/hide posts
+            postCards.forEach((card) => {
+                const postPage = parseInt(card.getAttribute("data-page"));
+                if (postPage === currentPage) {
+                    card.removeAttribute("data-hidden");
+                } else {
+                    card.setAttribute("data-hidden", "true");
+                }
+            });
+
+            // Update page buttons
+            pageButtons.forEach((btn) => {
+                const page = parseInt(btn.getAttribute("data-page"));
+                btn.classList.toggle("active", page === currentPage);
+            });
+
+            // Update prev/next buttons
+            prevBtn.disabled = currentPage === 1;
+            nextBtn.disabled = currentPage === totalPages;
+
+            // Update info text
+            const start = (currentPage - 1) * POSTS_PER_PAGE + 1;
+            const end = Math.min(currentPage * POSTS_PER_PAGE, totalPosts);
+            showingStart.textContent = start;
+            showingEnd.textContent = end;
+
+            // Scroll to top of list
+            document.querySelector(".blog-container").scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+            });
+        }
+
+        // Page button clicks
+        pageButtons.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                currentPage = parseInt(btn.getAttribute("data-page"));
+                updateDisplay();
+            });
+        });
+
+        // Prev/Next buttons
+        prevBtn.addEventListener("click", () => {
+            if (currentPage > 1) {
+                currentPage--;
+                updateDisplay();
+            }
+        });
+
+        nextBtn.addEventListener("click", () => {
+            if (currentPage < totalPages) {
+                currentPage++;
+                updateDisplay();
+            }
+        });
+
+        // Initial display
+        updateDisplay();
+    });
+</script>
