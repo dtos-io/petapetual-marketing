@@ -1,0 +1,209 @@
+---
+import type { GetStaticPaths, Page } from "astro";
+import DefaultPageLayout from "../../layouts/DefaultPageLayout.astro";
+
+interface BlogPost {
+    frontmatter: {
+        pubDate: string;
+        title: string;
+        author: string;
+        description: string;
+    };
+    url: string;
+}
+
+export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
+    const allPosts: BlogPost[] = Object.values(
+        import.meta.glob("./posts/*.md", { eager: true }),
+    );
+
+    const sortedPosts = allPosts.sort((a, b) => {
+        return b.frontmatter.pubDate.localeCompare(a.frontmatter.pubDate);
+    });
+
+    return paginate(sortedPosts, { pageSize: 10 });
+};
+
+interface Props {
+    page: Page<BlogPost>;
+}
+
+const { page } = Astro.props;
+---
+
+<DefaultPageLayout title="Blog">
+    <div class="blog-container">
+        <h1 class="blog-title">Blog</h1>
+        <p class="blog-subtitle">
+            Insights on grief, remembrance, and honoring loved ones
+        </p>
+
+        <ul class="posts-list">
+            {
+                page.data.map((post) => (
+                    <li class="post-card">
+                        <a href={post.url} class="post-card-link">
+                            <h2 class="post-title">{post.frontmatter.title}</h2>
+                            <div class="post-meta">
+                                <span class="post-author">
+                                    {post.frontmatter.author}
+                                </span>
+                                <span class="post-date">
+                                    {new Date(
+                                        post.frontmatter.pubDate,
+                                    ).toLocaleDateString("en-US", {
+                                        year: "numeric",
+                                        month: "long",
+                                        day: "numeric",
+                                    })}
+                                </span>
+                            </div>
+                            <p class="post-description">
+                                {post.frontmatter.description}
+                            </p>
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
+
+        <!-- Pagination -->
+        {
+            page.lastPage > 1 && (
+                <nav
+                    class="pagination"
+                    aria-label="Blog pagination"
+                >
+                    <a
+                        href={page.url.prev || "#"}
+                        class={`pagination-btn pagination-prev ${!page.url.prev ? "disabled" : ""}`}
+                        aria-disabled={!page.url.prev}
+                    >
+                        <i class="fas fa-chevron-left" />
+                        <span>Previous</span>
+                    </a>
+
+                    <div class="pagination-pages">
+                        {Array.from({ length: page.lastPage }, (_, i) => (
+                            <a
+                                href={i === 0 ? "/blog" : `/blog/${i + 1}`}
+                                class={`pagination-page ${page.currentPage === i + 1 ? "active" : ""}`}
+                            >
+                                {i + 1}
+                            </a>
+                        ))}
+                    </div>
+
+                    <a
+                        href={page.url.next || "#"}
+                        class={`pagination-btn pagination-next ${!page.url.next ? "disabled" : ""}`}
+                        aria-disabled={!page.url.next}
+                    >
+                        <span>Next</span>
+                        <i class="fas fa-chevron-right" />
+                    </a>
+                </nav>
+            )
+        }
+
+        <p class="pagination-info">
+            Showing {(page.currentPage - 1) * page.size + 1}-{Math.min(page.currentPage * page.size, page.total)} of {page.total} posts
+        </p>
+    </div>
+</DefaultPageLayout>
+
+<style>
+    @reference "tailwindcss";
+
+    .blog-container {
+        @apply max-w-4xl mx-auto;
+    }
+
+    .blog-title {
+        @apply text-3xl font-bold text-slate-800 mb-2;
+    }
+
+    .blog-subtitle {
+        @apply text-slate-600 mb-8;
+    }
+
+    .posts-list {
+        @apply flex flex-col gap-6;
+    }
+
+    .post-card {
+        @apply bg-white rounded-xl border border-slate-200 shadow-sm;
+        @apply hover:shadow-md hover:border-slate-300 transition-all;
+    }
+
+    .post-card-link {
+        @apply block p-6 no-underline;
+    }
+
+    .post-title {
+        @apply text-xl font-semibold text-slate-800 mb-2;
+        @apply group-hover:text-slate-600 transition-colors;
+    }
+
+    .post-card:hover .post-title {
+        @apply text-slate-600;
+    }
+
+    .post-meta {
+        @apply flex flex-wrap gap-3 text-sm text-slate-500 mb-3;
+    }
+
+    .post-author::after {
+        content: "•";
+        @apply ml-3;
+    }
+
+    .post-description {
+        @apply text-slate-600 leading-relaxed;
+    }
+
+    /* Pagination */
+    .pagination {
+        @apply flex items-center justify-center gap-2 mt-10;
+        @apply flex-wrap;
+    }
+
+    .pagination-btn {
+        @apply flex items-center gap-2 px-4 py-2 rounded-lg no-underline;
+        @apply text-slate-600 bg-white border border-slate-200;
+        @apply hover:bg-slate-50 hover:border-slate-300 transition-colors;
+    }
+
+    .pagination-btn.disabled {
+        @apply opacity-50 cursor-not-allowed pointer-events-none;
+    }
+
+    .pagination-pages {
+        @apply flex gap-1;
+    }
+
+    .pagination-page {
+        @apply w-10 h-10 rounded-lg no-underline;
+        @apply text-slate-600 bg-white border border-slate-200;
+        @apply hover:bg-slate-50 hover:border-slate-300 transition-colors;
+        @apply flex items-center justify-center;
+    }
+
+    .pagination-page.active {
+        @apply bg-slate-600 text-white border-slate-600;
+    }
+
+    .pagination-info {
+        @apply text-center text-sm text-slate-500 mt-4;
+    }
+
+    @media (max-width: 640px) {
+        .pagination-btn span {
+            @apply hidden;
+        }
+
+        .pagination-btn {
+            @apply px-3;
+        }
+    }
+</style>
