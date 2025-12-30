@@ -512,6 +512,7 @@ const testimonials = [
 
     .hero-content {
         @apply flex flex-col gap-4;
+        @apply order-2 lg:order-1;
     }
 
     .hero-title {
@@ -529,8 +530,17 @@ const testimonials = [
     }
 
     .hero-mockup {
-        @apply hidden;
-        @apply lg:flex;
+        @apply flex justify-center order-1 mb-4 overflow-hidden;
+        @apply lg:order-2 lg:mb-0 lg:overflow-visible;
+        max-height: 35vh;
+        @apply lg:max-h-none;
+        mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+    }
+
+    .hero-mockup img {
+        @apply w-full h-full object-cover object-top;
+        @apply lg:w-auto lg:h-auto lg:object-contain;
     }
 
     /* Buttons */
