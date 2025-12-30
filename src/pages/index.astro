@@ -2,6 +2,21 @@
 import MasterLayout from "../layouts/MasterLayout.astro";
 import { Image } from "astro:assets";
 
+import HeroImage from "../assets/img/hero.png";
+
+import ThemeCompilationImage from "../assets/img/demos/themes/compilation.png";
+import MemorialDetailsImage from "../assets/img/demos/details.png";
+import MemorialSlugImage from "../assets/img/demos/slug.png";
+import MemorialPublicImage from "../assets/img/demos/public.png";
+
+import MemorialFuneralImage from "../assets/img/demos/funeral.png";
+import MemorialTimelineImage from "../assets/img/demos/timeline.png";
+import MemorialGalleryImage from "../assets/img/demos/gallery.png";
+
+import MemorialInviteImage from "../assets/img/demos/invite.png";
+import MemorialShareImage from "../assets/img/demos/share.png";
+import MemorialGuestbookImage from "../assets/img/demos/guestbook.png";
+
 // How It Works tab data
 const howItWorksTabs = [
     {
@@ -10,25 +25,25 @@ const howItWorksTabs = [
         icon: "fa-dove ",
         steps: [
             {
-                image: "/images/hiw/memorial-create.png",
+                image: ThemeCompilationImage,
                 title: "Pick a theme",
                 subtitle:
                     "Set a colour theme for your memorial. Choose from one of many palettes, across warm, cool, and neutral hues.",
             },
             {
-                image: "/images/hiw/memorial-customize.png",
+                image: MemorialDetailsImage,
                 title: "Provide your loved one's details",
                 subtitle:
                     "Add a display photo, name, dates of birth and passing, and a short epitaph for your loved one.",
             },
             {
-                image: "/images/hiw/memorial-customize.png",
+                image: MemorialSlugImage,
                 title: "(Optional) Choose a custom address",
                 subtitle:
                     "Think of a short code that will function as a custom address for your memorial. This is mandatory for public memorials.",
             },
             {
-                image: "/images/hiw/memorial-customize.png",
+                image: MemorialPublicImage,
                 title: "(Optional) Make your memorial public",
                 subtitle:
                     "Decide whether you want your memorial to be public (anyone with the link can access it), or private (only invited users can access it).",
@@ -41,19 +56,19 @@ const howItWorksTabs = [
         icon: "fa-palette",
         steps: [
             {
-                image: "/images/hiw/share-invite.png",
+                image: MemorialFuneralImage,
                 title: "Add funeral service information",
                 subtitle:
                     "Provide information about any funeral services being held, such as the venue, time, virtual links, donation instructions, or other details.",
             },
             {
-                image: "/images/hiw/share-public.png",
+                image: MemorialTimelineImage,
                 title: "Record significant dates in your late one's life",
                 subtitle:
                     "Share your loved one's milestones and special moments with our timeline widget.",
             },
             {
-                image: "/images/hiw/share-public.png",
+                image: MemorialGalleryImage,
                 title: "Add precious photo memories to the gallery",
                 subtitle:
                     "Upload heartfelt and special images of your loved one and their life to the photo gallery.",
@@ -66,19 +81,19 @@ const howItWorksTabs = [
         icon: "fa-share-nodes",
         steps: [
             {
-                image: "/images/hiw/share-invite.png",
+                image: MemorialInviteImage,
                 title: "Invite family and friends",
                 subtitle:
                     "Share your memorial with others on Petapetual so they can visit and pay respects.",
             },
             {
-                image: "/images/hiw/memories-guestbook.png",
+                image: MemorialGuestbookImage,
                 title: "Write in the guestbook",
                 subtitle:
                     "Leave heartfelt messages and share precious photos and memories on the guestbook widget.",
             },
             {
-                image: "/images/hiw/memories-gallery.png",
+                image: MemorialShareImage,
                 title: "Share your memorial with everyone",
                 subtitle:
                     "Public memorials can be shared via link or QR code and visited by anyone, even if they do not have a Petapetual account.",
@@ -91,12 +106,10 @@ const howItWorksTabs = [
         icon: "fa-bolt",
         steps: [
             {
-                image: "/images/hiw/services-prayers.png",
                 title: "Subscribe to prayer streams",
                 subtitle: "24/7 continuous prayers from various traditions.",
             },
             {
-                image: "/images/hiw/services-tributes.png",
                 title: "Place tributes",
                 subtitle: "Add meaningful flowers, candles, and blessings.",
             },
@@ -157,13 +170,18 @@ const testimonials = [
                         Create A Free Memorial <i
                             class="fas fa-arrow-right ml-1"></i>
                     </a>
-                    <a href="#how-it-works" class="btn-secondary">
+                    <a
+                        href="https://app.petapetual.com/memorial/petapetual-demo-001?widget=FUNERAL"
+                        target="_blank"
+                        class="btn-secondary"
+                    >
                         View Demo
                     </a>
                 </div>
             </div>
 
             <div class="hero-mockup">
+                <Image src={HeroImage} alt="hero image" />
                 <!-- Desktop mockup placeholder -->
             </div>
 
@@ -263,9 +281,17 @@ const testimonials = [
                                     {tab.steps.map((step) => (
                                         <div class="step-card">
                                             <div class="step-image-container">
-                                                <div class="step-image-placeholder">
-                                                    <i class="fas fa-image" />
-                                                </div>
+                                                {step?.image ? (
+                                                    <Image
+                                                        inferSize
+                                                        src={step.image}
+                                                        alt={step.title}
+                                                    />
+                                                ) : (
+                                                    <div class="step-image-placeholder">
+                                                        <i class="fas fa-image" />
+                                                    </div>
+                                                )}
                                             </div>
                                             <div class="step-content">
                                                 <h3 class="step-title">
@@ -625,7 +651,11 @@ const testimonials = [
     }
 
     .step-image-container {
-        @apply aspect-video bg-slate-100;
+        @apply aspect-video bg-slate-100 overflow-hidden;
+    }
+
+    .step-image-container img {
+        @apply w-full h-full object-cover;
     }
 
     .step-image-placeholder {
