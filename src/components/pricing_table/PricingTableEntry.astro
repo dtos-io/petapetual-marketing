@@ -19,11 +19,27 @@ let memorialWord =
 
 // Map base colors to slate-compatible accent colors
 const colorMap: Record<string, { text: string; bg: string; border: string }> = {
-    stone: { text: "text-slate-600", bg: "bg-slate-600", border: "border-slate-300" },
+    stone: {
+        text: "text-slate-600",
+        bg: "bg-slate-600",
+        border: "border-slate-300",
+    },
     sky: { text: "text-sky-600", bg: "bg-sky-600", border: "border-sky-200" },
-    amber: { text: "text-amber-600", bg: "bg-amber-600", border: "border-amber-200" },
-    emerald: { text: "text-emerald-600", bg: "bg-emerald-600", border: "border-emerald-200" },
-    indigo: { text: "text-indigo-600", bg: "bg-indigo-600", border: "border-indigo-200" },
+    amber: {
+        text: "text-amber-600",
+        bg: "bg-amber-600",
+        border: "border-amber-200",
+    },
+    emerald: {
+        text: "text-emerald-600",
+        bg: "bg-emerald-600",
+        border: "border-emerald-200",
+    },
+    indigo: {
+        text: "text-indigo-600",
+        bg: "bg-indigo-600",
+        border: "border-indigo-200",
+    },
 };
 
 const colors = colorMap[baseColor] || colorMap.stone;
@@ -32,22 +48,21 @@ const compareAnchorID = compareID ?? "compare";
 
 <pricing-table
     data-pricing={JSON.stringify({ monthlyPrice, annualMonthlyPrice })}
-    class:list={[
-        "pricing-card",
-        { "pricing-card-special": isSpecial },
-    ]}
+    class:list={["pricing-card", { "pricing-card-special": isSpecial }]}
 >
     <div class="pricing-card-header">
         <div class="pricing-card-title-row">
             <h3 class:list={["pricing-card-name", colors.text]}>
                 {name}
             </h3>
-            {isSpecial && (
-                <div class="popular-badge">
-                    <i class="fas fa-fire-flame-curved"></i>
-                    <span>Popular</span>
-                </div>
-            )}
+            {
+                isSpecial && (
+                    <div class="popular-badge">
+                        <i class="fas fa-fire-flame-curved" />
+                        <span>Popular</span>
+                    </div>
+                )
+            }
         </div>
         <p class="pricing-card-desc">{desc}</p>
     </div>
@@ -80,11 +95,11 @@ const compareAnchorID = compareID ?? "compare";
             <li class="feature-item">
                 <i class:list={["fas fa-dove feature-icon", colors.text]}></i>
                 <span>
-                    Create <strong>{nMemorials}</strong> {memorialWord}
+                    Create <strong>{nMemorials}</strong>
+                    {memorialWord}
                 </span>
             </li>
         </ul>
-
         <slot />
     </div>
 
