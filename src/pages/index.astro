@@ -330,7 +330,11 @@ const testimonials = [
                 </p>
 
                 <div class="use-cases-grid">
-                    <a href="/examples/relatives" class="use-case-card">
+                    <a
+                        href="/examples/relatives"
+                        class="use-case-card"
+                        style="--bg-image: url('https://images.unsplash.com/photo-1559734840-f9509ee5677f?auto=format&fit=crop&q=80&w=600')"
+                    >
                         <div class="use-case-icon use-case-icon-sky">
                             <i class="fas fa-people-group"></i>
                         </div>
@@ -341,7 +345,11 @@ const testimonials = [
                         </p>
                     </a>
 
-                    <a href="/examples/friends" class="use-case-card">
+                    <a
+                        href="/examples/friends"
+                        class="use-case-card"
+                        style="--bg-image: url('https://images.unsplash.com/photo-1506869640319-fe1a24fd76dc?auto=format&fit=crop&q=80&w=600')"
+                    >
                         <div class="use-case-icon use-case-icon-emerald">
                             <i class="fas fa-user-group"></i>
                         </div>
@@ -352,7 +360,11 @@ const testimonials = [
                         </p>
                     </a>
 
-                    <a href="/examples/pets" class="use-case-card">
+                    <a
+                        href="/examples/pets"
+                        class="use-case-card"
+                        style="--bg-image: url('https://images.unsplash.com/photo-1450778869180-41d0601e046e?auto=format&fit=crop&q=80&w=600')"
+                    >
                         <div class="use-case-icon use-case-icon-amber">
                             <i class="fas fa-paw"></i>
                         </div>
@@ -363,7 +375,11 @@ const testimonials = [
                         </p>
                     </a>
 
-                    <a href="/examples/living-abroad" class="use-case-card">
+                    <a
+                        href="/examples/living-abroad"
+                        class="use-case-card"
+                        style="--bg-image: url('https://images.unsplash.com/photo-1548227725-0141254f3369?auto=format&fit=crop&q=80&w=600')"
+                    >
                         <div class="use-case-icon use-case-icon-indigo">
                             <i class="fas fa-plane"></i>
                         </div>
@@ -374,7 +390,11 @@ const testimonials = [
                         </p>
                     </a>
 
-                    <a href="/examples/too-busy" class="use-case-card">
+                    <a
+                        href="/examples/too-busy"
+                        class="use-case-card"
+                        style="--bg-image: url('https://images.unsplash.com/photo-1620809975674-10b8ff5f8e58?auto=format&fit=crop&q=80&w=600')"
+                    >
                         <div class="use-case-icon use-case-icon-purple">
                             <i class="fas fa-briefcase"></i>
                         </div>
@@ -385,7 +405,11 @@ const testimonials = [
                         </p>
                     </a>
 
-                    <a href="/examples/learn-culture" class="use-case-card">
+                    <a
+                        href="/examples/learn-culture"
+                        class="use-case-card"
+                        style="--bg-image: url('https://images.unsplash.com/photo-1641644239376-52e9952a43a6?auto=format&fit=crop&q=80&w=600')"
+                    >
                         <div class="use-case-icon use-case-icon-rose">
                             <i class="fas fa-hands-praying"></i>
                         </div>
@@ -720,15 +744,38 @@ const testimonials = [
     }
 
     .use-case-card {
-        @apply bg-white rounded-xl p-4 border border-slate-200 shadow-sm;
-        @apply hover:shadow-md hover:border-slate-300 transition-all;
+        @apply rounded-xl p-4 border border-slate-200/50 shadow-sm;
+        @apply hover:shadow-lg hover:scale-[1.02] transition-all;
         @apply flex flex-col items-center text-center no-underline;
         @apply lg:p-6;
+        @apply relative overflow-hidden;
+        background-image: var(--bg-image);
+        background-size: cover;
+        background-position: center;
+    }
+
+    .use-case-card::before {
+        content: "";
+        @apply absolute inset-0;
+        background: linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.85) 0%,
+            rgba(255, 255, 255, 0.92) 100%
+        );
+    }
+
+    .use-case-card:hover::before {
+        background: linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.75) 0%,
+            rgba(255, 255, 255, 0.85) 100%
+        );
     }
 
     .use-case-icon {
         @apply w-12 h-12 rounded-full flex items-center justify-center text-xl mb-3;
         @apply lg:w-14 lg:h-14 lg:text-2xl;
+        @apply relative z-10;
     }
 
     .use-case-icon-sky {
@@ -756,11 +803,13 @@ const testimonials = [
     }
 
     .use-case-title {
-        @apply font-semibold text-slate-700 mb-1;
+        @apply font-semibold text-slate-800 mb-1;
+        @apply relative z-10;
     }
 
     .use-case-desc {
-        @apply text-sm text-slate-500 leading-snug;
+        @apply text-sm text-slate-600 leading-snug;
+        @apply relative z-10;
     }
 
     .use-cases-cta {

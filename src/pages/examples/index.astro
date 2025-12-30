@@ -23,7 +23,11 @@ import Petapetual from "../../components/Petapetual.astro";
             <h2 class="section-title">By Relationship</h2>
 
             <div class="examples-grid">
-                <a href="/examples/relatives" class="example-card">
+                <a
+                    href="/examples/relatives"
+                    class="example-card"
+                    style="--bg-image: url('https://images.unsplash.com/photo-1559734840-f9509ee5677f?auto=format&fit=crop&q=80&w=600')"
+                >
                     <div class="example-icon example-icon-sky">
                         <i class="fas fa-people-group"></i>
                     </div>
@@ -34,7 +38,11 @@ import Petapetual from "../../components/Petapetual.astro";
                     </p>
                 </a>
 
-                <a href="/examples/friends" class="example-card">
+                <a
+                    href="/examples/friends"
+                    class="example-card"
+                    style="--bg-image: url('https://images.unsplash.com/photo-1506869640319-fe1a24fd76dc?auto=format&fit=crop&q=80&w=600')"
+                >
                     <div class="example-icon example-icon-emerald">
                         <i class="fas fa-user-group"></i>
                     </div>
@@ -45,7 +53,11 @@ import Petapetual from "../../components/Petapetual.astro";
                     </p>
                 </a>
 
-                <a href="/examples/pets" class="example-card">
+                <a
+                    href="/examples/pets"
+                    class="example-card"
+                    style="--bg-image: url('https://images.unsplash.com/photo-1450778869180-41d0601e046e?auto=format&fit=crop&q=80&w=600')"
+                >
                     <div class="example-icon example-icon-amber">
                         <i class="fas fa-paw"></i>
                     </div>
@@ -63,7 +75,11 @@ import Petapetual from "../../components/Petapetual.astro";
             <h2 class="section-title">By Life Situation</h2>
 
             <div class="examples-grid">
-                <a href="/examples/living-abroad" class="example-card">
+                <a
+                    href="/examples/living-abroad"
+                    class="example-card"
+                    style="--bg-image: url('https://images.unsplash.com/photo-1548227725-0141254f3369?auto=format&fit=crop&q=80&w=600')"
+                >
                     <div class="example-icon example-icon-indigo">
                         <i class="fas fa-plane"></i>
                     </div>
@@ -74,7 +90,11 @@ import Petapetual from "../../components/Petapetual.astro";
                     </p>
                 </a>
 
-                <a href="/examples/too-busy" class="example-card">
+                <a
+                    href="/examples/too-busy"
+                    class="example-card"
+                    style="--bg-image: url('https://images.unsplash.com/photo-1620809975674-10b8ff5f8e58?auto=format&fit=crop&q=80&w=600')"
+                >
                     <div class="example-icon example-icon-purple">
                         <i class="fas fa-briefcase"></i>
                     </div>
@@ -85,7 +105,11 @@ import Petapetual from "../../components/Petapetual.astro";
                     </p>
                 </a>
 
-                <a href="/examples/learn-culture" class="example-card">
+                <a
+                    href="/examples/learn-culture"
+                    class="example-card"
+                    style="--bg-image: url('https://images.unsplash.com/photo-1641644239376-52e9952a43a6?auto=format&fit=crop&q=80&w=600')"
+                >
                     <div class="example-icon example-icon-rose">
                         <i class="fas fa-hands-praying"></i>
                     </div>
@@ -196,12 +220,35 @@ import Petapetual from "../../components/Petapetual.astro";
     }
 
     .example-card {
-        @apply block bg-white rounded-xl p-6 border border-slate-200 shadow-sm no-underline;
-        @apply hover:shadow-md hover:border-slate-300 transition-all;
+        @apply block rounded-xl p-6 border border-slate-200/50 shadow-sm no-underline;
+        @apply hover:shadow-lg hover:scale-[1.02] transition-all;
+        @apply relative overflow-hidden;
+        background-image: var(--bg-image);
+        background-size: cover;
+        background-position: center;
+    }
+
+    .example-card::before {
+        content: "";
+        @apply absolute inset-0;
+        background: linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.85) 0%,
+            rgba(255, 255, 255, 0.92) 100%
+        );
+    }
+
+    .example-card:hover::before {
+        background: linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.75) 0%,
+            rgba(255, 255, 255, 0.85) 100%
+        );
     }
 
     .example-icon {
         @apply w-12 h-12 rounded-full flex items-center justify-center text-2xl mb-4;
+        @apply relative z-10;
     }
 
     .example-icon-sky {
@@ -229,15 +276,13 @@ import Petapetual from "../../components/Petapetual.astro";
     }
 
     .example-card-title {
-        @apply font-semibold text-lg text-slate-700 mb-2;
-    }
-
-    .example-card:hover .example-card-title {
-        @apply text-slate-800;
+        @apply font-semibold text-lg text-slate-800 mb-2;
+        @apply relative z-10;
     }
 
     .example-card-desc {
-        @apply text-slate-500;
+        @apply text-slate-600;
+        @apply relative z-10;
     }
 
     /* Features Section */
