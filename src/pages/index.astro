@@ -181,14 +181,14 @@ const testimonials = [
             </div>
 
             <div class="hero-mockup">
-                <Image src={HeroImage} alt="hero image" />
+                <Image src={HeroImage} alt="hero image" loading="eager" fetchpriority="high" />
                 <!-- Desktop mockup placeholder -->
             </div>
 
             <!-- Scroll indicator (mobile only) -->
             <div class="scroll-indicator">
-                <a href="#benefits" class="scroll-indicator-link">
-                    <i class="fas fa-chevron-down text-2xl"></i>
+                <a href="#benefits" class="scroll-indicator-link" aria-label="Scroll to benefits section">
+                    <i class="fas fa-chevron-down text-2xl" aria-hidden="true"></i>
                 </a>
             </div>
         </section>
@@ -196,6 +196,7 @@ const testimonials = [
         <!-- Key Benefits Section -->
         <section id="benefits" class="benefits-section">
             <div class="benefits-container">
+                <h2 class="sr-only">Key Benefits</h2>
                 <div class="benefits-grid">
                     <div class="benefit-card">
                         <div class="benefit-icon">
@@ -561,7 +562,7 @@ const testimonials = [
     }
 
     .scroll-indicator-link {
-        @apply text-slate-400;
+        @apply text-slate-400 flex items-center justify-center w-12 h-12;
     }
 
     /* Benefits Section */
@@ -828,18 +829,24 @@ const testimonials = [
     }
 
     .testimonial-location {
-        @apply text-sm text-slate-400;
+        @apply text-sm text-slate-500;
     }
 
     .carousel-dots {
-        @apply flex justify-center gap-2 mt-4;
+        @apply flex justify-center gap-1 mt-4;
     }
 
     .carousel-dot {
-        @apply w-2 h-2 rounded-full bg-slate-300 transition-colors cursor-pointer;
+        @apply w-6 h-6 rounded-full bg-transparent transition-colors cursor-pointer;
+        @apply flex items-center justify-center;
     }
 
-    .carousel-dot.active {
+    .carousel-dot::after {
+        content: "";
+        @apply w-2 h-2 rounded-full bg-slate-300 transition-colors;
+    }
+
+    .carousel-dot.active::after {
         @apply bg-slate-600;
     }
 

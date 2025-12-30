@@ -37,8 +37,10 @@ import DTOSLogo from "../assets/img/dtos-logo-h.png";
 
         <button
             id="expandNavButton"
-            class="flex lg:hidden items-center border border-stone-400 text-stone-400 w-8 h-8 rounded justify-around"
-            ><i class="fas fa-bars"></i></button
+            class="flex lg:hidden items-center border border-stone-400 text-stone-400 w-12 h-12 rounded justify-around"
+            aria-label="Toggle navigation menu"
+            aria-expanded="false"
+            ><i class="fas fa-bars" aria-hidden="true"></i></button
         >
     </div>
 
@@ -89,12 +91,15 @@ import DTOSLogo from "../assets/img/dtos-logo-h.png";
     const expandNavButton = document.getElementById("expandNavButton");
     const navLinkContainer = document.getElementById("navLinkContainer");
     expandNavButton?.addEventListener("click", () => {
+        const isExpanded = !navLinkContainer?.classList.contains("hidden");
         if (navLinkContainer?.classList.contains("hidden")) {
             navLinkContainer?.classList.remove("hidden");
             navLinkContainer?.classList.add("flex");
+            expandNavButton?.setAttribute("aria-expanded", "true");
         } else {
             navLinkContainer?.classList.add("hidden");
             navLinkContainer?.classList.remove("flex");
+            expandNavButton?.setAttribute("aria-expanded", "false");
         }
     });
 </script>
