@@ -92,15 +92,15 @@ const compareAnchorID = compareID ?? "compare";
 
     <div class="pricing-features">
         <ul class="features-list">
-            <li class="feature-item">
+            <li>
                 <i class:list={["fas fa-dove feature-icon", colors.text]}></i>
                 <span>
                     Create <strong>{nMemorials}</strong>
                     {memorialWord}
                 </span>
             </li>
+            <slot />
         </ul>
-        <slot />
     </div>
 
     <a class="compare-link" href={`#${compareAnchorID}`}>
@@ -188,8 +188,12 @@ const compareAnchorID = compareID ?? "compare";
         @apply flex flex-col gap-2;
     }
 
-    .feature-item {
-        @apply flex items-center gap-2 text-slate-600 text-sm;
+    .features-list :global(li) {
+        @apply text-slate-600 text-sm;
+    }
+
+    .features-list :global(i.fas) {
+        @apply mr-2;
     }
 
     .feature-icon {
