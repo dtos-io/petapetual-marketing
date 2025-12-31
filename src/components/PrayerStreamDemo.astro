@@ -5,10 +5,25 @@ import PrayerStreamWidget from "./PrayerStreamWidget.astro";
 <div class="prayer-stream-demo">
     <div class="demo-callout">
         <i class="fas fa-info-circle"></i>
-        <span>This is a demo for illustrative purposes only. Prayer content, interval, and logging period may vary.</span>
+        <span
+            >This is a demo for illustrative purposes only. Prayer content,
+            interval, and logging period may vary.</span
+        >
     </div>
 
     <div class="widgets-showcase">
+        <!-- <button
+            class="prayer-tab"
+            data-tradition="demo"
+            data-icon="fa-solid fa-star"
+            data-color="text-red-600"
+        >
+            <PrayerStreamWidget
+                text="Prayer Stream"
+                iconClass="fa-solid fa-star"
+                bgClass="bg-red-500"
+            />
+        </button> -->
         <button
             class="prayer-tab active"
             data-tradition="buddhist"
@@ -159,6 +174,16 @@ import PrayerStreamWidget from "./PrayerStreamWidget.astro";
     const ADD_INTERVAL = 3000;
 
     const traditions = {
+        demo: {
+            icon: "fa-solid fa-star",
+            color: "text-red-600",
+            prayers: [
+                "(Your prayers/chants here!)",
+                "(Your prayers/chants here!)",
+                "(Your prayers/chants here!)",
+                "(Your prayers/chants here!)",
+            ],
+        },
         buddhist: {
             icon: "fa-solid fa-om",
             color: "text-indigo-600",
