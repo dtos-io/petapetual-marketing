@@ -113,17 +113,20 @@ const howItWorksTabs = [
                 image: PrayerStreamsImage,
                 title: "Subscribe to prayer streams",
                 subtitle: "24/7 continuous prayers from various traditions.",
+                comingSoon: true,
             },
             {
                 image: TributesImage,
                 title: "Place tributes",
                 subtitle: "Add meaningful flowers, candles, and blessings.",
+                comingSoon: true,
             },
             {
                 image: FamilyTreeImage,
                 title: "Construct family trees",
                 subtitle:
                     "Document and display your ancestry for yourself and future generations.",
+                comingSoon: true,
             },
         ],
     },
@@ -302,7 +305,14 @@ const testimonials = [
                             >
                                 <div class="steps-grid">
                                     {tab.steps.map((step) => (
-                                        <div class="step-card">
+                                        <div
+                                            class={`step-card ${step.comingSoon ? "step-card-coming-soon" : ""}`}
+                                        >
+                                            {step.comingSoon && (
+                                                <div class="coming-soon-ribbon">
+                                                    Coming Soon
+                                                </div>
+                                            )}
                                             <div class="step-image-container">
                                                 {step?.image ? (
                                                     <Image
@@ -608,7 +618,7 @@ const testimonials = [
 
     /* Scroll Indicator */
     .scroll-indicator {
-        @apply absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce;
+        @apply absolute -bottom-10 md:bottom-0 left-1/2 -translate-x-1/2 animate-bounce;
         @apply lg:hidden;
     }
 
@@ -710,6 +720,19 @@ const testimonials = [
 
     .step-card {
         @apply bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm;
+        @apply relative;
+    }
+
+    .step-card-coming-soon {
+        @apply overflow-hidden;
+    }
+
+    .coming-soon-ribbon {
+        @apply absolute top-6 -right-10 z-10;
+        @apply bg-amber-500 text-white text-xs font-semibold;
+        @apply py-2 px-10;
+        transform: rotate(45deg);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
     }
 
     .step-image-container {
