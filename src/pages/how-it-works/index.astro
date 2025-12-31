@@ -192,7 +192,8 @@ const themes = [
             </div>
 
             <!-- Prayer Streams Feature -->
-            <div class="feature-block" id="prayer-streams">
+            <div class="feature-block feature-coming-soon" id="prayer-streams">
+                <div class="coming-soon-ribbon">Coming Soon</div>
                 <div class="feature-header">
                     <div class="feature-icon">
                         <i class="fas fa-hands-praying"></i>
@@ -243,7 +244,8 @@ const themes = [
             </div>
 
             <!-- Tributes Feature -->
-            <div class="feature-block" id="tributes">
+            <div class="feature-block feature-coming-soon" id="tributes">
+                <div class="coming-soon-ribbon">Coming Soon</div>
                 <div class="feature-header">
                     <div class="feature-icon">
                         <i class="fas fa-gift"></i>
@@ -306,7 +308,8 @@ const themes = [
             </div>
 
             <!-- Family Trees Feature -->
-            <div class="feature-block" id="family-trees">
+            <div class="feature-block feature-coming-soon" id="family-trees">
+                <div class="coming-soon-ribbon">Coming Soon</div>
                 <div class="feature-header">
                     <div class="feature-icon">
                         <i class="fa-solid fa-code-fork"></i>
@@ -449,6 +452,20 @@ const themes = [
 
     .feature-note {
         @apply text-slate-500 italic text-sm;
+    }
+
+    /* Coming Soon Ribbon */
+    .feature-coming-soon {
+        @apply relative overflow-hidden;
+    }
+
+    .coming-soon-ribbon {
+        @apply absolute top-18 right-1;
+        @apply bg-amber-500 text-white text-xs font-semibold;
+        @apply py-2 px-10;
+        transform: rotate(45deg) translate(20%, -50%);
+        transform-origin: top right;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
     }
 
     /* Theme Carousel */
