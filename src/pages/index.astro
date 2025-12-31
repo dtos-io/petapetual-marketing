@@ -1,135 +1,1038 @@
 ---
 import MasterLayout from "../layouts/MasterLayout.astro";
-import Incense from "../components/Incense.astro";
-import FeatureCard from "../components/FeatureCard.astro";
 import { Image } from "astro:assets";
 
-import MemorialGuestbookMockup from "../assets/img/mockup-memorial-guestbook.png";
-import MemorialTributesMockup from "../assets/img/mockup-memorial-tributes.png";
+import HeroImage from "../assets/img/hero.png";
 
-// <section class="mx-4 mt-4 lg:mt-16 lg:mx-20 flex flex-row gap-8">
-//     <Incense />
+import ThemeCompilationImage from "../assets/img/demos/themes/compilation.png";
+import MemorialDetailsImage from "../assets/img/demos/details.png";
+import MemorialSlugImage from "../assets/img/demos/slug.png";
+import MemorialPublicImage from "../assets/img/demos/public.png";
 
-//     <div class="flex flex-col gap-8 lg:gap-16 grow my-16 lg:ml-16">
-//         <!-- <h2 class="text-2xl font-bold">Features</h2> -->
-//         <FeatureCard
-//             iconCode="fas fa-bolt text-yellow-500"
-//             title="Tangible"
-//         >
-//             We are more than a simple page hosting site- our prayer and
-//             tribute services are backed by very real actions and digital
-//             counterparts. Want to know more? Read up on <a
-//                 href="/how-it-works"
-//                 class="blueLink">how it works</a
-//             >.
-//         </FeatureCard>
+import MemorialFuneralImage from "../assets/img/demos/funeral.png";
+import MemorialTimelineImage from "../assets/img/demos/timeline.png";
+import MemorialGalleryImage from "../assets/img/demos/gallery.png";
 
-//         <FeatureCard
-//             iconCode="fas fa-hand-holding-heart text-red-600"
-//             title="Multicultural"
-//         >
-//             A platform for everyone. We aim to support memorials from as
-//             many cultural and religious backgrounds as we can.
-//         </FeatureCard>
+import MemorialInviteImage from "../assets/img/demos/invite.png";
+import MemorialShareImage from "../assets/img/demos/share.png";
+import MemorialGuestbookImage from "../assets/img/demos/guestbook.png";
 
-//         <FeatureCard
-//             iconCode="fas fa-users text-indigo-500"
-//             title="Shareable"
-//         >
-//             Invite friends and family to view and interact with your
-//             memorials, no matter where they are in the world.
-//             Alternatively, make your memorial open to the public for
-//             viewing.
-//         </FeatureCard>
-//     </div>
-// </section>
+import PrayerStreamsImage from "../assets/img/demos/prayer-streams.png";
+import TributesImage from "../assets/img/demos/tributes.png";
+import FamilyTreeImage from "../assets/img/demos/family-tree.png";
+
+// How It Works tab data
+const howItWorksTabs = [
+    {
+        id: "memorials",
+        label: "Create your memorial",
+        icon: "fa-dove ",
+        steps: [
+            {
+                image: ThemeCompilationImage,
+                title: "Pick a theme",
+                subtitle:
+                    "Set a colour theme for your memorial. Choose from one of many palettes, across warm, cool, and neutral hues.",
+            },
+            {
+                image: MemorialDetailsImage,
+                title: "Provide your loved one's details",
+                subtitle:
+                    "Add a display photo, name, dates of birth and passing, and a short epitaph for your loved one.",
+            },
+            {
+                image: MemorialSlugImage,
+                title: "(Optional) Choose a custom address",
+                subtitle:
+                    "Think of a short code that will function as a custom address for your memorial. This is mandatory for public memorials.",
+            },
+            {
+                image: MemorialPublicImage,
+                title: "(Optional) Make your memorial public",
+                subtitle:
+                    "Decide whether you want your memorial to be public (anyone with the link can access it), or private (only invited users can access it).",
+            },
+        ],
+    },
+    {
+        id: "sharing",
+        label: "Customize your page",
+        icon: "fa-palette",
+        steps: [
+            {
+                image: MemorialFuneralImage,
+                title: "Add funeral service information",
+                subtitle:
+                    "Provide information about any funeral services being held, such as the venue, time, virtual links, donation instructions, or other details.",
+            },
+            {
+                image: MemorialTimelineImage,
+                title: "Record significant dates in your late one's life",
+                subtitle:
+                    "Share your loved one's milestones and special moments with our timeline widget.",
+            },
+            {
+                image: MemorialGalleryImage,
+                title: "Add precious photo memories to the gallery",
+                subtitle:
+                    "Upload heartfelt and special images of your loved one and their life to the photo gallery.",
+            },
+        ],
+    },
+    {
+        id: "memories",
+        label: "Share with others",
+        icon: "fa-share-nodes",
+        steps: [
+            {
+                image: MemorialInviteImage,
+                title: "Invite family and friends",
+                subtitle:
+                    "Share your memorial with others on Petapetual so they can visit and pay respects.",
+            },
+            {
+                image: MemorialGuestbookImage,
+                title: "Write in the guestbook",
+                subtitle:
+                    "Leave heartfelt messages and share precious photos and memories on the guestbook widget.",
+            },
+            {
+                image: MemorialShareImage,
+                title: "Share your memorial with everyone",
+                subtitle:
+                    "Public memorials can be shared via link or QR code and visited by anyone, even if they do not have a Petapetual account.",
+            },
+        ],
+    },
+    {
+        id: "services",
+        label: "Add more services",
+        icon: "fa-bolt",
+        steps: [
+            {
+                image: PrayerStreamsImage,
+                title: "Subscribe to prayer streams",
+                subtitle: "24/7 continuous prayers from various traditions.",
+            },
+            {
+                image: TributesImage,
+                title: "Place tributes",
+                subtitle: "Add meaningful flowers, candles, and blessings.",
+            },
+            {
+                image: FamilyTreeImage,
+                title: "Construct family trees",
+                subtitle:
+                    "Document and display your ancestry for yourself and future generations.",
+            },
+        ],
+    },
+];
+
+// Testimonials data
+const testimonials = [
+    {
+        rating: 5,
+        quote: "This gave our family a beautiful way to remember Grandma. Everyone could contribute their favorite memories.",
+        name: "Sarah M.",
+        location: "California, USA",
+    },
+    {
+        rating: 5,
+        quote: "The prayer streams feature brought so much comfort during a difficult time. Highly recommend.",
+        name: "David L.",
+        location: "Singapore",
+    },
+    {
+        rating: 5,
+        quote: "Simple to set up and the memorial looks beautiful. Our relatives overseas can now pay their respects too.",
+        name: "Michelle T.",
+        location: "Sydney, Australia",
+    },
+    {
+        rating: 4,
+        quote: "A wonderful way to keep my father's memory alive. The family tree feature is a lovely touch.",
+        name: "James K.",
+        location: "London, UK",
+    },
+];
 ---
 
 <MasterLayout
     title="Petapetual"
     description="Online memorials to pay respects to your late loved ones. 24/7 virtualized prayer services and blessings available."
 >
-    <div class="container mx-auto">
-        <section class="flex flex-col gap-4 p-4 lg:grid lg:grid-cols-3 lg:m-16">
-            <div class="col-span-2 flex flex-col gap-2">
-                <h1 class="text-3xl font-bold col-start-1">
-                    Petapetual: Digital memorials that bring tradition into the
-                    modern world
+    <div class="page-container">
+        <!-- Hero Section - Full screen on mobile -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Create beautiful memorials to treasure and share the stories
+                    of your loved ones
                 </h1>
 
-                <h2 class="text-xl col-start-1">
-                    Petapetual is an <a
-                        href="/how-it-works/online-memorials"
-                        class="blueLink">online memorial service</a
-                    > that lets you honour and pay respects to your late loved ones
-                    anytime, anywhere.
-                </h2>
+                <p class="hero-subtitle">
+                    Provide funeral information, write an epitaph, post memories
+                    and significant dates. Invite others to view the memorial,
+                    or make it public for the world to see.
+                </p>
 
-                <div class="h-10/12 lg:hidden flex">
-                    <Image
-                        class="h-full w-full object-contain"
-                        inferSize
-                        src={MemorialGuestbookMockup}
-                        alt="petapetual guestbook mockup"
-                    />
-                </div>
-
-                <div class="flex flex-col gap-4 my-4">
-                    <p class="text-lg">
-                        <i class="fas fa-circle-check text-green-600"></i>
-                        Works on mobile, tablet, and desktop with no app installation
-                        required.
-                    </p>
-                    <p class="text-lg">
-                        <i class="fas fa-circle-check text-green-600"></i>
-                        Invite your friends and family to view your memorials and
-                        leave messages on the guestbooks.
-                    </p>
-                    <p class="text-lg">
-                        <i class="fas fa-circle-check text-green-600"></i>
-                        Use our virtualized <a
-                            href="/how-it-works/prayer-streams"
-                            class="blueLink">prayer streams</a
-                        > and <a href="/how-it-works/tributes" class="blueLink"
-                            >memorial tribute</a
-                        > services to decorate and honour your memorials, even when
-                        you're away.
-                    </p>
-                    <p class="text-lg">
-                        <i class="fas fa-circle-check text-green-600"></i>
-                        Link your memorials and build family trees.
-                    </p>
-                </div>
-
-                <div class="gap-2 flex flex-col col-start-1">
-                    <a
-                        href="/how-it-works"
-                        class="p-2 border rounded text-center"
-                        ><i class="fas fa-lightbulb"></i> How it works
+                <div class="hero-cta-group">
+                    <a href="https://app.petapetual.com" class="btn-primary">
+                        Create A Free Memorial <i
+                            class="fas fa-arrow-right ml-1"></i>
                     </a>
-
                     <a
-                        href="/roadmap"
-                        class="p-2 bg-yellow-400 rounded text-center"
-                        ><i class="fas fa-road"></i> Roadmap
-                    </a>
-
-                    <a
-                        href="https://app.petapetual.com"
-                        class="p-2 text-center bg-stone-800 text-stone-200 rounded"
-                        >Go to app <i class="fas fa-arrow-right"></i></a
+                        href="https://app.petapetual.com/memorial/petapetual-demo-001?widget=FUNERAL"
+                        target="_blank"
+                        class="btn-secondary"
                     >
+                        View Demo
+                    </a>
                 </div>
             </div>
 
-            <div class="h-10/12 hidden lg:flex">
+            <div class="hero-mockup">
                 <Image
-                    class="h-full w-full object-contain"
-                    inferSize
-                    src={MemorialGuestbookMockup}
-                    alt="petapetual guestbook mockup"
+                    src={HeroImage}
+                    alt="hero image"
+                    loading="eager"
+                    fetchpriority="high"
                 />
+                <!-- Desktop mockup placeholder -->
+            </div>
+
+            <!-- Scroll indicator (mobile only) -->
+            <div class="scroll-indicator">
+                <a
+                    href="#benefits"
+                    class="scroll-indicator-link"
+                    aria-label="Scroll to benefits section"
+                >
+                    <i class="fas fa-chevron-down text-2xl" aria-hidden="true"
+                    ></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- Key Benefits Section -->
+        <section id="benefits" class="benefits-section">
+            <div class="benefits-container">
+                <h2 class="sr-only">Key Benefits</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3 class="benefit-title">Modern</h3>
+                        <p class="benefit-description">
+                            Elegant and clean memorial page designs that look
+                            good on any screen.
+                        </p>
+                    </div>
+
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="benefit-title">Communal</h3>
+                        <p class="benefit-description">
+                            Invite loved ones to share heartfelt messages. Make
+                            your memorial public for everyone to see.
+                        </p>
+                    </div>
+
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3 class="benefit-title">Customizable</h3>
+                        <p class="benefit-description">
+                            Infuse your memorials with personality by setting a
+                            colour theme, adding significant dates, and more.
+                        </p>
+                    </div>
+
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3 class="benefit-title">Integrated</h3>
+                        <p class="benefit-description">
+                            Enrich and enhance your memorial pages with our
+                            value-added digital services.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="how-it-works-section">
+            <div class="how-it-works-container">
+                <h2 class="section-title">How It Works</h2>
+
+                <!-- Tabs -->
+                <div class="tabs-nav" role="tablist">
+                    {
+                        howItWorksTabs.map((tab, index) => (
+                            <button
+                                class={`tab-button ${index === 0 ? "active" : ""}`}
+                                role="tab"
+                                aria-selected={index === 0 ? "true" : "false"}
+                                aria-controls={`panel-${tab.id}`}
+                                data-tab={tab.id}
+                            >
+                                <i class={`fas ${tab.icon} tab-icon`} />
+                                <span class="tab-label">{tab.label}</span>
+                            </button>
+                        ))
+                    }
+                </div>
+
+                <!-- Tab Panels -->
+                <div class="tab-panels">
+                    {
+                        howItWorksTabs.map((tab, index) => (
+                            <div
+                                id={`panel-${tab.id}`}
+                                class={`tab-panel ${index === 0 ? "active" : ""}`}
+                                role="tabpanel"
+                                aria-hidden={index === 0 ? "false" : "true"}
+                            >
+                                <div class="steps-grid">
+                                    {tab.steps.map((step) => (
+                                        <div class="step-card">
+                                            <div class="step-image-container">
+                                                {step?.image ? (
+                                                    <Image
+                                                        inferSize
+                                                        src={step.image}
+                                                        alt={step.title}
+                                                    />
+                                                ) : (
+                                                    <div class="step-image-placeholder">
+                                                        <i class="fas fa-image" />
+                                                    </div>
+                                                )}
+                                            </div>
+                                            <div class="step-content">
+                                                <h3 class="step-title">
+                                                    {step.title}
+                                                </h3>
+                                                <p class="step-subtitle">
+                                                    {step.subtitle}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        ))
+                    }
+                </div>
+
+                <div class="learn-more">
+                    <a href="/how-it-works" class="learn-more-link">
+                        Learn more about our features <i
+                            class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Who Is This For Section -->
+        <section class="use-cases-section">
+            <div class="use-cases-container">
+                <h2 class="section-title">Who Is This For?</h2>
+                <p class="use-cases-intro">
+                    Whether you're honoring family, friends, or beloved
+                    pets—Petapetual helps you remember and celebrate their
+                    lives.
+                </p>
+
+                <div class="use-cases-grid">
+                    <a
+                        href="/examples/relatives"
+                        class="use-case-card"
+                        style="--bg-image: url('https://images.unsplash.com/photo-1559734840-f9509ee5677f?auto=format&fit=crop&q=80&w=600')"
+                    >
+                        <div class="use-case-icon use-case-icon-sky">
+                            <i class="fas fa-people-group"></i>
+                        </div>
+                        <h3 class="use-case-title">Relatives</h3>
+                        <p class="use-case-desc">
+                            Honor parents, grandparents, and family members who
+                            shaped your life.
+                        </p>
+                    </a>
+
+                    <a
+                        href="/examples/friends"
+                        class="use-case-card"
+                        style="--bg-image: url('https://images.unsplash.com/photo-1506869640319-fe1a24fd76dc?auto=format&fit=crop&q=80&w=600')"
+                    >
+                        <div class="use-case-icon use-case-icon-emerald">
+                            <i class="fas fa-user-group"></i>
+                        </div>
+                        <h3 class="use-case-title">Friends</h3>
+                        <p class="use-case-desc">
+                            Celebrate friends who became family—the ones who
+                            truly understood you.
+                        </p>
+                    </a>
+
+                    <a
+                        href="/examples/pets"
+                        class="use-case-card"
+                        style="--bg-image: url('https://images.unsplash.com/photo-1450778869180-41d0601e046e?auto=format&fit=crop&q=80&w=600')"
+                    >
+                        <div class="use-case-icon use-case-icon-amber">
+                            <i class="fas fa-paw"></i>
+                        </div>
+                        <h3 class="use-case-title">Pets</h3>
+                        <p class="use-case-desc">
+                            Remember companions who gave unconditional love and
+                            endless joy.
+                        </p>
+                    </a>
+
+                    <a
+                        href="/examples/living-abroad"
+                        class="use-case-card"
+                        style="--bg-image: url('https://images.unsplash.com/photo-1548227725-0141254f3369?auto=format&fit=crop&q=80&w=600')"
+                    >
+                        <div class="use-case-icon use-case-icon-indigo">
+                            <i class="fas fa-plane"></i>
+                        </div>
+                        <h3 class="use-case-title">Living Abroad</h3>
+                        <p class="use-case-desc">
+                            Pay respects from anywhere in the world, no matter
+                            the distance.
+                        </p>
+                    </a>
+
+                    <a
+                        href="/examples/too-busy"
+                        class="use-case-card"
+                        style="--bg-image: url('https://images.unsplash.com/photo-1620809975674-10b8ff5f8e58?auto=format&fit=crop&q=80&w=600')"
+                    >
+                        <div class="use-case-icon use-case-icon-purple">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h3 class="use-case-title">Busy Schedules</h3>
+                        <p class="use-case-desc">
+                            Honor loved ones on your own time, whenever you have
+                            a quiet moment.
+                        </p>
+                    </a>
+
+                    <a
+                        href="/examples/learn-culture"
+                        class="use-case-card"
+                        style="--bg-image: url('https://images.unsplash.com/photo-1641644239376-52e9952a43a6?auto=format&fit=crop&q=80&w=600')"
+                    >
+                        <div class="use-case-icon use-case-icon-rose">
+                            <i class="fas fa-link-slash"></i>
+                        </div>
+                        <h3 class="use-case-title">Disconnected</h3>
+                        <p class="use-case-desc">
+                            Handling culture and tradition doesn't have to be
+                            hard. Get started and let us handle the rest.
+                        </p>
+                    </a>
+                </div>
+
+                <div class="use-cases-cta">
+                    <a href="/examples" class="use-cases-link">
+                        See all use cases <i class="fas fa-arrow-right ml-1"
+                        ></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <br />
+        <!-- Social Proof / Testimonials Section -->
+        <!-- <section class="testimonials-section">
+            <div class="testimonials-container">
+                <h2 class="section-title">What Others Are Saying</h2>
+
+                <div class="carousel-wrapper">
+                    <button
+                        class="carousel-btn carousel-btn-prev"
+                        aria-label="Previous testimonial"
+                    >
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+
+                    <div class="carousel-track-container">
+                        <div class="carousel-track">
+                            {
+                                testimonials.map((testimonial, index) => (
+                                    <div
+                                        class={`testimonial-card ${index === 0 ? "active" : ""}`}
+                                        data-index={index}
+                                    >
+                                        <div class="testimonial-rating">
+                                            {[...Array(5)].map((_, i) => (
+                                                <i
+                                                    class={`fas fa-star ${i < testimonial.rating ? "filled" : ""}`}
+                                                />
+                                            ))}
+                                        </div>
+                                        <blockquote class="testimonial-quote">
+                                            "{testimonial.quote}"
+                                        </blockquote>
+                                        <div class="testimonial-author">
+                                            <span class="testimonial-name">
+                                                {testimonial.name}
+                                            </span>
+                                            <span class="testimonial-location">
+                                                {testimonial.location}
+                                            </span>
+                                        </div>
+                                    </div>
+                                ))
+                            }
+                        </div>
+                    </div>
+
+                    <button
+                        class="carousel-btn carousel-btn-next"
+                        aria-label="Next testimonial"
+                    >
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+
+                <div class="carousel-dots">
+                    {
+                        testimonials.map((_, index) => (
+                            <button
+                                class={`carousel-dot ${index === 0 ? "active" : ""}`}
+                                aria-label={`Go to testimonial ${index + 1}`}
+                                data-index={index}
+                            />
+                        ))
+                    }
+                </div>
+            </div>
+        </section> -->
+
+        <!-- Final CTA Section -->
+        <section class="cta-section">
+            <div class="cta-container">
+                <h2 class="cta-title">Start Honoring Your Loved One Today</h2>
+                <p class="cta-subtitle">
+                    Create your first memorial for free. No credit card
+                    required.
+                </p>
+                <div class="cta-buttons">
+                    <a
+                        href="https://app.petapetual.com"
+                        class="btn-cta-primary"
+                    >
+                        Get Started Free <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                    <a href="/pricing" class="btn-cta-secondary">
+                        View Pricing
+                    </a>
+                </div>
             </div>
         </section>
     </div>
 </MasterLayout>
+
+<style>
+    @reference "tailwindcss";
+
+    /* Page Container */
+    .page-container {
+        @apply container mx-auto;
+    }
+
+    /* Hero Section */
+    .hero {
+        @apply min-h-dvh flex flex-col justify-center relative p-6;
+        @apply lg:min-h-0 lg:p-16 lg:grid lg:grid-cols-2 lg:gap-12 lg:items-center;
+    }
+
+    .hero-content {
+        @apply flex flex-col gap-4;
+        @apply order-2 lg:order-1;
+    }
+
+    .hero-title {
+        @apply text-3xl font-bold text-slate-800;
+        @apply lg:text-4xl;
+    }
+
+    .hero-subtitle {
+        @apply text-xl text-slate-600;
+    }
+
+    .hero-cta-group {
+        @apply flex flex-col gap-3 mt-4;
+        @apply sm:flex-row;
+    }
+
+    .hero-mockup {
+        @apply flex justify-center order-1 mb-4 overflow-hidden;
+        @apply lg:order-2 lg:mb-0 lg:overflow-visible;
+        max-height: 35vh;
+        @apply lg:max-h-none;
+        mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+        -webkit-mask-image: linear-gradient(
+            to bottom,
+            black 90%,
+            transparent 100%
+        );
+    }
+
+    .hero-mockup img {
+        @apply w-full h-full object-cover object-top;
+        @apply lg:w-auto lg:h-auto lg:object-contain;
+    }
+
+    /* Buttons */
+    .btn-primary {
+        @apply p-3 text-center bg-slate-600 text-white rounded-lg font-semibold;
+        @apply hover:bg-slate-700 transition-colors;
+    }
+
+    .btn-secondary {
+        @apply p-3 text-center border border-slate-300 text-slate-600 rounded-lg;
+        @apply hover:bg-slate-50 transition-colors;
+    }
+
+    /* Scroll Indicator */
+    .scroll-indicator {
+        @apply absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce;
+        @apply lg:hidden;
+    }
+
+    .scroll-indicator-link {
+        @apply text-slate-400 flex items-center justify-center w-12 h-12;
+    }
+
+    /* Benefits Section */
+    .benefits-section {
+        @apply py-12 rounded-none;
+        @apply lg:rounded-xl;
+    }
+
+    .benefits-container {
+        @apply max-w-5xl mx-auto;
+    }
+
+    .benefits-grid {
+        @apply grid grid-cols-1 gap-6;
+        @apply md:grid-cols-2;
+        @apply lg:grid-cols-4;
+    }
+
+    .benefit-card {
+        @apply p-4 rounded-lg;
+        @apply lg:p-2;
+        text-align: center;
+    }
+
+    .benefit-icon {
+        @apply text-3xl mb-3 text-slate-500;
+    }
+
+    .benefit-title {
+        @apply font-semibold text-lg mb-2 text-slate-700;
+    }
+
+    .benefit-description {
+        @apply text-slate-600;
+    }
+
+    /* How It Works Section */
+    .how-it-works-section {
+        @apply py-12 px-4;
+    }
+
+    .how-it-works-container {
+        /*@apply max-w-4xl mx-auto;*/
+    }
+
+    .section-title {
+        @apply text-2xl font-bold text-center mb-8 text-slate-700;
+    }
+
+    /* Tabs */
+    .tabs-nav {
+        /*@apply flex flex-wrap justify-center gap-2;*/
+        @apply grid grid-cols-4 gap-2 my-4;
+        @apply sm:gap-4;
+    }
+
+    .tab-button {
+        @apply cursor-pointer flex flex-col items-center justify-start gap-1 px-4 py-3 rounded-xl transition-all;
+        @apply text-slate-500 bg-white/70 border border-slate-200;
+        @apply hover:bg-white hover:border-slate-300;
+        @apply lg:flex-row lg:gap-2 lg:justify-center;
+    }
+
+    .tab-button.active {
+        @apply bg-slate-600 text-white border-slate-600;
+    }
+
+    .tab-icon {
+        @apply text-lg;
+    }
+
+    .tab-label {
+        @apply text-sm font-medium;
+        @apply sm:text-base;
+    }
+
+    .tab-panels {
+        @apply relative;
+    }
+
+    .tab-panel {
+        @apply absolute inset-0 opacity-0 pointer-events-none;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .tab-panel.active {
+        @apply relative opacity-100 pointer-events-auto;
+    }
+
+    .steps-grid {
+        @apply grid gap-6;
+        @apply md:grid-cols-2;
+    }
+
+    .step-card {
+        @apply bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm;
+    }
+
+    .step-image-container {
+        @apply aspect-video bg-slate-100 overflow-hidden;
+    }
+
+    .step-image-container img {
+        @apply w-full h-full object-cover;
+    }
+
+    .step-image-placeholder {
+        @apply w-full h-full flex items-center justify-center text-slate-300 text-4xl;
+    }
+
+    .step-content {
+        @apply p-4;
+    }
+
+    .step-title {
+        @apply font-semibold text-lg mb-1 text-slate-700;
+    }
+
+    .step-subtitle {
+        @apply text-slate-500 text-sm;
+    }
+
+    .learn-more {
+        @apply text-center mt-8;
+    }
+
+    .learn-more-link {
+        @apply text-slate-600 hover:text-slate-800 transition-colors;
+        text-decoration: none;
+    }
+
+    .learn-more-link:hover {
+        text-decoration: underline;
+    }
+
+    /* Use Cases Section */
+    .use-cases-section {
+        @apply py-12 px-4;
+        background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+        @apply lg:px-8 lg:rounded-xl;
+    }
+
+    .use-cases-container {
+        @apply max-w-5xl mx-auto;
+    }
+
+    .use-cases-intro {
+        @apply text-center text-slate-600 mb-8 max-w-2xl mx-auto;
+    }
+
+    .use-cases-grid {
+        @apply grid grid-cols-2 gap-4;
+        @apply md:grid-cols-3;
+        @apply lg:gap-6;
+    }
+
+    .use-case-card {
+        @apply rounded-xl p-4 border border-slate-200/50 shadow-sm;
+        @apply hover:shadow-lg hover:scale-[1.02] transition-all;
+        @apply flex flex-col items-center text-center no-underline;
+        @apply lg:p-6;
+        @apply relative overflow-hidden;
+        background-image: var(--bg-image);
+        background-size: cover;
+        background-position: center;
+    }
+
+    .use-case-card::before {
+        content: "";
+        @apply absolute inset-0;
+        background: linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.85) 0%,
+            rgba(255, 255, 255, 0.92) 100%
+        );
+    }
+
+    .use-case-card:hover::before {
+        background: linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.75) 0%,
+            rgba(255, 255, 255, 0.85) 100%
+        );
+    }
+
+    .use-case-icon {
+        @apply w-12 h-12 rounded-full flex items-center justify-center text-xl mb-3;
+        @apply lg:w-14 lg:h-14 lg:text-2xl;
+        @apply relative z-10;
+    }
+
+    .use-case-icon-sky {
+        @apply bg-sky-100 text-sky-600;
+    }
+
+    .use-case-icon-emerald {
+        @apply bg-emerald-100 text-emerald-600;
+    }
+
+    .use-case-icon-amber {
+        @apply bg-amber-100 text-amber-600;
+    }
+
+    .use-case-icon-indigo {
+        @apply bg-indigo-100 text-indigo-600;
+    }
+
+    .use-case-icon-purple {
+        @apply bg-purple-100 text-purple-600;
+    }
+
+    .use-case-icon-rose {
+        @apply bg-rose-100 text-rose-600;
+    }
+
+    .use-case-title {
+        @apply font-semibold text-slate-800 mb-1;
+        @apply relative z-10;
+    }
+
+    .use-case-desc {
+        @apply text-sm text-slate-600 leading-snug;
+        @apply relative z-10;
+    }
+
+    .use-cases-cta {
+        @apply text-center mt-8;
+    }
+
+    .use-cases-link {
+        @apply inline-block px-6 py-3 bg-white border border-slate-200 rounded-lg;
+        @apply text-slate-600 font-medium no-underline;
+        @apply hover:bg-slate-50 hover:border-slate-300 transition-colors;
+    }
+
+    /* Testimonials Section */
+    .testimonials-section {
+        @apply py-12 px-4;
+    }
+
+    .testimonials-container {
+        @apply max-w-4xl mx-auto;
+    }
+
+    .carousel-wrapper {
+        @apply relative flex items-center gap-4;
+    }
+
+    .carousel-btn {
+        @apply hidden w-10 h-10 rounded-full bg-white border border-slate-200 text-slate-500;
+        @apply hover:bg-slate-50 hover:border-slate-300 transition-colors flex-shrink-0;
+        @apply md:flex md:items-center md:justify-center;
+    }
+
+    .carousel-track-container {
+        @apply overflow-hidden w-full;
+    }
+
+    .carousel-track {
+        @apply flex transition-transform duration-300 ease-in-out;
+    }
+
+    .testimonial-card {
+        @apply flex-shrink-0 w-full bg-white rounded-xl p-6 border border-slate-200 shadow-sm;
+    }
+
+    .testimonial-rating {
+        @apply flex gap-1 mb-3;
+    }
+
+    .testimonial-rating .fa-star {
+        @apply text-slate-200;
+    }
+
+    .testimonial-rating .fa-star.filled {
+        @apply text-amber-400;
+    }
+
+    .testimonial-quote {
+        @apply text-lg text-slate-600 mb-4 italic;
+    }
+
+    .testimonial-author {
+        @apply flex flex-col;
+    }
+
+    .testimonial-name {
+        @apply font-semibold text-slate-700;
+    }
+
+    .testimonial-location {
+        @apply text-sm text-slate-500;
+    }
+
+    .carousel-dots {
+        @apply flex justify-center gap-1 mt-4;
+    }
+
+    .carousel-dot {
+        @apply w-6 h-6 rounded-full bg-transparent transition-colors cursor-pointer;
+        @apply flex items-center justify-center;
+    }
+
+    .carousel-dot::after {
+        content: "";
+        @apply w-2 h-2 rounded-full bg-slate-300 transition-colors;
+    }
+
+    .carousel-dot.active::after {
+        @apply bg-slate-600;
+    }
+
+    /* CTA Section */
+    .cta-section {
+        @apply py-12 px-4 rounded-none;
+        @apply lg:rounded-xl lg:mb-8;
+        background: linear-gradient(135deg, #475569 0%, #64748b 100%);
+    }
+
+    .cta-container {
+        @apply max-w-2xl mx-auto text-center;
+    }
+
+    .cta-title {
+        @apply text-2xl font-bold mb-4 text-white;
+    }
+
+    .cta-subtitle {
+        @apply text-slate-200 mb-6;
+    }
+
+    .cta-buttons {
+        @apply flex flex-col gap-3 justify-center;
+        @apply sm:flex-row;
+    }
+
+    .btn-cta-primary {
+        @apply p-3 px-6 bg-white text-slate-700 rounded-lg font-semibold;
+        @apply hover:bg-slate-50 transition-colors;
+    }
+
+    .btn-cta-secondary {
+        @apply p-3 px-6 border border-slate-300 text-white rounded-lg;
+        @apply hover:bg-white/10 transition-colors;
+    }
+</style>
+
+<script>
+    // Tab switching functionality
+    document.addEventListener("DOMContentLoaded", () => {
+        const tabButtons = document.querySelectorAll(".tab-button");
+        const tabPanels = document.querySelectorAll(".tab-panel");
+
+        tabButtons.forEach((button) => {
+            button.addEventListener("click", () => {
+                const tabId = button.getAttribute("data-tab");
+
+                // Update buttons
+                tabButtons.forEach((btn) => {
+                    btn.classList.remove("active");
+                    btn.setAttribute("aria-selected", "false");
+                });
+                button.classList.add("active");
+                button.setAttribute("aria-selected", "true");
+
+                // Update panels
+                tabPanels.forEach((panel) => {
+                    panel.classList.remove("active");
+                    panel.setAttribute("aria-hidden", "true");
+                });
+                const activePanel = document.getElementById(`panel-${tabId}`);
+                if (activePanel) {
+                    activePanel.classList.add("active");
+                    activePanel.setAttribute("aria-hidden", "false");
+                }
+            });
+        });
+
+        // Carousel functionality
+        const track = document.querySelector(".carousel-track") as HTMLElement;
+        const cards = document.querySelectorAll(".testimonial-card");
+        const dots = document.querySelectorAll(".carousel-dot");
+        const prevBtn = document.querySelector(".carousel-btn-prev");
+        const nextBtn = document.querySelector(".carousel-btn-next");
+        let currentIndex = 0;
+        const totalCards = cards.length;
+
+        function updateCarousel(index: number) {
+            currentIndex = index;
+            if (track) {
+                track.style.transform = `translateX(-${index * 100}%)`;
+            }
+
+            dots.forEach((dot, i) => {
+                dot.classList.toggle("active", i === index);
+            });
+        }
+
+        function nextSlide() {
+            const newIndex = (currentIndex + 1) % totalCards;
+            updateCarousel(newIndex);
+        }
+
+        function prevSlide() {
+            const newIndex = (currentIndex - 1 + totalCards) % totalCards;
+            updateCarousel(newIndex);
+        }
+
+        prevBtn?.addEventListener("click", prevSlide);
+        nextBtn?.addEventListener("click", nextSlide);
+
+        dots.forEach((dot) => {
+            dot.addEventListener("click", () => {
+                const index = parseInt(dot.getAttribute("data-index") || "0");
+                updateCarousel(index);
+            });
+        });
+
+        // Auto-advance carousel every 5 seconds
+        setInterval(nextSlide, 5000);
+    });
+</script>

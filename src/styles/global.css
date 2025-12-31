@@ -1,7 +1,9 @@
 @import "tailwindcss";
+@import "@fortawesome/fontawesome-free/css/all.css";
 
 html {
     font-family: "Lexend", sans-serif;
+    scroll-behavior: smooth;
 }
 
 .blueLink {

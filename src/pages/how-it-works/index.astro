@@ -1,219 +1,499 @@
 ---
 import DefaultPageLayout from "../../layouts/DefaultPageLayout.astro";
-import LinkToTop from "../../components/LinkToTop.astro";
 import Petapetual from "../../components/Petapetual.astro";
-import Step from "../../components/Step.astro";
 import PrayerStreamWidget from "../../components/PrayerStreamWidget.astro";
 import TributeWidget from "../../components/TributeWidget.astro";
+import DemoFamilyTree from "../../components/DemoFamilyTree.astro";
+import { Image } from "astro:assets";
+
+// Theme demo images
+import ThemeRed from "../../assets/img/demos/themes/red.png";
+import ThemeOrange from "../../assets/img/demos/themes/orange.png";
+import ThemeYellow from "../../assets/img/demos/themes/yellow.png";
+import ThemeGreen from "../../assets/img/demos/themes/green.png";
+import ThemeBlue from "../../assets/img/demos/themes/blue.png";
+import ThemeIndigo from "../../assets/img/demos/themes/indigo.png";
+import ThemeViolet from "../../assets/img/demos/themes/violet.png";
+import ThemeDirt from "../../assets/img/demos/themes/dirt.png";
+import ThemeOffwhite from "../../assets/img/demos/themes/offwhite.png";
+import ThemeThyme from "../../assets/img/demos/themes/thyme.png";
+import ThemeSky from "../../assets/img/demos/themes/sky.png";
+import ThemeLilac from "../../assets/img/demos/themes/lilac.png";
+import ThemeGray from "../../assets/img/demos/themes/gray.png";
+import ThemeEarthy from "../../assets/img/demos/themes/earthy.png";
+import ThemeMono from "../../assets/img/demos/themes/mono.png";
+import PrayerStreamDemo from "../../components/PrayerStreamDemo.astro";
+import ThemeCarousel from "../../components/ThemeCarousel.astro";
+
+const themes = [
+    { name: "default", image: ThemeMono, color: "oklch(26.8% 0.007 34.298)" },
+    { name: "coral", image: ThemeRed, color: "oklch(0.7 0.12 30)" },
+    { name: "amber", image: ThemeOrange, color: "oklch(0.78 0.11 65)" },
+    { name: "maize", image: ThemeYellow, color: "oklch(0.85 0.12 95)" },
+    { name: "laurel", image: ThemeGreen, color: "oklch(0.72 0.1 145)" },
+    { name: "cerulean", image: ThemeSky, color: "oklch(0.75 0.09 240)" },
+    { name: "twilight", image: ThemeIndigo, color: "oklch(0.68 0.12 275)" },
+    { name: "heather", image: ThemeViolet, color: "oklch(0.75 0.1 310)" },
+    { name: "pebble", image: ThemeDirt, color: "oklch(0.6 0.04 20)" },
+    { name: "sandstone", image: ThemeOffwhite, color: "oklch(0.7 0.06 85)" },
+    { name: "lichen", image: ThemeThyme, color: "oklch(0.65 0.05 150)" },
+    { name: "frost", image: ThemeBlue, color: "oklch(0.7 0.05 230)" },
+    { name: "quartz", image: ThemeLilac, color: "oklch(0.65 0.06 290)" },
+    { name: "ink", image: ThemeGray, color: "oklch(0.4 0 0)" },
+    { name: "vellum", image: ThemeEarthy, color: "oklch(0.3 0.04 85)" },
+];
 ---
 
 <DefaultPageLayout
     id="top"
-    title="How it works"
+    title="Features"
     description="On-demand virtual blessings and prayers for your memorials. Pay respects to your loved ones anytime, anywhere."
 >
-    <div class="flex flex-col gap-8">
-        <section>
-            <h1 class="text-2xl font-semibold">How it works</h1>
-
-            <p>
-                <Petapetual /> is more than just a simple page for your late loved
-                ones. We offer many value-added services to help you honour your
-                dearly departed, and it's very straightforward to get started:
+    <div class="features-container">
+        <!-- Hero Section -->
+        <section class="features-hero">
+            <h1 class="features-title">How It Works</h1>
+            <p class="features-subtitle">
+                Getting started with <Petapetual /> is simple. Create a beautiful
+                lasting memorial in minutes, and get an online space that lasts for
+                lifetimes.
             </p>
+        </section>
 
-            <div class="flex flex-col gap-8 my-8">
-                <Step index="1" title="Create a memorial">
-                    Provide a name, date of birth/passing, upload an image, and
-                    write a short epitaph. <br />
-                    <br />
+        <!-- Steps Section -->
+        <section class="steps-section">
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Create a memorial</h3>
+                    <p class="step-description">
+                        Add a photo, name, birth/passing dates, and a short
+                        epitaph for your loved one.
+                    </p>
+                </div>
 
-                    Optionally, set a cultural preference for your memorial to
-                    unlock more appropriate date reminders and suggestions.
-                </Step>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Invite family and friends</h3>
+                    <p class="step-description">
+                        Share your memorial with others so they can view it and
+                        pay respects together.
+                    </p>
+                </div>
 
-                <Step index="2" title="Invite others">
-                    Invite friends or family members who are on <Petapetual /> to
-                    view and pay respects to your memorial.
-                </Step>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Gather memories</h3>
+                    <p class="step-description">
+                        Add special dates, upload photos, and write heartfelt
+                        messages.
+                    </p>
+                </div>
 
-                <Step index="3" title="Share the love">
-                    Write condolences and share precious memories in the
-                    memorial guestbook.
-                </Step>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Send prayers and tributes</h3>
+                    <p class="step-description">
+                        Subscribe to prayer streams and place meaningful
+                        tributes at your memorial.
+                    </p>
+                </div>
+            </div>
+        </section>
 
-                <Step index="4" title="Use our value-added services">
-                    Place tributes at your memorial, get reminders on
-                    special/significant dates, suggestions for specially
-                    tailored articles, and much more.
-                </Step>
+        <!-- Features Grid -->
+        <section class="features-grid-section">
+            <!-- Memorials Feature -->
+            <div class="feature-block" id="memorials">
+                <div class="feature-header">
+                    <div class="feature-icon">
+                        <i class="fas fa-dove"></i>
+                    </div>
+                    <h2 class="feature-title">Memorials</h2>
+                </div>
+
+                <p class="feature-description">
+                    A memorial is a dedicated page for your late loved one. It's
+                    the heart of the <Petapetual /> experience—upload a photo, add
+                    their name, dates, and a short epitaph to create a lasting tribute.
+                    Choose from a variety of colour themes to further personalise
+                    your space.
+                </p>
+
+                <ThemeCarousel />
+
+                <div class="feature-cards">
+                    <div class="info-card">
+                        <h3 class="info-card-title">What you can do</h3>
+                        <ul class="info-list">
+                            <li>
+                                Provide name, dates of birth and passing, and a
+                                short epitaph.
+                            </li>
+                            <li>
+                                Upload a display photo and build a photo
+                                gallery.
+                            </li>
+                            <li>Record special dates in a timeline.</li>
+                            <li>
+                                Invite others to share memories in the
+                                guestbook.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card">
+                        <h3 class="info-card-title">Privacy options</h3>
+                        <ul class="info-list">
+                            <li>
+                                <strong>Invite-only:</strong> Share only with specific
+                                people that you invite (they must have a <Petapetual
+                                /> account)
+                            </li>
+                            <li>
+                                <strong>Public:</strong> Anyone with the link can
+                                view it
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
 
-            <p>Read more about our offerings and services below:</p>
+            <!-- Prayer Streams Feature -->
+            <div class="feature-block feature-coming-soon" id="prayer-streams">
+                <div class="coming-soon-ribbon">Coming Soon</div>
+                <div class="feature-header">
+                    <div class="feature-icon">
+                        <i class="fas fa-hands-praying"></i>
+                    </div>
+                    <h2 class="feature-title">Prayer Streams</h2>
+                </div>
 
-            <ul class="m-8">
-                <li class="list-item">
-                    <i class="fas fa-dove"></i>
-                    <a href="#memorials" class="blueLink">Memorials</a>
-                </li>
+                <p class="feature-description">
+                    Prayer Streams provide continuous prayers or chants for your
+                    memorial, 24 hours a day, 7 days a week. Choose from
+                    different cultures and religions. Using them is completely
+                    optional and up to you.
+                </p>
 
-                <li class="list-item">
-                    <i class="fas fa-hands-praying"></i>
-                    <a href="#prayer-streams" class="blueLink">Prayer Streams</a
-                    >
-                </li>
+                <PrayerStreamDemo />
 
-                <li class="list-item">
-                    <i class="fas fa-gift"></i>
-                    <a href="#tributes" class="blueLink">Tributes</a>
-                </li>
+                <div class="info-card">
+                    <h3 class="info-card-title">How it works</h3>
+                    <ol class="info-list-ordered">
+                        <li>
+                            Subscribe your memorial to a prayer stream. Select
+                            the religion or culture that is right for you.
+                        </li>
+                        <li>
+                            Your loved one receives continuous prayers around
+                            the clock
+                        </li>
+                        <li>
+                            Monitor the history of the prayers your memorial has
+                            received in the prayer logs.
+                        </li>
+                    </ol>
+                </div>
 
-                <li class="list-item">
-                    <i class="fa-solid fa-code-fork"></i>
-                    <a href="#family-trees" class="blueLink">Family Trees</a>
-                </li>
-            </ul>
-        </section>
-
-        <section class="flex flex-col gap-2">
-            <h2 class="text-xl font-semibold" id="memorials">
-                Memorials <LinkToTop />
-            </h2>
-
-            <p>
-                A memorial is a single page you create for your late loved one.
-                It is the bread and butter of the <Petapetual /> experience and most
-                of the value of our platform unlocks after you have created one.
-                You can create multiple memorials depending on the plan you have
-                purchased.
-            </p>
-
-            <p>
-                You will be able to upload a photo and populate details such as
-                the deceased's name, date of birth, date of passing, and even a
-                short epitaph to display.
-            </p>
-
-            <p>
-                You can also invite other users of <Petapetual /> to your memorial
-                to view it and leave a loving message in the guestbook.
-            </p>
-
-            <p class="p-4 bg-blue-200 rounded border border-blue-400">
-                If you are interested, you can read our <a
-                    href="/how-it-works/online-memorials"
-                    class="blueLink">Online Memorials</a
-                > page.
-            </p>
-
-            <p>
-                All memorials created under a paid plan can subscribe to a <a
-                    class="blueLink"
-                    href="#prayer-streams">prayer stream</a
-                > in order to receive virtual prayers 24/7.
-            </p>
-        </section>
-
-        <section class="flex flex-col gap-2">
-            <h2 class="text-xl font-semibold" id="prayer-streams">
-                Prayer Streams <LinkToTop />
-            </h2>
-
-            <div class="flex flex-row items-center">
-                <div class="grow"></div>
+                <p class="feature-note">
+                    Prayer Streams are included with all paid plans at no extra
+                    cost. Custom messages will be available to those in Premium
+                    plans and above.
+                </p>
             </div>
 
-            <p>
-                Memorials can be subscribed to <i>prayer streams</i>, which are
-                powerful automated virtual prayer sessions that happen 24/7.
-                When subscribed, you are guaranteed that your memorial will
-                receive the prayers and blessings of your choice constantly
-                every day. You may choose from a variety of prayers across
-                different cultures and religions, or simply choose not to
-                subscribe to a prayer stream.
-            </p>
-            <p class="p-4 bg-blue-200 rounded border border-blue-400">
-                If you are interested as to how we guarantee your memorial
-                receives prayers, you can read up on our approach and
-                implementation on the <a
-                    href="/how-it-works/prayer-streams"
-                    class="blueLink">Prayer Streams</a
-                > page.
-            </p>
+            <!-- Tributes Feature -->
+            <div class="feature-block feature-coming-soon" id="tributes">
+                <div class="coming-soon-ribbon">Coming Soon</div>
+                <div class="feature-header">
+                    <div class="feature-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h2 class="feature-title">Tributes</h2>
+                </div>
 
-            <p>
-                You can subscribe your memorials to prayer streams in the <Petapetual
-                /> service when creating them on any paid plan.
-            </p>
+                <p class="feature-description">
+                    Tributes are meaningful additions you can place at memorials
+                    to honor your loved one. They range from decorative flowers
+                    to active blessings.
+                </p>
+
+                <div class="widgets-showcase">
+                    <TributeWidget
+                        iconClass="fa-solid fa-om"
+                        bgClass="bg-indigo-500"
+                    />
+                    <TributeWidget
+                        iconClass="fa-solid fa-cross"
+                        bgClass="bg-emerald-500"
+                    />
+                    <TributeWidget
+                        iconClass="fa-solid fa-yin-yang"
+                        bgClass="bg-amber-500"
+                    />
+                    <TributeWidget
+                        iconClass="fa-solid fa-hands-praying"
+                        bgClass="bg-rose-500"
+                    />
+                </div>
+
+                <div class="tribute-types">
+                    <div class="info-card">
+                        <h3 class="info-card-title">
+                            <i class="fas fa-seedling mr-2"></i>Decorative
+                            Tributes
+                        </h3>
+                        <p class="info-card-text">
+                            Flowers, candles, and symbolic items that beautify
+                            the memorial.
+                        </p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3 class="info-card-title">
+                            <i class="fas fa-star mr-2"></i>Active Tributes
+                        </h3>
+                        <p class="info-card-text">
+                            Tributes that deliver prayers or blessings to the
+                            memorial continuously.
+                        </p>
+                    </div>
+                </div>
+
+                <p class="feature-text">
+                    Everyone you invite can also place tributes, making it a
+                    shared way to honor your loved one together.
+                </p>
+            </div>
+
+            <!-- Family Trees Feature -->
+            <div class="feature-block feature-coming-soon" id="family-trees">
+                <div class="coming-soon-ribbon">Coming Soon</div>
+                <div class="feature-header">
+                    <div class="feature-icon">
+                        <i class="fa-solid fa-code-fork"></i>
+                    </div>
+                    <h2 class="feature-title">Family Trees</h2>
+                </div>
+
+                <p class="feature-description">
+                    If you have multiple memorials, you can link them together
+                    to create a family tree. Specify relationships and visualize
+                    your family's legacy.
+                </p>
+
+                <div class="family-tree-demo">
+                    <DemoFamilyTree />
+                </div>
+
+                <div class="info-card">
+                    <h3 class="info-card-title">What you can do</h3>
+                    <ul class="info-list">
+                        <li>
+                            Link memorials together (parent, child, spouse,
+                            sibling, pet, etc)
+                        </li>
+                        <li>Visualize relationships in an interactive tree</li>
+                        <li>
+                            Preserve your family history for future generations
+                        </li>
+                    </ul>
+                </div>
+
+                <p class="feature-note">
+                    Family trees require 2+ memorials and are available on the
+                    Essentials plan and above.
+                </p>
+            </div>
         </section>
 
-        <section class="flex flex-col gap-2">
-            <h2 class="text-xl font-semibold" id="tributes">
-                Tributes <LinkToTop />
-            </h2>
-
-            <p>
-                <i>Tributes</i> are additional adornments and blessings you may add
-                to your memorials to pay your respects. They have different purposes
-                and effects, ranging from being purely decorative to having an actual
-                service or action tied to them when they are used.
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <h2 class="cta-title">Ready to get started?</h2>
+            <p class="cta-subtitle">
+                Create your first memorial for free. No credit card required.
             </p>
-
-            <p>
-                Other users you invite to your memorials will be able to place
-                tributes as well.
-            </p>
-
-            <p
-                class="p-4
-                bg-blue-200
-                rounded
-                border
-                border-blue-400"
-            >
-                If you are interested, you can read up on our approach and
-                implementation on the <a
-                    href="/how-it-works/tributes"
-                    class="blueLink">Memorial Tributes</a
-                > page.
-            </p>
-
-            <p>
-                Tributes are an optional supplementary offering in the <Petapetual
-                /> service.
-            </p>
-        </section>
-
-        <section class="flex flex-col gap-2">
-            <h2 class="text-xl font-semibold" id="family-trees">
-                Family Trees <LinkToTop />
-            </h2>
-
-            <p>
-                <i>Family trees</i> are a way to group and categorize your memorials
-                on <Petapetual />. If you have more than one memorial, you can
-                link them, specify the relationships between them, and visualize
-                them in a tree.
-            </p>
-
-            <p
-                class="p-4
-                bg-blue-200
-                rounded
-                border
-                border-blue-400"
-            >
-                If you are interested, you can read up on our approach and
-                implementation on the <a
-                    href="/how-it-works/family-trees"
-                    class="blueLink">Family Trees</a
-                > page.
-            </p>
-
-            <p>
-                Family trees require at least two memorials to work, and so are
-                only viable on paid plans which allow two or more memorials.
-            </p>
+            <div class="cta-buttons">
+                <a href="https://app.petapetual.com" class="btn-cta-primary">
+                    Get Started Free <i class="fas fa-arrow-right ml-1"></i>
+                </a>
+                <a href="/pricing" class="btn-cta-secondary"> View Pricing </a>
+            </div>
         </section>
     </div>
 </DefaultPageLayout>
+
+<style>
+    @reference "tailwindcss";
+
+    .features-container {
+        @apply flex flex-col gap-12;
+    }
+
+    /* Hero */
+    .features-hero {
+        @apply text-center py-8;
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        @apply -mx-4 px-4 rounded-xl;
+        @apply lg:-mx-8 lg:px-8;
+    }
+
+    .features-title {
+        @apply text-3xl font-bold text-slate-800 mb-3;
+        @apply lg:text-4xl;
+    }
+
+    .features-subtitle {
+        @apply text-lg text-slate-600 max-w-2xl mx-auto;
+    }
+
+    /* Steps Section */
+    .steps-section {
+        @apply py-4;
+    }
+
+    .steps-grid {
+        @apply grid gap-4;
+        @apply md:grid-cols-2;
+        @apply lg:grid-cols-4;
+    }
+
+    .step-card {
+        @apply bg-white rounded-xl p-6 border border-slate-200 shadow-sm;
+        @apply text-center;
+    }
+
+    .step-number {
+        @apply w-10 h-10 rounded-full bg-slate-600 text-white;
+        @apply flex items-center justify-center mx-auto mb-4;
+        @apply font-bold text-lg;
+    }
+
+    .step-title {
+        @apply font-semibold text-slate-700 mb-2;
+    }
+
+    .step-description {
+        @apply text-sm text-slate-500;
+    }
+
+    /* Features Grid */
+    .features-grid-section {
+        @apply flex flex-col gap-12;
+    }
+
+    .feature-block {
+        @apply flex flex-col gap-4;
+        @apply p-6 rounded-xl;
+        background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+    }
+
+    .feature-header {
+        @apply flex items-center gap-3;
+    }
+
+    .feature-icon {
+        @apply w-10 h-10 rounded-lg bg-slate-600 text-white;
+        @apply flex items-center justify-center text-lg;
+    }
+
+    .feature-title {
+        @apply text-xl font-semibold text-slate-700;
+    }
+
+    .feature-description {
+        @apply text-slate-600 leading-relaxed;
+    }
+
+    .feature-text {
+        @apply text-slate-600;
+    }
+
+    .feature-note {
+        @apply text-slate-500 italic text-sm;
+    }
+
+    /* Coming Soon Ribbon */
+    .feature-coming-soon {
+        @apply relative overflow-hidden;
+    }
+
+    .coming-soon-ribbon {
+        @apply absolute top-18 right-1;
+        @apply bg-amber-500 text-white text-xs font-semibold;
+        @apply py-2 px-10;
+        transform: rotate(45deg) translate(20%, -50%);
+        transform-origin: top right;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Info Cards */
+    .feature-cards {
+        @apply grid gap-4;
+        @apply md:grid-cols-2;
+    }
+
+    .tribute-types {
+        @apply grid gap-4;
+        @apply md:grid-cols-2;
+    }
+
+    .info-card {
+        @apply bg-white p-4 rounded-xl border border-slate-200;
+    }
+
+    .info-card-title {
+        @apply font-semibold text-slate-700 mb-3;
+    }
+
+    .info-card-text {
+        @apply text-slate-600 text-sm;
+    }
+
+    .info-list {
+        @apply list-disc list-inside space-y-1 text-slate-600 text-sm;
+    }
+
+    .info-list-ordered {
+        @apply list-decimal list-inside space-y-1 text-slate-600 text-sm;
+    }
+
+    /* Widgets Showcase */
+    .widgets-showcase {
+        @apply flex flex-wrap gap-4 items-center justify-center my-4;
+    }
+
+    .family-tree-demo {
+        @apply my-4 bg-white rounded-xl p-4 border border-slate-200;
+    }
+
+    /* CTA Section */
+    .cta-section {
+        @apply py-12 px-6 rounded-xl text-center;
+        background: linear-gradient(135deg, #475569 0%, #64748b 100%);
+    }
+
+    .cta-title {
+        @apply text-2xl font-bold text-white mb-3;
+    }
+
+    .cta-subtitle {
+        @apply text-slate-200 mb-6;
+    }
+
+    .cta-buttons {
+        @apply flex flex-col gap-3 justify-center;
+        @apply sm:flex-row;
+    }
+
+    .btn-cta-primary {
+        @apply p-3 px-6 bg-white text-slate-700 rounded-lg font-semibold;
+        @apply hover:bg-slate-50 transition-colors;
+    }
+
+    .btn-cta-secondary {
+        @apply p-3 px-6 border border-slate-300 text-white rounded-lg;
+        @apply hover:bg-white/10 transition-colors;
+    }
+</style>

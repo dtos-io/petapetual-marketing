@@ -12,89 +12,200 @@ const {
 
 let annualYearlyPrice = annualMonthlyPrice * 12;
 let annualDiscount =
-    Math.round((100 * (annualMonthlyPrice - monthlyPrice)) / monthlyPrice) || 0;
+    Math.round((100 * (monthlyPrice - annualMonthlyPrice)) / monthlyPrice) || 0;
 
 let memorialWord =
     "memorial" + (nMemorials > 1 || nMemorials === "unlimited" ? "s" : "");
 
-let textColorClass, getStartedButtonClass;
-if (baseColor) {
-    textColorClass = `text-${baseColor}-600`;
-    getStartedButtonClass = `bg-${baseColor}-600 text-stone-200`;
-}
+// Map base colors to slate-compatible accent colors
+const colorMap: Record<string, { text: string; bg: string; border: string }> = {
+    stone: {
+        text: "text-slate-600",
+        bg: "bg-slate-600",
+        border: "border-slate-300",
+    },
+    sky: { text: "text-sky-600", bg: "bg-sky-600", border: "border-sky-200" },
+    amber: {
+        text: "text-amber-600",
+        bg: "bg-amber-600",
+        border: "border-amber-200",
+    },
+    emerald: {
+        text: "text-emerald-600",
+        bg: "bg-emerald-600",
+        border: "border-emerald-200",
+    },
+    indigo: {
+        text: "text-indigo-600",
+        bg: "bg-indigo-600",
+        border: "border-indigo-200",
+    },
+};
 
+const colors = colorMap[baseColor] || colorMap.stone;
 const compareAnchorID = compareID ?? "compare";
-
-const specialShadowColor = `shadow-${baseColor}-400`;
-const specialShadowClass = `${isSpecial ? "shadow " + specialShadowColor : "shadow"}`;
 ---
 
 <pricing-table
     data-pricing={JSON.stringify({ monthlyPrice, annualMonthlyPrice })}
-    class={`p-8 rounded-lg flex flex-col ${specialShadowClass} border-stone-200 border gap-4 bg-stone-50`}
+    class:list={["pricing-card", { "pricing-card-special": isSpecial }]}
 >
-    <div class="flex flex-col gap-4">
-        <div class="flex flex-col gap-1">
-            <h3
-                class={`text-2xl font-bold ${textColorClass} flex flex-row justify-between`}
-            >
+    <div class="pricing-card-header">
+        <div class="pricing-card-title-row">
+            <h3 class:list={["pricing-card-name", colors.text]}>
                 {name}
-                {
-                    isSpecial && (
-                        <div class="text-yellow-500">
-                            <i class="fas fa-fire-flame-curved" />
-                        </div>
-                    )
-                }
             </h3>
-            <h4 class="text-stone-500 italic">{desc}</h4>
+            {
+                isSpecial && (
+                    <div class="popular-badge">
+                        <i class="fas fa-fire-flame-curved" />
+                        <span>Popular</span>
+                    </div>
+                )
+            }
         </div>
-
-        <div class="flex flex-col gap-2">
-            <div>
-                <span class={`text-3xl font-bold ${textColorClass}`}>
-                    &dollar;
-                    <span id="price-per-month"> {monthlyPrice}</span>
-                </span> / month
-            </div>
-
-            <div id="annual-billing-notice" class="text-sm italic">
-                Billed at <b>${annualYearlyPrice}</b> yearly. <span
-                    class="text-red-600">({annualDiscount}% off)</span
-                >
-            </div>
-
-            <a
-                class={`text-center p-2 rounded ${getStartedButtonClass} border`}
-                href="https://app.petapetual.com"
-                >Get Started <i class="fas fa-arrow-right"></i></a
-            >
-        </div>
+        <p class="pricing-card-desc">{desc}</p>
     </div>
 
-    <hr class="border rounded border-stone-300" />
+    <div class="pricing-card-price">
+        <div class="price-main">
+            <span class:list={["price-amount", colors.text]}>
+                $<span id="price-per-month">{monthlyPrice}</span>
+            </span>
+            <span class="price-period">/ month</span>
+        </div>
 
-    <div class="flex flex-col gap-4 grow">
-        <ul>
+        <div id="annual-billing-notice" class="annual-notice">
+            Billed at <strong>${annualYearlyPrice}</strong> yearly
+            <span class="annual-savings">({annualDiscount}% off)</span>
+        </div>
+
+        <a
+            class:list={["pricing-cta-btn", colors.bg]}
+            href="https://app.petapetual.com/account/subscription"
+        >
+            Get Started <i class="fas fa-arrow-right ml-1"></i>
+        </a>
+    </div>
+
+    <hr class="pricing-divider" />
+
+    <div class="pricing-features">
+        <ul class="features-list">
             <li>
-                <i class={`fas fa-dove mr-2 ${textColorClass}`}></i>Create <b
-                    >{nMemorials}</b
-                >
-                <a class="blueLink" href="/how-it-works/online-memorials"
-                    >{memorialWord}</a
-                >.
+                <i class:list={["fas fa-dove feature-icon", colors.text]}></i>
+                <span>
+                    Create <strong>{nMemorials}</strong>
+                    {memorialWord}
+                </span>
             </li>
+            <slot />
         </ul>
-
-        <slot />
     </div>
 
-    <a
-        class="p-2 text-center text-stone-400 border-stone-300 border rounded"
-        href={`#${compareAnchorID}`}
-        >Compare Plans <i class="fas fa-arrow-down"></i></a
-    >
+    <a class="compare-link" href={`#${compareAnchorID}`}>
+        Compare Plans <i class="fas fa-arrow-down ml-1"></i>
+    </a>
 </pricing-table>
+
+<style>
+    @reference "tailwindcss";
+
+    .pricing-card {
+        @apply p-6 rounded-xl grid gap-4;
+        @apply bg-white border border-slate-200 shadow-sm;
+        @apply hover:shadow-md transition-shadow;
+        /* Define consistent row heights */
+        grid-template-rows: auto auto auto 1fr auto;
+    }
+
+    .pricing-card-special {
+        @apply border-amber-300 shadow-md;
+        @apply ring-2 ring-amber-200;
+    }
+
+    .pricing-card-header {
+        @apply flex flex-col gap-1;
+    }
+
+    .pricing-card-title-row {
+        @apply flex items-center justify-between;
+    }
+
+    .pricing-card-name {
+        @apply text-xl font-bold;
+    }
+
+    .popular-badge {
+        @apply flex items-center gap-1 text-amber-500 text-sm font-medium;
+    }
+
+    .pricing-card-desc {
+        @apply text-slate-500 text-sm italic leading-snug;
+        min-height: 3rem; /* Fixed height for ~2-3 lines to ensure alignment */
+    }
+
+    .pricing-card-price {
+        @apply flex flex-col gap-2;
+    }
+
+    .price-main {
+        @apply flex items-baseline gap-1;
+    }
+
+    .price-amount {
+        @apply text-3xl font-bold;
+    }
+
+    .price-period {
+        @apply text-slate-500;
+    }
+
+    .annual-notice {
+        @apply text-sm text-slate-500 leading-snug;
+        min-height: 2.25rem; /* Fixed height for 2 lines to ensure alignment */
+    }
+
+    .annual-savings {
+        @apply text-emerald-600 font-medium;
+    }
+
+    .pricing-cta-btn {
+        @apply text-center p-2.5 rounded-lg text-white font-medium;
+        @apply hover:opacity-90 transition-opacity;
+    }
+
+    .pricing-divider {
+        @apply border-slate-200;
+    }
+
+    .pricing-features {
+        @apply flex flex-col gap-3;
+        /* This row has 1fr so it grows to fill available space */
+    }
+
+    .features-list {
+        @apply flex flex-col gap-2;
+    }
+
+    .features-list :global(li) {
+        @apply text-slate-600 text-sm;
+    }
+
+    .features-list :global(i.fas) {
+        @apply mr-2;
+    }
+
+    .feature-icon {
+        @apply w-4;
+    }
+
+    .compare-link {
+        @apply p-2 text-center text-slate-400 border border-slate-200 rounded-lg text-sm;
+        @apply hover:bg-slate-50 hover:text-slate-600 transition-colors;
+        /* This stays at the bottom due to grid */
+    }
+</style>
 
 <script>
     import { subscriptionCycleToggle } from "../../store.js";

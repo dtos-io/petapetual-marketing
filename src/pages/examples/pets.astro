@@ -6,50 +6,99 @@ import { Image } from "astro:assets";
 
 <DefaultPageLayout
     title="Late Pets"
-    description="osing a pet is losing a family member. Learn how to cope with the grief and honour their memory. Petapetual offers a beautiful online pet memorial to celebrate their life."
+    description="Losing a pet is losing a family member. Learn how to cope with the grief and honour their memory. Petapetual offers a beautiful online pet memorial to celebrate their life."
 >
-    <Image
-        src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2186"
-        alt="Pets are part of the family. Honor them with a Petapetual online memorial and cherish their life with you!"
-        class="w-full h-48 lg:h-64 object-cover self-center rounded"
-        width="256"
-        height="256"
-    />
+    <article class="article-container">
+        <a href="/examples" class="back-link">
+            <i class="fas fa-arrow-left"></i> All Use Cases
+        </a>
 
-    <h1 class="text-2xl font-semibold">
-        <Petapetual /> for pets across the rainbow bridge
-    </h1>
+        <Image
+            src="https://images.unsplash.com/photo-1450778869180-41d0601e046e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2186"
+            alt="Pets are part of the family. Honor them with a Petapetual online memorial and cherish their life with you!"
+            class="article-hero"
+            width="2186"
+            height="400"
+        />
 
-    <p>
-        Losing a pet is a heartbreaking experience. For many of us, our pets are
-        cherished family members. They are a constant, loving presence in our
-        daily lives, offering silent comfort and unconditional love. The quiet
-        house, the empty spot where they used to sleep, the un-greeted return
-        home... it all leaves a profound ache.
-    </p>
+        <h1 class="article-title">
+            <Petapetual /> for pets across the rainbow bridge
+        </h1>
 
-    <p>
-        This grief is real and it is deep. Because the bond we share with them
-        is so special, we feel a powerful need to honour their memory when
-        they're gone. We want to celebrate the joy, laughter, and comfort they
-        brought into our lives. We find ourselves looking through old photos,
-        remembering their funny quirks, and wanting a way to pay respects to the
-        little soul who gave so much.
-    </p>
+        <p class="article-text">
+            Losing a pet is a heartbreaking experience. For many of us, our pets
+            are cherished family members. They are a constant, loving presence
+            in our daily lives, offering silent comfort and unconditional love.
+            The quiet house, the empty spot where they used to sleep, the
+            un-greeted return home... it all leaves a profound ache.
+        </p>
 
-    <p>
-        This desire to remember is a testament to the love we shared. It’s a way
-        to acknowledge their important place in our family and to have a space
-        where we can reflect on that happy companionship.
-    </p>
+        <p class="article-text">
+            This grief is real and it is deep. Because the bond we share with
+            them is so special, we feel a powerful need to honour their memory
+            when they're gone. We want to celebrate the joy, laughter, and
+            comfort they brought into our lives. We find ourselves looking
+            through old photos, remembering their funny quirks, and wanting a
+            way to pay respects to the little soul who gave so much.
+        </p>
 
-    <p>
-        At <Petapetual />, we understand that this loss is the loss of family.
-        We created our online memorials to offer a beautiful, lasting space
-        where you can build a heartfelt tribute to your beloved companion. It’s
-        a place to share your favorite photos, write down those sweet or funny
-        stories, and create a permanent celebration of the life you shared. It
-        gives you a special place to visit, remember, and honour the
-        unconditional love they gave.
-    </p>
+        <p class="article-text">
+            This desire to remember is a testament to the love we shared. It's a
+            way to acknowledge their important place in our family and to have a
+            space where we can reflect on that happy companionship.
+        </p>
+
+        <p class="article-text">
+            At <Petapetual />, we understand that this loss is the loss of
+            family. We created our online memorials to offer a beautiful,
+            lasting space where you can build a heartfelt tribute to your
+            beloved companion. It's a place to share your favorite photos, write
+            down those sweet or funny stories, and create a permanent
+            celebration of the life you shared. It gives you a special place to
+            visit, remember, and honour the unconditional love they gave.
+        </p>
+
+        <div class="article-cta">
+            <a href="https://app.petapetual.com" class="cta-btn">
+                Create a Memorial <i class="fas fa-arrow-right ml-1"></i>
+            </a>
+        </div>
+    </article>
 </DefaultPageLayout>
+
+<style>
+    @reference "tailwindcss";
+
+    .article-container {
+        @apply flex flex-col gap-6;
+    }
+
+    .back-link {
+        @apply text-slate-500 text-sm no-underline;
+        @apply hover:text-slate-700 transition-colors;
+    }
+
+    .article-hero {
+        @apply w-full h-48 object-cover rounded-xl shadow-sm;
+        @apply lg:h-72;
+    }
+
+    .article-title {
+        @apply text-2xl font-bold text-slate-800;
+        @apply lg:text-3xl;
+    }
+
+    .article-text {
+        @apply text-slate-600 leading-relaxed;
+    }
+
+    .article-cta {
+        @apply mt-4 py-8 text-center;
+        @apply border-t border-slate-200;
+    }
+
+    .cta-btn {
+        @apply inline-block px-6 py-3 bg-slate-600 text-white rounded-lg font-semibold no-underline;
+        @apply hover:bg-slate-700 transition-colors;
+    }
+</style>

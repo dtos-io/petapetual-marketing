@@ -1,90 +1,332 @@
 ---
 import DefaultPageLayout from "../../layouts/DefaultPageLayout.astro";
 import Petapetual from "../../components/Petapetual.astro";
-import ExampleLinkCard from "../../components/ExampleLinkCard.astro";
 ---
 
 <DefaultPageLayout
-    title="Examples"
-    description="An online memorial for everyone, from a family member, to a dear friend, to a pet. Sometimes, all three of these are actually the same thing."
+    title="Who Is Petapetual For?"
+    description="Online memorials for everyone - family, friends, and pets. Pay respects from anywhere, on your schedule."
 >
-    <h1 class="text-2xl font-semibold">Who is <Petapetual /> for?</h1>
+    <div class="examples-container">
+        <!-- Hero Section -->
+        <section class="examples-hero">
+            <h1 class="examples-title">Who Is Petapetual For?</h1>
+            <p class="examples-subtitle">
+                <Petapetual /> is for anyone who wants to honor someone they've lost.
+                Whether family, friend, or pet—we're here to help you remember.
+            </p>
+        </section>
 
-    <p>
-        <Petapetual /> memorials and services are for anybody and everybody. Whether
-        you have lost a family member, or a dear family friend, or even a beloved
-        pet, grief is grief. The desire to remember and pay respects to them is a
-        very natural response that comes from a place of love. We built <Petapetual
-        /> to allow anybody to commemorate their late loved ones, and to do so easily
-        and conveniently no matter where they are in the world.
-    </p>
+        <!-- By Relationship -->
+        <section class="examples-section">
+            <h2 class="section-title">By Relationship</h2>
 
-    <p>
-        This page contains resources for you to read and understand that there
-        is a place for everyone here.
-    </p>
+            <div class="examples-grid">
+                <a
+                    href="/examples/relatives"
+                    class="example-card"
+                    style="--bg-image: url('https://images.unsplash.com/photo-1559734840-f9509ee5677f?auto=format&fit=crop&q=80&w=600')"
+                >
+                    <div class="example-icon example-icon-sky">
+                        <i class="fas fa-people-group"></i>
+                    </div>
+                    <h3 class="example-card-title">For Relatives</h3>
+                    <p class="example-card-desc">
+                        Honor parents, grandparents, siblings, and family
+                        members who shaped your life.
+                    </p>
+                </a>
 
-    <!-- FOR YOU -->
-    <h2 class="text-xl font-semibold">For You</h2>
-    <div class="flex flex-col lg:grid lg:grid-cols-2 gap-4">
-        <ExampleLinkCard
-            title="Living Abroad?"
-            href="/examples/living-abroad"
-            iconClass="fas fa-plane -rotate-45"
-            iconColor="text-stone-200"
-            bgColor="bg-amber-600"
-        >
-            Pay respects from anywhere.
-        </ExampleLinkCard>
-        <ExampleLinkCard
-            title="Too Busy?"
-            href="/examples/too-busy"
-            iconClass="fas fa-briefcase"
-            iconColor="text-stone-200"
-            bgColor="bg-amber-600"
-        >
-            Visit anytime, on your schedule.
-        </ExampleLinkCard>
-        <ExampleLinkCard
-            title="Confused?"
-            href="/examples/learn-culture"
-            iconClass="fa-solid fa-hands-praying"
-            iconColor="text-stone-200"
-            bgColor="bg-amber-600"
-        >
-            Services tailored to your culture.
-        </ExampleLinkCard>
-    </div>
+                <a
+                    href="/examples/friends"
+                    class="example-card"
+                    style="--bg-image: url('https://images.unsplash.com/photo-1506869640319-fe1a24fd76dc?auto=format&fit=crop&q=80&w=600')"
+                >
+                    <div class="example-icon example-icon-emerald">
+                        <i class="fas fa-user-group"></i>
+                    </div>
+                    <h3 class="example-card-title">For Friends</h3>
+                    <p class="example-card-desc">
+                        Celebrate the family you chose—friends who became like
+                        siblings.
+                    </p>
+                </a>
 
-    <!-- FOR THOSE WHO MOVED ON -->
-    <h2 class="text-xl font-semibold">For those who have moved on</h2>
-    <div class="flex flex-col lg:grid lg:grid-cols-2 gap-4">
-        <ExampleLinkCard
-            title="For Relatives"
-            href="/examples/relatives"
-            iconClass="fas fa-people-group"
-            iconColor="text-stone-200"
-            bgColor="bg-sky-600"
-        >
-            Bonded by blood, inseparable by fate.
-        </ExampleLinkCard>
-        <ExampleLinkCard
-            title="For Friends"
-            href="/examples/friends"
-            iconClass="fas fa-user-group"
-            iconColor="text-stone-200"
-            bgColor="bg-sky-600"
-        >
-            The family we weren't given, but chose.
-        </ExampleLinkCard>
-        <ExampleLinkCard
-            title="For Pets"
-            href="/examples/pets"
-            iconClass="fas fa-paw"
-            iconColor="text-stone-200"
-            bgColor="bg-sky-600"
-        >
-            Full of love, and just as loved in return.
-        </ExampleLinkCard>
+                <a
+                    href="/examples/pets"
+                    class="example-card"
+                    style="--bg-image: url('https://images.unsplash.com/photo-1450778869180-41d0601e046e?auto=format&fit=crop&q=80&w=600')"
+                >
+                    <div class="example-icon example-icon-amber">
+                        <i class="fas fa-paw"></i>
+                    </div>
+                    <h3 class="example-card-title">For Pets</h3>
+                    <p class="example-card-desc">
+                        Remember the companions who gave unconditional love and
+                        joy.
+                    </p>
+                </a>
+            </div>
+        </section>
+
+        <!-- By Life Situation -->
+        <section class="examples-section">
+            <h2 class="section-title">By Life Situation</h2>
+
+            <div class="examples-grid">
+                <a
+                    href="/examples/living-abroad"
+                    class="example-card"
+                    style="--bg-image: url('https://images.unsplash.com/photo-1548227725-0141254f3369?auto=format&fit=crop&q=80&w=600')"
+                >
+                    <div class="example-icon example-icon-indigo">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <h3 class="example-card-title">Living Abroad</h3>
+                    <p class="example-card-desc">
+                        Pay respects from anywhere in the world, no matter the
+                        distance.
+                    </p>
+                </a>
+
+                <a
+                    href="/examples/too-busy"
+                    class="example-card"
+                    style="--bg-image: url('https://images.unsplash.com/photo-1620809975674-10b8ff5f8e58?auto=format&fit=crop&q=80&w=600')"
+                >
+                    <div class="example-icon example-icon-purple">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3 class="example-card-title">Too Busy</h3>
+                    <p class="example-card-desc">
+                        Honor your loved ones on your schedule, whenever you
+                        have a moment.
+                    </p>
+                </a>
+
+                <a
+                    href="/examples/learn-culture"
+                    class="example-card"
+                    style="--bg-image: url('https://images.unsplash.com/photo-1641644239376-52e9952a43a6?auto=format&fit=crop&q=80&w=600')"
+                >
+                    <div class="example-icon example-icon-rose">
+                        <i class="fas fa-link-slash"></i>
+                    </div>
+                    <h3 class="example-card-title">Disconnected</h3>
+                    <p class="example-card-desc">
+                        Handling culture and tradition doesn't have to be hard.
+                        Get started and let us handle the rest.
+                    </p>
+                </a>
+            </div>
+        </section>
+
+        <!-- What Everyone Gets -->
+        <section class="features-section">
+            <h2 class="section-title">What Everyone Gets</h2>
+
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fas fa-circle-check feature-check"></i>
+                    <div>
+                        <div class="feature-name">Access 24/7</div>
+                        <div class="feature-desc">
+                            Visit your memorial anytime, from any device
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <i class="fas fa-circle-check feature-check"></i>
+                    <div>
+                        <div class="feature-name">Private by Default</div>
+                        <div class="feature-desc">
+                            Control who can see your memorials
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <i class="fas fa-circle-check feature-check"></i>
+                    <div>
+                        <div class="feature-name">Guestbook</div>
+                        <div class="feature-desc">
+                            Collect messages and memories from loved ones
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feature-item">
+                    <i class="fas fa-circle-check feature-check"></i>
+                    <div>
+                        <div class="feature-name">Prayer Streams</div>
+                        <div class="feature-desc">
+                            24/7 prayers in your chosen tradition (paid plans)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <h2 class="cta-title">Ready to honor your loved one?</h2>
+            <p class="cta-subtitle">Create your first memorial for free.</p>
+            <a href="https://app.petapetual.com" class="cta-btn">
+                Get Started <i class="fas fa-arrow-right ml-1"></i>
+            </a>
+        </section>
     </div>
 </DefaultPageLayout>
+
+<style>
+    @reference "tailwindcss";
+
+    .examples-container {
+        @apply flex flex-col gap-10;
+    }
+
+    /* Hero */
+    .examples-hero {
+        @apply text-center py-8;
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        @apply -mx-4 px-4 rounded-xl;
+        @apply lg:-mx-8 lg:px-8;
+    }
+
+    .examples-title {
+        @apply text-3xl font-bold text-slate-800 mb-3;
+        @apply lg:text-4xl;
+    }
+
+    .examples-subtitle {
+        @apply text-lg text-slate-600 max-w-2xl mx-auto;
+    }
+
+    /* Sections */
+    .examples-section {
+        @apply flex flex-col gap-4;
+    }
+
+    .section-title {
+        @apply text-xl font-semibold text-slate-700;
+    }
+
+    /* Cards Grid */
+    .examples-grid {
+        @apply grid grid-cols-1 gap-4;
+        @apply md:grid-cols-3;
+    }
+
+    .example-card {
+        @apply block rounded-xl p-6 border border-slate-200/50 shadow-sm no-underline;
+        @apply hover:shadow-lg hover:scale-[1.02] transition-all;
+        @apply relative overflow-hidden;
+        background-image: var(--bg-image);
+        background-size: cover;
+        background-position: center;
+    }
+
+    .example-card::before {
+        content: "";
+        @apply absolute inset-0;
+        background: linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.85) 0%,
+            rgba(255, 255, 255, 0.92) 100%
+        );
+    }
+
+    .example-card:hover::before {
+        background: linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.75) 0%,
+            rgba(255, 255, 255, 0.85) 100%
+        );
+    }
+
+    .example-icon {
+        @apply w-12 h-12 rounded-full flex items-center justify-center text-2xl mb-4;
+        @apply relative z-10;
+    }
+
+    .example-icon-sky {
+        @apply bg-sky-100 text-sky-600;
+    }
+
+    .example-icon-emerald {
+        @apply bg-emerald-100 text-emerald-600;
+    }
+
+    .example-icon-amber {
+        @apply bg-amber-100 text-amber-600;
+    }
+
+    .example-icon-indigo {
+        @apply bg-indigo-100 text-indigo-600;
+    }
+
+    .example-icon-purple {
+        @apply bg-purple-100 text-purple-600;
+    }
+
+    .example-icon-rose {
+        @apply bg-rose-100 text-rose-600;
+    }
+
+    .example-card-title {
+        @apply font-semibold text-lg text-slate-800 mb-2;
+        @apply relative z-10;
+    }
+
+    .example-card-desc {
+        @apply text-slate-600;
+        @apply relative z-10;
+    }
+
+    /* Features Section */
+    .features-section {
+        @apply p-6 rounded-xl;
+        background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+    }
+
+    .features-grid {
+        @apply grid grid-cols-1 gap-4 mt-4;
+        @apply md:grid-cols-2;
+    }
+
+    .feature-item {
+        @apply flex items-start gap-3;
+    }
+
+    .feature-check {
+        @apply text-emerald-500 mt-1;
+    }
+
+    .feature-name {
+        @apply font-semibold text-slate-700;
+    }
+
+    .feature-desc {
+        @apply text-slate-500 text-sm;
+    }
+
+    /* CTA Section */
+    .cta-section {
+        @apply py-12 px-6 rounded-xl text-center;
+        background: linear-gradient(135deg, #475569 0%, #64748b 100%);
+    }
+
+    .cta-title {
+        @apply text-2xl font-bold text-white mb-3;
+    }
+
+    .cta-subtitle {
+        @apply text-slate-200 mb-6;
+    }
+
+    .cta-btn {
+        @apply inline-block p-3 px-6 bg-white text-slate-700 rounded-lg font-semibold no-underline;
+        @apply hover:bg-slate-50 transition-colors;
+    }
+</style>

@@ -6,47 +6,105 @@ import { Image } from "astro:assets";
 
 <DefaultPageLayout
     title="For Busy People"
-    description="Today's world demands a lot of your time and attention, but why should you have to compromise on paying respects to your late loved ones? Petapetual was created to make rememberance more convenient in the modern age."
+    description="Today's world demands a lot of your time and attention, but why should you have to compromise on paying respects to your late loved ones? Petapetual was created to make remembrance more convenient in the modern age."
 >
-    <Image
-        src="https://images.unsplash.com/photo-1620809975674-10b8ff5f8e58?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2070"
-        alt="Life can get busy and hectic, and this can mean it becomes difficult to take a moment to pay respects or remember those that have passed on. Petapetual is a convenient online solution to help with this. Access your memorials anytime, anywhere."
-        class="w-full h-48 lg:h-64 object-cover self-center rounded"
-        width="256"
-        height="256"
-    />
+    <article class="article-container">
+        <a href="/examples" class="back-link">
+            <i class="fas fa-arrow-left"></i> All Use Cases
+        </a>
 
-    <h1 class="text-2xl font-semibold"><Petapetual /> for the busy</h1>
+        <Image
+            src="https://images.unsplash.com/photo-1620809975674-10b8ff5f8e58?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2070"
+            alt="Life can get busy and hectic, and this can mean it becomes difficult to take a moment to pay respects or remember those that have passed on. Petapetual is a convenient online solution to help with this. Access your memorials anytime, anywhere."
+            class="article-hero"
+            width="2070"
+            height="400"
+        />
 
-    <p>
-        Today's world is one that constantly demands your attention. From
-        studies, to work, to social commitments; it can be very hard to strike
-        the balance between building and living your own life, and making the
-        time to remember those who have passed on. Whilst <i
-            >nothing beats showing up and paying respects in person</i
-        >, we built <Petapetual /> to try and make rememberance a little bit easier
-        in the modern age.
-    </p>
+        <h1 class="article-title">
+            <Petapetual /> for the busy
+        </h1>
 
-    <h2 class="text-xl font-semibold">Always available when you need it</h2>
+        <p class="article-text">
+            Today's world constantly demands your attention. From studies, to
+            work, to social commitments; it can be hard to balance building your
+            own life with making time to remember those who have passed.
+            <Petapetual /> makes remembrance easier in the modern age, fitting seamlessly
+            into your busy schedule.
+        </p>
 
-    <p>
-        When you create a <a
-            class="blueLink"
-            href="/how-it-works/online-memorials">memorial</a
-        > for your late loved one on <Petapetual />, we take care of everything
-        for you so that you can focus on what's important. Your memorial will be
-        accessible online 24/7 from anywhere, and any device. No app
-        installation needed, just sign in and pay your respects.
-    </p>
+        <h2 class="article-subtitle">Always available when you need it</h2>
 
-    <h2 class="text-xl font-semibold">Virtual prayers when you are away</h2>
+        <p class="article-text">
+            When you create a <a class="article-link" href="/how-it-works"
+                >memorial</a
+            > for your late loved one on <Petapetual />, we take care of
+            everything for you so that you can focus on what's important. Your
+            memorial will be accessible online 24/7 from anywhere, and any
+            device. No app installation needed, just sign in and pay your
+            respects.
+        </p>
 
-    <p>
-        All memorials on paid plans come with a 24/7 <a
-            class="blueLink"
-            href="/how-it-works/prayer-streams">virtualized prayer</a
-        > service. Rest easy knowing that even when you are going about your busy
-        day, your online memorial is receiving your prayers and blessings.
-    </p>
+        <h2 class="article-subtitle">Virtual prayers when you are away</h2>
+
+        <p class="article-text">
+            All memorials on paid plans come with a 24/7 <a
+                class="article-link"
+                href="/how-it-works#prayer-streams">virtualized prayer</a
+            > service. Rest easy knowing that even when you are going about your
+            busy day, your online memorial is receiving your prayers and blessings.
+        </p>
+
+        <div class="article-cta">
+            <a href="https://app.petapetual.com" class="cta-btn">
+                Create a Memorial <i class="fas fa-arrow-right ml-1"></i>
+            </a>
+        </div>
+    </article>
 </DefaultPageLayout>
+
+<style>
+    @reference "tailwindcss";
+
+    .article-container {
+        @apply flex flex-col gap-6;
+    }
+
+    .back-link {
+        @apply text-slate-500 text-sm no-underline;
+        @apply hover:text-slate-700 transition-colors;
+    }
+
+    .article-hero {
+        @apply w-full h-48 object-cover rounded-xl shadow-sm;
+        @apply lg:h-72;
+    }
+
+    .article-title {
+        @apply text-2xl font-bold text-slate-800;
+        @apply lg:text-3xl;
+    }
+
+    .article-subtitle {
+        @apply text-xl font-semibold text-slate-700 mt-2;
+    }
+
+    .article-text {
+        @apply text-slate-600 leading-relaxed;
+    }
+
+    .article-link {
+        @apply text-slate-700 underline decoration-slate-300;
+        @apply hover:text-slate-900 hover:decoration-slate-500 transition-colors;
+    }
+
+    .article-cta {
+        @apply mt-4 py-8 text-center;
+        @apply border-t border-slate-200;
+    }
+
+    .cta-btn {
+        @apply inline-block px-6 py-3 bg-slate-600 text-white rounded-lg font-semibold no-underline;
+        @apply hover:bg-slate-700 transition-colors;
+    }
+</style>

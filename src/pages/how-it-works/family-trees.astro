@@ -2,43 +2,194 @@
 import DefaultPageLayout from "../../layouts/DefaultPageLayout.astro";
 import Petapetual from "../../components/Petapetual.astro";
 import DemoFamilyTree from "../../components/DemoFamilyTree.astro";
+import FeatureCTA from "../../components/FeatureCTA.astro";
 ---
 
 <DefaultPageLayout
     title="Family Trees"
     description="Group and organize your memorials into family trees to show the relationships between your late loved ones. Build up the blueprint of your ancestry and continue building it with the next generation."
 >
-    <h1 class="text-2xl font-semibold">Family Trees</h1>
-    <div class="flex flex-col gap-0">
-        <section>
-            <p>
-                The <a href="/how-it-works/online-memorials" class="blueLink"
+    <div class="page-container">
+        <!-- Hero -->
+        <section class="page-hero">
+            <div class="hero-icon">
+                <i class="fas fa-sitemap"></i>
+            </div>
+            <h1 class="page-title">Family Trees</h1>
+            <p class="page-subtitle">
+                Link your <a
+                    href="/how-it-works/online-memorials"
+                    class="text-slate-800 underline hover:text-slate-600"
                     >online memorials</a
                 >
-                on <Petapetual /> can be linked to form family trees. This allows
-                you to group your memorials and display the relationships between
-                your late loved ones. Document and trace your legacy today, to share
+                together to form family trees. Document your legacy today, to share
                 it with the generations of tomorrow.
             </p>
         </section>
 
-        <section>
+        <!-- In Development Notice -->
+        <div class="dev-callout">
+            <i class="fas fa-hard-hat"></i>
+            <div>
+                <strong>Coming Soon</strong>
+                <p>This feature is currently being developed and will be available in a future release.</p>
+            </div>
+        </div>
+
+        <!-- Interactive Demo -->
+        <section class="content-section">
             <DemoFamilyTree />
         </section>
 
-        <section class="flex flex-col gap-8">
-            <p>
-                The family tree feature is opt-in and memorials do not <i
-                    >have</i
-                > to be added to a family tree.
-            </p>
-            <p>
-                Family trees require two or more memorials to work, so be sure
-                to <a href="/pricing" class="blueLink"
-                    >subscribe to a paid plan that allows for more than one
-                    memorial</a
-                > if you want to use the feature.
-            </p>
+        <!-- Features Grid -->
+        <section class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon-small">
+                    <i class="fas fa-link text-indigo-600"></i>
+                </div>
+                <h3 class="feature-card-title">Link Memorials</h3>
+                <p class="feature-card-text">
+                    Connect your memorials to show parent-child, sibling,
+                    spousal, and even pet relationships. Build a complete
+                    picture of your family history.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon-small">
+                    <i class="fas fa-clock-rotate-left text-emerald-600"></i>
+                </div>
+                <h3 class="feature-card-title">Trace Your Legacy</h3>
+                <p class="feature-card-text">
+                    Document your ancestry and preserve it for future
+                    generations. Your family tree becomes a living record of
+                    your lineage.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon-small">
+                    <i class="fas fa-toggle-off text-amber-600"></i>
+                </div>
+                <h3 class="feature-card-title">Opt-In Feature</h3>
+                <p class="feature-card-text">
+                    Family trees are optional. Memorials don't have to be added
+                    to a tree—use the feature only if it's meaningful to you.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon-small">
+                    <i class="fas fa-expand text-rose-600"></i>
+                </div>
+                <h3 class="feature-card-title">Grows With You</h3>
+                <p class="feature-card-text">
+                    Start small and expand over time. Add new memorials and
+                    connections whenever you're ready to grow your tree.
+                </p>
+            </div>
         </section>
+
+        <!-- Requirements -->
+        <section class="content-section">
+            <!-- <h2 class="section-title">Getting Started</h2> -->
+            <div class="info-callout">
+                <i class="fas fa-info-circle text-blue-600"></i>
+                <div>
+                    <strong>Requires 2+ Memorials</strong>
+                    <p class="text-sm text-slate-600 mt-1">
+                        Family trees require two or more memorials to work.
+                        <a href="/pricing" class="blueLink"
+                            >Subscribe to a paid plan</a
+                        >
+                        that allows for multiple memorials to use this feature.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <FeatureCTA />
     </div>
 </DefaultPageLayout>
+
+<style>
+    @reference "tailwindcss";
+
+    .page-container {
+        @apply flex flex-col gap-10;
+    }
+
+    /* Hero */
+    .page-hero {
+        @apply text-center py-8;
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        @apply -mx-4 px-4 rounded-xl;
+        @apply lg:-mx-8 lg:px-8;
+    }
+
+    .hero-icon {
+        @apply w-16 h-16 rounded-xl bg-slate-600 text-white mx-auto mb-4;
+        @apply flex items-center justify-center text-2xl;
+    }
+
+    .page-title {
+        @apply text-3xl font-bold text-slate-800 mb-3;
+    }
+
+    .page-subtitle {
+        @apply text-lg text-slate-600 max-w-2xl mx-auto;
+    }
+
+    /* Sections */
+    .content-section {
+        @apply flex flex-col gap-4;
+    }
+
+    .section-title {
+        @apply text-xl font-semibold text-slate-700;
+    }
+
+    .section-text {
+        @apply text-slate-600;
+    }
+
+    /* Features Grid */
+    .features-grid {
+        @apply grid gap-4;
+        @apply md:grid-cols-2;
+    }
+
+    .feature-card {
+        @apply p-5 rounded-xl border border-slate-200;
+        background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    }
+
+    .feature-icon-small {
+        @apply text-2xl mb-3;
+    }
+
+    .feature-card-title {
+        @apply font-semibold text-slate-700 mb-2;
+    }
+
+    .feature-card-text {
+        @apply text-slate-600 text-sm;
+    }
+
+    /* Info Callout */
+    .info-callout {
+        @apply flex items-start gap-3 p-4 rounded-lg;
+        @apply bg-blue-50 border border-blue-200;
+    }
+
+    /* Dev Callout */
+    .dev-callout {
+        @apply flex items-start gap-3 p-4 rounded-lg;
+        @apply bg-amber-50 border border-amber-300 text-amber-800;
+    }
+
+    .dev-callout p {
+        @apply text-sm mt-1;
+    }
+</style>

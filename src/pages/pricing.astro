@@ -8,61 +8,35 @@ import {
     UnlimitedTier,
 } from "../components/pricing_table";
 import ComparisonTable from "../components/pricing_table/comparison_table/ComparisonTable.astro";
-import Petapetual from "../components/Petapetual.astro";
 ---
 
 <MasterLayout
     title="Pricing"
     description="Flexible plans to meet your online memorial needs. Unlock digital prayer streams with any paid subscription, and unlock access to value-added services."
 >
-    <div class="flex flex-col gap-4">
-        <section
-            class="flex flex-col gap-4 m-4 lg:mx-auto lg:max-w-6/12 lg:my-16"
-        >
-            <section>
-                <h1 class="text-2xl font-semibold">Pricing</h1>
-            </section>
+    <div class="pricing-container">
+        <!-- Hero Section -->
+        <section class="pricing-hero">
+            <h1 class="pricing-title">Simple, Transparent Pricing</h1>
+            <p class="pricing-subtitle">
+                Choose a plan that fits your needs. All paid plans include
+                prayer streams and guestbook access.
+            </p>
 
-            <div
-                class="rounded-lg bg-amber-100 p-2 border border-amber-300 text-amber-600"
-            >
-                <Petapetual /> is still under active development, and so not all
-                of the features listed here may be fully finished and available.
-                Please consult the <a href="/roadmap" class="blueLink"
-                    >roadmap</a
-                > for more details.
-            </div>
-
-            <section>
-                <p>
-                    We provide different plans to meet different online memorial
-                    needs. Available in both monthly and yearly subscription
-                    cycles.
-                </p>
-            </section>
-
-            <!-- Cycle Tempo Toggle -->
-            <section>
-                <div class="flex flex-row justify-center items-center">
-                    <div class="flex flex-row border rounded cursor-pointer">
-                        <button id="btn-monthly" class={`cursor-pointer p-2`}
-                            >Monthly</button
-                        >
-                        <button id="btn-annually" class={`cursor-pointer p-2`}
-                            >Annual <span
-                                class="ml-2 bg-stone-800 text-sm text-red-400 p-1 rounded"
-                                >DISCOUNT</span
-                            >
-                        </button>
-                    </div>
+            <!-- Cycle Toggle -->
+            <div class="cycle-toggle-container">
+                <div class="cycle-toggle">
+                    <button id="btn-monthly" class="cycle-btn">Monthly</button>
+                    <button id="btn-annually" class="cycle-btn">
+                        Annual
+                        <span class="discount-badge">Save 20%</span>
+                    </button>
                 </div>
-            </section>
+            </div>
         </section>
 
         <!-- Pricing Tables -->
-        <section
-            class="flex flex-col gap-4 m-4 lg:grid grid-cols-3 lg:mx-auto lg:max-w-8/12"
-        >
+        <section class="pricing-grid">
             <FreeTier />
             <BasicTier />
             <EssentialsTier />
@@ -70,31 +44,154 @@ import Petapetual from "../components/Petapetual.astro";
             <UnlimitedTier />
         </section>
 
-        <!-- Compare -->
-        <section class="w-full flex flex-col gap-4 mb-8">
-            <h2 id="compare" class="text-xl font-bold mx-4">Compare Plans</h2>
+        <!-- Compare Section -->
+        <section class="compare-section">
+            <h2 id="compare" class="compare-title">Compare Plans</h2>
+            <div class="compare-table-wrapper">
+                <ComparisonTable />
+            </div>
+            <br />
+            <div class="text-xs">
+                <sup>1</sup> Memorial creation is unlimited, but within reason. We
+                reserve the right to take appropriate actions if you do something
+                that is against our <a
+                    class="underline"
+                    href="/terms-and-conditions">terms of service</a
+                >.
+            </div>
+        </section>
 
-            <ComparisonTable />
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <h2 class="cta-title">Not sure which plan is right for you?</h2>
+            <p class="cta-subtitle">
+                Start with our free plan and upgrade anytime as your needs grow.
+            </p>
+            <div class="cta-buttons">
+                <a href="https://app.petapetual.com" class="btn-cta-primary">
+                    Get Started Free <i class="fas fa-arrow-right ml-1"></i>
+                </a>
+                <a href="/how-it-works" class="btn-cta-secondary">
+                    Learn More
+                </a>
+            </div>
         </section>
     </div>
 </MasterLayout>
 
+<style>
+    @reference "tailwindcss";
+
+    .pricing-container {
+        @apply flex flex-col gap-12 container mx-auto px-4;
+    }
+
+    /* Hero */
+    .pricing-hero {
+        @apply text-center py-8;
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        @apply -mx-4 px-4 rounded-xl;
+        @apply lg:-mx-8 lg:px-8;
+    }
+
+    .pricing-title {
+        @apply text-3xl font-bold text-slate-800 mb-3;
+        @apply lg:text-4xl;
+    }
+
+    .pricing-subtitle {
+        @apply text-lg text-slate-600 max-w-2xl mx-auto mb-6;
+    }
+
+    /* Cycle Toggle */
+    .cycle-toggle-container {
+        @apply flex justify-center;
+    }
+
+    .cycle-toggle {
+        @apply inline-flex rounded-xl bg-white border border-slate-200 p-1;
+    }
+
+    .cycle-btn {
+        @apply px-4 py-2 rounded-lg cursor-pointer transition-all;
+        @apply text-slate-600;
+    }
+
+    .cycle-btn.active {
+        @apply bg-slate-600 text-white;
+    }
+
+    .discount-badge {
+        @apply ml-2 text-xs px-2 py-0.5 rounded-full;
+        @apply bg-emerald-100 text-emerald-700;
+    }
+
+    /* Pricing Grid */
+    .pricing-grid {
+        @apply grid gap-6;
+        @apply md:grid-cols-2;
+        @apply lg:grid-cols-3;
+        @apply xl:grid-cols-5;
+    }
+
+    /* Compare Section */
+    .compare-section {
+        @apply py-8;
+    }
+
+    .compare-title {
+        @apply text-2xl font-bold text-slate-700 mb-6 text-center;
+    }
+
+    .compare-table-wrapper {
+        @apply bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden;
+    }
+
+    /* CTA Section */
+    .cta-section {
+        @apply py-12 px-6 rounded-xl text-center mb-8;
+        background: linear-gradient(135deg, #475569 0%, #64748b 100%);
+    }
+
+    .cta-title {
+        @apply text-2xl font-bold text-white mb-3;
+    }
+
+    .cta-subtitle {
+        @apply text-slate-200 mb-6;
+    }
+
+    .cta-buttons {
+        @apply flex flex-col gap-3 justify-center;
+        @apply sm:flex-row;
+    }
+
+    .btn-cta-primary {
+        @apply p-3 px-6 bg-white text-slate-700 rounded-lg font-semibold;
+        @apply hover:bg-slate-50 transition-colors;
+    }
+
+    .btn-cta-secondary {
+        @apply p-3 px-6 border border-slate-300 text-white rounded-lg;
+        @apply hover:bg-white/10 transition-colors;
+    }
+</style>
+
 <script>
     import { subscriptionCycleToggle } from "../store.ts";
-    const selectedToggleClass = ["bg-stone-800", "text-stone-200"];
     let btnMonthly = document.getElementById("btn-monthly");
     let btnAnnually = document.getElementById("btn-annually");
 
     function selectMonthly() {
         subscriptionCycleToggle.set("monthly");
-        if (btnMonthly) btnMonthly.classList.add(...selectedToggleClass);
-        if (btnAnnually) btnAnnually.classList.remove(...selectedToggleClass);
+        btnMonthly?.classList.add("active");
+        btnAnnually?.classList.remove("active");
     }
 
     function selectAnnually() {
         subscriptionCycleToggle.set("annually");
-        if (btnAnnually) btnAnnually.classList.add(...selectedToggleClass);
-        if (btnMonthly) btnMonthly.classList.remove(...selectedToggleClass);
+        btnAnnually?.classList.add("active");
+        btnMonthly?.classList.remove("active");
     }
 
     btnMonthly?.addEventListener("click", selectMonthly);

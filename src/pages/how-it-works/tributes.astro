@@ -2,154 +2,267 @@
 import DefaultPageLayout from "../../layouts/DefaultPageLayout.astro";
 import Petapetual from "../../components/Petapetual.astro";
 import TributeWidget from "../../components/TributeWidget.astro";
+import FeatureCTA from "../../components/FeatureCTA.astro";
 ---
 
 <DefaultPageLayout
     title="Tributes"
     description="On-demand virtual blessings and prayers for your memorials. Pay respects to your loved ones anytime, anywhere."
 >
-    <h1 class="text-2xl font-semibold">Memorial Tributes</h1>
+    <div class="page-container">
+        <!-- Hero -->
+        <section class="page-hero">
+            <div class="hero-icon">
+                <i class="fas fa-gift"></i>
+            </div>
+            <h1 class="page-title">Memorial Tributes</h1>
+            <p class="page-subtitle">
+                Virtual offerings and blessings you can place on memorials. From
+                simple decorations to digital versions of their real-world
+                counterparts.
+            </p>
+        </section>
 
-    <p>
-        Tributes are supplementary services provided by <Petapetual /> that you can
-        buy for your memorials. They range from simple cosmetic decorations to digital
-        virtualizations of the real-world.
-    </p>
+        <!-- In Development Notice -->
+        <div class="dev-callout">
+            <i class="fas fa-hard-hat"></i>
+            <div>
+                <strong>Coming Soon</strong>
+                <p>This feature is currently being developed and will be available in a future release.</p>
+            </div>
+        </div>
 
-    <section class="mx-auto flex flex-col gap-8">
-        <div class="flex flex-row items-center justify-center gap-8">
-            <div class="grid grid-cols-3 gap-2 p-2 bg-stone-200 rounded shadow">
-                <TributeWidget
-                    iconClass="fa-solid fa-om"
-                    bgClass="bg-indigo-600"
-                />
-                <TributeWidget
-                    iconClass="fas fa-cross"
-                    bgClass="bg-emerald-600"
-                />
-                <TributeWidget
-                    iconClass="fas fa-yin-yang"
-                    bgClass="bg-amber-600"
-                />
-                <TributeWidget
-                    iconClass="fa-solid fa-person-praying"
-                    bgClass="bg-red-600"
-                />
-                <TributeWidget
-                    iconClass="fa-solid fa-hands-praying"
-                    bgClass="bg-fuchsia-600"
-                />
-                <TributeWidget
-                    iconClass="fas fa-dharmachakra"
-                    bgClass="bg-sky-600"
-                />
+        <!-- Tribute Showcase -->
+        <section class="content-section">
+            <h2 class="section-title">Available Tributes</h2>
+            <p class="section-text">
+                Browse from our collection of tributes across different cultures
+                and traditions. Place them on your memorials or let invited
+                guests place their own.
+            </p>
+        </section>
+
+        <!-- Features Grid -->
+        <section class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon-small">
+                    <i class="fas fa-palette text-indigo-600"></i>
+                </div>
+                <h3 class="feature-card-title">Cosmetic Tributes</h3>
+                <p class="feature-card-text">
+                    Decorative offerings displayed on the memorial as a sign of
+                    respect. The digital equivalent of placing flowers at your
+                    loved one's resting place.
+                </p>
             </div>
 
-            <div
-                class="flex flex-col gap-2 text-center p-2 border-2 border-stone-800 rounded"
-            >
-                Your Memorial
+            <div class="feature-card">
+                <div class="feature-icon-small">
+                    <i class="fas fa-bolt text-amber-600"></i>
+                </div>
+                <h3 class="feature-card-title">Active Tributes</h3>
+                <p class="feature-card-text">
+                    Both decorative and functional. Active tributes come with
+                    services like additional <a
+                        href="/how-it-works/prayer-streams"
+                        class="blueLink">prayer streams</a
+                    >
+                    for your memorial.
+                </p>
+            </div>
 
-                <div class="flex flex-row gap-2">
-                    <div class="w-8 h-8 rounded bg-stone-200 shadow-inner">
-                    </div>
-                    <div class="w-8 h-8 rounded bg-stone-200 shadow-inner">
-                    </div>
-                    <div class="w-8 h-8 rounded bg-stone-200 shadow-inner">
-                    </div>
+            <div class="feature-card">
+                <div class="feature-icon-small">
+                    <i class="fas fa-users text-emerald-600"></i>
+                </div>
+                <h3 class="feature-card-title">Invite Others</h3>
+                <p class="feature-card-text">
+                    Any <Petapetual /> user you invite to your memorials can place
+                    their own tributes, letting friends and family pay their respects
+                    together.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon-small">
+                    <i class="fas fa-layer-group text-rose-600"></i>
+                </div>
+                <h3 class="feature-card-title">Stackable Effects</h3>
+                <p class="feature-card-text">
+                    Multiple instances of the same tribute stack their effects.
+                    If several people place active prayer tributes, all prayers
+                    are applied.
+                </p>
+            </div>
+        </section>
+
+        <!-- Pet Tributes -->
+        <section class="content-section">
+            <h2 class="section-title">For All Loved Ones</h2>
+            <p class="section-text">
+                Tributes aren't limited to religious or cultural themes. We
+                offer culturally agnostic tributes like flowers, as well as
+                special tributes for pet memorials.
+            </p>
+            <div class="tribute-showcase">
+                <div class="tribute-grid">
+                    <TributeWidget
+                        iconClass="fas fa-fan"
+                        bgClass="bg-slate-600"
+                    />
+                    <TributeWidget
+                        iconClass="fas fa-bone -rotate-45"
+                        bgClass="bg-slate-600"
+                    />
+                    <TributeWidget
+                        iconClass="fas fa-drumstick-bite"
+                        bgClass="bg-slate-600"
+                    />
+                    <TributeWidget
+                        iconClass="fas fa-fish -rotate-45"
+                        bgClass="bg-slate-600"
+                    />
+                    <TributeWidget
+                        iconClass="fas fa-paw"
+                        bgClass="bg-slate-600"
+                    />
+                    <TributeWidget
+                        iconClass="fas fa-sailboat"
+                        bgClass="bg-slate-600"
+                    />
                 </div>
             </div>
-        </div>
+        </section>
 
-        <i class="text-sm text-center"
-            >For illustrative purposes only. Does not represent the entirety of <Petapetual
-            />'s tribute catalogue or services.</i
-        >
-    </section>
-
-    <p>
-        When you purchase and assign a tribute to a memorial, the service takes
-        effect, and the tribute is shown on the memorial page. Any other <Petapetual
-        /> user whom you invite to your memorials will be able to place a tribute.
-    </p>
-
-    <div
-        class="flex flex-col gap-2 text-center p-2 border-2 border-stone-800 rounded mx-auto"
-    >
-        Your Memorial
-
-        <div class="flex flex-row gap-2">
-            <TributeWidget
-                iconClass="fa-solid fa-hands-praying"
-                bgClass="bg-fuchsia-600"
-                ping
-            />
-            <TributeWidget
-                iconClass="fas fa-dharmachakra"
-                bgClass="bg-sky-600"
-                ping
-            />
-            <div class="w-8 h-8 rounded bg-stone-200 shadow-inner"></div>
-        </div>
+        <!-- CTA -->
+        <FeatureCTA />
     </div>
-
-    <p>
-        There is no limit to the amount of tributes that can be placed on a
-        memorial. Multiple instances of the same tribute on a memorial will be
-        shown, and the effects stack. For example, if multiple people have
-        placed <a href="#active" class="italic blueLink"
-            >active prayer tributes</a
-        > on one memorial, prayers from all of them will be applied.
-    </p>
-
-    <p>
-        Whilst tributes from different cultures and religions exist, there are
-        also tributes that are culturally agnostic, such as flowers. There are
-        also tributes for pets.
-    </p>
-
-    <div class="flex flex-row items-center justify-center">
-        <div class="grid grid-cols-3 gap-2 p-2 bg-stone-200 rounded shadow">
-            <TributeWidget iconClass="fas fa-fan" bgClass="bg-stone-600" />
-            <TributeWidget
-                iconClass="fas fa-bone -rotate-45"
-                bgClass="bg-stone-600"
-            />
-            <TributeWidget
-                iconClass="fas fa-drumstick-bite"
-                bgClass="bg-stone-600"
-            />
-            <TributeWidget
-                iconClass="fas fa-fish -rotate-45"
-                bgClass="bg-stone-600"
-            />
-            <TributeWidget iconClass="fas fa-paw" bgClass="bg-stone-600" />
-            <TributeWidget iconClass="fas fa-sailboat" bgClass="bg-stone-600" />
-        </div>
-    </div>
-
-    <h2 class="text-xl font-semibold">Types</h2>
-
-    <p>
-        Aside from the religious and cultural backgrounds they are from,
-        tributes can be separated into two categories: <i>cosmetic</i> and
-        <i>active</i>, described below.
-    </p>
-
-    <h3 id="cosmetic" class="text-lg font-semibold">Cosmetic Tributes</h3>
-    <p>
-        These tributes are decorative, and are displayed on the memorial, as a
-        sign that you have paid your respects. They are the equivalent to
-        placing flowers or other adornments at your loved one's final resting
-        place.
-    </p>
-
-    <h3 id="active" class="text-lg font-semibold">Active Tributes</h3>
-    <p>
-        These tributes are both decorative <i>and</i> functional. They are all associated
-        with a service we provide for you. For example, you can purchase an active
-        tribute to say prayers or blessings for your memorial 24/7 as a supplementary
-        <a class="blueLink" href="/how-it-works/prayer-streams">prayer stream</a
-        >.
-    </p>
 </DefaultPageLayout>
+
+<style>
+    @reference "tailwindcss";
+
+    .page-container {
+        @apply flex flex-col gap-10;
+    }
+
+    /* Hero */
+    .page-hero {
+        @apply text-center py-8;
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        @apply -mx-4 px-4 rounded-xl;
+        @apply lg:-mx-8 lg:px-8;
+    }
+
+    .hero-icon {
+        @apply w-16 h-16 rounded-xl bg-slate-600 text-white mx-auto mb-4;
+        @apply flex items-center justify-center text-2xl;
+    }
+
+    .page-title {
+        @apply text-3xl font-bold text-slate-800 mb-3;
+    }
+
+    .page-subtitle {
+        @apply text-lg text-slate-600 max-w-2xl mx-auto;
+    }
+
+    /* Sections */
+    .content-section {
+        @apply flex flex-col gap-4;
+    }
+
+    .section-title {
+        @apply text-xl font-semibold text-slate-700;
+    }
+
+    .section-text {
+        @apply text-slate-600;
+    }
+
+    /* Features Grid */
+    .features-grid {
+        @apply grid gap-4;
+        @apply md:grid-cols-2;
+    }
+
+    .feature-card {
+        @apply p-5 rounded-xl border border-slate-200;
+        background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    }
+
+    .feature-icon-small {
+        @apply text-2xl mb-3;
+    }
+
+    .feature-card-title {
+        @apply font-semibold text-slate-700 mb-2;
+    }
+
+    .feature-card-text {
+        @apply text-slate-600 text-sm;
+    }
+
+    /* Tribute Showcase */
+    .tribute-showcase {
+        @apply flex flex-col items-center gap-3;
+    }
+
+    .tribute-grid {
+        @apply grid grid-cols-3 gap-2 p-3 bg-slate-100 rounded-lg;
+    }
+
+    .tribute-grid.small {
+        @apply grid-cols-2;
+    }
+
+    .showcase-note {
+        @apply text-sm text-slate-500 italic;
+    }
+
+    /* Tribute Demo */
+    .tribute-demo {
+        @apply flex flex-col items-center gap-4 p-6 bg-slate-50 rounded-xl border border-slate-200;
+        @apply sm:flex-row sm:justify-center;
+    }
+
+    .demo-step {
+        @apply flex flex-col items-center gap-2;
+    }
+
+    .demo-label {
+        @apply text-sm font-medium text-slate-600;
+    }
+
+    .demo-arrow {
+        @apply text-xl;
+        @apply sm:rotate-0;
+        @apply rotate-90;
+    }
+
+    .memorial-demo {
+        @apply flex flex-col items-center gap-2 p-3 border-2 border-slate-800 rounded-lg bg-white;
+    }
+
+    .memorial-label {
+        @apply text-sm font-medium text-slate-700;
+    }
+
+    .memorial-slots {
+        @apply flex gap-2;
+    }
+
+    .empty-slot {
+        @apply w-8 h-8 rounded bg-slate-200 shadow-inner;
+    }
+
+    /* Dev Callout */
+    .dev-callout {
+        @apply flex items-start gap-3 p-4 rounded-lg;
+        @apply bg-amber-50 border border-amber-300 text-amber-800;
+    }
+
+    .dev-callout p {
+        @apply text-sm mt-1;
+    }
+</style>

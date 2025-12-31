@@ -17,6 +17,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
                 "@context": "https://schema.org",
                 "@type": "WebSite",
                 "name": "Petapetual",
+                "alternateName": ["Petapetual"],
                 "url": "https://petapetual.com/"
             }
         </script>
@@ -40,7 +41,27 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="generator" content={Astro.generator} />
         <meta name="description" content={description} />
-        <link rel="canonical" />
+        <link rel="canonical" href={canonicalURL} />
+
+        <!-- Open Graph -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={canonicalURL} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta
+            property="og:image"
+            content={new URL("/og-image.png", Astro.site)}
+        />
+        <meta property="og:site_name" content="Petapetual" />
+
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta
+            name="twitter:image"
+            content={new URL("/og-image.png", Astro.site)}
+        />
 
         <!-- sitemap -->
         <link rel="sitemap" href="/sitemap-index.xml" />
@@ -48,13 +69,26 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         <BaseHead title={title} />
     </head>
 
-    <body>
+    <body class="body-container">
         <StickyNav />
 
-        <div class="min-h-[50vh]">
+        <main class="min-h-[50vh]">
             <slot />
-        </div>
+        </main>
 
         <Footer />
     </body>
 </html>
+
+<style>
+    .body-container {
+        /*background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);*/
+        /*background: linear-gradient(180deg, #e2e8f0 0%, #f1f5f9 100%);*/
+        /*background: linear-gradient(180deg, #f1f5f9 0%, #f8fafc 100%);*/
+        background: linear-gradient(
+            180deg,
+            oklab(0.97 -0.000282743 0.000959196 / 0.75) 0%,
+            #e2e8f0 100%
+        );
+    }
+</style>
