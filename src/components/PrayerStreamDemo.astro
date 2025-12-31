@@ -173,7 +173,7 @@ import PrayerStreamWidget from "./PrayerStreamWidget.astro";
     const MAX_ENTRIES = 10;
     const ADD_INTERVAL = 3000;
 
-    const traditions = {
+    const traditions: Record<string, any> = {
         demo: {
             icon: "fa-solid fa-star",
             color: "text-red-600",
@@ -229,7 +229,7 @@ import PrayerStreamWidget from "./PrayerStreamWidget.astro";
         });
     }
 
-    function createEntry(tradition) {
+    function createEntry(tradition: string) {
         const t = traditions[tradition];
         const prayer = t.prayers[prayerIndex % t.prayers.length];
         prayerIndex++;
@@ -282,6 +282,7 @@ import PrayerStreamWidget from "./PrayerStreamWidget.astro";
         tab.addEventListener("click", () => {
             const tradition = tab.getAttribute("data-tradition");
             if (tradition === currentTradition) return;
+            if (!tradition) return;
 
             currentTradition = tradition;
             prayerTabs.forEach((t) => t.classList.remove("active"));
