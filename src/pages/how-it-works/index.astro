@@ -23,6 +23,7 @@ import ThemeGray from "../../assets/img/demos/themes/gray.png";
 import ThemeEarthy from "../../assets/img/demos/themes/earthy.png";
 import ThemeMono from "../../assets/img/demos/themes/mono.png";
 import PrayerStreamDemo from "../../components/PrayerStreamDemo.astro";
+import ThemeCarousel from "../../components/ThemeCarousel.astro";
 
 const themes = [
     { name: "default", image: ThemeMono, color: "oklch(26.8% 0.007 34.298)" },
@@ -119,42 +120,7 @@ const themes = [
                     your space.
                 </p>
 
-                <!-- Theme Carousel -->
-                <div class="theme-carousel">
-                    <div class="theme-carousel-images">
-                        {
-                            themes.map((theme, index) => (
-                                <div
-                                    class={`theme-slide ${index === 0 ? "active" : ""}`}
-                                    data-theme={theme.name}
-                                >
-                                    <Image
-                                        src={theme.image}
-                                        alt={`${theme.name} theme memorial demo`}
-                                        class="theme-image"
-                                        width={400}
-                                    />
-                                </div>
-                            ))
-                        }
-                    </div>
-                    <div class="theme-carousel-controls">
-                        <p class="theme-label">Preview a theme:</p>
-                        <div class="theme-dots">
-                            {
-                                themes.map((theme, index) => (
-                                    <button
-                                        class={`theme-dot ${index === 0 ? "active" : ""}`}
-                                        data-index={index}
-                                        data-theme={theme.name}
-                                        style={`--dot-color: ${theme.color}`}
-                                        aria-label={`View ${theme.name} theme`}
-                                    />
-                                ))
-                            }
-                        </div>
-                    </div>
-                </div>
+                <ThemeCarousel />
 
                 <div class="feature-cards">
                     <div class="info-card">
@@ -462,53 +428,6 @@ const themes = [
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
     }
 
-    /* Theme Carousel */
-    .theme-carousel {
-        @apply flex flex-col gap-4;
-    }
-
-    .theme-carousel-images {
-        @apply relative mx-auto grid;
-        max-width: 256px;
-    }
-
-    .theme-slide {
-        @apply opacity-0;
-        grid-area: 1 / 1;
-        transition: opacity 0.3s ease-in-out;
-    }
-
-    .theme-slide.active {
-        @apply opacity-100;
-    }
-
-    .theme-image {
-        @apply w-full h-auto rounded-xl shadow-md;
-    }
-
-    .theme-carousel-controls {
-        @apply flex flex-col items-center gap-2;
-    }
-
-    .theme-label {
-        @apply text-sm text-slate-500;
-    }
-
-    .theme-dots {
-        @apply flex flex-wrap justify-center gap-2;
-    }
-
-    .theme-dot {
-        @apply w-7 h-7 rounded-full cursor-pointer transition-all;
-        @apply border-2 border-transparent;
-        @apply hover:scale-110;
-        background-color: var(--dot-color);
-    }
-
-    .theme-dot.active {
-        @apply ring-2 ring-offset-2 ring-slate-400 scale-110;
-    }
-
     /* Info Cards */
     .feature-cards {
         @apply grid gap-4;
@@ -578,23 +497,3 @@ const themes = [
         @apply hover:bg-white/10 transition-colors;
     }
 </style>
-
-<script>
-    // Theme Carousel
-    const themeDots = document.querySelectorAll(".theme-dot");
-    const themeSlides = document.querySelectorAll(".theme-slide");
-
-    themeDots.forEach((dot) => {
-        dot.addEventListener("click", () => {
-            const index = parseInt(dot.getAttribute("data-index") || "0");
-
-            // Update active dot
-            themeDots.forEach((d) => d.classList.remove("active"));
-            dot.classList.add("active");
-
-            // Update active slide
-            themeSlides.forEach((slide) => slide.classList.remove("active"));
-            themeSlides[index]?.classList.add("active");
-        });
-    });
-</script>
