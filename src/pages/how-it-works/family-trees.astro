@@ -27,6 +27,15 @@ import FeatureCTA from "../../components/FeatureCTA.astro";
             </p>
         </section>
 
+        <!-- In Development Notice -->
+        <div class="dev-callout">
+            <i class="fas fa-hard-hat"></i>
+            <div>
+                <strong>Coming Soon</strong>
+                <p>This feature is currently being developed and will be available in a future release.</p>
+            </div>
+        </div>
+
         <!-- Interactive Demo -->
         <section class="content-section">
             <DemoFamilyTree />
@@ -172,5 +181,15 @@ import FeatureCTA from "../../components/FeatureCTA.astro";
     .info-callout {
         @apply flex items-start gap-3 p-4 rounded-lg;
         @apply bg-blue-50 border border-blue-200;
+    }
+
+    /* Dev Callout */
+    .dev-callout {
+        @apply flex items-start gap-3 p-4 rounded-lg;
+        @apply bg-amber-50 border border-amber-300 text-amber-800;
+    }
+
+    .dev-callout p {
+        @apply text-sm mt-1;
     }
 </style>
