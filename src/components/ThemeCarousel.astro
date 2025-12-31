@@ -1,0 +1,144 @@
+---
+import { Image } from "astro:assets";
+
+// Theme demo images
+import ThemeRed from "../assets/img/demos/themes/red.png";
+import ThemeOrange from "../assets/img/demos/themes/orange.png";
+import ThemeYellow from "../assets/img/demos/themes/yellow.png";
+import ThemeGreen from "../assets/img/demos/themes/green.png";
+import ThemeBlue from "../assets/img/demos/themes/blue.png";
+import ThemeIndigo from "../assets/img/demos/themes/indigo.png";
+import ThemeViolet from "../assets/img/demos/themes/violet.png";
+import ThemeDirt from "../assets/img/demos/themes/dirt.png";
+import ThemeOffwhite from "../assets/img/demos/themes/offwhite.png";
+import ThemeThyme from "../assets/img/demos/themes/thyme.png";
+import ThemeSky from "../assets/img/demos/themes/sky.png";
+import ThemeLilac from "../assets/img/demos/themes/lilac.png";
+import ThemeGray from "../assets/img/demos/themes/gray.png";
+import ThemeEarthy from "../assets/img/demos/themes/earthy.png";
+import ThemeMono from "../assets/img/demos/themes/mono.png";
+
+const themes = [
+    { name: "default", image: ThemeMono, color: "oklch(26.8% 0.007 34.298)" },
+    { name: "coral", image: ThemeRed, color: "oklch(0.7 0.12 30)" },
+    { name: "amber", image: ThemeOrange, color: "oklch(0.78 0.11 65)" },
+    { name: "maize", image: ThemeYellow, color: "oklch(0.85 0.12 95)" },
+    { name: "laurel", image: ThemeGreen, color: "oklch(0.72 0.1 145)" },
+    { name: "cerulean", image: ThemeSky, color: "oklch(0.75 0.09 240)" },
+    { name: "twilight", image: ThemeIndigo, color: "oklch(0.68 0.12 275)" },
+    { name: "heather", image: ThemeViolet, color: "oklch(0.75 0.1 310)" },
+    { name: "pebble", image: ThemeDirt, color: "oklch(0.6 0.04 20)" },
+    { name: "sandstone", image: ThemeOffwhite, color: "oklch(0.7 0.06 85)" },
+    { name: "lichen", image: ThemeThyme, color: "oklch(0.65 0.05 150)" },
+    { name: "frost", image: ThemeBlue, color: "oklch(0.7 0.05 230)" },
+    { name: "quartz", image: ThemeLilac, color: "oklch(0.65 0.06 290)" },
+    { name: "ink", image: ThemeGray, color: "oklch(0.4 0 0)" },
+    { name: "vellum", image: ThemeEarthy, color: "oklch(0.3 0.04 85)" },
+];
+---
+
+<div class="theme-carousel">
+    <div class="theme-carousel-images">
+        {
+            themes.map((theme, index) => (
+                <div
+                    class={`theme-slide ${index === 0 ? "active" : ""}`}
+                    data-theme={theme.name}
+                >
+                    <Image
+                        src={theme.image}
+                        alt={`${theme.name} theme memorial demo`}
+                        class="theme-image"
+                        width={400}
+                    />
+                </div>
+            ))
+        }
+    </div>
+    <div class="theme-carousel-controls">
+        <p class="theme-label">Preview a theme:</p>
+        <div class="theme-dots">
+            {
+                themes.map((theme, index) => (
+                    <button
+                        class={`theme-dot ${index === 0 ? "active" : ""}`}
+                        data-index={index}
+                        data-theme={theme.name}
+                        style={`--dot-color: ${theme.color}`}
+                        aria-label={`View ${theme.name} theme`}
+                    />
+                ))
+            }
+        </div>
+    </div>
+</div>
+
+<style>
+    @reference "tailwindcss";
+
+    .theme-carousel {
+        @apply flex flex-col gap-4;
+    }
+
+    .theme-carousel-images {
+        @apply relative mx-auto grid;
+        max-width: 256px;
+    }
+
+    .theme-slide {
+        @apply opacity-0;
+        grid-area: 1 / 1;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .theme-slide.active {
+        @apply opacity-100;
+    }
+
+    .theme-image {
+        @apply w-full h-auto rounded-xl shadow-md;
+    }
+
+    .theme-carousel-controls {
+        @apply flex flex-col items-center gap-2;
+    }
+
+    .theme-label {
+        @apply text-sm text-slate-500;
+    }
+
+    .theme-dots {
+        @apply flex flex-wrap justify-center gap-2;
+    }
+
+    .theme-dot {
+        @apply w-7 h-7 rounded-full cursor-pointer transition-all;
+        @apply border-2 border-transparent;
+        @apply hover:scale-110;
+        background-color: var(--dot-color);
+    }
+
+    .theme-dot.active {
+        @apply ring-2 ring-offset-2 ring-slate-400 scale-110;
+    }
+</style>
+
+<script>
+    // Theme Carousel
+    const themeDots = document.querySelectorAll(".theme-dot");
+    const themeSlides = document.querySelectorAll(".theme-slide");
+
+    themeDots.forEach((dot) => {
+        dot.addEventListener("click", () => {
+            const index = parseInt(dot.getAttribute("data-index") || "0");
+
+            // Update active dot
+            themeDots.forEach((d) => d.classList.remove("active"));
+            dot.classList.add("active");
+
+            // Update active slide
+            themeSlides.forEach((slide) => slide.classList.remove("active"));
+            themeSlides[index]?.classList.add("active");
+        });
+    });
+</script>

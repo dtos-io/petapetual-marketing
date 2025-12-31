@@ -1,205 +1,202 @@
 ---
 import DefaultPageLayout from "../../layouts/DefaultPageLayout.astro";
 import Petapetual from "../../components/Petapetual.astro";
-import PrayerStreamWidget from "../../components/PrayerStreamWidget.astro";
-// import Incense from "../../components/Incense.astro";
+import PrayerStreamDemo from "../../components/PrayerStreamDemo.astro";
+import FeatureCTA from "../../components/FeatureCTA.astro";
 ---
 
 <DefaultPageLayout
     title="Prayer Streams"
     description="24/7 prayers for your memorials for any culture or religion. Pay respects to your loved ones anytime, anywhere."
 >
-    <div class="flex flex-col gap-8">
-        <section>
-            <h1 class="text-2xl font-semibold">Prayer Streams</h1>
-
-            <p class="text-lg text-stone-600 mt-2">
-                Continuous prayers for your loved one, around the clock.
-            </p>
-        </section>
-
-        <!-- Visual: Animated incense + counter -->
-        <!-- <section class="flex flex-col items-center gap-4 py-8 bg-stone-200 rounded-lg">
-            <div class="flex items-center gap-6">
-                <Incense />
-                <div class="text-center">
-                    <div class="text-4xl font-bold text-stone-800">1,247</div>
-                    <div class="text-stone-600">prayers delivered</div>
-                </div>
+    <div class="page-container">
+        <!-- Hero -->
+        <section class="page-hero">
+            <div class="hero-icon">
+                <i class="fas fa-pray"></i>
             </div>
-            <p class="text-sm text-stone-500 italic">Example memorial counter</p>
-        </section> -->
-
-        <!-- What are Prayer Streams -->
-        <section class="flex flex-col gap-4">
-            <!-- <h2 class="text-xl font-semibold">What are Prayer Streams?</h2> -->
-
-            <p>
-                Prayer Streams are our way of ensuring your memorial receives
-                continuous blessings, even when you can't be there. Inspired by
-                prayer traditions from around the world—chanting temples,
-                spinning prayer wheels, and places of worship that maintain
-                constant vigils—we bring this devotion to your online memorial.
-            </p>
-
-            <p>
-                When you subscribe your memorial to a prayer stream, your loved
-                one is included in every prayer session, 24 hours a day, 7 days
-                a week.
+            <h1 class="page-title">Prayer Streams</h1>
+            <p class="page-subtitle">
+                Continuous prayers for your loved one, around the clock. Inspired by
+                prayer traditions from around the world—chanting temples, spinning
+                prayer wheels, and places of worship that maintain constant vigils.
             </p>
         </section>
 
-        <!-- Pricing note -->
-        <section class="bg-blue-50 border border-blue-200 p-4 rounded-lg">
-            <h3 class="font-semibold mb-2">
-                <i class="fas fa-info-circle text-blue-600 mr-1"></i>
-                Included with Paid Plans
-            </h3>
-            <p class="text-stone-700">
-                Prayer Streams are included with all paid plans at no extra
-                cost. Subscribe your memorials when you create them in the <Petapetual
-                /> app.
+        <!-- Interactive Demo -->
+        <section class="content-section">
+            <h2 class="section-title">See It In Action</h2>
+            <p class="section-text">
+                Click on different traditions to see how prayer streams work. Each
+                tradition has its own prayers and blessings delivered continuously.
             </p>
+            <PrayerStreamDemo />
         </section>
 
-        <!-- Available Traditions -->
-        <section class="flex flex-col gap-4">
-            <h2 class="text-xl font-semibold">Available Traditions</h2>
-
-            <p>Choose from prayers across different cultures and religions:</p>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-4">
-                <div
-                    class="bg-indigo-50 border border-indigo-200 p-4 rounded-lg text-center"
-                >
-                    <PrayerStreamWidget
-                        iconClass="fa-solid fa-om"
-                        bgClass="bg-indigo-600"
-                    />
-                    <h3 class="font-semibold mt-3">Buddhist</h3>
-                    <p class="text-sm text-stone-600">Mantras and sutras</p>
+        <!-- Features Grid -->
+        <section class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon-small">
+                    <i class="fas fa-infinity text-indigo-600"></i>
                 </div>
-
-                <div
-                    class="bg-emerald-50 border border-emerald-200 p-4 rounded-lg text-center"
-                >
-                    <PrayerStreamWidget
-                        iconClass="fa-solid fa-cross"
-                        bgClass="bg-emerald-600"
-                    />
-                    <h3 class="font-semibold mt-3">Christian</h3>
-                    <p class="text-sm text-stone-600">Prayers and hymns</p>
-                </div>
-
-                <div
-                    class="bg-amber-50 border border-amber-200 p-4 rounded-lg text-center"
-                >
-                    <PrayerStreamWidget
-                        iconClass="fa-solid fa-yin-yang"
-                        bgClass="bg-amber-600"
-                    />
-                    <h3 class="font-semibold mt-3">Taoist</h3>
-                    <p class="text-sm text-stone-600">Blessings and chants</p>
-                </div>
+                <h3 class="feature-card-title">24/7 Continuous</h3>
+                <p class="feature-card-text">
+                    When you subscribe your memorial to a prayer stream, your loved
+                    one is included in every prayer session, 24 hours a day, 7 days
+                    a week.
+                </p>
             </div>
 
-            <p class="text-stone-600 italic text-center">
-                More traditions available in the app. New traditions added
-                regularly.
-            </p>
+            <div class="feature-card">
+                <div class="feature-icon-small">
+                    <i class="fas fa-globe text-emerald-600"></i>
+                </div>
+                <h3 class="feature-card-title">Multiple Traditions</h3>
+                <p class="feature-card-text">
+                    Choose from prayers across different cultures and religions,
+                    including Buddhist mantras, Christian prayers, Taoist blessings,
+                    and more.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon-small">
+                    <i class="fas fa-list-check text-amber-600"></i>
+                </div>
+                <h3 class="feature-card-title">Prayer Log</h3>
+                <p class="feature-card-text">
+                    Every prayer delivered to your memorial is logged. View recent
+                    prayers in the <Petapetual /> app anytime.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon-small">
+                    <i class="fas fa-gift text-rose-600"></i>
+                </div>
+                <h3 class="feature-card-title">Included Free</h3>
+                <p class="feature-card-text">
+                    Prayer Streams are included with all paid plans at no extra
+                    cost. Subscribe your memorials when you create them.
+                </p>
+            </div>
         </section>
 
         <!-- How it works -->
-        <section class="flex flex-col gap-4">
-            <h2 class="text-xl font-semibold">How It Works</h2>
-
-            <div class="bg-stone-200 p-4 rounded-lg">
-                <ol class="list-decimal list-inside space-y-2 text-stone-700">
-                    <li>
-                        <b>Choose a tradition</b> that resonates with you or your
-                        loved one
-                    </li>
-                    <li><b>Subscribe your memorial</b> to the prayer stream</li>
-                    <li>
-                        <b>Your loved one receives prayers</b> continuously, around
-                        the clock
-                    </li>
-                    <li>
-                        <b>View the prayer log</b> to see recent prayers delivered
-                    </li>
-                </ol>
-            </div>
-        </section>
-
-        <!-- Prayer Log Preview -->
-        <section class="flex flex-col gap-4">
-            <!-- <h2 class="text-xl font-semibold">Prayer Log</h2> -->
-
-            <p>
-                Every prayer delivered to your memorial is logged. You can view
-                recent prayers in the <Petapetual /> app:
-            </p>
-
-            <div
-                class="bg-stone-50 border border-stone-300 rounded-lg overflow-hidden"
-            >
-                <div
-                    class="bg-stone-200 px-4 py-2 border-b border-stone-300 flex items-center gap-2"
-                >
-                    <i class="fas fa-list text-stone-500"></i>
-                    <span class="font-semibold text-sm">Recent Prayers</span>
-                </div>
-                <div class="divide-y divide-stone-200">
-                    <div class="px-4 py-3 flex items-center gap-3">
-                        <i class="fa-solid fa-om text-indigo-600"></i>
-                        <div>
-                            <div class="text-sm text-stone-500">
-                                Today, 8:00 AM
-                            </div>
-                            <div>ॐ मणिपद्मे हूँ</div>
-                        </div>
-                    </div>
-                    <div class="px-4 py-3 flex items-center gap-3">
-                        <i class="fa-solid fa-om text-indigo-600"></i>
-                        <div>
-                            <div class="text-sm text-stone-500">
-                                Today, 7:00 AM
-                            </div>
-                            <div>ॐ मणिपद्मे हूँ</div>
-                        </div>
-                    </div>
-                    <div class="px-4 py-3 flex items-center gap-3">
-                        <i class="fa-solid fa-om text-indigo-600"></i>
-                        <div>
-                            <div class="text-sm text-stone-500">
-                                Today, 6:00 AM
-                            </div>
-                            <div>ॐ मणिपद्मे हूँ</div>
-                        </div>
+        <section class="content-section">
+            <h2 class="section-title">How It Works</h2>
+            <div class="steps-list">
+                <div class="step-item">
+                    <span class="step-number">1</span>
+                    <div class="step-content">
+                        <strong>Choose a tradition</strong> that resonates with you or your loved one
                     </div>
                 </div>
-                <div
-                    class="bg-stone-100 px-4 py-2 text-center text-sm text-stone-500"
-                >
-                    Prayer logs kept for 7 days
+                <div class="step-item">
+                    <span class="step-number">2</span>
+                    <div class="step-content">
+                        <strong>Subscribe your memorial</strong> to the prayer stream
+                    </div>
+                </div>
+                <div class="step-item">
+                    <span class="step-number">3</span>
+                    <div class="step-content">
+                        <strong>Your loved one receives prayers</strong> continuously, around the clock
+                    </div>
+                </div>
+                <div class="step-item">
+                    <span class="step-number">4</span>
+                    <div class="step-content">
+                        <strong>View the prayer log</strong> to see recent prayers delivered
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- CTA -->
-        <section class="bg-stone-800 text-stone-100 p-8 rounded-lg text-center">
-            <h2 class="text-xl font-bold mb-3">
-                Start honoring your loved one
-            </h2>
-            <p class="text-stone-300 mb-4">
-                Create your first memorial for free.
-            </p>
-            <a
-                href="https://app.petapetual.com"
-                class="inline-block p-3 px-6 bg-stone-100 text-stone-800 rounded font-semibold"
-            >
-                Get Started <i class="fas fa-arrow-right ml-1"></i>
-            </a>
-        </section>
+        <FeatureCTA />
     </div>
 </DefaultPageLayout>
+
+<style>
+    @reference "tailwindcss";
+
+    .page-container {
+        @apply flex flex-col gap-10;
+    }
+
+    /* Hero */
+    .page-hero {
+        @apply text-center py-8;
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        @apply -mx-4 px-4 rounded-xl;
+        @apply lg:-mx-8 lg:px-8;
+    }
+
+    .hero-icon {
+        @apply w-16 h-16 rounded-xl bg-slate-600 text-white mx-auto mb-4;
+        @apply flex items-center justify-center text-2xl;
+    }
+
+    .page-title {
+        @apply text-3xl font-bold text-slate-800 mb-3;
+    }
+
+    .page-subtitle {
+        @apply text-lg text-slate-600 max-w-2xl mx-auto;
+    }
+
+    /* Sections */
+    .content-section {
+        @apply flex flex-col gap-4;
+    }
+
+    .section-title {
+        @apply text-xl font-semibold text-slate-700;
+    }
+
+    .section-text {
+        @apply text-slate-600;
+    }
+
+    /* Features Grid */
+    .features-grid {
+        @apply grid gap-4;
+        @apply md:grid-cols-2;
+    }
+
+    .feature-card {
+        @apply p-5 rounded-xl border border-slate-200;
+        background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    }
+
+    .feature-icon-small {
+        @apply text-2xl mb-3;
+    }
+
+    .feature-card-title {
+        @apply font-semibold text-slate-700 mb-2;
+    }
+
+    .feature-card-text {
+        @apply text-slate-600 text-sm;
+    }
+
+    /* Steps */
+    .steps-list {
+        @apply flex flex-col gap-3;
+    }
+
+    .step-item {
+        @apply flex items-start gap-4 p-4 rounded-lg bg-slate-50 border border-slate-200;
+    }
+
+    .step-number {
+        @apply w-8 h-8 rounded-full bg-slate-600 text-white flex items-center justify-center;
+        @apply font-semibold text-sm flex-shrink-0;
+    }
+
+    .step-content {
+        @apply text-slate-700;
+    }
+</style>

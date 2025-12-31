@@ -1,78 +1,198 @@
 ---
 import DefaultPageLayout from "../../layouts/DefaultPageLayout.astro";
 import Petapetual from "../../components/Petapetual.astro";
+import ThemeCarousel from "../../components/ThemeCarousel.astro";
+import FeatureCTA from "../../components/FeatureCTA.astro";
 ---
 
 <DefaultPageLayout
     title="Online Memorials"
     description="Access your memorial anytime, anywhere, on any device. Pay respects whenever and wherever you like, and share it with your loved ones."
 >
-    <h1 class="text-2xl font-semibold">Online Memorials</h1>
+    <div class="page-container">
+        <!-- Hero -->
+        <section class="page-hero">
+            <div class="hero-icon">
+                <i class="fas fa-dove"></i>
+            </div>
+            <h1 class="page-title">Online Memorials</h1>
+            <p class="page-subtitle">
+                The online memorial is the core of the <Petapetual /> experience. More
+                than just a static website for your loved ones, it's your own portable,
+                accessible monument to those who have passed away.
+            </p>
+        </section>
 
-    <p>
-        The online memorial is the core of the <Petapetual /> experience. More than
-        just a static website for your loved ones, it's your own portable, accessible
-        monument to those who have passed away. Never feel too far away from them
-        again.
-    </p>
+        <!-- Theme Carousel Section -->
+        <section class="content-section">
+            <h2 class="section-title">Personalise Your Memorial</h2>
+            <p class="section-text">
+                Choose from a variety of colour themes to create a memorial that
+                feels right for your loved one. Each theme is carefully designed
+                to be elegant and respectful.
+            </p>
+            <ThemeCarousel />
+        </section>
 
-    <section>
-        <h2 class="flex flex-row gap-2 items-center text-xl font-semibold">
-            <i class="fas fa-clock text-sky-600"></i>Anytime, anywhere
-        </h2>
+        <!-- Features Grid -->
+        <section class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon-small">
+                    <i class="fas fa-clock text-sky-600"></i>
+                </div>
+                <h3 class="feature-card-title">Anytime, Anywhere</h3>
+                <p class="feature-card-text">
+                    Access your memorial from any device, anywhere in the world,
+                    anytime you want. No need to travel to the cemetery, no app
+                    installation required.
+                </p>
+            </div>
 
-        <p>
-            Access your memorial from any device, anywhere in the world, anytime
-            you want. No need to travel to the cemetery, no need to wait for
-            columbarium opening times, no app installation required. Mobile,
-            tablet, desktop: we've got you covered.
-        </p>
-    </section>
+            <div class="feature-card">
+                <div class="feature-icon-small">
+                    <i class="fas fa-heart text-rose-600"></i>
+                </div>
+                <h3 class="feature-card-title">Value-Added Services</h3>
+                <p class="feature-card-text">
+                    Memorials have access to <a href="/how-it-works/prayer-streams" class="blueLink">prayer streams</a>
+                    and <a href="/how-it-works/tributes" class="blueLink">tributes</a>
+                    to further honour your late loved ones.
+                </p>
+            </div>
 
-    <section>
-        <h2 class="flex flex-row gap-2 items-center text-xl font-semibold">
-            <i class="fas fa-heart text-rose-600"></i>Value-added services
-        </h2>
+            <div class="feature-card">
+                <div class="feature-icon-small">
+                    <i class="fas fa-user-plus text-emerald-600"></i>
+                </div>
+                <h3 class="feature-card-title">Invite Others</h3>
+                <p class="feature-card-text">
+                    Include your friends and family. Invite other <Petapetual /> users
+                    to view it, write messages in the guestbook, and place their own tributes.
+                </p>
+            </div>
 
-        <p>
-            Memorials have access to offerings such as <a
-                href="/how-it-works/prayer-streams"
-                class="blueLink">prayer streams</a
-            > and <a href="/how-it-works/tributes" class="blueLink"
-                >memorial tributes</a
-            >, which you can use to further honour your late loved ones.
-        </p>
-    </section>
+            <div class="feature-card">
+                <div class="feature-icon-small">
+                    <i class="fas fa-lock text-amber-600"></i>
+                </div>
+                <h3 class="feature-card-title">Private by Default</h3>
+                <p class="feature-card-text">
+                    Your memorials are not publicly accessible unless you want them
+                    to be. Pay respects in private, or with a select group of close
+                    individuals.
+                </p>
+            </div>
+        </section>
 
-    <section>
-        <h2 class="flex flex-row gap-2 items-center text-xl font-semibold">
-            <i class="fas fa-user-plus text-emerald-600"></i>Invite others
-        </h2>
+        <!-- What's Included -->
+        <section class="content-section">
+            <h2 class="section-title">What's Included</h2>
+            <div class="info-cards-grid">
+                <div class="info-card">
+                    <h3 class="info-card-title">Memorial Features</h3>
+                    <ul class="info-list">
+                        <li>Name, dates, and epitaph</li>
+                        <li>Profile photo and photo gallery</li>
+                        <li>Timeline of special dates</li>
+                        <li>Guestbook for messages</li>
+                        <li>Customisable colour themes</li>
+                    </ul>
+                </div>
 
-        <p>
-            Include your friends and family and bring warmth to your memorials.
-            Once your memorial is set up, invite other <Petapetual /> users to view
-            it, write loving messages in the guestbook, and place their own tributes
-            to honour the deceased.
-        </p>
-    </section>
+                <div class="info-card">
+                    <h3 class="info-card-title">Privacy Options</h3>
+                    <ul class="info-list">
+                        <li><strong>Invite-only:</strong> Share only with specific people you invite</li>
+                        <li><strong>Public:</strong> Anyone with the link can view it</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
 
-    <section>
-        <h2 class="flex flex-row gap-2 items-center text-xl font-semibold">
-            <i class="fas fa-lock text-amber-600"></i>Private by default,
-            publishable by choice
-        </h2>
-
-        <p>
-            Your memorials are not publicly accessible unless you want them to
-            be. Pay your respects in private, or with a select group of close
-            individuals whom you have invited.
-        </p>
-
-        <p>
-            If you opt-in for a public memorial, anyone can view your memorial
-            without an account. They will not be able to post in the guestbook,
-            nor will they be able to place tributes.
-        </p>
-    </section>
+        <!-- CTA -->
+        <FeatureCTA />
+    </div>
 </DefaultPageLayout>
+
+<style>
+    @reference "tailwindcss";
+
+    .page-container {
+        @apply flex flex-col gap-10;
+    }
+
+    /* Hero */
+    .page-hero {
+        @apply text-center py-8;
+        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        @apply -mx-4 px-4 rounded-xl;
+        @apply lg:-mx-8 lg:px-8;
+    }
+
+    .hero-icon {
+        @apply w-16 h-16 rounded-xl bg-slate-600 text-white mx-auto mb-4;
+        @apply flex items-center justify-center text-2xl;
+    }
+
+    .page-title {
+        @apply text-3xl font-bold text-slate-800 mb-3;
+    }
+
+    .page-subtitle {
+        @apply text-lg text-slate-600 max-w-2xl mx-auto;
+    }
+
+    /* Sections */
+    .content-section {
+        @apply flex flex-col gap-4;
+    }
+
+    .section-title {
+        @apply text-xl font-semibold text-slate-700;
+    }
+
+    .section-text {
+        @apply text-slate-600;
+    }
+
+    /* Features Grid */
+    .features-grid {
+        @apply grid gap-4;
+        @apply md:grid-cols-2;
+    }
+
+    .feature-card {
+        @apply p-5 rounded-xl border border-slate-200;
+        background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    }
+
+    .feature-icon-small {
+        @apply text-2xl mb-3;
+    }
+
+    .feature-card-title {
+        @apply font-semibold text-slate-700 mb-2;
+    }
+
+    .feature-card-text {
+        @apply text-slate-600 text-sm;
+    }
+
+    /* Info Cards */
+    .info-cards-grid {
+        @apply grid gap-4;
+        @apply md:grid-cols-2;
+    }
+
+    .info-card {
+        @apply bg-white p-4 rounded-xl border border-slate-200;
+    }
+
+    .info-card-title {
+        @apply font-semibold text-slate-700 mb-3;
+    }
+
+    .info-list {
+        @apply list-disc list-inside space-y-1 text-slate-600 text-sm;
+    }
+</style>
