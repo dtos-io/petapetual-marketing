@@ -753,7 +753,7 @@ const themes = [
     const MAX_ENTRIES = 10;
     const ADD_INTERVAL = 3000;
 
-    const traditions = {
+    const traditions: Record<string, any> = {
         buddhist: {
             icon: "fa-solid fa-om",
             color: "text-indigo-600",
@@ -799,7 +799,7 @@ const themes = [
         });
     }
 
-    function createEntry(tradition) {
+    function createEntry(tradition: string) {
         const t = traditions[tradition];
         const prayer = t.prayers[prayerIndex % t.prayers.length];
         prayerIndex++;
@@ -852,6 +852,7 @@ const themes = [
         tab.addEventListener("click", () => {
             const tradition = tab.getAttribute("data-tradition");
             if (tradition === currentTradition) return;
+            if (!tradition) return;
 
             currentTradition = tradition;
             prayerTabs.forEach((t) => t.classList.remove("active"));
