@@ -1,19 +1,23 @@
 ---
-const { iconClass, bgClass } = Astro.props;
+const { iconClass, bgClass, text } = Astro.props;
 
 const staticIconClass = `absolute ${iconClass}`;
-const pingIconClass = `relative ${iconClass} animate-ping`;
+const pingIconClass = `relative ${iconClass} prayer-stream-pulser`;
+
+const prayerStreamText = text ?? "Prayer Stream";
 ---
 
-<div class={`flex flex-row items-center ${bgClass} rounded text-stone-200`}>
+<div
+    class={`flex flex-row items-center ${bgClass} rounded text-stone-200 prayer-stream-widget`}
+>
     <div
-        class="flex flex-row items-center gap-2 p-2 bg-stone-700 rounded-l grow"
+        class="flex flex-row items-center gap-2 p-2 bg-stone-700 rounded-l grow justify-between"
     >
-        <span>Prayer Stream</span>
+        <span>{prayerStreamText}</span>
 
-        <div class="relative flex flex-col">
-            <i class="absolute fas fa-circle-notch animate-spin"></i>
-            <i class="relative fas fa-slash rotate-45 animate-spin"></i>
+        <div class="relative flex flex-col prayer-stream-spinner">
+            <i class="absolute fas fa-circle-notch"></i>
+            <i class="relative fas fa-slash rotate-45"></i>
         </div>
     </div>
 
@@ -22,3 +26,17 @@ const pingIconClass = `relative ${iconClass} animate-ping`;
         <i class={pingIconClass}></i>
     </div>
 </div>
+
+<style>
+    .prayer-stream-widget {
+        min-width: 12rem;
+    }
+
+    .prayer-stream-spinner {
+        animation: spin 3s linear infinite;
+    }
+
+    .prayer-stream-pulser {
+        animation: ping 3s cubic-bezier(0.2, 1.06, 0.13, 0.99) infinite;
+    }
+</style>
