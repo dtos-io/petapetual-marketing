@@ -17,6 +17,10 @@ import MemorialInviteImage from "../assets/img/demos/invite.png";
 import MemorialShareImage from "../assets/img/demos/share.png";
 import MemorialGuestbookImage from "../assets/img/demos/guestbook.png";
 
+import PrayerStreamsImage from "../assets/img/demos/prayer-streams.png";
+import TributesImage from "../assets/img/demos/tributes.png";
+import FamilyTreeImage from "../assets/img/demos/family-tree.png";
+
 // How It Works tab data
 const howItWorksTabs = [
     {
@@ -106,12 +110,20 @@ const howItWorksTabs = [
         icon: "fa-bolt",
         steps: [
             {
+                image: PrayerStreamsImage,
                 title: "Subscribe to prayer streams",
                 subtitle: "24/7 continuous prayers from various traditions.",
             },
             {
+                image: TributesImage,
                 title: "Place tributes",
                 subtitle: "Add meaningful flowers, candles, and blessings.",
+            },
+            {
+                image: FamilyTreeImage,
+                title: "Construct family trees",
+                subtitle:
+                    "Document and display your ancestry for yourself and future generations.",
             },
         ],
     },
@@ -181,14 +193,24 @@ const testimonials = [
             </div>
 
             <div class="hero-mockup">
-                <Image src={HeroImage} alt="hero image" loading="eager" fetchpriority="high" />
+                <Image
+                    src={HeroImage}
+                    alt="hero image"
+                    loading="eager"
+                    fetchpriority="high"
+                />
                 <!-- Desktop mockup placeholder -->
             </div>
 
             <!-- Scroll indicator (mobile only) -->
             <div class="scroll-indicator">
-                <a href="#benefits" class="scroll-indicator-link" aria-label="Scroll to benefits section">
-                    <i class="fas fa-chevron-down text-2xl" aria-hidden="true"></i>
+                <a
+                    href="#benefits"
+                    class="scroll-indicator-link"
+                    aria-label="Scroll to benefits section"
+                >
+                    <i class="fas fa-chevron-down text-2xl" aria-hidden="true"
+                    ></i>
                 </a>
             </div>
         </section>
@@ -560,7 +582,11 @@ const testimonials = [
         max-height: 35vh;
         @apply lg:max-h-none;
         mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
-        -webkit-mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
+        -webkit-mask-image: linear-gradient(
+            to bottom,
+            black 90%,
+            transparent 100%
+        );
     }
 
     .hero-mockup img {
