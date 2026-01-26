@@ -189,18 +189,20 @@ import Petapetual from "../../components/Petapetual.astro";
     /* Hero */
     .examples-hero {
         @apply text-center py-8;
-        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
         @apply -mx-4 px-4 rounded-xl;
         @apply lg:-mx-8 lg:px-8;
+        background-color: var(--color-pp-light);
     }
 
     .examples-title {
-        @apply text-3xl font-bold text-slate-800 mb-3;
+        @apply text-3xl font-bold mb-3;
         @apply lg:text-4xl;
+        color: var(--color-pp-primary);
     }
 
     .examples-subtitle {
-        @apply text-lg text-slate-600 max-w-2xl mx-auto;
+        @apply text-lg max-w-2xl mx-auto;
+        color: var(--color-pp-dark);
     }
 
     /* Sections */
@@ -209,7 +211,8 @@ import Petapetual from "../../components/Petapetual.astro";
     }
 
     .section-title {
-        @apply text-xl font-semibold text-slate-700;
+        @apply text-xl font-semibold;
+        color: var(--color-pp-primary);
     }
 
     /* Cards Grid */
@@ -219,12 +222,13 @@ import Petapetual from "../../components/Petapetual.astro";
     }
 
     .example-card {
-        @apply block rounded-xl p-6 border border-slate-200/50 shadow-sm no-underline;
+        @apply block rounded-xl p-6 shadow-sm no-underline;
         @apply hover:shadow-lg hover:scale-[1.02] transition-all;
         @apply relative overflow-hidden;
         background-image: var(--bg-image);
         background-size: cover;
         background-position: center;
+        border: 1px solid color-mix(in srgb, var(--color-pp-mid) 20%, transparent);
     }
 
     .example-card::before {
@@ -232,16 +236,16 @@ import Petapetual from "../../components/Petapetual.astro";
         @apply absolute inset-0;
         background: linear-gradient(
             to bottom,
-            rgba(255, 255, 255, 0.85) 0%,
-            rgba(255, 255, 255, 0.92) 100%
+            color-mix(in srgb, var(--color-pp-secondary) 90%, transparent) 0%,
+            color-mix(in srgb, var(--color-pp-secondary) 95%, transparent) 100%
         );
     }
 
     .example-card:hover::before {
         background: linear-gradient(
             to bottom,
-            rgba(255, 255, 255, 0.75) 0%,
-            rgba(255, 255, 255, 0.85) 100%
+            color-mix(in srgb, var(--color-pp-secondary) 80%, transparent) 0%,
+            color-mix(in srgb, var(--color-pp-secondary) 90%, transparent) 100%
         );
     }
 
@@ -275,19 +279,20 @@ import Petapetual from "../../components/Petapetual.astro";
     }
 
     .example-card-title {
-        @apply font-semibold text-lg text-slate-800 mb-2;
+        @apply font-semibold text-lg mb-2;
         @apply relative z-10;
+        color: var(--color-pp-primary);
     }
 
     .example-card-desc {
-        @apply text-slate-600;
         @apply relative z-10;
+        color: var(--color-pp-dark);
     }
 
     /* Features Section */
     .features-section {
         @apply p-6 rounded-xl;
-        background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+        background-color: var(--color-pp-light);
     }
 
     .features-grid {
@@ -304,29 +309,38 @@ import Petapetual from "../../components/Petapetual.astro";
     }
 
     .feature-name {
-        @apply font-semibold text-slate-700;
+        @apply font-semibold;
+        color: var(--color-pp-primary);
     }
 
     .feature-desc {
-        @apply text-slate-500 text-sm;
+        @apply text-sm;
+        color: var(--color-pp-mid);
     }
 
     /* CTA Section */
     .cta-section {
         @apply py-12 px-6 rounded-xl text-center;
-        background: linear-gradient(135deg, #475569 0%, #64748b 100%);
+        background: linear-gradient(135deg, var(--color-pp-primary) 0%, color-mix(in srgb, var(--color-pp-primary) 80%, #000) 100%);
     }
 
     .cta-title {
-        @apply text-2xl font-bold text-white mb-3;
+        @apply text-2xl font-bold mb-3;
+        color: var(--color-pp-light);
     }
 
     .cta-subtitle {
-        @apply text-slate-200 mb-6;
+        @apply mb-6;
+        color: color-mix(in srgb, var(--color-pp-light) 80%, transparent);
     }
 
     .cta-btn {
-        @apply inline-block p-3 px-6 bg-white text-slate-700 rounded-lg font-semibold no-underline;
-        @apply hover:bg-slate-50 transition-colors;
+        @apply inline-block p-3 px-6 rounded-lg font-semibold no-underline transition-colors;
+        background-color: var(--color-pp-light);
+        color: var(--color-pp-primary);
+    }
+
+    .cta-btn:hover {
+        background-color: var(--color-pp-secondary);
     }
 </style>

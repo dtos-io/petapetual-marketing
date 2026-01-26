@@ -1,10 +1,9 @@
 ---
 import { Image } from "astro:assets";
-import PetapetualLogo from "../assets/img/petapetual-logo-text-h.svg";
-import DTOSLogo from "../assets/img/dtos-logo-h.png";
+import PetapetualLogo from "../assets/img/petapetual-logo-text-h-light.svg";
 ---
 
-<footer class="flex flex-col gap-8 bg-stone-800 text-stone-50 p-8">
+<footer class="flex flex-col gap-8 text-stone-50 p-8">
     <div class="flex flex-col gap-8 lg:grid lg:grid-cols-5 lg:gap-4">
         <div class="flex flex-col gap-2 lg:order-5">
             <b>Resources</b>
@@ -64,9 +63,8 @@ import DTOSLogo from "../assets/img/dtos-logo-h.png";
             <Image
                 src={PetapetualLogo}
                 alt="Petapetual Logo"
-                class="h-8 w-auto invert"
+                class="h-8 w-auto"
             />
-            <Image src={DTOSLogo} alt="DTOS Logo" class="h-8 w-auto invert" />
             DTOS Pte Ltd. is a company registered in Singapore with the UEN 202541895C.
         </div>
     </div>
@@ -87,3 +85,13 @@ import DTOSLogo from "../assets/img/dtos-logo-h.png";
         </div>
     </div>
 </footer>
+
+<style>
+    * {
+        color: var(--color-pp-light);
+    }
+
+    footer {
+        background-color: var(--color-pp-dark);
+    }
+</style>

@@ -1,36 +1,23 @@
 ---
 import { Image } from "astro:assets";
 import PetapetualLogo from "../assets/img/petapetual-logo-text-h.svg";
-import DTOSLogo from "../assets/img/dtos-logo-h.png";
 ---
 
 <nav
     id="navbar"
-    class="flex flex-col lg:flex-row lg:gap-16 bg-stone-100/75 backdrop-blur rounded-xl p-4 lg:sticky lg:top-4 lg:mx-4 lg:mb-4 transition-all ease-in-out duration-500 z-50"
+    class="flex flex-col lg:flex-row lg:gap-16 rounded-xl p-4 lg:sticky lg:top-4 lg:mx-4 lg:mb-4 transition-all ease-in-out duration-500 z-50"
 >
     <div class="flex flex-row justify-between items-center">
         <div class="flex flex-row gap-1 items-center">
             <a href="/"
                 ><Image
-                    class="h-8 w-auto"
+                    class="h-10 w-auto"
                     src={PetapetualLogo}
                     alt="Petapetual Logo"
                     loading="eager"
                     decoding="async"
                     width={120}
                     height={32}
-                /></a
-            >
-            <p class="text-xs">by</p>
-            <a href="https://www.dtos.io/" target="_blank"
-                ><Image
-                    class="h-6 w-auto"
-                    src={DTOSLogo}
-                    alt="DTOS Logo"
-                    loading="eager"
-                    decoding="async"
-                    width={60}
-                    height={24}
                 /></a
             >
         </div>
@@ -48,9 +35,10 @@ import DTOSLogo from "../assets/img/dtos-logo-h.png";
         id="navLinkContainer"
         class="hidden flex-col gap-4 mt-4 lg:divide-y-0 lg:mt-0 lg:flex lg:flex-row lg:gap-6 lg:grow lg:items-center"
     >
-        <a class="hover:underline" href="/blog">Blog</a>
-        <a class="hover:underline" href="/pricing">Pricing</a>
-        <a class="hover:underline" href="/how-it-works">Features</a>
+        <a class="hover:underline mt-0 lg:mt-2" href="/blog">Blog</a>
+        <a class="hover:underline mt-0 lg:mt-2" href="/pricing">Pricing</a>
+        <a class="hover:underline mt-0 lg:mt-2" href="/how-it-works">Features</a
+        >
 
         <div class="hidden lg:flex grow"></div>
 
@@ -68,9 +56,7 @@ import DTOSLogo from "../assets/img/dtos-logo-h.png";
             >Sign up free <i class="fas fa-arrow-right"></i></a
         > -->
 
-        <a
-            href="https://app.petapetual.com"
-            class="bg-slate-600 text-stone-200 rounded px-4 py-2 hover:bg-slate-700 transition-colors"
+        <a href="https://app.petapetual.com" class="cta primary"
             >Go to app <i class="fas fa-arrow-right"></i></a
         >
     </div>
@@ -80,11 +66,9 @@ import DTOSLogo from "../assets/img/dtos-logo-h.png";
     const navbar = document.getElementById("navbar");
     window.addEventListener("scroll", () => {
         if (window.scrollY > 10) {
-            navbar?.classList.remove("lg:bg-stone-100/75");
-            navbar?.classList.add("lg:shadow-xl", "lg:bg-stone-200/75");
+            navbar?.classList.add("nav", "lg:shadow-xl");
         } else {
-            navbar?.classList.remove("lg:bg-stone-200/75");
-            navbar?.classList.remove("lg:shadow-xl", "lg:bg-stone-200/75");
+            navbar?.classList.remove("nav", "lg:shadow-xl");
         }
     });
 
@@ -103,3 +87,12 @@ import DTOSLogo from "../assets/img/dtos-logo-h.png";
         }
     });
 </script>
+
+<style>
+    @media (min-width: 64rem) {
+        .nav {
+            background-color: var(--color-pp-pale);
+            backdrop-filter: blur(16px) brightness(110%);
+        }
+    }
+</style>

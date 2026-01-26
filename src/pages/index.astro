@@ -181,14 +181,14 @@ const testimonials = [
                 </p>
 
                 <div class="hero-cta-group">
-                    <a href="https://app.petapetual.com" class="btn-primary">
+                    <a href="https://app.petapetual.com" class="cta primary">
                         Create A Free Memorial <i
                             class="fas fa-arrow-right ml-1"></i>
                     </a>
                     <a
                         href="https://app.petapetual.com/memorial/petapetual-demo-001?widget=FUNERAL"
                         target="_blank"
-                        class="btn-secondary"
+                        class="cta secondary"
                     >
                         View Demo
                     </a>
@@ -343,7 +343,7 @@ const testimonials = [
                 </div>
 
                 <div class="learn-more">
-                    <a href="/how-it-works" class="learn-more-link">
+                    <a href="/how-it-works" class="cta tertiary">
                         Learn more about our features <i
                             class="fas fa-arrow-right"></i>
                     </a>
@@ -533,7 +533,7 @@ const testimonials = [
         <!-- Final CTA Section -->
         <section class="cta-section">
             <div class="cta-container">
-                <h2 class="cta-title">Start Honoring Your Loved One Today</h2>
+                <h2 class="cta-title">Start Honouring Your Loved One Today</h2>
                 <p class="cta-subtitle">
                     Create your first memorial for free. No credit card
                     required.
@@ -574,12 +574,14 @@ const testimonials = [
     }
 
     .hero-title {
-        @apply text-3xl font-bold text-slate-800;
+        @apply text-3xl font-bold;
         @apply lg:text-4xl;
+        color: var(--color-pp-primary);
     }
 
     .hero-subtitle {
-        @apply text-xl text-slate-600;
+        @apply text-xl;
+        color: var(--color-pp-mid);
     }
 
     .hero-cta-group {
@@ -605,17 +607,6 @@ const testimonials = [
         @apply lg:w-auto lg:h-auto lg:object-contain;
     }
 
-    /* Buttons */
-    .btn-primary {
-        @apply p-3 text-center bg-slate-600 text-white rounded-lg font-semibold;
-        @apply hover:bg-slate-700 transition-colors;
-    }
-
-    .btn-secondary {
-        @apply p-3 text-center border border-slate-300 text-slate-600 rounded-lg;
-        @apply hover:bg-slate-50 transition-colors;
-    }
-
     /* Scroll Indicator */
     .scroll-indicator {
         @apply absolute -bottom-10 md:bottom-0 left-1/2 -translate-x-1/2 animate-bounce;
@@ -623,7 +614,8 @@ const testimonials = [
     }
 
     .scroll-indicator-link {
-        @apply text-slate-400 flex items-center justify-center w-12 h-12;
+        @apply flex items-center justify-center w-12 h-12;
+        color: var(--color-pp-mid);
     }
 
     /* Benefits Section */
@@ -650,14 +642,17 @@ const testimonials = [
 
     .benefit-icon {
         @apply text-3xl mb-3 text-slate-500;
+        color: var(--color-pp-primary);
     }
 
     .benefit-title {
-        @apply font-semibold text-lg mb-2 text-slate-700;
+        @apply font-semibold text-lg mb-2;
+        color: var(--color-pp-primary);
     }
 
     .benefit-description {
-        @apply text-slate-600;
+        color: var(--color-pp-dark);
+        opacity: 0.8;
     }
 
     /* How It Works Section */
@@ -670,7 +665,8 @@ const testimonials = [
     }
 
     .section-title {
-        @apply text-2xl font-bold text-center mb-8 text-slate-700;
+        @apply text-2xl font-bold text-center mb-8;
+        color: var(--color-pp-primary);
     }
 
     /* Tabs */
@@ -682,13 +678,21 @@ const testimonials = [
 
     .tab-button {
         @apply cursor-pointer flex flex-col items-center justify-start gap-1 px-4 py-3 rounded-xl transition-all;
-        @apply text-slate-500 bg-white/70 border border-slate-200;
-        @apply hover:bg-white hover:border-slate-300;
         @apply lg:flex-row lg:gap-2 lg:justify-center;
+        color: var(--color-pp-mid);
+        background-color: var(--color-pp-light);
+        border: 1px solid color-mix(in srgb, var(--color-pp-mid) 30%, transparent);
+    }
+
+    .tab-button:hover {
+        background-color: var(--color-pp-light);
+        border-color: var(--color-pp-mid);
     }
 
     .tab-button.active {
-        @apply bg-slate-600 text-white border-slate-600;
+        background-color: var(--color-pp-primary);
+        color: var(--color-pp-light);
+        border-color: var(--color-pp-primary);
     }
 
     .tab-icon {
@@ -719,8 +723,10 @@ const testimonials = [
     }
 
     .step-card {
-        @apply bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm;
+        @apply rounded-xl overflow-hidden shadow-sm;
         @apply relative;
+        background-color: var(--color-pp-light);
+        border: 1px solid color-mix(in srgb, var(--color-pp-mid) 30%, transparent);
     }
 
     .step-card-coming-soon {
@@ -736,7 +742,8 @@ const testimonials = [
     }
 
     .step-image-container {
-        @apply aspect-video bg-slate-100 overflow-hidden;
+        @apply aspect-video overflow-hidden;
+        background-color: color-mix(in srgb, var(--color-pp-secondary) 50%, var(--color-pp-light));
     }
 
     .step-image-container img {
@@ -744,7 +751,8 @@ const testimonials = [
     }
 
     .step-image-placeholder {
-        @apply w-full h-full flex items-center justify-center text-slate-300 text-4xl;
+        @apply w-full h-full flex items-center justify-center text-4xl;
+        color: var(--color-pp-mid);
     }
 
     .step-content {
@@ -752,11 +760,13 @@ const testimonials = [
     }
 
     .step-title {
-        @apply font-semibold text-lg mb-1 text-slate-700;
+        @apply font-semibold text-lg mb-1;
+        color: var(--color-pp-primary);
     }
 
     .step-subtitle {
-        @apply text-slate-500 text-sm;
+        @apply text-sm;
+        color: var(--color-pp-mid);
     }
 
     .learn-more {
@@ -775,8 +785,8 @@ const testimonials = [
     /* Use Cases Section */
     .use-cases-section {
         @apply py-12 px-4;
-        background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
         @apply lg:px-8 lg:rounded-xl;
+        background-color: var(--color-pp-light);
     }
 
     .use-cases-container {
@@ -784,7 +794,8 @@ const testimonials = [
     }
 
     .use-cases-intro {
-        @apply text-center text-slate-600 mb-8 max-w-2xl mx-auto;
+        @apply text-center mb-8 max-w-2xl mx-auto;
+        color: var(--color-pp-dark);
     }
 
     .use-cases-grid {
@@ -794,7 +805,7 @@ const testimonials = [
     }
 
     .use-case-card {
-        @apply rounded-xl p-4 border border-slate-200/50 shadow-sm;
+        @apply rounded-xl p-4 shadow-sm;
         @apply hover:shadow-lg hover:scale-[1.02] transition-all;
         @apply flex flex-col items-center text-center no-underline;
         @apply lg:p-6;
@@ -802,6 +813,7 @@ const testimonials = [
         background-image: var(--bg-image);
         background-size: cover;
         background-position: center;
+        border: 1px solid color-mix(in srgb, var(--color-pp-mid) 20%, transparent);
     }
 
     .use-case-card::before {
@@ -809,16 +821,16 @@ const testimonials = [
         @apply absolute inset-0;
         background: linear-gradient(
             to bottom,
-            rgba(255, 255, 255, 0.85) 0%,
-            rgba(255, 255, 255, 0.92) 100%
+            color-mix(in srgb, var(--color-pp-secondary) 90%, transparent) 0%,
+            color-mix(in srgb, var(--color-pp-secondary) 95%, transparent) 100%
         );
     }
 
     .use-case-card:hover::before {
         background: linear-gradient(
             to bottom,
-            rgba(255, 255, 255, 0.75) 0%,
-            rgba(255, 255, 255, 0.85) 100%
+            color-mix(in srgb, var(--color-pp-secondary) 80%, transparent) 0%,
+            color-mix(in srgb, var(--color-pp-secondary) 90%, transparent) 100%
         );
     }
 
@@ -853,13 +865,15 @@ const testimonials = [
     }
 
     .use-case-title {
-        @apply font-semibold text-slate-800 mb-1;
+        @apply font-semibold mb-1;
         @apply relative z-10;
+        color: var(--color-pp-primary);
     }
 
     .use-case-desc {
-        @apply text-sm text-slate-600 leading-snug;
+        @apply text-sm leading-snug;
         @apply relative z-10;
+        color: var(--color-pp-dark);
     }
 
     .use-cases-cta {
@@ -867,9 +881,17 @@ const testimonials = [
     }
 
     .use-cases-link {
-        @apply inline-block px-6 py-3 bg-white border border-slate-200 rounded-lg;
-        @apply text-slate-600 font-medium no-underline;
-        @apply hover:bg-slate-50 hover:border-slate-300 transition-colors;
+        @apply inline-block px-6 py-3 rounded-lg;
+        @apply font-medium no-underline transition-colors;
+        background-color: var(--color-pp-secondary);
+        color: var(--color-pp-primary);
+        border: 1px solid color-mix(in srgb, var(--color-pp-mid) 30%, transparent);
+    }
+
+    .use-cases-link:hover {
+        background-color: var(--color-pp-primary);
+        color: var(--color-pp-light);
+        border-color: var(--color-pp-primary);
     }
 
     /* Testimonials Section */
@@ -953,7 +975,7 @@ const testimonials = [
     .cta-section {
         @apply py-12 px-4 rounded-none;
         @apply lg:rounded-xl lg:mb-8;
-        background: linear-gradient(135deg, #475569 0%, #64748b 100%);
+        background: linear-gradient(135deg, var(--color-pp-primary) 0%, color-mix(in srgb, var(--color-pp-primary) 80%, #000) 100%);
     }
 
     .cta-container {
@@ -961,11 +983,13 @@ const testimonials = [
     }
 
     .cta-title {
-        @apply text-2xl font-bold mb-4 text-white;
+        @apply text-2xl font-bold mb-4;
+        color: var(--color-pp-light);
     }
 
     .cta-subtitle {
-        @apply text-slate-200 mb-6;
+        @apply mb-6;
+        color: color-mix(in srgb, var(--color-pp-light) 80%, transparent);
     }
 
     .cta-buttons {
@@ -974,13 +998,23 @@ const testimonials = [
     }
 
     .btn-cta-primary {
-        @apply p-3 px-6 bg-white text-slate-700 rounded-lg font-semibold;
-        @apply hover:bg-slate-50 transition-colors;
+        @apply p-3 px-6 rounded-lg font-semibold transition-colors;
+        background-color: var(--color-pp-light);
+        color: var(--color-pp-primary);
+    }
+
+    .btn-cta-primary:hover {
+        background-color: var(--color-pp-secondary);
     }
 
     .btn-cta-secondary {
-        @apply p-3 px-6 border border-slate-300 text-white rounded-lg;
-        @apply hover:bg-white/10 transition-colors;
+        @apply p-3 px-6 rounded-lg transition-colors;
+        border: 1px solid color-mix(in srgb, var(--color-pp-light) 50%, transparent);
+        color: var(--color-pp-light);
+    }
+
+    .btn-cta-secondary:hover {
+        background-color: color-mix(in srgb, var(--color-pp-light) 10%, transparent);
     }
 </style>
 

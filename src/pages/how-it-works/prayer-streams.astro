@@ -145,22 +145,26 @@ import FeatureCTA from "../../components/FeatureCTA.astro";
     /* Hero */
     .page-hero {
         @apply text-center py-8;
-        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
         @apply -mx-4 px-4 rounded-xl;
         @apply lg:-mx-8 lg:px-8;
+        background-color: var(--color-pp-light);
     }
 
     .hero-icon {
-        @apply w-16 h-16 rounded-xl bg-slate-600 text-white mx-auto mb-4;
+        @apply w-16 h-16 rounded-xl mx-auto mb-4;
         @apply flex items-center justify-center text-2xl;
+        background-color: var(--color-pp-primary);
+        color: var(--color-pp-light);
     }
 
     .page-title {
-        @apply text-3xl font-bold text-slate-800 mb-3;
+        @apply text-3xl font-bold mb-3;
+        color: var(--color-pp-primary);
     }
 
     .page-subtitle {
-        @apply text-lg text-slate-600 max-w-2xl mx-auto;
+        @apply text-lg max-w-2xl mx-auto;
+        color: var(--color-pp-dark);
     }
 
     /* Sections */
@@ -169,11 +173,12 @@ import FeatureCTA from "../../components/FeatureCTA.astro";
     }
 
     .section-title {
-        @apply text-xl font-semibold text-slate-700;
+        @apply text-xl font-semibold;
+        color: var(--color-pp-primary);
     }
 
     .section-text {
-        @apply text-slate-600;
+        color: var(--color-pp-dark);
     }
 
     /* Features Grid */
@@ -183,8 +188,9 @@ import FeatureCTA from "../../components/FeatureCTA.astro";
     }
 
     .feature-card {
-        @apply p-5 rounded-xl border border-slate-200;
-        background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+        @apply p-5 rounded-xl;
+        background-color: var(--color-pp-light);
+        border: 1px solid color-mix(in srgb, var(--color-pp-mid) 30%, transparent);
     }
 
     .feature-icon-small {
@@ -192,11 +198,13 @@ import FeatureCTA from "../../components/FeatureCTA.astro";
     }
 
     .feature-card-title {
-        @apply font-semibold text-slate-700 mb-2;
+        @apply font-semibold mb-2;
+        color: var(--color-pp-primary);
     }
 
     .feature-card-text {
-        @apply text-slate-600 text-sm;
+        @apply text-sm;
+        color: var(--color-pp-dark);
     }
 
     /* Steps */
@@ -205,16 +213,20 @@ import FeatureCTA from "../../components/FeatureCTA.astro";
     }
 
     .step-item {
-        @apply flex items-center gap-4 p-4 rounded-lg bg-slate-50 border border-slate-200;
+        @apply flex items-center gap-4 p-4 rounded-lg;
+        background-color: var(--color-pp-light);
+        border: 1px solid color-mix(in srgb, var(--color-pp-mid) 30%, transparent);
     }
 
     .step-number {
-        @apply w-8 h-8 rounded-full bg-slate-600 text-white flex items-center justify-center;
+        @apply w-8 h-8 rounded-full flex items-center justify-center;
         @apply font-semibold text-sm shrink-0;
+        background-color: var(--color-pp-primary);
+        color: var(--color-pp-light);
     }
 
     .step-content {
-        @apply text-slate-700;
+        color: var(--color-pp-dark);
     }
 
     /* Dev Callout */
