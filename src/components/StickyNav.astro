@@ -5,7 +5,7 @@ import PetapetualLogo from "../assets/img/petapetual-logo-text-h.svg";
 
 <nav
     id="navbar"
-    class="flex flex-col lg:flex-row lg:gap-16 bg-stone-100/75 backdrop-blur rounded-xl p-4 lg:sticky lg:top-4 lg:mx-4 lg:mb-4 transition-all ease-in-out duration-500 z-50"
+    class="flex flex-col lg:flex-row lg:gap-16 rounded-xl p-4 lg:sticky lg:top-4 lg:mx-4 lg:mb-4 transition-all ease-in-out duration-500 z-50"
 >
     <div class="flex flex-row justify-between items-center">
         <div class="flex flex-row gap-1 items-center">
@@ -66,11 +66,9 @@ import PetapetualLogo from "../assets/img/petapetual-logo-text-h.svg";
     const navbar = document.getElementById("navbar");
     window.addEventListener("scroll", () => {
         if (window.scrollY > 10) {
-            navbar?.classList.remove("lg:bg-stone-100/75");
-            navbar?.classList.add("lg:shadow-xl", "lg:bg-stone-200/75");
+            navbar?.classList.add("nav", "lg:shadow-xl");
         } else {
-            navbar?.classList.remove("lg:bg-stone-200/75");
-            navbar?.classList.remove("lg:shadow-xl", "lg:bg-stone-200/75");
+            navbar?.classList.remove("nav", "lg:shadow-xl");
         }
     });
 
@@ -89,3 +87,12 @@ import PetapetualLogo from "../assets/img/petapetual-logo-text-h.svg";
         }
     });
 </script>
+
+<style>
+    @media (min-width: 64rem) {
+        .nav {
+            background-color: var(--color-pp-pale);
+            backdrop-filter: blur(16px) brightness(110%);
+        }
+    }
+</style>
