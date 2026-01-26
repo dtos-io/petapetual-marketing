@@ -1,6 +1,12 @@
 @import "tailwindcss";
 @import "@fortawesome/fontawesome-free/css/all.css";
 
+:root {
+    --color-pp-primary: #213359;
+    --color-pp-light: #fffcf6;
+    --color-pp-dark: #0e1014;
+}
+
 html {
     font-family: "Lexend", sans-serif;
     scroll-behavior: smooth;
