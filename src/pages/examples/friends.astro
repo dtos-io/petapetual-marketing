@@ -77,8 +77,12 @@ import { Image } from "astro:assets";
     }
 
     .back-link {
-        @apply text-slate-500 text-sm no-underline;
-        @apply hover:text-slate-700 transition-colors;
+        @apply text-sm no-underline transition-colors;
+        color: var(--color-pp-mid);
+    }
+
+    .back-link:hover {
+        color: var(--color-pp-primary);
     }
 
     .article-hero {
@@ -87,21 +91,28 @@ import { Image } from "astro:assets";
     }
 
     .article-title {
-        @apply text-2xl font-bold text-slate-800;
+        @apply text-2xl font-bold;
         @apply lg:text-3xl;
+        color: var(--color-pp-primary);
     }
 
     .article-text {
-        @apply text-slate-600 leading-relaxed;
+        @apply leading-relaxed;
+        color: var(--color-pp-dark);
     }
 
     .article-cta {
         @apply mt-4 py-8 text-center;
-        @apply border-t border-slate-200;
+        border-top: 1px solid color-mix(in srgb, var(--color-pp-mid) 30%, transparent);
     }
 
     .cta-btn {
-        @apply inline-block px-6 py-3 bg-slate-600 text-white rounded-lg font-semibold no-underline;
-        @apply hover:bg-slate-700 transition-colors;
+        @apply inline-block px-6 py-3 rounded-lg font-semibold no-underline transition-colors;
+        background-color: var(--color-pp-primary);
+        color: var(--color-pp-light);
+    }
+
+    .cta-btn:hover {
+        opacity: 0.9;
     }
 </style>

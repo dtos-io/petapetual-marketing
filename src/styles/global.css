@@ -5,6 +5,7 @@
     --color-pp-primary: #213359;
     --color-pp-secondary: #f1ead5;
     --color-pp-light: #fffcf6;
+    --color-pp-mid: #8e8e9e;
     --color-pp-dark: #0e1014;
 }
 
@@ -12,11 +13,17 @@ html {
     font-family: "Lexend", sans-serif;
     scroll-behavior: smooth;
     background-color: var(--color-pp-secondary);
+    color: var(--color-pp-dark);
 }
 
+/* Links */
 .blueLink {
-    color: blue;
+    color: var(--color-pp-primary);
     text-decoration: underline;
+}
+
+.blueLink:hover {
+    opacity: 0.8;
 }
 
 .blogPost a {
@@ -69,4 +76,51 @@ html {
 .tertiary {
     text-decoration: underline;
     color: var(--color-pp-primary);
+}
+
+.primary:hover {
+    opacity: 0.9;
+}
+
+.secondary:hover {
+    background-color: var(--color-pp-primary);
+    color: var(--color-pp-light);
+}
+
+.tertiary:hover {
+    opacity: 0.8;
+}
+
+/* Brand heading colors */
+.brand-heading {
+    color: var(--color-pp-primary);
+}
+
+.brand-text {
+    color: var(--color-pp-dark);
+}
+
+.brand-text-muted {
+    color: var(--color-pp-mid);
+}
+
+/* Brand backgrounds */
+.brand-bg-light {
+    background-color: var(--color-pp-light);
+}
+
+.brand-bg-cream {
+    background-color: var(--color-pp-secondary);
+}
+
+/* Brand cards */
+.brand-card {
+    background-color: var(--color-pp-light);
+    border: 1px solid color-mix(in srgb, var(--color-pp-mid) 30%, transparent);
+}
+
+/* Brand CTA section */
+.brand-cta-section {
+    background: linear-gradient(135deg, var(--color-pp-primary) 0%, color-mix(in srgb, var(--color-pp-primary) 80%, #000) 100%);
+    color: var(--color-pp-light);
 }

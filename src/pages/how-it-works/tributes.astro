@@ -149,22 +149,26 @@ import FeatureCTA from "../../components/FeatureCTA.astro";
     /* Hero */
     .page-hero {
         @apply text-center py-8;
-        background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
         @apply -mx-4 px-4 rounded-xl;
         @apply lg:-mx-8 lg:px-8;
+        background-color: var(--color-pp-light);
     }
 
     .hero-icon {
-        @apply w-16 h-16 rounded-xl bg-slate-600 text-white mx-auto mb-4;
+        @apply w-16 h-16 rounded-xl mx-auto mb-4;
         @apply flex items-center justify-center text-2xl;
+        background-color: var(--color-pp-primary);
+        color: var(--color-pp-light);
     }
 
     .page-title {
-        @apply text-3xl font-bold text-slate-800 mb-3;
+        @apply text-3xl font-bold mb-3;
+        color: var(--color-pp-primary);
     }
 
     .page-subtitle {
-        @apply text-lg text-slate-600 max-w-2xl mx-auto;
+        @apply text-lg max-w-2xl mx-auto;
+        color: var(--color-pp-dark);
     }
 
     /* Sections */
@@ -173,11 +177,12 @@ import FeatureCTA from "../../components/FeatureCTA.astro";
     }
 
     .section-title {
-        @apply text-xl font-semibold text-slate-700;
+        @apply text-xl font-semibold;
+        color: var(--color-pp-primary);
     }
 
     .section-text {
-        @apply text-slate-600;
+        color: var(--color-pp-dark);
     }
 
     /* Features Grid */
@@ -187,8 +192,9 @@ import FeatureCTA from "../../components/FeatureCTA.astro";
     }
 
     .feature-card {
-        @apply p-5 rounded-xl border border-slate-200;
-        background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+        @apply p-5 rounded-xl;
+        background-color: var(--color-pp-light);
+        border: 1px solid color-mix(in srgb, var(--color-pp-mid) 30%, transparent);
     }
 
     .feature-icon-small {
@@ -196,11 +202,13 @@ import FeatureCTA from "../../components/FeatureCTA.astro";
     }
 
     .feature-card-title {
-        @apply font-semibold text-slate-700 mb-2;
+        @apply font-semibold mb-2;
+        color: var(--color-pp-primary);
     }
 
     .feature-card-text {
-        @apply text-slate-600 text-sm;
+        @apply text-sm;
+        color: var(--color-pp-dark);
     }
 
     /* Tribute Showcase */
@@ -209,7 +217,8 @@ import FeatureCTA from "../../components/FeatureCTA.astro";
     }
 
     .tribute-grid {
-        @apply grid grid-cols-3 gap-2 p-3 bg-slate-100 rounded-lg;
+        @apply grid grid-cols-3 gap-2 p-3 rounded-lg;
+        background-color: var(--color-pp-light);
     }
 
     .tribute-grid.small {
@@ -217,13 +226,16 @@ import FeatureCTA from "../../components/FeatureCTA.astro";
     }
 
     .showcase-note {
-        @apply text-sm text-slate-500 italic;
+        @apply text-sm italic;
+        color: var(--color-pp-mid);
     }
 
     /* Tribute Demo */
     .tribute-demo {
-        @apply flex flex-col items-center gap-4 p-6 bg-slate-50 rounded-xl border border-slate-200;
+        @apply flex flex-col items-center gap-4 p-6 rounded-xl;
         @apply sm:flex-row sm:justify-center;
+        background-color: var(--color-pp-light);
+        border: 1px solid color-mix(in srgb, var(--color-pp-mid) 30%, transparent);
     }
 
     .demo-step {
@@ -231,21 +243,26 @@ import FeatureCTA from "../../components/FeatureCTA.astro";
     }
 
     .demo-label {
-        @apply text-sm font-medium text-slate-600;
+        @apply text-sm font-medium;
+        color: var(--color-pp-dark);
     }
 
     .demo-arrow {
         @apply text-xl;
         @apply sm:rotate-0;
         @apply rotate-90;
+        color: var(--color-pp-mid);
     }
 
     .memorial-demo {
-        @apply flex flex-col items-center gap-2 p-3 border-2 border-slate-800 rounded-lg bg-white;
+        @apply flex flex-col items-center gap-2 p-3 border-2 rounded-lg;
+        border-color: var(--color-pp-primary);
+        background-color: var(--color-pp-secondary);
     }
 
     .memorial-label {
-        @apply text-sm font-medium text-slate-700;
+        @apply text-sm font-medium;
+        color: var(--color-pp-primary);
     }
 
     .memorial-slots {
@@ -253,7 +270,8 @@ import FeatureCTA from "../../components/FeatureCTA.astro";
     }
 
     .empty-slot {
-        @apply w-8 h-8 rounded bg-slate-200 shadow-inner;
+        @apply w-8 h-8 rounded shadow-inner;
+        background-color: color-mix(in srgb, var(--color-pp-mid) 30%, transparent);
     }
 
     /* Dev Callout */
