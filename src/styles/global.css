@@ -38,3 +38,13 @@ html {
 .blogPost h3 {
     font-weight: bold;
 }
+
+.cta-primary {
+    background-color: var(--color-pp-primary);
+    color: var(--color-pp-light);
+}
+
+.cta-secondary {
+    border: 1px solid var(--color-pp-primary);
+    color: var(--color-pp-primary);
+}
