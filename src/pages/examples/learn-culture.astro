@@ -6,7 +6,7 @@ import { Image } from "astro:assets";
 
 <DefaultPageLayout
     title="For Forgotten Culture"
-    description="Unsure how to honour your loved ones according to tradition? Petapetual offers guided options so you can pay respects meaningfully, even without deep cultural knowledge."
+    description="Unsure how to honor your loved ones according to tradition? Petapetual offers guided options so you can pay respects meaningfully, even without deep cultural knowledge."
 >
     <article class="article-container">
         <a href="/examples" class="back-link">
@@ -27,7 +27,7 @@ import { Image } from "astro:assets";
 
         <p class="article-text">
             As the world becomes more modern, many traditional rites and
-            practices are slowly being forgotten. If you want to honour the
+            practices are slowly being forgotten. If you want to honor the
             dearly departed but aren't sure what prayers to say, what offerings
             to give, or what traditions to observe—you're not alone.
         </p>
@@ -49,15 +49,15 @@ import { Image } from "astro:assets";
             You don't need to know the intricacies of Buddhist mantras,
             Christian prayers, or Taoist blessings. Simply browse the options
             available and select the ones that resonate with you. Whether you
-            want to honour your loved one's heritage or find something that
-            feels personally meaningful, the choice is yours.
+            want to honor your loved one's heritage or find something that feels
+            personally meaningful, the choice is yours.
         </p>
 
         <p class="article-text">
             Each prayer stream and tribute is clearly labelled with its
             tradition, so you can explore and learn as you go. There's no
             pressure to get it "right"—what matters is your intention to
-            remember and honour.
+            remember and honor.
         </p>
 
         <h2 class="article-subtitle">Something for everyone</h2>
@@ -71,9 +71,9 @@ import { Image } from "astro:assets";
         </p>
 
         <p class="article-text">
-            Not sure where to start? Create your memorial and explore.
-            You can add prayers and tributes at any time, and you're never
-            locked into a single tradition.
+            Not sure where to start? Create your memorial and explore. You can
+            add prayers and tributes at any time, and you're never locked into a
+            single tradition.
         </p>
 
         <div class="article-cta">
@@ -124,7 +124,11 @@ import { Image } from "astro:assets";
     .article-link {
         @apply underline transition-colors;
         color: var(--color-pp-primary);
-        text-decoration-color: color-mix(in srgb, var(--color-pp-primary) 50%, transparent);
+        text-decoration-color: color-mix(
+            in srgb,
+            var(--color-pp-primary) 50%,
+            transparent
+        );
     }
 
     .article-link:hover {
@@ -133,7 +137,8 @@ import { Image } from "astro:assets";
 
     .article-cta {
         @apply mt-4 py-8 text-center;
-        border-top: 1px solid color-mix(in srgb, var(--color-pp-mid) 30%, transparent);
+        border-top: 1px solid
+            color-mix(in srgb, var(--color-pp-mid) 30%, transparent);
     }
 
     .cta-btn {
